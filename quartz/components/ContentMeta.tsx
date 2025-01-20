@@ -88,38 +88,9 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
           `${fileData.frontmatter.subtitle}`
         )
       }
-      // const segmentsElements = segments.map((segment) => <span>{segment}</span>)
-
-      // return (
-      //   <div class={classNames(displayClass, "content-meta")}>
-      //   <p style={{ margin: '0', padding: '0'}}>
-      //     <a href={`${options?.repoLink}/blob/${options?.branch}/${fileData.filePath!}`}>
-      //     ᨒ Source ᨒ 
-      //       </a>  
-      //     <a href={`${options?.repoLink}/blame/${options?.branch}/${fileData.filePath!}`}>
-      //     ↟ Blame ᨒ 
-      //     </a>
-      //     <a href={`${options?.repoLink.replace('github.com', 'github.githistory.xyz')}/commits/${options?.branch}/${fileData.filePath!}`}>
-      //     ↟ GitHistory ↟
-      //     </a>
-      //   </p>
-        
-      //   {subtitles.length > 0 && (
-      //     <p style={{ margin: '0', padding: '0', fontStyle:'italic' }}  class={classNames(displayClass, "content-meta")}>
-      //       Alternatively: {subtitles}
-      //     </p>
-      //   )}
-      //   {permalinks.length > 0 && (
-      //     <p style={{ margin: '0', padding: '0' }}  class={classNames(displayClass, "content-meta")}>
-      //       Semi-permalink: {permalinks}
-      //     </p>
-      //   )}
-      //   <p style={{ margin: '0', padding: '0' }} show-comma={options.showComma} class={classNames(displayClass, "content-meta")}>
-      //     {segmentsElements}
-      //   </p>
-      //   </div>
       return (
         <div>
+          {fileData.slug !== "index" && 
           <p style={{ margin: '0', padding: '0'}} class="content-meta">
            <a class="light-a" href={`${options?.repoLink}/blob/${options?.branch}/${fileData.filePath!}`}>
            ᨒ Source ᨒ 
@@ -131,6 +102,8 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
            ↟ GitHistory ↟
            </a>
          </p>
+         }
+          
         <p show-comma={options.showComma} style={{ margin: '0', padding: '0'}} class={classNames(displayClass, "content-meta")}>
           {segments}
         </p>
@@ -149,6 +122,7 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
     } else {
       return null
     }
+
   }
 
   ContentMetadata.css = style

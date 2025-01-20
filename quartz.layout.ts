@@ -138,7 +138,6 @@ export const defaultListPageLayout: PageLayout = {
       Component.Darkmode(),
       Component.Search(),
     ]),
-    Component.DesktopOnly(Component.Graph(graphConfig)),
   ],
   right: [],
 }

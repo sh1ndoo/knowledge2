@@ -87,7 +87,7 @@ export const TagPage: QuartzEmitterPlugin<Partial<TagPageOptions>> = (userOpts) 
         [...tags].map((tag) => {
           const title =
             tag === "index"
-              ? i18n(cfg.locale).pages.tagContent.tagIndex
+              ? `🔖 ${i18n(cfg.locale).pages.tagContent.tagIndex}`
               : `🔖 ${tag}`
               // : `${i18n(cfg.locale).pages.tagContent.tag}: ${tag}` original commented out 8/5/24
           return [
@@ -106,10 +106,11 @@ export const TagPage: QuartzEmitterPlugin<Partial<TagPageOptions>> = (userOpts) 
           const tag = slug.slice("tags/".length)
           if (tags.has(tag)) {
             tagDescriptions[tag] = [tree, file]
-            // if (file.data.frontmatter?.title === tag) {
-            //   // file.data.frontmatter.title = `${i18n(cfg.locale).pages.tagContent.tag}: ${tag}`
-            //   file.data.frontmatter.title = `${tag}`
-            // }
+            // this adds the little emoji to tag pages that have index pages
+            if (file.data.frontmatter?.title === tag) {
+              // file.data.frontmatter.title = `${i18n(cfg.locale).pages.tagContent.tag}: ${tag}`
+              file.data.frontmatter.title = `🔖 ${tag}`
+            }
           }
         }
       }
