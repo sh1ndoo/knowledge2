@@ -78,7 +78,7 @@ export default ((opts?: Partial<FolderContentOptions>) => {
       if (existingPage) {
         // Update existing page's title
         const subfolderTitleTemp = subfolderSlug.split(path.posix.sep).at(-1)!;
-        const subfolderTitle = `📂 ${subfolderTitleTemp.replace(/-/g, '')}`;
+        const subfolderTitle = `📂 ${subfolderTitleTemp.replace(/-/g, ' ')}`;
         // @ts-ignore
         existingPage.frontmatter.title = subfolderTitle;
       } else {
