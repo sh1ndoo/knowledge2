@@ -85,18 +85,37 @@ export const FolderPage: QuartzEmitterPlugin<Partial<FolderPageOptions>> = (user
       )
 
       const folderDescriptions: Record<string, ProcessedContent> = Object.fromEntries(
-        [...folders].map((folder) => [
-          folder,
-          defaultProcessedContent({
-            slug: joinSegments(folder, "index") as FullSlug,
-            frontmatter: {
-              // title: `${i18n(cfg.locale).pages.folderContent.folder}: ${folder}`, 8-5-24 removed by ez
-              title: `📂 ${folder}`, 
-              tags: [],
-            },
-          }),
-        ]),
-      )
+        [...folders].map((folder) => {
+          const existingContent = content.find(([_, vfile]) => vfile.data.slug === joinSegments(folder, "index"));
+          
+          if (existingContent) {
+            // Update existing folder page title if necessary
+            const updatedContent = existingContent[1].data;
+            // @ts-ignore
+            if (!updatedContent.frontmatter.title.startsWith("📂")) {
+              // @ts-ignore
+              updatedContent.frontmatter.title = `📂 ${folder.replace(/-/g, " ")}`;
+            } else {
+              // If title already starts with 📂, replace hyphens in the rest of the title
+            // @ts-ignore
+              updatedContent.frontmatter.title = `📂 ${updatedContent.frontmatter.title.slice(2).replace(/-/g, " ")}`;
+            }
+            return [folder, updatedContent];
+          } else {
+            // Create new folder page with the desired title
+            return [
+              folder,
+              defaultProcessedContent({
+                slug: joinSegments(folder, "index") as FullSlug,
+                frontmatter: {
+                  title: `📂 ${folder.replace(/-/g, " ")}`,
+                  tags: [],
+                },
+              }),
+            ];
+          }
+        }),
+      )            
 
       for (const [tree, file] of content) {
         const slug = stripSlashes(simplifySlug(file.data.slug!)) as SimpleSlug

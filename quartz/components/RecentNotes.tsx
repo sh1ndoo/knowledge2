@@ -66,7 +66,7 @@ export default ((userOpts?: Partial<Options>) => {
         
         <ul class="recent-ul">
           {pages.filter(page => { // added this code to first filter by tag and then slice
-            return !_excludeTags.some(tag => page.frontmatter?.tags?.includes(tag));
+            return !_excludeTags.some(tag => page.frontmatter?.tags?.includes(tag)) && page.frontmatter?.title !== "index";
           }).slice(0, opts.limit).map(page => {
             const title = page.frontmatter?.title ?? i18n(cfg.locale).propertyDefaults.title
             const tags = page.frontmatter?.tags ?? []
