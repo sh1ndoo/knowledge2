@@ -4,6 +4,15 @@
 @use "./callouts.scss";
 // put your custom CSS here!
 
+// make table headings default wider
+.table-container>table th, .table-container>table td {
+  min-width: 95px;
+}
+
+img.inline-icons {
+  margin: 0;
+}
+
  // remove other tags on the tag listing
 .page-listing .tag-link {
   display: none;
