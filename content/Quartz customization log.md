@@ -1,6 +1,6 @@
 ---
 date created: 2024-06-06T22:54
-date modified: 2025-01-31T10:50
+date modified: 2025-01-31T13:18
 tags:
   - recents-exclude
 ---
@@ -40,6 +40,19 @@ Misc things to remember:
 > [Credits and Readmes](https://morrowind-modding.github.io/credits-and-readmes/#eilleens-online-everything-notebook) on the Morrowind Modding Wiki
 > [Quartz Cheatsheet](https://abi-is-here.github.io/niwa/software/quartz/quartz-cheatsheet) by abi-is-here
 
+## Differentiate broken internal links
+
+In the script, we had import {load} from 'cheerio'
+
+So then had to put     "cheerio": "^1.0.0",
+
+ in devDependencies in package.json
+
+Which then had to do npm i to reload the package lock
+
+and THEN we can update
+
+Everything copied from here: [feat: 内部坏链检测 · CatCodeMe/catcodeme.github.io@39c0c76 · GitHub](https://github.com/CatCodeMe/catcodeme.github.io/commit/39c0c7601e6aeb0e9bf7b9097136b54ce03be901#diff-28802fbf11c83a2eee09623fb192785e7ca92a3f40602a517c011b947a1822d3)
 
 ## Add favicons to certain external links
 
