@@ -55,22 +55,45 @@ export default ((opts?: Partial<FolderContentOptions>) => {
       }
     })
 
+    // allPagesInSubfolders.forEach((files, subfolderSlug) => {
+    //   const hasIndex = allPagesInFolder.some(
+    //     (file) => subfolderSlug === stripSlashes(simplifySlug(file.slug!)),
+    //   )
+    //   if (!hasIndex) {
+    //     const subfolderDates = files.sort(byDateAndAlphabetical(cfg))[0].dates
+    //     const subfolderTitleTemp = subfolderSlug.split(path.posix.sep).at(-1)!
+    //     const subfolderTitle = `📂 ${subfolderTitleTemp}`
+    //     allPagesInFolder.push({
+    //       slug: subfolderSlug,
+    //       dates: subfolderDates,
+    //       frontmatter: { title: subfolderTitle, tags: ["folder"] },
+    //     })
+    //   }
+    // })
+
     allPagesInSubfolders.forEach((files, subfolderSlug) => {
-      const hasIndex = allPagesInFolder.some(
+      const existingPage = allPagesInFolder.find(
         (file) => subfolderSlug === stripSlashes(simplifySlug(file.slug!)),
-      )
-      if (!hasIndex) {
-        const subfolderDates = files.sort(byDateAndAlphabetical(cfg))[0].dates
-        // const subfolderTitle = subfolderSlug.split(path.posix.sep).at(-1)!
-        // Adding the 📂 emoji to the subfolder title (thanks gpt! 12/27/24)
-        const subfolderTitle = `📂 ${subfolderSlug.split(path.posix.sep).at(-1)!}`
+      );
+      if (existingPage) {
+        // Update existing page's title
+        const subfolderTitleTemp = subfolderSlug.split(path.posix.sep).at(-1)!;
+        const subfolderTitle = `📂 ${subfolderTitleTemp.replace(/-/g, '')}`;
+        // @ts-ignore
+        existingPage.frontmatter.title = subfolderTitle;
+      } else {
+        // Add new page
+        const subfolderDates = files.sort(byDateAndAlphabetical(cfg))[0].dates;
+        const subfolderTitleTemp = subfolderSlug.split(path.posix.sep).at(-1)!;
+        const subfolderTitle = `📂 ${subfolderTitleTemp.replace(/-/g, ' ')}`;
         allPagesInFolder.push({
           slug: subfolderSlug,
           dates: subfolderDates,
           frontmatter: { title: subfolderTitle, tags: ["folder"] },
-        })
+        });
       }
-    })
+    });
+    
 
     const cssClasses: string[] = fileData.frontmatter?.cssclasses ?? []
     const classes = cssClasses.join(" ")

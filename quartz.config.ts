@@ -6,9 +6,24 @@ import * as Plugin from "./quartz/plugins"
  *
  * See https://quartz.jzhao.xyz/configuration for more information.
  */
+
+const possiblePageTitles = [
+  "(｡•ㅅ•｡)~✧",
+  "૭( ᵕ•̀ᵕ•́૭)",
+  "(૭ •́ ᵕ•̀ )૭",
+  "(๑>؂·̀๑)",
+  "৻(•̀ᗜ•́৻)",
+  "٩(•̤̀ᵕ•̤́๑)",
+  "(｡•́︿•̀｡)",
+  "ᕙ( •̀ ᗜ •́ )ᕗ"
+];
+function getRandomPageTitle(): string {
+  return possiblePageTitles[Math.floor(Math.random() * possiblePageTitles.length)];
+}
+
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "(°·._.·°)",
+    pageTitle: getRandomPageTitle(),
     pageTitleSuffix: " | Eilleen's e-Notebook",
     enableSPA: true,
     enablePopovers: true,
@@ -130,4 +145,10 @@ const config: QuartzConfig = {
   },
 }
 
+// Wishful thinking/TODO: make it so that it refreshes on each DOMContentLoaded
+// document.addEventListener('DOMContentLoaded', () => {
+//   const title = getRandomPageTitle();
+//   // document.title = title + config.configuration.pageTitleSuffix;
+//   config.configuration.pageTitle = title; // Update the config object
+// });
 export default config
