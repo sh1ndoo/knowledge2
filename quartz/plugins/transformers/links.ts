@@ -221,9 +221,9 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options>> = (userOpts) 
 
                 // Add appropriate icons based on link type
                 // if (!handleArxiv(ctx) && !linkTypes.isEmbedTwitter) {
-                if (!handleArxiv(ctx)) {
-                  ctx.classes.push(ctx.isExternal ? "external" : "internal")
-                }
+                // if (!handleArxiv(ctx)) {
+                //   ctx.classes.push(ctx.isExternal ? "external" : "internal")
+                // }
 
                 // handleCdnLinks(ctx)
 

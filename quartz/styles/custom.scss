@@ -6,22 +6,23 @@
 
 
 // Broken link stuff /////////////////////////////
+// Credits to catcodeme https://github.com/CatCodeMe/catcodeme.github.io/commit/39c0c7601e6aeb0e9bf7b9097136b54ce03be901
 // 损坏的内部链接样式
 a.internal.broken-link {
-  border-bottom: 2px dashed #DA5959;
+  // border-bottom: 2px dashed #DA5959;
   background-color: rgba(218, 89, 89, 0.08);
   position: relative;
   padding-right: 1.2em;
   
-  &::after {
-     content: "⊘";  // 圆圈加叉号
-     display: inline-block;
-     position: absolute;
-     right: 0;
-     font-size: 1em;
-     transform: translateY(-50%);
-     top: 50%;
-  }
+  // &::after {
+  //    content: "⊘";  // 圆圈加叉号
+  //    display: inline-block;
+  //    position: absolute;
+  //    right: 0;
+  //    font-size: 1em;
+  //    transform: translateY(-50%);
+  //    top: 50%;
+  // }
   
   &:hover {
      text-decoration: line-through;

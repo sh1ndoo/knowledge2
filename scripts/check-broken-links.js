@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import {load} from 'cheerio'
 import {fileURLToPath} from 'url'
-
+// Credits to catcodeme https://github.com/CatCodeMe/catcodeme.github.io/commit/39c0c7601e6aeb0e9bf7b9097136b54ce03be901
 // ES modules 中获取 __dirname
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
