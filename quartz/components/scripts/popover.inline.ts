@@ -12,7 +12,8 @@ async function mouseEnterHandler(
   // console.log('Link id:', link.id)
   if (link.dataset.noPopover === "true" || 
     link.id.includes("user-content-fnref-") ||
-    link.id.includes("permalink")
+    link.id.includes("permalink") || 
+    link.classList.contains('broken-link')
   ) {
     return
   }
@@ -106,7 +107,10 @@ async function mouseEnterHandler(
 }
 
 document.addEventListener("nav", () => {
-  const links = [...document.getElementsByClassName("internal")] as HTMLAnchorElement[]
+  // const links = [...document.getElementsByClassName("internal")] as HTMLAnchorElement[]
+  const links = [...document.getElementsByClassName("internal")].filter(
+    link => !link.classList.contains('broken-link')
+  ) as HTMLAnchorElement[]
   for (const link of links) {
     link.addEventListener("mouseenter", mouseEnterHandler)
     window.addCleanup(() => link.removeEventListener("mouseenter", mouseEnterHandler))
