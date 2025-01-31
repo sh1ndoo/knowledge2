@@ -1,6 +1,6 @@
 ---
 date created: 2024-11-19T20:48
-date modified: 2025-01-09T20:39
+date modified: 2025-01-31T11:18
 ---
 
 Amazing that it took me this long to get here... lol...
@@ -29,4 +29,8 @@ Forgot to do some ssh config so i'm going back to do that
 ## Goals
 
 - [ ] SSH into it
-- [ ] PiHole
+- [x] PiHole
+
+## Related
+
+[[Home network concepts learned through Pi-hole]] 

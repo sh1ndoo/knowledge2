@@ -1,6 +1,8 @@
 ---
 date created: 2024-06-10T09:37
-date modified: 2024-08-27T00:39
+date modified: 2025-01-31T11:44
+tags:
+  - obsidian
 ---
 
 Official documentation: [Dataview](https://blacksmithgu.github.io/obsidian-dataview/) by blacksmithgu

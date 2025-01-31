@@ -401,13 +401,13 @@ hr {
 }
 ```
 
-### Removing the fade!! omg
+## Removing the fade!! omg
 
 [quartz/quartz/styles/base.scss at b37c408985878b04f6474c473e2b98c0fec728ab · jackyzha0/quartz · GitHub](https://github.com/jackyzha0/quartz/blob/b37c408985878b04f6474c473e2b98c0fec728ab/quartz/styles/base.scss#L530)
 
 this specific line of code linked above ^^
 
-### Tag-based explorer (!!!)
+## Tag-based explorer (!!!)
 
 charnia_md _—_ 02/20/2024 9:48 AM
 
@@ -425,7 +425,7 @@ SanAlphaTau — 07/09/2024 1:18 PM
 
 > I just subbed in Componet.Explorer() calls to Component.TagExplorer() calls and it seems to work.  I also added a MobileOnly call to tag explorer in the before section so on mobile you can see it. I think the only thing left is to sort out this listing thing and then I have pretty much everything I want for the site. I'm trying to make a directory for ppl in my org to see what everyone else is doing/skills they have. hence the need to focus on tags and lsiting ppl with certain tags
 
-### Custom landing page
+## Custom landing page
 
 [add landing page · Socratica-Org/toolbox@3d6130b · GitHub](https://github.com/Socratica-Org/toolbox/commit/3d6130bcb67734cba902216dfa7ca653576fa328#diff-a4f40b84fbcf1a7939d596dca4939bbae6e56c05ad06a62b719b42693a9baf07)
 
@@ -433,7 +433,7 @@ Basically the index.md in the main content folder is blank except for title, and
 
 [Discord](https://discordapp.com/channels/927628110009098281/1211952698673602580) --> the forum thread
 
-### Conditional footer elements - 
+## Conditional footer elements - 
 
 sjgknight — 05/19/2024 5:31 PM
 
@@ -489,7 +489,7 @@ const fund = opts?.funding ?? []
 </p>
 ```
 
-### Pseudocode
+## Pseudocode
 
 Lasym — 04/04/2024 7:57 AM
 
@@ -509,7 +509,7 @@ Lasym — 04/04/2024 7:57 AM
 > 
 > Cheers !
 
-### Fancy text
+## Fancy text
 
 From nara on discord.
 
@@ -517,19 +517,19 @@ From nara on discord.
 
 - also a good example of a transformer plugin
 
-### Sticky notes 
+## Sticky notes 
 
 [feat: add transformer to add dragable sticky notes (no css) · jackyzha0/quartz@d993faf · GitHub](https://github.com/jackyzha0/quartz/commit/d993fafcbd0062458f3ae6158d607e4f513303d5)
 
-### Disable explorer toggle
+## Disable explorer toggle
 
 [feat: disable explorer toggle and folder toggle · jackyzha0/quartz@d95aa0e · GitHub](https://github.com/jackyzha0/quartz/commit/d95aa0e24c082fd599f21ec7b78cd6c0e1f13ad3)
 
-### Include a custom font
+## Include a custom font
 
 [How to include a font .ttf using CSS ? - GeeksforGeeks](https://www.geeksforgeeks.org/how-to-include-a-font-ttf-using-css/)
 
-### Push a custom frontmatter property
+## Push a custom frontmatter property
 
 MCMBen _—_ 03/26/2024 4:13 AM
 
@@ -556,6 +556,8 @@ Uses a github action js thing
 
 [feat: 内部坏链检测 · CatCodeMe/catcodeme.github.io@39c0c76 · GitHub](https://github.com/CatCodeMe/catcodeme.github.io/commit/39c0c7601e6aeb0e9bf7b9097136b54ce03be901#diff-423163b8d1e151b7ace8c88fc02201131fb663a5d05480aa95d793903dcf349c) 
 
+Alternatively: [Lighter color for broken internal link · LesleyLai/digital-garden@37e787f · GitHub](https://github.com/LesleyLai/digital-garden/commit/37e787f18f831667adc9058f5a058f1494677108) 
+
 ## Copy raw markdown 
 
 [Quartz copy raw markdown component · GitHub](https://gist.github.com/MaxWolf-01/354de940ad7ed80a9f2fe9884f5c99bc) 
@@ -563,3 +565,7 @@ Uses a github action js thing
 ## Chess
 
 [GitHub - MihailKovachev/shaahmaat-quartz](https://github.com/MihailKovachev/shaahmaat-quartz) 
+
+## Show any frontmatter properties
+
+[GitHub - michelepapucci/quartz-visible-obsidian-property: A Quartz fork, with a new component to show any kind of Frontmatter Obsidian Property on the pages.](https://github.com/michelepapucci/quartz-visible-obsidian-property) 

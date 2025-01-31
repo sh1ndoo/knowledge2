@@ -1,12 +1,18 @@
 ---
 date created: 2024-06-06T22:54
-date modified: 2024-11-16T14:17
+date modified: 2025-01-31T10:28
 ---
 ## For copy-pasting
 ```
 git add content*; git status
 git commit -m "Content update"; git push
 ```
+
+## Syntax quirks specific to me to remember
+
+Footnotes: put a `#` at the bottom of the page if you use one, to avoid footnotes being included in transcludes of the last heading. Also instead of doing something numerical, use some uniquified text, like "oceans are beautiful"
+
+Titles: in files, folders, etc. Don't use hyphens because I have a lot of replacement logic in folder pages. 
 
 ## Sync content changes
 
@@ -53,6 +59,9 @@ git merge upstream/v4
 
 # after you're done making all the changes:
 git push
+
+## if having issues with packages etc
+npm i
 ```
 
 h/t [git - How can I merge changes from an upstream branch to my fork's branch - Stack Overflow](https://stackoverflow.com/questions/52981111/how-can-i-merge-changes-from-an-upstream-branch-to-my-forks-branch)
@@ -98,6 +107,8 @@ git merge upstream/master
 `npx quartz build --serve`
 
 Only does a hard reload when certain files change, like `quartz.layout.ts`. 
+
+And I recently realized that it's not working on my system at all! The working theory is that WSL makes file-watching events confused.
 
 ## The reason why 2x components w a script doesn't work
 

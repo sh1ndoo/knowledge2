@@ -1,11 +1,11 @@
 ---
 date created: 2024-06-06T22:54
-date modified: 2024-11-30T10:36
+date modified: 2025-01-31T10:50
 tags:
   - recents-exclude
 ---
 
-These are all the things that I changed in my Quartz setup, and approximately where in the code they were changed.
+These are all the things that I changed in my Quartz setup, and approximately where in the code they were changed. This is organized in reverse chronological order (newest first) of when I first added the modification. If I change it later, I'll try to go back and edit the code, but I won't move it in the order. These are some cool quartz modifications that I see across the internet, but I don't feel like adding just yet: [[Quartz Snippets]]
 
 Github repo: [GitHub - fanteastick/quartz-test: Personal website built with Quartz](https://github.com/fanteastick/quartz-test)
 
@@ -20,7 +20,7 @@ Misc things to remember:
 > 
 > Forcing icons in a row
 > 
-> Tag and folder pages having consistent names
+> Tag and folder pages having consistent names 📂🔖
 > 
 > Random page link (logic not mine originally)
 > 
@@ -30,6 +30,145 @@ Misc things to remember:
 >
 > Click permalink to copy to clipboard, with a little notification box
 
+> [!example]- Mentions across the web! 🕸
+> Yippee! I'm grateful to people who use or take inspiration from my changes and give a little shoutout. I'm glad this was useful to you 😄 I'm a mega lurker fr
+> [Quartz Changelog](https://www.stevensmith.me/Notes/Quartz-Changelog) by Steven Smith
+> [Quartz customization log \| Lesley's Digital Garden](https://notes.lesleylai.info/Concepts/Quartz-customization-log) 
+> [Quartz Build and Changelog](https://aneurokumar.github.io/website/Second-Brain/quartz-website-project-notes#changelog) by Anu Kumar (aneurokumar)
+> [Customize your Quartz instance](https://zoylendt.github.io/Posts/quartz-customize) by zoylendt
+> [👋 Welcome \| sidbin](https://sidb.in/)
+> [Credits and Readmes](https://morrowind-modding.github.io/credits-and-readmes/#eilleens-online-everything-notebook) on the Morrowind Modding Wiki
+> [Quartz Cheatsheet](https://abi-is-here.github.io/niwa/software/quartz/quartz-cheatsheet) by abi-is-here
+
+
+## Add favicons to certain external links
+
+This is the commit: [(feat) adding favicons on external links manual · fanteastick/quartz-test@8a55075](https://github.com/fanteastick/quartz-test/commit/8a550751240921707b8478b59df4e69020f658cf) 
+
+The code was mostly shamelessly copied and then slightly modified from aarnphm.xyz: [aarnphm.github.io/quartz/plugins/transformers/links.ts](https://github.com/aarnphm/aarnphm.github.io/blob/41a2f0d23e7d7432d24ecf603e2ffe5a1fccaa12/quartz/plugins/transformers/links.ts) 
+
+Basically it's just a big if/else, and you have to put in the img files into `/static/favicons`, or the svg path into `components/_svg.tsx`. 
+
+- [ ] future improvement: Try out the turntrout implementation instead:  [TurnTrout.com/quartz/plugins/transformers/linkfavicons.ts](https://github.com/alexander-turner/TurnTrout.com/blob/56b56698937765b35f7156535bf664b905bda526/quartz/plugins/transformers/linkfavicons.ts#L171)
+
+## Add a folder emoji before subfolders in a folder listing
+
+Basically completely replaced the allPagesInSubfolders part. Thank you perplexity ai!
+
+Witness: [hobbies \| Eilleen's e-Notebook](https://quartz.eilleeenz.com/hobbies/) 
+
+```tsx title="FolderContent.tsx"
+    allPagesInSubfolders.forEach((files, subfolderSlug) => {
+      const existingPage = allPagesInFolder.find(
+        (file) => subfolderSlug === stripSlashes(simplifySlug(file.slug!)),
+      );
+      if (existingPage) {
+        // Update existing page's title
+        const subfolderTitleTemp = subfolderSlug.split(path.posix.sep).at(-1)!;
+        const subfolderTitle = `📂 ${subfolderTitleTemp.replace(/-/g, ' ')}`;
+        // @ts-ignore
+        existingPage.frontmatter.title = subfolderTitle;
+      } else {
+        // Add new page
+        const subfolderDates = files.sort(byDateAndAlphabetical(cfg))[0].dates;
+        const subfolderTitleTemp = subfolderSlug.split(path.posix.sep).at(-1)!;
+        const subfolderTitle = `📂 ${subfolderTitleTemp.replace(/-/g, ' ')}`;
+        allPagesInFolder.push({
+          slug: subfolderSlug,
+          dates: subfolderDates,
+          frontmatter: { title: subfolderTitle, tags: ["folder"] },
+        });
+      }
+    });
+```
+
+Also added the emoji in the preview tab titles:
+
+```tsx title="folderPage.tsx"
+      const folderDescriptions: Record<string, ProcessedContent> = Object.fromEntries(
+        [...folders].map((folder) => {
+          const existingContent = content.find(([_, vfile]) => vfile.data.slug === joinSegments(folder, "index"));
+          
+          if (existingContent) {
+            // Update existing folder page title if necessary
+            const updatedContent = existingContent[1].data;
+            // @ts-ignore
+            if (!updatedContent.frontmatter.title.startsWith("📂")) {
+              // @ts-ignore
+              updatedContent.frontmatter.title = `📂 ${folder.replace(/-/g, " ")}`;
+            } else {
+              // If title already starts with 📂, replace hyphens in the rest of the title
+            // @ts-ignore
+              updatedContent.frontmatter.title = `📂 ${updatedContent.frontmatter.title.slice(2).replace(/-/g, " ")}`;
+            }
+            return [folder, updatedContent];
+          } else {
+            // Create new folder page with the desired title
+            return [
+              folder,
+              defaultProcessedContent({
+                slug: joinSegments(folder, "index") as FullSlug,
+                frontmatter: {
+                  title: `📂 ${folder.replace(/-/g, " ")}`,
+                  tags: [],
+                },
+              }),
+            ];
+          }
+        }),
+      )            
+
+```
+
+## Randomize page title
+
+- [ ] to do: make it change on pageload instead of every time it gets pushed. 
+
+```ts title="quartz.config.ts"
+const possiblePageTitles = [
+  "(｡•ㅅ•｡)~✧",
+  "૭( ᵕ•̀ᵕ•́૭)",
+  "(૭ •́ ᵕ•̀ )૭",
+  "(๑>؂·̀๑)",
+  "৻(•̀ᗜ•́৻)",
+  "٩(•̤̀ᵕ•̤́๑)",
+  "(｡•́︿•̀｡)",
+  "ᕙ( •̀ ᗜ •́ )ᕗ"
+];
+function getRandomPageTitle(): string {
+  return possiblePageTitles[Math.floor(Math.random() * possiblePageTitles.length)];
+}
+
+const config: QuartzConfig = {
+  configuration: {
+    pageTitle: getRandomPageTitle(),
+```
+## Small padding in the layout
+
+Just to make it look a bit better.
+
+```scss title="base.scss"
+& > #quartz-body {
+	@media all and not ($desktop) {
+      padding: 0 1rem;
++      margin-right: 10px;
+    }
+
+    & .sidebar {
++      @media all and not ($desktop) {
++        margin-right: 10px;
++      }
+    }
+```
+## Remove the tags in tag pages
+
+Because it looks messy, idk. 
+
+```scss title="custom.scss"
+.page-listing .tag-link {
+  display: none;
+}
+```
 ## Merging in the 4.3.1 ➡ 4.4 layout upgrades etc
 
 [[Upgrading to quartz 4.4]]
@@ -348,10 +487,20 @@ const tagDescriptions: Record<string, ProcessedContent> = Object.fromEntries(
 [...tags].map((tag) => {
   const title =
 	tag === "index"
-	  ? i18n(cfg.locale).pages.tagContent.tagIndex
-	  : `${tag}`
+	  ? `🔖 i18n(cfg.locale).pages.tagContent.tagIndex`
+	  : `🔖 ${tag}`
 	  // : `${i18n(cfg.locale).pages.tagContent.tag}: ${tag}` original commented out 8/5/24
 
+  ...
+
+  if (tags.has(tag)) {
+	tagDescriptions[tag] = [tree, file]
+	// this adds the little emoji to tag pages that have index pages
+	if (file.data.frontmatter?.title === tag) {
+	  // file.data.frontmatter.title = `${i18n(cfg.locale).pages.tagContent.tag}: ${tag}`
+	  file.data.frontmatter.title = `🔖 ${tag}`
+	}
+  }
 ```
 
 Changing the breadcrumb: If the crumb in the breadcrumb is "tags", change it to add the little tags icon. 
@@ -375,7 +524,7 @@ const folderDescriptions: Record<string, ProcessedContent> = Object.fromEntries(
 	slug: joinSegments(folder, "index") as FullSlug,
 	frontmatter: {
 	  // title: `${i18n(cfg.locale).pages.folderContent.folder}: ${folder}`, 8-5-24 removed by ez
-	  title: `${folder}`, 
+	  title: `📂 ${folder}`, 
 ```
 
 Big and hacky change to ArticleTitle:
@@ -547,50 +696,9 @@ export default ((components?: QuartzComponent[]) => {
 
 ## Giscus Comments
 
-Slightly based on code from [morrowind-modding/morrowind-modding.github.io@1bad00e · GitHub](https://github.com/morrowind-modding/morrowind-modding.github.io/commit/1bad00e1e8b27ee2dc85ab08dd2da5b75642f5b3). There's a script that I tried adding too but it wasn't fully working for me, but it should prevent case where the comments don't show up when clicking the homepage. Also consider - put the ID names in some sort of git secret stuff so other people copy-pasting code won't accidentally crosspost to my discussions. 
+Originally this was based on code from [morrowind-modding/morrowind-modding.github.io@1bad00e · GitHub](https://github.com/morrowind-modding/morrowind-modding.github.io/commit/1bad00e1e8b27ee2dc85ab08dd2da5b75642f5b3). Later it got added as part of the base quartz code so I had to slightly modify it, because I have it set up to only create one discussion for the whole quartz. This adds an extra property or two. 
 
-```tsx title="GiscusComments.tsx"
-// @ts-ignore: this is safe, we don't want to actually make darkmode.inline.ts a module as
-// modules are automatically deferred and we don't want that to happen for critical beforeDOMLoads
-// see: https://v8.dev/features/modules#defer
-import giscuscommentsscript from "./scripts/_giscuscomments.inline"
-import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
-import { classNames } from "../util/lang"
-
-const GiscusComments: QuartzComponent = ({
-  fileData,
-  allFiles,
-  displayClass,
-  cfg,
-}: QuartzComponentProps) => {
-  return (
-    <div class={classNames(displayClass)} id="giscus-container">
-      <h3>Guestbook 📗</h3>
-      <script src="https://giscus.app/client.js"
-        data-repo="fanteastick/quartz-test"
-        data-repo-id="[your id here]"
-        data-category="Announcements"
-        data-category-id="[your id here]"
-        data-mapping="specific"
-        data-term="Guestbook"
-        data-strict="0"
-        data-reactions-enabled="0"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="light_protanopia"
-        data-lang="en"
-        data-loading="lazy"
-        crossorigin="anonymous"
-        async>
-      </script>
-    </div>
-  )
-}
-
-// GiscusComments.beforeDOMLoaded = giscuscommentsscript not really working
-export default (() => GiscusComments) satisfies QuartzComponentConstructor
-```
-
+- [ ] Consider - put the ID or some sort of git secret stuff so other people copy-pasting code won't accidentally crosspost to my discussions. 
 ### July 2024 update - modifying the built-in comments component
 
 My setup - only one discussion for the entire quartz. So I need the data-term attribute, and things got refactored a bit. 
@@ -706,6 +814,7 @@ Same code as above but reversing the checker.
   font-size: 0.85rem;
   opacity: 0.5;
   white-space: pre;
+  display: inline-block;
 }
 
 .external-icon {
@@ -1022,7 +1131,7 @@ export const defaultListPageLayout: PageLayout = {
       // previously the above line is NOT commented out
 ```
 
-## Github source component
+## Github source component into contentmeta
 
 Credits to this guy - [add github source component · abhiaagarwal/notes@0649b06 · GitHub](https://github.com/abhiaagarwal/notes/commit/0649b0645f505990908ca060af75cff6af006c3f) 
 
@@ -1036,70 +1145,36 @@ Using external service [Git History](https://githistory.xyz/) for history becaus
 
 For the githistory link, it needs to do a replacement. ``${options?.repoLink.replace('github.com', 'github.githistory.xyz')}/commits/${options?.branch}/${fileData.filePath!}``
 
-```tsx title="GithubSource.tsx"
-import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
-import style from "./styles/_githubSource.scss"
+```tsx title="ContentMeta.tsx" 
 
-// @ts-ignore
-import { classNames } from "../util/lang"
-
-interface GithubSourceOptions {
+  showReadingTime: boolean
+  showComma: boolean
+  // Githubsource stuff ported over
   repoLink: string
   branch: string
 }
 
-const defaultOptions: GithubSourceOptions = {
+const defaultOptions: ContentMetaOptions = {
+  showReadingTime: true,
+  showComma: true,
+  // githubsource stuff
   repoLink: "github.com",
   branch: "v4"
 }
-
-export default ((opts?: Partial<GithubSourceOptions>) => {
-  // Merge options with defaults
-  const options: GithubSourceOptions = { ...defaultOptions, ...opts }
-  const GithubSource: QuartzComponent = ({ 
-    displayClass, 
-    fileData 
-  }: QuartzComponentProps) => {
-  return (
-    <div class={classNames(displayClass, "github-source")}>
-      <h3>Source code</h3>
-      <ul>
-        <li>
+...
+      return (
+        <div class={classNames(displayClass, "content-meta")}>
+        <p style={{ margin: '0', padding: '0'}}>
           <a href={`${options?.repoLink}/blob/${options?.branch}/${fileData.filePath!}`}>
-            Source
-          </a>  
-        </li>
-        <li>
+          ᨒ Source ᨒ 
+            </a>  
           <a href={`${options?.repoLink}/blame/${options?.branch}/${fileData.filePath!}`}>
-            Blame
+          ↟ Blame ᨒ 
           </a>
-        </li>
-        <li>
-          <a href={`${options?.repoLink.replace('github.com', 'github.githistory.xyz')}/commits/${options?.branch}/${fileData.filePath!}`} class="external">
-            GitHistory 
+          <a href={`${options?.repoLink.replace('github.com', 'github.githistory.xyz')}/commits/${options?.branch}/${fileData.filePath!}`}>
+          ↟ GitHistory ↟
           </a>
-          <svg 
-            class="external-icon"
-            viewBox= "0 0 512 512"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlnsXlink="http://www.w3.org/1999/xlink"
-            x="0px"
-            y="0px"
-            fill="currentColor"
-            xmlSpace="preserve"
-          >
-            <path 
-              d= "M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"
-            />
-          </svg>
-        </li>
-      </ul>
-    </div>
-  )
-  }
-  GithubSource.css = style
-  return GithubSource
-}) satisfies QuartzComponentConstructor
+        </p>
 ```
 ## Clicking on the folder name opens the folder page
 ```tsx title="Explorer.tsx"
@@ -1120,19 +1195,51 @@ Plugin.CreatedModifiedDate({
 ```
 
 ## Putting date created & modified on content pages, but not index
-```ts title="lastmod.ts"
-created ||= file.data.frontmatter["date created"] as MaybeDate
-// original: created ||= file.data.frontmatter.date as MaybeDate
-...
-modified ||= file.data.frontmatter["date modified"] as MaybeDate
-// original: modified ||= file.data.frontmatter["date-modified"] as MaybeDate
+
+Add the name for my date created field (since I use obsidian linter)
+
+```ts title="frontmatter.ts"
+const created = coalesceAliases(data, ["created", "date", "date created"])
+if (created) data.created = created
+const modified = coalesceAliases(data, [
+  "modified",
+  "lastmod",
+  "updated",
+  "last-modified",
+  "date modified",
+```
+
+Custom get date function so I can choose whether to get created or modified.
+
+```ts title="Date.tsx"
+export function _getDateCustom(cfg: GlobalConfiguration, data: QuartzPluginData, dateType: 'modified' | 'created'): Date | undefined {
+  // Check if the dateType provided is valid
+  if (dateType !== 'modified' && dateType !== 'created') {
+    throw new Error(`Invalid date type '${dateType}'. Valid options are 'modified' or 'created'.`)
+  }
+  
+  // Return the respective date based on the given dateType
+  return data.dates?.[dateType]
+}
 ```
 
 ```tsx title="ContentMeta.tsx"
 if (fileData.dates && fileData.slug !== "index") {
-// segments.push(formatDate(getDate(cfg, fileData)!, cfg.locale))
-segments.push("Created: " + formatDate(fileData.dates.created))
-segments.push("Modified: " + formatDate(fileData.dates.modified))
+	 segments.push(<>
+     Created: <Date date={_getDateCustom(cfg, fileData, 'created')!} locale={cfg.locale} />
+	</>)
+	// Only show the modified date if it's NOT equal to the created date
+	// Extract the actual date values for comparison
+	const datecreatedValue = _getDateCustom(cfg, fileData, 'created');
+	const datemodifiedValue = _getDateCustom(cfg, fileData,'modified');
+	// Compare the actual date values (ignoring the JSX components)
+	const areDatesNotEqual = datecreatedValue?.getTime() !== datemodifiedValue?.getTime();
+	if (areDatesNotEqual) {
+	  segments.push(<>
+		Modified: <Date date={_getDateCustom(cfg, fileData,'modified')!} locale={cfg.locale} />
+		</>
+		)
+	}
 }
 ```
 

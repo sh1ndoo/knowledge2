@@ -1,6 +1,6 @@
 ---
 date created: 2024-07-23T01:53
-date modified: 2024-07-23T11:17
+date modified: 2025-01-31T09:31
 ---
 ## Summary
 
@@ -55,6 +55,7 @@ const tagListConfig = {
 }
 const backlinksConfig = {
   excludeTags: tagsToRemove
+  hideWhenEmpty: false
 }
 ```
 

@@ -1,6 +1,8 @@
 ---
 date created: 2024-11-16T13:36
 date modified: 2025-01-02T17:27
+tags:
+  - photography
 ---
 
 Trusty dusty camera! 

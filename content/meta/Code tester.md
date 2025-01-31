@@ -1,6 +1,6 @@
 ---
 date created: 2024-08-02T09:44
-date modified: 2024-09-13T00:40
+date modified: 2025-01-30T15:14
 tags:
   - explorer-exclude
   - graph-exclude
@@ -20,13 +20,21 @@ Word highlighting in code
 
 Check out [[Permalinks tracker|all the permalinks]]
 
+[Welcome to Quartz 4](https://quartz.jzhao.xyz/) 
+
+[The Eilleen Post \| Eilleen's Blog](https://blog.eilleeenz.com/) 
+
+[Live peacefully - Eilleen](https://www.eilleeenz.com/) 
+
+[\[2002.00042\] Gravitational Lensing in Rotating and Twisting Universes](https://arxiv.org/abs/2002.00042)
+
 ## table-a contents
 
 > NOTE: This is a note too
 
 ‼‼ shaking ‼‼
 
-🌊🌊 hey wave 🌊🌊 hey [^1]
+🌊🌊 hey wave 🌊🌊 hey [^ocean-footnote]
 
 💫💫spinner💫💫
 
@@ -44,7 +52,7 @@ Thanks!!!
 
 Sometimes we have footnoes so this needs to be long enough
 
-[^1]: The world is big but simultaneously small. the ocean is unexplored for the most part. convinced there's some dinosaurs there. 
+[^ocean-footnote]: The world is big but simultaneously small. the ocean is unexplored for the most part. convinced there's some dinosaurs there. 
 
 ![[Quartz Cheatsheet#Footnote syntax]]
 
