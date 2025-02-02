@@ -24,6 +24,7 @@ import {
   ycSvg,
   bskySvg,
   doiSvg,
+  pplxSvg,
   githubSvg,
   substackSvg,
   svgOptions,
@@ -176,6 +177,7 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options>> = (userOpts) 
                   isQuartz: dest.includes("quartz.jzhao.xyz"),
                   isObsidian: dest.includes("obsidian.md"),
                   isGithub: dest.includes("github.com"),
+                  isPerplexity: dest.includes("pplx.ai") || dest.includes("perplexity.ai"),
                   isSubstack: dest.includes("substack.com"),
                   // isTwitter: twitterUrlRegex.test(dest),
                   isBsky: dest.includes("bsky.app"),
@@ -260,6 +262,8 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options>> = (userOpts) 
                   ctx.node.children.push(openaiSvg)
                 } else if (linkTypes.isGithub) {
                   ctx.node.children.push(githubSvg)
+                } else if (linkTypes.isPerplexity) {
+                  ctx.node.children.push(pplxSvg)
                 } else if (linkTypes.isSubstack) {
                   ctx.node.children.push(substackSvg)
                 // } else if (linkTypes.isTwitter) {
