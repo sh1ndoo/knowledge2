@@ -29,7 +29,7 @@ const config: QuartzConfig = {
     enablePopovers: true,
     analytics: {
       provider: "goatcounter",
-      websiteId: 'eilleeenz'
+      websiteId: 'ez-quartz'
     },
     locale: "en-US",
     baseUrl: "quartz.eilleeenz.com",
