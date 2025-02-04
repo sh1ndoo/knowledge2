@@ -31,6 +31,7 @@ import Row from "./_Row"
 import Comments from "./Comments"
 import Map from "./_Map"
 import MiniButton from "./_MiniButton"
+import FloatingButtons from "./_FloatingButtons"
 
 export {
   ArticleTitle,
@@ -66,4 +67,5 @@ export {
   Comments,
   Map,
   MiniButton,
+  FloatingButtons,
 }

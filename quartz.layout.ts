@@ -116,6 +116,8 @@ export const defaultContentPageLayout: PageLayout = {
     ]),
     Component.DesktopOnly(Component.OnlyFor({titles: [homepageTitle]}, Component.Explorer(explorerConfig))),
     Component.DesktopOnly(Component.TableOfContents2()),
+    // Component.DesktopOnly(Component.NotFor({titles: [homepageTitle]}, Component.FloatingButtons({position: 'right'}))),
+    Component.FloatingButtons({position: 'right'}),
   ],
   right: [
     Component.Graph(graphConfig),

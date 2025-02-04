@@ -28,7 +28,8 @@ const config: QuartzConfig = {
     enableSPA: true,
     enablePopovers: true,
     analytics: {
-      provider: "plausible",
+      provider: "goatcounter",
+      websiteId: 'eilleeenz'
     },
     locale: "en-US",
     baseUrl: "quartz.eilleeenz.com",
