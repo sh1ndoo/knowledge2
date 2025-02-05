@@ -47,7 +47,7 @@ const giscusConfig = {
     // from data-repo
     repo: 'fanteastick/quartz-test',
     // from data-repo-id
-    repoId: myRepoId,
+    repoId: myRepoID,
     // from data-category
     category: 'Announcements',
     // from data-category-id
