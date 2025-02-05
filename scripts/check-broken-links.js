@@ -39,7 +39,16 @@ function processHtmlFile(filePath) {
     $('a.internal:not(.tag-link)').each((_, element) => {
         const href = $(element).attr('href')
         if (!href || href.startsWith('#')) return
-
+    
+        // Check if href contains a '#'
+        if (href.includes('#')) {
+            // Remove everything after the '#'
+            const cleanHref = href.split('#')[0];
+            
+            // Update href to the clean version
+            href = cleanHref;
+        }
+    
         // 获取 data-slug 属性，这是相对于 public 的标准路径
         const slug = $(element).attr('data-slug')
         
@@ -77,7 +86,7 @@ function processHtmlFile(filePath) {
                 path.resolve(__dirname, '../public'),
                 targetPath.replace(/\/?$/, '.html')
             )
-        }
+        }    
 
         if (!checkFileExists(normalizedPath)) {
             // 保持原有属性

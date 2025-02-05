@@ -2,6 +2,10 @@
 
 Hi, this is the repo for the website https://quartz.eilleeenz.com/. This was made with Quartz, and I kept the original readme below (which includes a link to get started yourself). Say hi in my [guestbook](https://github.com/fanteastick/quartz-test/discussions/21)! 
 
+## Licensing changes
+- **Content:** The text content in the `content/` folder is licensed under [Creative Commons Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/). 
+- **Everything else:** uses the MIT License for its components, since it was originally MIT license from https://quartz.jzhao.xyz/. 
+
 ---
 
 # Quartz v4
