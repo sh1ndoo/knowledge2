@@ -42,6 +42,12 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      - name: Prepare deployment
+        env:
+          GISCUS_CATEGORY_ID: ${{ secrets.GISCUS_CATEGORY_ID }}
+          GISCUS_REPO_ID: ${{ secrets.GISCUS_REPO_ID }}
+        run: | 
+          echo "My secrets: GISCUS_REPO_ID, GISCUS_CATEGORY_ID
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
