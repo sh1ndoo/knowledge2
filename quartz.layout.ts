@@ -37,17 +37,21 @@ const backlinksConfig = {
   excludeTags: ["backlinks-exclude"],
   hideWhenEmpty: false
 }
+
+const myRepoID = process.env.GISCUS_REPO_ID;
+const myCategoryID = process.env.GISCUS_CATEGORY_ID;
+
 const giscusConfig = {
   provider: 'giscus',
   options: {
     // from data-repo
     repo: 'fanteastick/quartz-test',
     // from data-repo-id
-    repoId: 'R_kgDOMVIwGw',
+    repoId: myRepoId,
     // from data-category
     category: 'Announcements',
     // from data-category-id
-    categoryId: 'DIC_kwDOMVIwG84Cguqi',
+    categoryId: myCategoryID,
     mapping: "specific",
     strict: false,
     reactionsEnabled: false,

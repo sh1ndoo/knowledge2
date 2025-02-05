@@ -1,10 +1,11 @@
 ---
 title: Eilleen's (online!) Everything Notebook
 date created: 2024-05-06T22:24
-date modified: 2025-01-16T11:23
+date modified: 2025-02-04T21:35
 subtitle: info dump website
 tags:
   - recents-exclude
+comments: "true"
 ---
 
 Welcome to my digital allocation of space (?).
@@ -49,3 +50,5 @@ Why does every digital garden website add a page defining what a digital garden 
 ```
 
 The whole site is a work in progress! (it'll always be a work in progress)
+
+On this site, and probably all my sites, I'm using [[GoatCounter analytics]], which should be a privacy-aware, open source web analytics platform.
