@@ -67,8 +67,6 @@ export const sharedPageComponents: SharedLayout = {
     { titles: [homepageTitle, mapTitle] },
     Component.RecentNotes(recentNotesConfig)
   ), 
-  Component.OnlyFor(
-    { titles: [homepageTitle] }, 
     Component.Comments({
       provider: 'giscus',
       options: {
@@ -86,7 +84,6 @@ export const sharedPageComponents: SharedLayout = {
         inputPosition: "top",
         term: "Guestbook"
     }})
-  )
 ],
   footer: Component.Footer({
     links: {

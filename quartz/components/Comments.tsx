@@ -29,11 +29,15 @@ function boolToStringBool(b: boolean): string {
 export default ((opts: Options) => {
   const Comments: QuartzComponent = ({ displayClass, fileData, cfg }: QuartzComponentProps) => {
     // check if comments should be displayed according to frontmatter
-    const disableComment: boolean =
+    // const disableComment: boolean =
       // fileData.frontmatter?.comments === "false" ### this is what i had originally btw
-      typeof fileData.frontmatter?.comments !== "undefined" &&
-      (!fileData.frontmatter?.comments || fileData.frontmatter?.comments === "false")
-    if (disableComment) {
+      // typeof fileData.frontmatter?.comments !== "undefined" &&
+      // (!fileData.frontmatter?.comments || fileData.frontmatter?.comments === "false")
+    // if (disableComment) {
+    // 2025-02-04: actually, I only want comments if I choose to enable them in frontmatter
+    const enableComment: boolean = 
+      fileData.frontmatter?.comments === "true"
+    if (!enableComment) {
       return <></>
     }
 
