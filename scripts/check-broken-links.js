@@ -37,18 +37,9 @@ function processHtmlFile(filePath) {
     let brokenLinks = []
 
     $('a.internal:not(.tag-link)').each((_, element) => {
-        const href = $(element).attr('href')
-        if (!href || href.startsWith('#')) return
-    
-        // Check if href contains a '#'
-        if (href.includes('#')) {
-            // Remove everything after the '#'
-            const cleanHref = href.split('#')[0];
-            
-            // Update href to the clean version
-            href = cleanHref;
-        }
-    
+        const oldhref = $(element).attr('href')
+        if (!oldhref || oldhref.startsWith('#')) return
+        const href = oldhref.includes('#') ? oldhref.split('#')[0] : oldhref;
         // 获取 data-slug 属性，这是相对于 public 的标准路径
         const slug = $(element).attr('data-slug')
         
