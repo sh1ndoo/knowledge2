@@ -11,3 +11,4 @@ private/
 replit.nix
 SettingsProfiles
 content/.trash
+.env

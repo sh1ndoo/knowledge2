@@ -1,3 +1,5 @@
+import 'dotenv/config';
+
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 import { FileNode } from "./quartz/components/ExplorerNode";
