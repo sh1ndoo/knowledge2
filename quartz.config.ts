@@ -1,5 +1,9 @@
+import 'dotenv/config';
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
+
+
+const myGoatcounterCode = process.env.GOATCOUNTER_CODE as string;
 
 /**
  * Quartz 4.0 Configuration
@@ -29,7 +33,7 @@ const config: QuartzConfig = {
     enablePopovers: true,
     analytics: {
       provider: "goatcounter",
-      websiteId: 'ez-quartz'
+      websiteId: myGoatcounterCode,
     },
     locale: "en-US",
     baseUrl: "quartz.eilleeenz.com",

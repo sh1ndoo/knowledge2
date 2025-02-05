@@ -5,6 +5,11 @@ import * as Component from "./quartz/components"
 import { FileNode } from "./quartz/components/ExplorerNode";
 import { SimpleSlug } from "./quartz/util/path";
 import { QuartzPluginData } from "./quartz/plugins/vfile"
+
+// Secrets
+const myRepoID = process.env.GISCUS_REPO_ID;
+const myCategoryID = process.env.GISCUS_CATEGORY_ID;
+
 // Constants for config that are reused a lot
 const homepageTitle = "Eilleen's (online!) Everything Notebook"
 const modifiedListTitle = "All-files-chronologically-modified"
@@ -39,9 +44,6 @@ const backlinksConfig = {
   excludeTags: ["backlinks-exclude"],
   hideWhenEmpty: false
 }
-
-const myRepoID = process.env.GISCUS_REPO_ID;
-const myCategoryID = process.env.GISCUS_CATEGORY_ID;
 
 const giscusConfig = {
   provider: 'giscus',
