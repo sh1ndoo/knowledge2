@@ -3,7 +3,7 @@ import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
 
 
-const myGoatcounterCode = process.env.GOATCOUNTER_CODE as string;
+// const myGoatcounterCode = process.env.GOATCOUNTER_CODE as string;
 
 /**
  * Quartz 4.0 Configuration
@@ -33,7 +33,7 @@ const config: QuartzConfig = {
     enablePopovers: true,
     analytics: {
       provider: "goatcounter",
-      websiteId: myGoatcounterCode,
+      websiteId: "GOATCOUNTER_CODE_PLACEHOLDER",
     },
     locale: "en-US",
     baseUrl: "quartz.eilleeenz.com",
