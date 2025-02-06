@@ -116,6 +116,7 @@ const config: QuartzConfig = {
         priority: ["frontmatter", "git", "filesystem"],
       }),
       Plugin.FancyText(),
+      Plugin.TelescopicText(),
       // Plugin.StickyNotes(),
       Plugin.SyntaxHighlighting({
         theme: {

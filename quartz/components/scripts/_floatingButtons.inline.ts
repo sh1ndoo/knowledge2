@@ -234,3 +234,10 @@ function setupFloatingButtons() {
 // 页面加载和导航时初始化
 document.addEventListener('DOMContentLoaded', setupFloatingButtons)
 document.addEventListener('nav', setupFloatingButtons)
+
+// Adding in the "prevent default" behavior here but this is actually for broken links
+document.querySelectorAll('.strikethrough-link').forEach(link => {
+  link.addEventListener('click', function(event) {
+    event.preventDefault(); // Prevents the link from navigating
+  });
+});
