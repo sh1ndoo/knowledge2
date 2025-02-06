@@ -18,18 +18,6 @@ import { write } from "./helpers"
 import { i18n } from "../../i18n"
 import DepGraph from "../../depgraph"
 
-const script = `
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.broken-link').forEach(link => {
-        link.addEventListener('click', function(event) {
-          event.preventDefault(); // Prevents the link from navigating
-        });
-      });
-    });
-  </script>
-`;
-
 interface TagPageOptions extends FullPageLayout {
   sort?: (f1: QuartzPluginData, f2: QuartzPluginData) => number
 }
@@ -142,8 +130,7 @@ export const TagPage: QuartzEmitterPlugin<Partial<TagPageOptions>> = (userOpts) 
           allFiles,
         }
 
-        const precontent = renderPage(cfg, slug, componentData, opts, externalResources)
-        const content = precontent + script; 
+        const content = renderPage(cfg, slug, componentData, opts, externalResources)
         const fp = await write({
           ctx,
           content,
