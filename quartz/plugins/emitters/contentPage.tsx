@@ -16,6 +16,18 @@ import chalk from "chalk"
 import { write } from "./helpers"
 import DepGraph from "../../depgraph"
 
+const script = `
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.broken-link').forEach(link => {
+        link.addEventListener('click', function(event) {
+          event.preventDefault(); // Prevents the link from navigating
+        });
+      });
+    });
+  </script>
+`;
+
 // get all the dependencies for the markdown file
 // eg. images, scripts, stylesheets, transclusions
 const parseDependencies = (argv: Argv, hast: Root, file: VFile): string[] => {
@@ -117,7 +129,8 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
           allFiles,
         }
 
-        const content = renderPage(cfg, slug, componentData, opts, externalResources)
+        const precontent = renderPage(cfg, slug, componentData, opts, externalResources)
+        const content = precontent + script; 
         const fp = await write({
           ctx,
           content,
