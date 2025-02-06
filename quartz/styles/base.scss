@@ -155,6 +155,92 @@ a {
       color: var(--dark);
     }
   }
+  // This will give special grid styling to the 404 page, which is just skipping the tablet layout
+  // because it looked weird when there was nothing in the left sidebar
+  & > #quartz-404-body {
+    display: grid;
+    grid-template-columns: #{map.get($desktopGrid, templateColumns)};
+    grid-template-rows: #{map.get($desktopGrid, templateRows)};
+    column-gap: #{map.get($desktopGrid, columnGap)};
+    row-gap: #{map.get($desktopGrid, rowGap)};
+    grid-template-areas: #{map.get($desktopGrid, templateAreas)};
+
+    @media all and ($tablet), all and ($mobile) {
+      grid-template-columns: #{map.get($mobileGrid, templateColumns)};
+      grid-template-rows: #{map.get($mobileGrid, templateRows)};
+      column-gap: #{map.get($mobileGrid, columnGap)};
+      row-gap: #{map.get($mobileGrid, rowGap)};
+      grid-template-areas: #{map.get($mobileGrid, templateAreas)};
+    }
+
+    // Remove or adjust other styles as needed
+    padding: 0 1rem;
+    margin-right: 10px;
+  
+    & .sidebar {
+      gap: 2rem;
+      top: 0;
+      box-sizing: border-box;
+      padding: $topSpacing 2rem 2rem 2rem;
+      display: flex;
+      height: 0vh;
+      position: sticky;
+    }
+  
+    & .sidebar.left {
+      z-index: 1;
+      grid-area: grid-sidebar-left;
+      flex-direction: column;
+      @media all and ($tablet), all and ($mobile) {
+        gap: 0;
+        align-items: center;
+        position: initial;
+        display: flex;
+        // height: unset;
+        flex-direction: row;
+        padding: 0;
+        padding-top: 2rem;
+      }
+    }
+  
+    & .sidebar.right {
+      grid-area: grid-sidebar-right;
+      margin-right: 0;
+      flex-direction: column;
+    }
+  
+    & .page-header,
+    & .page-footer {
+      margin-top: 1rem;
+      @media all and ($tablet), all and ($mobile) {
+        display: none;
+      }
+    }
+  
+    & .page-header {
+      grid-area: grid-header;
+      margin: $topSpacing 0 0 0;
+    }
+  
+    & .center > article {
+      grid-area: grid-center;
+    }
+  
+    & footer {
+      grid-area: grid-footer;
+    }
+  
+    & .center,
+    & footer {
+      max-width: 100%;
+      min-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    & footer {
+      margin-left: 0;
+    }  
+  }
 
   & > #quartz-body {
     display: grid;
