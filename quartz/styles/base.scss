@@ -174,8 +174,10 @@ a {
     }
 
     // Remove or adjust other styles as needed
-    padding: 0 1rem;
-    margin-right: 10px;
+    & {
+      padding: 0 1rem;
+      margin-right: 10px;
+    }
   
     & .sidebar {
       gap: 2rem;

@@ -35,6 +35,7 @@ import {
   youtubeSvg,
   gwernSvg,
   defaultExternalSvg,
+  fandomSvg,
 } from "../../components/_svg"
 
 
@@ -185,8 +186,9 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options>> = (userOpts) 
                   isOpenai: dest.includes("openai.com"),
                   isHf: dest.includes("huggingface.co"),
                   isYC: dest.includes("ycombinator.com"),
-                  isAnthropic:
-                    dest.includes("transformer-circuits.pub") || dest.includes("anthropic.com"),
+                  isAnthropic: dest.includes("anthropic.com"),
+                  isFandom: dest.includes("fandom.com"),
+                  isSteam: dest.includes("steamcommunity.com") || dest.includes("steampowered.com"),
                 }
 
                 // Handle special link types
@@ -242,6 +244,10 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options>> = (userOpts) 
                   ctx.node.children.push(
                     createIconElement("/static/favicons/lesswrong.avif", "LessWrong"),
                   )
+                } else if (linkTypes.isSteam) {
+                    ctx.node.children.push(
+                      createIconElement("/static/favicons/Steam_Logo.png", "Steam"),
+                    )
                 } else if (linkTypes.isQuartz) {
                   ctx.node.children.push(createIconElement("/static/favicons/quartz.png", "Quartz"))
                 } else if (linkTypes.isYoutube) {
@@ -262,6 +268,8 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options>> = (userOpts) 
                   ctx.node.children.push(openaiSvg)
                 } else if (linkTypes.isGithub) {
                   ctx.node.children.push(githubSvg)
+                } else if (linkTypes.isFandom) {
+                  ctx.node.children.push(fandomSvg)
                 } else if (linkTypes.isPerplexity) {
                   ctx.node.children.push(pplxSvg)
                 } else if (linkTypes.isSubstack) {

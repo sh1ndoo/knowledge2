@@ -12,3 +12,5 @@ replit.nix
 SettingsProfiles
 content/.trash
 .env
+*-ez.py
+*ez-ignore*

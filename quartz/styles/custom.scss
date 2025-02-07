@@ -2,8 +2,19 @@
 @use "./variables.scss" as *;
 @use "./syntax.scss";
 @use "./callouts.scss";
+@use "./_arbChangeText.scss";
 // put your custom CSS here!
 
+// spoiler stuff
+.spoiler-text {
+  transition: filter 0.3s ease;
+  filter: blur(0.5rem);
+  cursor: pointer;
+}
+
+.revealed {
+  filter: initial;
+}
 
 // Broken link stuff /////////////////////////////
 // Original Credits to catcodeme https://github.com/CatCodeMe/catcodeme.github.io/commit/39c0c7601e6aeb0e9bf7b9097136b54ce03be901

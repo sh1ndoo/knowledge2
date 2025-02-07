@@ -1,23 +1,4 @@
 import { QuartzTransformerPlugin } from "../types"
-import { Root, Html, BlockContent, DefinitionContent, Paragraph, Code } from "mdast"
-import { Element, Literal, Root as HtmlRoot } from "hast"
-import { ReplaceFunction, findAndReplace as mdastFindReplace } from "mdast-util-find-and-replace"
-import { slug as slugAnchor } from "github-slugger"
-import rehypeRaw from "rehype-raw"
-import { SKIP, visit } from "unist-util-visit"
-import path from "path"
-import { splitAnchor } from "../../util/path"
-import { JSResource } from "../../util/resources"
-// @ts-ignore
-import calloutScript from "../../components/scripts/callout.inline.ts"
-// @ts-ignore
-import checkboxScript from "../../components/scripts/checkbox.inline.ts"
-import { FilePath, pathToRoot, slugTag, slugifyFilePath } from "../../util/path"
-import { toHast } from "mdast-util-to-hast"
-import { toHtml } from "hast-util-to-html"
-// import { PhrasingContent } from "mdast-util-find-and-replace/lib"
-import { capitalize } from "../../util/lang"
-import { PluggableList } from "unified"
 // thanks https://github.com/Naraenda/quartz-ascone/blob/v4-ascone/quartz/plugins/transformers/fancytext.ts 
 const charming_js = `
 // minified https://github.com/yuanqing/charming
@@ -53,9 +34,7 @@ export const FancyText: QuartzTransformerPlugin = () => {
     return {
         name: "FancyText",
         textTransform(_ctx, src) {
-            if (src instanceof Buffer) {
-                src = src.toString()
-            }
+            src = String(src)
 
             for (const [sym, effect] of effects) {
                 const regex = new RegExp(`${sym}${sym}([^${sym}]+)${sym}${sym}`, "g")

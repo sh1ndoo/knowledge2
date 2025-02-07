@@ -134,7 +134,9 @@ const config: QuartzConfig = {
       }),
       Plugin.FancyText(),
       Plugin.TelescopicText(),
-      // Plugin.StickyNotes(),
+      Plugin.StickyNotes(),
+      Plugin.ezTextReplacer(),
+      Plugin.BlurText(), // this NEEDS to be in the later half, like right before syntax highlighting
       Plugin.SyntaxHighlighting({
         theme: {
           light: "github-light",
@@ -146,7 +148,7 @@ const config: QuartzConfig = {
       Plugin.GitHubFlavoredMarkdown(),
       Plugin.TableOfContents(),
       Plugin.TableOfContents2(),
-      Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
+      Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }), // this is links.tsx
       Plugin.Description(),
       Plugin.Latex({ renderEngine: "katex" }),
     ],

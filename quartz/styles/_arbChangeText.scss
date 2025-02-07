@@ -1,0 +1,22 @@
+:root{
+    --external-link-icon-width: 1em;
+    --external-link-icon-height: 1em;
+  }
+  
+  // 定义图标的基础样式
+  %icon-base {
+    content: '';
+    width: var(--external-link-icon-width);
+    height: var(--external-link-icon-width);
+    display: inline-block;
+    vertical-align: text-top;
+    margin-left: 3px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+
+.arbc-perplexity::after {
+    @extend %icon-base;
+    background-image: url("data:image/svg+xml,%0A%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20%0A%20%20%20%20%20shape-rendering%3D%22geometricPrecision%22%20%0A%20%20%20%20%20text-rendering%3D%22geometricPrecision%22%20%0A%20%20%20%20%20image-rendering%3D%22optimizeQuality%22%20%0A%20%20%20%20%20fill-rule%3D%22evenodd%22%20%0A%20%20%20%20%20clip-rule%3D%22evenodd%22%20%0A%20%20%20%20%20viewBox%3D%220%200%20512%20509.64%22%20%0A%20%20%20%20%20width%3D%221em%22%20height%3D%221em%22%3E%0A%20%20%3Cpath%20fill%3D%22%231F1F1F%22%20d%3D%22M115.613%200h280.774C459.974%200%20512%2052.025%20512%20115.612v278.415c0%2063.587-52.026%20115.613-115.613%20115.613H115.613C52.026%20509.64%200%20457.614%200%20394.027V115.612C0%2052.025%2052.026%200%20115.613%200z%22/%3E%0A%20%20%3Cpath%20fill%3D%22%23fff%22%20fill-rule%3D%22nonzero%22%20d%3D%22M348.851%20128.063l-68.946%2058.302h68.946v-58.302zm-83.908%2048.709l100.931-85.349v94.942h32.244v143.421h-38.731v90.004l-94.442-86.662v83.946h-17.023v-83.906l-96.596%2086.246v-89.628h-37.445V186.365h38.732V90.768l95.309%2084.958v-83.16h17.023l-.002%2084.206zm-29.209%2026.616c-34.955.02-69.893%200-104.83%200v109.375h20.415v-27.121l84.415-82.254zm41.445%200l82.208%2082.324v27.051h21.708V203.388c-34.617%200-69.274.02-103.916%200zm-42.874-17.023l-64.669-57.646v57.646h64.669zm13.617%20124.076v-95.2l-79.573%2077.516v88.731l79.573-71.047zm17.252-95.022v94.863l77.19%2070.83c0-29.485-.012-58.943-.012-88.425l-77.178-77.268z%22/%3E%0A%3C/svg%3E%0A");
+}
