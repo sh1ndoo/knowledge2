@@ -508,6 +508,7 @@ pre {
   overflow-x: auto;
   border: 1px solid var(--lightgray);
   position: relative;
+  line-height: 1.6em;
 
   &:has(> code.mermaid) {
     border: none;
