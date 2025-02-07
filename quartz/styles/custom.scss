@@ -5,6 +5,13 @@
 @use "./_arbChangeText.scss";
 // put your custom CSS here!
 
+// Slugs on PageLists
+.slug-pagelist {
+  color: var(--gray);
+  font-style: italic;
+  font-size: 70%;
+}
+
 // spoiler stuff
 .spoiler-text {
   transition: filter 0.3s ease;

@@ -95,7 +95,7 @@ export default ((opts?: Partial<TagContentOptions>) => {
                         </>
                       )}
                     </p>
-                    <PageList limit={options.numPages} {...listProps} sort={options?.sort} />
+                    <PageList limit={options.numPages} {...listProps} sort={options?.sort} isTagPage={"true"} />
                   </div>
                 </div>
               )
@@ -121,7 +121,7 @@ export default ((opts?: Partial<TagContentOptions>) => {
             <p>{i18n(cfg.locale).pages.tagContent.itemsUnderTag({ count: pages.length })}</p>
             <p style={{ textAlign: 'center', opacity: 0.7 }}>───✱*.｡:｡✱*.:｡✧*.｡✰*.:｡✧*.｡:｡*.｡✱ ───</p>
             <div>
-              <PageList {...listProps} sort={options?.sort} />
+              <PageList {...listProps} sort={options?.sort} isTagPage={"true"} />
             </div>
           </div>
           <a href={baseDir}>{i18n(cfg.locale).pages.error.home}</a>

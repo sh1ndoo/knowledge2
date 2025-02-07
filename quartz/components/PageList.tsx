@@ -28,9 +28,10 @@ export function byDateAndAlphabetical(cfg: GlobalConfiguration): SortFn {
 type Props = {
   limit?: number
   sort?: SortFn
+  isTagPage?: string
 } & QuartzComponentProps
 
-export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit, sort }: Props) => {
+export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit, sort, isTagPage }: Props) => {
   const sorter = sort ?? byDateAndAlphabetical(cfg)
   let list = allFiles.sort(sorter)
   if (limit) {
@@ -44,7 +45,8 @@ export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit, sort
         const unfilteredTags = page.frontmatter?.tags ?? []
         const _excludeStrings = ["exclude"]
         const tags = unfilteredTags.filter(tag => !_excludeStrings.some(excludeString => tag.includes(excludeString)));
-
+        const slugParts = page.slug?.split("/");
+        const trimmedSlug = slugParts?.slice(0, -1).join("/");  
 
         return (
           <li class="section-li">
@@ -57,6 +59,12 @@ export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit, sort
                   <a href={resolveRelative(fileData.slug!, page.slug!)} class="internal">
                     {title}
                   </a>
+                  {/* Show the trimmed slug only if it's a tag page, and desktoponly is applied by the class */}
+                  {isTagPage && (
+                    <span class="slug-pagelist desktop-only" title="Slug">
+                      ⟡ {trimmedSlug ? `/${trimmedSlug}/` : '/'}
+                    </span>
+                  )}
                 </h3>
               </div>
               <ul class="tags">
