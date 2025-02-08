@@ -1,6 +1,6 @@
 ---
 date created: 2024-08-02T09:44
-date modified: 2025-01-30T15:14
+date modified: 2025-02-06T20:02
 tags:
   - explorer-exclude
   - graph-exclude
@@ -27,6 +27,36 @@ Check out [[Permalinks tracker|all the permalinks]]
 [Live peacefully - Eilleen](https://www.eilleeenz.com/) 
 
 [\[2002.00042\] Gravitational Lensing in Rotating and Twisting Universes](https://arxiv.org/abs/2002.00042)
+
+I am a big Perplexity user. perplexity, pplx, et cetera.
+
+The shocking twist in the story is that 🤫🤫the main character is actually a robot.🤫🤫
+
+🤫🤫Another twist🤫🤫 and spoiler
+
+## Spotify thing 
+
+A regular markdown embed: 
+
+![Spotify|300](https://np.sandbox.eilleeenz.com/api/spotify)
+
+An image with the src pulled in
+
+```
+<img src="https://np.sandbox.eilleeenz.com/api/spotify" alt="SVG Image" style="height: 100px; object-fit: contain;">
+```
+
+Telescoping text example: 
+
+```telescopic
+* lately I am 
+* reading
+  * reading not a lot of [[book club/|books]],
+  * going to functions,
+    * go on short runs,
+    * building [[semiconductors and chips/]],
+    * thinking about the type of person I want to become. 
+```
 
 ## table-a contents
 

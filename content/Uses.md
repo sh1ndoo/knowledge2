@@ -1,6 +1,6 @@
 ---
 date created: 2025-01-31T11:28
-date modified: 2025-01-31T11:43
+date modified: 2025-02-07T16:46
 tags:
 ---
 
@@ -15,6 +15,8 @@ Check out [[How to work on each site]] for more details
 - Blog: [my version of quartz](https://quartz.eilleeenz.com/), simplified a lot.
 - CV: [GitHub - BartoszJarocki/cv: Print-friendly, minimalist CV page](https://github.com/BartoszJarocki/cv)
 - Sandbox: [Google Docs](https://docs.google.com/)
+	- Now playing: [novatorem's now playing embed](https://github.com/novatorem/novatorem/blob/main/SetUp.md) and [[ACTUAL guide to a now playing widget]]
+	- Link shortener: [spoo-me/url-shortener](https://github.com/spoo-me/url-shortener) and [[All about self-hosting spoome]]
 
 ## Hardware
 
@@ -35,3 +37,4 @@ Check out [[How to work on each site]] for more details
 - AI tools: [ChatGPT](https://chatgpt.com/) and [Perplexity](https://www.perplexity.ai/) 
 	- [[how I use gpt to help with programming]]
 	- Getting into [[Ollama|trying out]] [Ollama](https://ollama.com/) 
+- [OneCommander](https://www.onecommander.com/) to replace the file explorer in windows 11 (also [[Uninstalling OneDrive|OneDrive slander]])

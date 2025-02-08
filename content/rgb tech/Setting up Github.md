@@ -1,8 +1,9 @@
 ---
 date created: 2024-05-09T14:44
-date modified: 2025-01-30T13:16
+date modified: 2025-02-02T22:50
 tags:
   - wsl
+  - git
 ---
 
 > [!warning] Actual steps to follow...
@@ -12,18 +13,17 @@ tags:
 
 [Set up Git - GitHub Docs](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git)
 
-git --version to check version
+`git --version` to check version
 
-- set username in git 
-[Set up Git - GitHub Docs](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git)
-
-- set email in git
+- set username in git, set email in git
 	- use the noreply email in settings --> email --> it should just say like noreply or something
 	- [Setting your commit email address - GitHub Docs](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)
 
-authenticate w github from git 
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+```
 
-- did ssh for rgb computer
 - [Caching your GitHub credentials in Git - GitHub Docs](https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-git)
 
 quick diversion to [[Setting up conda anaconda]]
@@ -40,4 +40,16 @@ If GIT installed is >= v2.39.0
 
 ```
 git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe"
+```
+
+---
+
+## Logging into github
+
+[GitHub CLI: gh auth login](https://cli.github.com/manual/gh_auth_login)
+
+Download it for windows and then run this command, and then open the web browser to log in.
+
+```bash
+gh auth login
 ```

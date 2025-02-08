@@ -28,9 +28,9 @@ Forgot to do some ssh config so i'm going back to do that
 
 ## Goals
 
-- [ ] SSH into it
+- [x] SSH into it
 - [x] PiHole
 
 ## Related
 
-[[Home network concepts learned through Pi-hole]] 
+[[Home network concepts learned through Pihole]] 

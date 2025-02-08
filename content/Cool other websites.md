@@ -1,11 +1,30 @@
 ---
 date created: 2024-07-23T01:10
-date modified: 2025-01-31T11:48
+date modified: 2025-02-06T14:30
 tags:
   - external
 ---
 
+So many cool people on the internet...
+
 [[Other digital garden platforms]]
+
+## Cool quartz customizations
+
+Very impressive, guys!
+
+[aarnphm.xyz](https://aarnphm.xyz/ "https://aarnphm.xyz") Aaron Pham 
+
+- [GitHub - aarnphm/sites](https://github.com/aarnphm/sites/tree/main) 
+- [GitHub - aarnphm/aarnphm.github.io](https://github.com/aarnphm/aarnphm.github.io) 
+
+[home](https://8cat.life/) Catcodeme
+
+[GitHub - necauqua/beta-quartz](https://github.com/necauqua/beta-quartz) necauqua
+
+[The Morrowind Modding Wiki](https://morrowind-modding.github.io/) mostly by [MasssiveJuice08](https://github.com/MasssiveJuice08)
+
+[The Design of This Website](https://turntrout.com/design) Turntrout ported from lesswrong
 
 ## Cool personal websites
 
@@ -18,11 +37,6 @@ tags:
 
 - veeery nice
 
-[aarnphm.xyz](https://aarnphm.xyz/ "https://aarnphm.xyz") Aaron Pham 
-
-- [GitHub - aarnphm/sites: generated source of aarnphm\[dot\]xyz](https://github.com/aarnphm/sites/tree/main) 
-- [GitHub - aarnphm/aarnphm.github.io](https://github.com/aarnphm/aarnphm.github.io) 
-
 [John Hays](https://jonhays.net/)
 
  > This is an archive of the extensive online writings of John Hays, born July 8, 1920. These writings were originally posted to FortuneCity around 2001-2003, as a tribute to his late wife Esther.
@@ -34,6 +48,8 @@ tags:
 - especially some of the older versions! Caltech alum too
 
 ## Just cool sites
+
+[Globe.](https://globe.engineer/) I had a great time trying out the explorer! and fastask is quite handy.
 
 ### Programming Languages
 
@@ -52,3 +68,5 @@ tags:
 - Another font! good job Ivan!
 
 [U.S. Graphics Company - TX-02 Berkeley Mono™ Typeface](https://usgraphics.com/products/berkeley-mono) 
+
+[Lexend — Change the way the world reads.](https://www.lexend.com/) 

@@ -1,9 +1,9 @@
 ---
 date created: 2024-07-09T02:02
-date modified: 2025-01-09T19:31
+date modified: 2025-02-02T22:54
 ---
 
-Misc ideas: to be loosely kept up-to-date with my quartz to-do list %% [[Todo]] %%
+Misc ideas, code, and plugins for quartz that I've collected across the web. %% [[Todo]] %%
 
 - [x] emitter: a page with all the exploring-related things? take inspo from custom landing page. --> prob want new file to define layouts
 	- Ended up making a [[Map]]
@@ -12,21 +12,18 @@ Misc ideas: to be loosely kept up-to-date with my quartz to-do list %% [[Todo]] 
 	- ended up being a "copy permalink to clipboard"
 - [-] auto unsubscribe from giscus discussion
 	- temporary solution: a note in the first comment with some info about how to unsubscribe
-- [-] Folder page - consistency for subfolder pages, also show an icon if something is a subfolder?
-	- no index.md in a subfolder --> subfolder name doesn't show in parent folder listing
-	- no title on the subfolder's index.md --> subfolder shows up as "index" in the main folder's page
-	- my weird fix: had to put in some code that makes it only title the folders after the last "/"
-	- There's no way to indicate in the main folder listing that the link is to a subfolder
-		- maybe detect for "/" in the slug and put a little folder icon if so?
-	- **This got addressed as part of quartz 4.4** [feat(folder): add intermediate folders pages by tha00 · Pull Request #1295 · jackyzha0/quartz · GitHub](https://github.com/jackyzha0/quartz/pull/1295) 
+- [x] Folder page - consistency for subfolder pages, also show an icon if something is a subfolder?
+	- **This got addressed as part of quartz 4.4** [feat(folder): add intermediate folders pages by tha00 · Pull Request #1295 · jackyzha0/quartz](https://github.com/jackyzha0/quartz/pull/1295) 
+	- And then this is my fix: [add emoji before folder titles on tab previews and remove index pgs f… · fanteastick/quartz-test@ba1aedc](https://github.com/fanteastick/quartz-test/commit/ba1aedc438113fd4bb323edf5d68ae3b76873a22) 
 
 - [ ] Footnotes are still super jank
 	- if you have a footnote, and you transclude the last heading of a file, the transclude will include the footnotes. 
 	- If you have a transclude that has a footnote, like to another header or something, it only has the `#headername` so it'll just try to go to current page's `#headername` which is incorrect.
 - [ ] make the click to copy permalink thing stop being sticky
-- [ ] make subfolders in the folder listing visually distinct
 - [ ] make strikethrough's [-] look like how they're intended
 - [ ] copy/pull in the telescoping text just because it looks fun af
+- [ ] figure out how cssclasses work. like with RTL text? 
+- [ ] Add something on the left side of 
 
 Also: [[Cool other websites]]
 

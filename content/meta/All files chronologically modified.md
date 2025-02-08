@@ -6,7 +6,7 @@ tags:
   - recents-exclude
 title: All files chronologically modified
 date created: 2024-07-20T22:16
-date modified: 2025-01-31T11:53
+date modified: 2025-02-07T18:03
 ---
 
 Table below made with the help of [Dataview](https://blacksmithgu.github.io/obsidian-dataview/) and [Obsidian Dataview Serializer](https://github.com/dsebastien/obsidian-dataview-serializer). The query:
@@ -36,71 +36,76 @@ Some hidden tags: anything with "exclude" basically
 
 | File                                                                                                                                           | Folder                     | Modified     |
 | ---------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | ------------ |
-| [[Making a separate private quartz blog]]                                                       | meta                       | Jan 31, 2025 |
-| [[Cool other websites]]                                                                                                |                            | Jan 31, 2025 |
-| [[Dataview reference]]                                                                                              | tbd                        | Jan 31, 2025 |
-| [[Uses]]                                                                                                                              |                            | Jan 31, 2025 |
-| [[Goals and progress in 2025]]                                                                                  |                            | Jan 31, 2025 |
-| [[Other digital garden platforms]]                                               | hobbies/cool things online | Jan 31, 2025 |
-| [[My first ever raspberry pi!!!]]                                                   | semiconductors and chips   | Jan 31, 2025 |
-| [[Quartz customization log]]                                                                                      |                            | Jan 31, 2025 |
-| [[Quartz Cheatsheet]]                                                                                                    |                            | Jan 31, 2025 |
-| [[Hiding tags from various components]]                                                           | meta                       | Jan 31, 2025 |
-| [[Code tester]]                                                                                                           | meta                       | Jan 30, 2025 |
-| [[Setting up Github]]                                                                                           | rgb tech                   | Jan 30, 2025 |
-| [[blog ideas]]                                                                                                         | thoughts                   | Jan 29, 2025 |
-| [[Pile the journaling app]]                                                                               | rgb tech                   | Jan 19, 2025 |
-| [[Various areas or fields or categories or]]                             | semiconductors and chips   | Jan 18, 2025 |
-| [[Upgrading to quartz 4.4]]                                                                                    | tbd                        | Jan 18, 2025 |
-| [[How to get over a social media addiction]]                                             | thoughts                   | Jan 16, 2025 |
-| [[How to cram for the GRE (2023)]]                                                                 | thoughts                   | Jan 16, 2025 |
-| [[Misc trip planning tips]]                                                                               | thoughts                   | Jan 9, 2025  |
-| [[Quartz Snippets]]                                                                                                        |                            | Jan 9, 2025  |
-| [[Setting up SSH the way I wanted]]                                                             | linux tech                 | Jan 5, 2025  |
-| [[Installing yarn]]                                                                                               | rgb tech                   | Jan 5, 2025  |
-| [[Ideas for what one can do with a home server]]                                   | linux tech                 | Jan 5, 2025  |
-| [[Avoiding getting doxxed]]                                                                               | thoughts                   | Jan 3, 2025  |
-| [[Civilization 6]]                                                                                                  | hobbies                    | Jan 3, 2025  |
-| [[Custom domains]]                                                                                                 | rgb tech                   | Jan 3, 2025  |
-| [[Canon 5D mk iii]]                                                                                                | hobbies                    | Jan 2, 2025  |
-| [[Mac setup notes]]                                                                                               | mac tech                   | Jan 2, 2025  |
-| [[create cname for subdomain]]                                                                         | mac tech                   | Jan 2, 2025  |
-| [[colima]]                                                                                                                 | mac tech                   | Jan 2, 2025  |
-| [[Reasons why I do not like OneNote (2020-2021)]]                                   | thoughts                   | Dec 17, 2024 |
-| [[Log - how 2024 went]]                                                                                       | thoughts                   | Dec 17, 2024 |
-| [[Crocheting]]                                                                                                          | hobbies                    | Dec 17, 2024 |
-| [[OSINT]]                                                                                                                    | hobbies                    | Dec 15, 2024 |
-| [[Squad Busters by Supercell]]                                                                          | hobbies                    | Dec 15, 2024 |
-| [[TinyTapeout]]                                                                                       | semiconductors and chips   | Nov 29, 2024 |
-| [[Subtitles tracker]]                                                                                               | meta                       | Nov 29, 2024 |
-| [[Every type of flip flop]]                                                               | semiconductors and chips   | Nov 29, 2024 |
-| [[Genshin Impact by miHoYo]]                                                                              | hobbies                    | Sep 17, 2024 |
-| [[Obsidian plugin list]]                                                                                         | meta                       | Sep 15, 2024 |
-| [[brat-ify your python plots - Nicole Kerrison]]                   | hobbies/cool things online | Sep 15, 2024 |
-| [[Command for the type of shell]]                                                                   | rgb tech                   | Sep 12, 2024 |
-| [[Reading list]]                                                                                                    | book club                  | Sep 4, 2024  |
-| [[Tesla's AI slash inference chips]]                                             | semiconductors and chips   | Sep 4, 2024  |
-| [[To plan a fish tank]]                                                                                        | hobbies                    | Sep 4, 2024  |
-| [[Map]]                                                                                                                           | meta                       | Aug 27, 2024 |
-| [[About robots.txt and crawlers]]                                                                       | meta                       | Aug 27, 2024 |
-| [[Permalinks tracker]]                                                                                             | meta                       | Aug 27, 2024 |
-| [[how I use gpt to help with programming]]                                                 | thoughts                   | Aug 21, 2024 |
-| [[Setting up a second computer to contribute to the quartz thing]] | rgb tech                   | Aug 6, 2024  |
-| [[Kicad setup]]                                                                                                       | rgb tech                   | Aug 6, 2024  |
-| [[SMBus, the Smart battery system, and more]]                           | semiconductors and chips   | Aug 5, 2024  |
-| [[Uninstalling OneDrive]]                                                                                   | rgb tech                   | Aug 2, 2024  |
-| [[Keepass setup]]                                                                                                   | rgb tech                   | Aug 2, 2024  |
-| [[Cloning a repo at a specific commit]]                                                            | tbd                        | Aug 1, 2024  |
-| [[How to work on each site]]                                                                                 | meta                       | Jul 31, 2024 |
-| [[Setting up bratify aka Svelte apps]]                                                              | tbd                        | Jul 23, 2024 |
-| [[How do virtual environments compare to conda environments]]           | rgb tech                   | Jul 23, 2024 |
-| [[GitHub secrets]]                                                                                                      | tbd                        | Jul 21, 2024 |
-| [[Setting up conda anaconda]]                                                                           | rgb tech                   | Jul 5, 2024  |
-| [[Things to reinstall after a hard reset of the laptop]]                     | rgb tech                   | Jul 4, 2024  |
-| [[Setting up WSL]]                                                                                                 | rgb tech                   | Jun 25, 2024 |
-| [[House of Leaves 🍂]]                                                                                        | book club                  | Jun 25, 2024 |
-| [[Obsidian Plugin Wishlist]]                                                                             | thoughts                   | Jun 25, 2024 |
-| [[BIST - built-in self test]]                                                           | semiconductors and chips   | Jun 8, 2024  |
-| [[adguard home]]                                                                                                     | mac tech                   | Jun 8, 2024  |
-| [[change origin of your git repo]]                                                                 | mac tech                   | Jun 7, 2024  |
+| [[Uses.md\|Uses]]                                                                                                                              |                            | Feb 7, 2025  |
+| [[semiconductors and chips/Every type of flip flop.md\|Every type of flip flop]]                                                               | semiconductors and chips   | Feb 7, 2025  |
+| [[meta/Image sources and attributions.md\|Image sources and attributions]]                                                                     | meta                       | Feb 7, 2025  |
+| [[Quartz customization log.md\|Quartz customization log]]                                                                                      |                            | Feb 7, 2025  |
+| [[meta/How to work on each site.md\|How to work on each site]]                                                                                 | meta                       | Feb 7, 2025  |
+| [[tbd/ACTUAL guide to a now playing widget.md\|ACTUAL guide to a now playing widget]]                                                          | tbd                        | Feb 7, 2025  |
+| [[Quartz Cheatsheet.md\|Quartz Cheatsheet]]                                                                                                    |                            | Feb 6, 2025  |
+| [[meta/Code tester.md\|Code tester]]                                                                                                           | meta                       | Feb 6, 2025  |
+| [[Cool other websites.md\|Cool other websites]]                                                                                                |                            | Feb 6, 2025  |
+| [[hobbies/Civ notepad mod brainstorm.md\|Civ notepad mod brainstorm]]                                                                          | hobbies                    | Feb 6, 2025  |
+| [[rgb tech/Pile the journaling app.md\|Pile the journaling app]]                                                                               | rgb tech                   | Feb 6, 2025  |
+| [[meta/Obsidian plugin list.md\|Obsidian plugin list]]                                                                                         | meta                       | Feb 6, 2025  |
+| [[tbd/A bunch of kaomoji.md\|A bunch of kaomoji]]                                                                                              | tbd                        | Feb 6, 2025  |
+| [[meta/GoatCounter analytics.md\|GoatCounter analytics]]                                                                                       | meta                       | Feb 5, 2025  |
+| [[tbd/GitHub secrets.md\|GitHub secrets]]                                                                                                      | tbd                        | Feb 5, 2025  |
+| [[hobbies/cool things online/All about self-hosting spoome.md\|All about self-hosting spoome]]                                                 | hobbies/cool things online | Feb 5, 2025  |
+| [[meta/About robots.txt and crawlers.md\|About robots.txt and crawlers]]                                                                       | meta                       | Feb 4, 2025  |
+| [[meta/Map.md\|Map]]                                                                                                                           | meta                       | Feb 4, 2025  |
+| [[meta/Making a separate private quartz blog.md\|Making a separate private quartz blog]]                                                       | meta                       | Feb 2, 2025  |
+| [[Quartz Snippets.md\|Quartz Snippets]]                                                                                                        |                            | Feb 2, 2025  |
+| [[rgb tech/Setting up Github.md\|Setting up Github]]                                                                                           | rgb tech                   | Feb 2, 2025  |
+| [[mac tech/change origin of your git repo.md\|change origin of your git repo]]                                                                 | mac tech                   | Feb 2, 2025  |
+| [[tbd/Untrack something that used to be tracked in git.md\|Untrack something that used to be tracked in git]]                                  | tbd                        | Feb 2, 2025  |
+| [[hobbies/Squad Busters by Supercell.md\|Squad Busters by Supercell]]                                                                          | hobbies                    | Feb 1, 2025  |
+| [[tbd/Dataview reference.md\|Dataview reference]]                                                                                              | tbd                        | Jan 31, 2025 |
+| [[Goals and progress in 2025.md\|Goals and progress in 2025]]                                                                                  |                            | Jan 31, 2025 |
+| [[hobbies/cool things online/Other digital garden platforms.md\|Other digital garden platforms]]                                               | hobbies/cool things online | Jan 31, 2025 |
+| [[semiconductors and chips/My first ever raspberry pi!!!.md\|My first ever raspberry pi!!!]]                                                   | semiconductors and chips   | Jan 31, 2025 |
+| [[meta/Hiding tags from various components.md\|Hiding tags from various components]]                                                           | meta                       | Jan 31, 2025 |
+| [[thoughts/blog ideas.md\|blog ideas]]                                                                                                         | thoughts                   | Jan 29, 2025 |
+| [[semiconductors and chips/Various areas or fields or categories or.md\|Various areas or fields or categories or]]                             | semiconductors and chips   | Jan 18, 2025 |
+| [[tbd/Upgrading to quartz 4.4.md\|Upgrading to quartz 4.4]]                                                                                    | tbd                        | Jan 18, 2025 |
+| [[thoughts/How to get over a social media addiction.md\|How to get over a social media addiction]]                                             | thoughts                   | Jan 16, 2025 |
+| [[thoughts/How to cram for the GRE (2023).md\|How to cram for the GRE (2023)]]                                                                 | thoughts                   | Jan 16, 2025 |
+| [[thoughts/Misc trip planning tips.md\|Misc trip planning tips]]                                                                               | thoughts                   | Jan 9, 2025  |
+| [[linux tech/Setting up SSH the way I wanted.md\|Setting up SSH the way I wanted]]                                                             | linux tech                 | Jan 5, 2025  |
+| [[rgb tech/Installing yarn.md\|Installing yarn]]                                                                                               | rgb tech                   | Jan 5, 2025  |
+| [[linux tech/Ideas for what one can do with a home server.md\|Ideas for what one can do with a home server]]                                   | linux tech                 | Jan 5, 2025  |
+| [[thoughts/Avoiding getting doxxed.md\|Avoiding getting doxxed]]                                                                               | thoughts                   | Jan 3, 2025  |
+| [[hobbies/Civilization 6.md\|Civilization 6]]                                                                                                  | hobbies                    | Jan 3, 2025  |
+| [[rgb tech/Custom domains.md\|Custom domains]]                                                                                                 | rgb tech                   | Jan 3, 2025  |
+| [[hobbies/Canon 5D mk iii.md\|Canon 5D mk iii]]                                                                                                | hobbies                    | Jan 2, 2025  |
+| [[mac tech/create cname for subdomain.md\|create cname for subdomain]]                                                                         | mac tech                   | Jan 2, 2025  |
+| [[mac tech/Mac setup notes.md\|Mac setup notes]]                                                                                               | mac tech                   | Jan 2, 2025  |
+| [[mac tech/colima.md\|colima]]                                                                                                                 | mac tech                   | Jan 2, 2025  |
+| [[thoughts/Reasons why I do not like OneNote (2020-2021).md\|Reasons why I do not like OneNote (2020-2021)]]                                   | thoughts                   | Dec 17, 2024 |
+| [[thoughts/Log - how 2024 went.md\|Log - how 2024 went]]                                                                                       | thoughts                   | Dec 17, 2024 |
+| [[hobbies/Crocheting.md\|Crocheting]]                                                                                                          | hobbies                    | Dec 17, 2024 |
+| [[hobbies/OSINT.md\|OSINT]]                                                                                                                    | hobbies                    | Dec 15, 2024 |
+| [[semiconductors and chips/TinyTapeout.md\|TinyTapeout]]                                                                                       | semiconductors and chips   | Nov 29, 2024 |
+| [[meta/Subtitles tracker.md\|Subtitles tracker]]                                                                                               | meta                       | Nov 29, 2024 |
+| [[hobbies/Genshin Impact by miHoYo.md\|Genshin Impact by miHoYo]]                                                                              | hobbies                    | Sep 17, 2024 |
+| [[hobbies/cool things online/brat-ify your python plots - Nicole Kerrison.md\|brat-ify your python plots - Nicole Kerrison]]                   | hobbies/cool things online | Sep 15, 2024 |
+| [[rgb tech/Command for the type of shell.md\|Command for the type of shell]]                                                                   | rgb tech                   | Sep 12, 2024 |
+| [[hobbies/To plan a fish tank.md\|To plan a fish tank]]                                                                                        | hobbies                    | Sep 4, 2024  |
+| [[meta/Permalinks tracker.md\|Permalinks tracker]]                                                                                             | meta                       | Aug 27, 2024 |
+| [[thoughts/how I use gpt to help with programming.md\|how I use gpt to help with programming]]                                                 | thoughts                   | Aug 21, 2024 |
+| [[rgb tech/Setting up a second computer to contribute to the quartz thing.md\|Setting up a second computer to contribute to the quartz thing]] | rgb tech                   | Aug 6, 2024  |
+| [[rgb tech/Kicad setup.md\|Kicad setup]]                                                                                                       | rgb tech                   | Aug 6, 2024  |
+| [[semiconductors and chips/SMBus, the Smart battery system, and more.md\|SMBus, the Smart battery system, and more]]                           | semiconductors and chips   | Aug 5, 2024  |
+| [[rgb tech/Uninstalling OneDrive.md\|Uninstalling OneDrive]]                                                                                   | rgb tech                   | Aug 2, 2024  |
+| [[rgb tech/Keepass setup.md\|Keepass setup]]                                                                                                   | rgb tech                   | Aug 2, 2024  |
+| [[tbd/Cloning a repo at a specific commit.md\|Cloning a repo at a specific commit]]                                                            | tbd                        | Aug 1, 2024  |
+| [[tbd/Setting up bratify aka Svelte apps.md\|Setting up bratify aka Svelte apps]]                                                              | tbd                        | Jul 23, 2024 |
+| [[rgb tech/How do virtual environments compare to conda environments.md\|How do virtual environments compare to conda environments]]           | rgb tech                   | Jul 23, 2024 |
+| [[rgb tech/Setting up conda anaconda.md\|Setting up conda anaconda]]                                                                           | rgb tech                   | Jul 5, 2024  |
+| [[rgb tech/Things to reinstall after a hard reset of the laptop.md\|Things to reinstall after a hard reset of the laptop]]                     | rgb tech                   | Jul 4, 2024  |
+| [[rgb tech/Setting up WSL.md\|Setting up WSL]]                                                                                                 | rgb tech                   | Jun 25, 2024 |
+| [[book club/House of Leaves 🍂.md\|House of Leaves 🍂]]                                                                                        | book club                  | Jun 25, 2024 |
+| [[thoughts/Obsidian Plugin Wishlist.md\|Obsidian Plugin Wishlist]]                                                                             | thoughts                   | Jun 25, 2024 |
+| [[semiconductors and chips/BIST - built-in self test.md\|BIST - built-in self test]]                                                           | semiconductors and chips   | Jun 8, 2024  |
+| [[mac tech/adguard home.md\|adguard home]]                                                                                                     | mac tech                   | Jun 8, 2024  |
 <!-- SerializedQuery END -->

@@ -1,6 +1,6 @@
 ---
 date created: 2024-06-06T22:54
-date modified: 2025-01-31T10:28
+date modified: 2025-02-06T21:55
 ---
 ## For copy-pasting
 ```
@@ -16,11 +16,11 @@ Titles: in files, folders, etc. Don't use hyphens because I have a lot of replac
 
 ## Sync content changes
 
-### TLDR
+%% ### TLDR %%
 
 Been doing this via VS Code GitHub extension. Very convenient but I just need to pull upstream changes every once in a while. 
 
-### Recommended way
+%% ### Recommended way
 
 ```
 git pull
@@ -48,6 +48,8 @@ If added too many and want to remove from the commit but still preserve local ch
 git reset --mixed HEAD content* (or some other regex)
 ```
 
+ %%
+
 ## Merge changes from upstream
 
 TLDR:
@@ -61,7 +63,7 @@ git merge upstream/v4
 git push
 
 ## if having issues with packages etc
-npm i
+npm ci
 ```
 
 h/t [git - How can I merge changes from an upstream branch to my fork's branch - Stack Overflow](https://stackoverflow.com/questions/52981111/how-can-i-merge-changes-from-an-upstream-branch-to-my-forks-branch)
@@ -110,6 +112,20 @@ Only does a hard reload when certain files change, like `quartz.layout.ts`.
 
 And I recently realized that it's not working on my system at all! The working theory is that WSL makes file-watching events confused.
 
+## CSSClasses
+
+In Obsidian, go to the CSS classes settings and symlink the folder (`content\.obsidian\snippets`) to the quartz/static/styles (should have the `custom.scss` in this folder). And make sure `custom.scss` is `@use yourstylesheet.scss`. 
+
+Then you write classes in the stylesheet. In obsidian, add cssclasses kind of like tags, except you add properties to those like 
+
+```
+.red-text {
+	color:red;
+}
+```
+
+In that case your `cssclasses` is "red-text". 
+
 ## The reason why 2x components w a script doesn't work
 
 First off, putting it in mobile-only and desktop-only is still instantiating it twice, it just has size 0 when in the corresponding layout. 
@@ -157,4 +173,54 @@ ALSO if you use a footnote then the note has to end with a blank line `#` in ord
 
 Also it's finicky with spaces, and needs a blank line underneath to inject the markdown table. 
 
+## Callouts
+
+Easy flow: 
+
+- Creation: type out your text -> highlight the lines -> command palette -> insert callout
+- Removal: remove the callout title line --> highlight the remaining lines -> command palette -> toggle blockquote
+
+[Supported callout types - Obsidian Help](https://help.obsidian.md/Editing+and+formatting/Callouts#Supported+types) 
+
+> [!INFO] Regular callout
+> - Note
+> - abstract, summary, tldr
+> - info
+> - todo
+> - tip, hint, important
+> - success, check, done
+> - question, help, faq
+> - warning, caution, attention
+> - danger, error
+> - bug
+> - example
+> - quote, cite
+> ```
+> Code works too
+> ```
+
+```
+> [!INFO] Regular callout
+> - Note
+> ```
+> Code works too
+> ```
+```
+
+> [!danger]- Default folded callout
+> BOO! 👻🎃
+
+```
+> [!danger]- Default folded callout
+> BOO! 👻🎃
+```
+
+> [!example]+ Default unfolded callout
+> I am an open book 📔
+
+```
+> [!example]+ Default unfolded callout
+> I am an open book 📔
+```
 #
+

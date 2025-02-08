@@ -1,6 +1,6 @@
 ---
 date created: 2024-11-29T00:39
-date modified: 2024-11-29T00:49
+date modified: 2025-02-07T15:15
 tags:
   - external
 subtitle: 👟 but shoes? shoes, i know
@@ -65,3 +65,11 @@ Truth table:
 | 1     | 0     | 1           |
 | 0     | 1     | 1           |
 | 1     | 1     | 0           |
+
+## Bonus: the D-latch
+
+The latch vs the flip flop: latches don't have a clock signal bc the output just changes immediately. Thus, level-sensitive, and flops are state-sensitive. 
+
+[The D Latch | Multivibrators | Electronics Textbook](https://www.allaboutcircuits.com/textbook/digital/chpt-10/d-latch/) 
+
+![[Every type of flip flop_image_5.png]]

@@ -1,6 +1,6 @@
 ---
 date created: 2024-07-31T17:27
-date modified: 2024-12-15T16:33
+date modified: 2025-02-01T22:04
 tags:
   - gaming
 ---
@@ -47,6 +47,10 @@ tags:
 ### How to play doppelgangers battle mod
 - if you need money, get goblins. if you need boots, get chickens.
 - periodically switch to some suppliers so you can stock up on money/healing
+
+### Loot goblins
+- MUST have traders
+- goblins drop every minute. the 1 minute goblins are a lot. saw a crazy strategy where someone camped the center, dropped a super freeze, and then got all the money in the center because the goblins were slowed and in one place. 
 
 ## December 2024 update
 

@@ -1,8 +1,10 @@
 ---
 date created: 2024-05-09T14:44
-date modified: 2024-09-04T23:27
+date modified: 2025-02-02T22:55
 draft: "true"
 ---
+
+
 ## ALL (other) TASKS:
 
  > [!TODO] All tasks
@@ -15,20 +17,11 @@ draft: "true"
 
 ## Quartz
 
-- [x] Subtitles on a quartz page? maybe if subtitle metadata then display it as part of the beforebody in like all caps type of font
-- [ ] change the heading font to something matching
-- [x] Copy URL to clipboard optional component [Tailwind CSS Copy to Clipboard - Flowbite](https://flowbite.com/docs/components/clipboard/)
-- [x] change githubsource component to have input variables for user, repo, branch
-- [x] feature: fix footnotes linking and jumping around
 ## Non-quartz
-- [ ] update cv site favicon [Favicon · Issue #60 · BartoszJarocki/cv · GitHub](https://github.com/BartoszJarocki/cv/issues/60) 
+
 - [x] analytics site --> goatcounter
-- [ ] setup home server
-	- [ ] learn about NAS?
-- [ ] check out [LilyPond – Music notation for everyone](https://lilypond.org/) 
 - [ ] neovim setup
 - [ ] stow dotfiles
-- [ ] pi or esp32
 
 ## Done
 - [x] Custom landing page - maybe for the first one, no source, backlinks, graph and explorer to left

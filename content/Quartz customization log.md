@@ -1,6 +1,6 @@
 ---
 date created: 2024-06-06T22:54
-date modified: 2025-01-31T13:18
+date modified: 2025-02-07T11:41
 tags:
   - recents-exclude
 ---
@@ -22,7 +22,7 @@ Misc things to remember:
 > 
 > Tag and folder pages having consistent names 📂🔖
 > 
-> Random page link (logic not mine originally)
+> Random page link (logic not mine originally, it's from t-schreibs)
 > 
 > Not mine but super useful: OnlyFor, NotFor, ComponentGroup
 > 
@@ -32,37 +32,303 @@ Misc things to remember:
 
 > [!example]- Mentions across the web! 🕸
 > Yippee! I'm grateful to people who use or take inspiration from my changes and give a little shoutout. I'm glad this was useful to you 😄 I'm a mega lurker fr
-> [Quartz Changelog](https://www.stevensmith.me/Notes/Quartz-Changelog) by Steven Smith
-> [Quartz customization log \| Lesley's Digital Garden](https://notes.lesleylai.info/Concepts/Quartz-customization-log) 
-> [Quartz Build and Changelog](https://aneurokumar.github.io/website/Second-Brain/quartz-website-project-notes#changelog) by Anu Kumar (aneurokumar)
-> [Customize your Quartz instance](https://zoylendt.github.io/Posts/quartz-customize) by zoylendt
-> [👋 Welcome \| sidbin](https://sidb.in/)
-> [Credits and Readmes](https://morrowind-modding.github.io/credits-and-readmes/#eilleens-online-everything-notebook) on the Morrowind Modding Wiki
-> [Quartz Cheatsheet](https://abi-is-here.github.io/niwa/software/quartz/quartz-cheatsheet) by abi-is-here
+> 
+> - [Quartz Changelog](https://www.stevensmith.me/Notes/Quartz-Changelog) by Steven Smith
+> - [Quartz customization log \| Lesley's Digital Garden](https://notes.lesleylai.info/Concepts/Quartz-customization-log) 
+> - [Quartz Build and Changelog](https://aneurokumar.github.io/website/Second-Brain/quartz-website-project-notes#changelog) by Anu Kumar (aneurokumar)
+> - [Customize your Quartz instance](https://zoylendt.github.io/Posts/quartz-customize) by zoylendt
+> - [👋 Welcome \| sidbin](https://sidb.in/)
+> - [Credits and Readmes](https://morrowind-modding.github.io/credits-and-readmes/#eilleens-online-everything-notebook) on the Morrowind Modding Wiki
+> - [Quartz Cheatsheet](https://abi-is-here.github.io/niwa/software/quartz/quartz-cheatsheet) by abi-is-here
+
+## Add slugs on tag pages
+
+Added an optional option 😂 on `PageList` called `isTagPage` and pass it on the calls to `PageList` in the `TagContent` page. 
+
+The commit:
+
+Example: [[tags/]]
+
+```tsx title="TagContent.tsx"
+<PageList limit={options.numPages} {...listProps} sort={options?.sort} isTagPage={"true"} />
+// You need to put this twice: once for the "/" which is the main tags page, and once for the "else" section of the code
+```
+
+```tsx title="PageList.tsx" {4}
+type Props = {
+  limit?: number
+  sort?: SortFn
+  isTagPage?: string
+} & QuartzComponentProps
+...
+const slugParts = page.slug?.split("/");
+const trimmedSlug = slugParts?.slice(0, -1).join("/");  
+...
+{/* Show the trimmed slug only if it's a tag page, and desktoponly is applied by the class */}
+{isTagPage && (
+<span class="slug-pagelist desktop-only" title="Slug">
+  ⟡ {trimmedSlug ? `/${trimmedSlug}/` : '/'}
+</span>
+)}
+```
+
+```scss title="custom.scss"
+// Slugs on PageLists
+.slug-pagelist {
+  color: var(--gray);
+  font-style: italic;
+  font-size: 70%;
+}
+```
+
+## Spoilers aka blurred text
+
+I made my first transformer! well... thank you perplexity 😭 and it's loosely based off the `fancytext` transformer from naraenda (described elsewhere in this page). 
+
+1. Read the documentation 😆 - [Making your own plugins](https://quartz.jzhao.xyz/advanced/making-plugins#transformers) - there's some really nice examples!
+2. Identify text
+3. Wrap it around a `<span>` with a class `.spoiler-text`
+4. Target that class in the `custom.scss` and a script that loads after `DOMContentLoaded`
+5. Profit 🤑 (kidding)
+6. Make sure to add to `index.ts` and the `quartz.config.ts`!
+
+```ts title="BlurSpoiler.ts"
+import { QuartzTransformerPlugin } from "../types"
+// @ts-ignore
+import script from "../../components/scripts/_spoiler.inline.ts";
+
+export const BlurText: QuartzTransformerPlugin = () => {
+    const sym = "🤫"
+    return {
+      name: "BlurText",
+      textTransform(_ctx, src) {
+        src = String(src)
+        const regex = new RegExp(`${sym}${sym}([^${sym}]+)${sym}${sym}`, "g")
+        src = src.replace(regex, (value, ...[capture]) => {
+            return `<span class="spoiler-text">${capture}</span>`
+        })
+        return src
+    },
+      externalResources() {
+        return {
+            js: [
+                {
+                    loadTime: "afterDOMReady",
+                    moduleType: "module",
+                    contentType: "inline",
+                    script: script,
+                },
+            ]
+        }
+      },
+    }
+  }
+```
+
+```ts title="spoilers.inline.ts"
+// This was made by perplexity
+function handleSpoilerClick() {
+    const spoilers = document.querySelectorAll(".spoiler-text") as NodeListOf<HTMLElement>
+  
+    spoilers.forEach((spoiler) => {
+      function onClick() {
+        spoiler.classList.toggle("revealed")
+      }
+  
+      spoiler.addEventListener("click", onClick)
+      window.addCleanup(() => spoiler.removeEventListener("click", onClick))
+    })
+  }
+  
+document.addEventListener("DOMContentLoaded", handleSpoilerClick)
+```
+
+## Consistent code size
+
+To stop the weird scrollbar on 1-line code that doesn't have a language defined. When there IS a language, it gets wrapped around a `<figure>` that has a line height of 1.6em. But it's not added to the basic `<code>` by default. 
+
+![[Quartz customization log_image_1.png|400]]
+
+```scss title="base.scss"
+pre {
+  line-height: 1.6em;
+```
+
+After: 
+
+![[Quartz customization log_image_2.png|400]]
+
+## Telescoping text
+
+Telescoping text example: 
+
+```telescopic
+* lately I am 
+* reading
+  * reading not a lot of [[book club/|books]],
+  * going to functions,
+    * go on short runs,
+    * building [[semiconductors and chips/]],
+    * thinking about the type of person I want to become. 
+```
+
+Copied from [Aaron's notes](https://aarnphm.xyz/)! 
+
+Make these three files: [components/styles/telescopic.inline.scss](https://github.com/aarnphm/aarnphm.github.io/blob/52710beda12f4ae45d79d0da6a70f0e6f92af58b/quartz/components/styles/telescopic.inline.scss#L8) [components/scripts/telescopic.inline.ts](https://github.com/aarnphm/aarnphm.github.io/blob/52710beda12f4ae45d79d0da6a70f0e6f92af58b/quartz/components/scripts/telescopic.inline.ts) [plugins/transformers/telescopic.ts](https://github.com/aarnphm/aarnphm.github.io/blob/52710beda12f4ae45d79d0da6a70f0e6f92af58b/quartz/plugins/transformers/telescopic.ts#L61)
+
+`npm i hast-util-find-and-replace`
+
+And add it to the plugins section of `quartz.config.ts` and the `index.ts` of the transformers folder. Need to add the color `--gold: rgba(234, 157, 52, 1);`. 
+
+## Content License
+
+Basically, if you copy any of the content (aka, words written by me for this website), please attribute to me 😄 Added on 2025-02-05. 
+
+<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://quartz.eilleeenz.com/">Eilleen's (online) Everything Notebook</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.eilleeenz.com/">eilleeenz (Eilleen)</a> is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution-ShareAlike 4.0 International<img style="height: 1em;!;margin-left:3px;vertical-align:text-bottom;margin: 0 0 0 3px;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height: 1em;!;margin-left:3px;vertical-align:text-bottom;margin: 0 0 0 3px;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img style="height: 1em;!;margin-left:3px;vertical-align:text-bottom;margin: 0 0 0 3px;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt=""></a></p>
+
+And I added a `CONTENT_LICENSE.txt` to the root directory, and also added this to the README:
+
+> [!NOTE] Licensing changes
+> 
+> - **Content:** The text content in the `content/` folder is licensed under [Creative Commons Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/).
+> 
+> - **Everything else:** uses the MIT License for its components, since it was originally MIT license from https://quartz.jzhao.xyz/.
+
+## Putting my giscus and goatcounter info into a github secret
+
+[[GitHub secrets#Secrets specifically for Quartz|Guide]] for giscus
+
+[[GoatCounter analytics]]: has the info about GoatCounter secret
+
+It's already committed into the world because it took me a while to understand how it works, but at least now I'm not worried that someone blindly copying my layout etc are going to be using my config codes...
+
+## FloatingButtons by catcodeme
+
+I took out the keyboard shortcuts and translated some stuff to English. I also went into the scss and made the hover text the same as `var(--bodyFont)`. Also I changed the "bottom" document query-er into `.footer` and had to add a `footer` class to the footer to make that work. 
+
+[catcodeme.github.io/quartz/components/styles/floatingButtons.scss](https://github.com/CatCodeMe/catcodeme.github.io/blob/770f3f8d1f6849ef40bc06b4300a52b3aecfb551/quartz/components/styles/floatingButtons.scss), and also the `.tsx` and the `.inline.ts` file.
+
+## Goatcounter and the SPA fix by necauqua
+
+Credits: [fix(goatcounter): properly count SPA page hits · necauqua/beta-quartz@cdc5728 · GitHub](https://github.com/necauqua/beta-quartz/commit/cdc5728c5216b8ab1ecd3e7116ae6be05ecc0162) 
+
+Specify it in the config:
+
+```ts title="quartz.config.ts"
+analytics: {
+  provider: "goatcounter",
+  websiteId: '<your id>'
+},
+```
+
+On the goatcounter website, go into the settings and type in the domains that you actually want goatcounter to track. Theoretically this should fix it if someone else forks your page but doesn't change the analytics config. 
+
+```ts title="componentResources.ts"
+else if (cfg.analytics?.provider === "goatcounter") {
+      // goatcounter spa fix ported from https://github.com/necauqua/beta-quartz/commit/cdc5728c5216b8ab1ecd3e7116ae6be05ecc0162 
+    componentResources.afterDOMLoaded.push(`
+        document.addEventListener("nav", () => {
+        const goatcounterScript = document.createElement("script")
+        goatcounterScript.src = "${cfg.analytics.scriptSrc ?? "https://gc.zgo.at/count.js"}"
+        goatcounterScript.async = true
+        goatcounterScript.setAttribute("data-goatcounter",
+          "https://${cfg.analytics.websiteId}.${cfg.analytics.host ?? "goatcounter.com"}/count")
+        document.head.appendChild(goatcounterScript)
+      })
+    `)
+```
 
 ## Differentiate broken internal links
 
-In the script, we had import {load} from 'cheerio'
+In the script, we had `import {load} from 'cheerio'`
 
-So then had to put     "cheerio": "^1.0.0",
+So then had to put     `"cheerio": "^1.0.0",`
 
  in devDependencies in package.json
 
-Which then had to do npm i to reload the package lock
+Which then had to do `npm i` to reload the package lock
 
 and THEN we can update
 
-Everything copied from here: [feat: 内部坏链检测 · CatCodeMe/catcodeme.github.io@39c0c76 · GitHub](https://github.com/CatCodeMe/catcodeme.github.io/commit/39c0c7601e6aeb0e9bf7b9097136b54ce03be901#diff-28802fbf11c83a2eee09623fb192785e7ca92a3f40602a517c011b947a1822d3)
+Everything copied from here: [feat: 内部坏链检测 · CatCodeMe/catcodeme.github.io@39c0c76 · GitHub](https://github.com/CatCodeMe/catcodeme.github.io/commit/39c0c7601e6aeb0e9bf7b9097136b54ce03be901#diff-28802fbf11c83a2eee09623fb192785e7ca92a3f40602a517c011b947a1822d3), and then I made some modifications. 
+
+This is a GitHub action added to the deploy and build flow that checks for broken links and modifies the css there. Slightly dislike that I can't see the changes in my local build? but in vercel, just go into settings and change build command to `npx quartz build && node check-broken-links` or something like that.
+
+To make it unclickable:
+
+```ts title="floatingButtons.inline.ts"
+// Adding in the "prevent default" behavior here but this is actually for broken links
+document.querySelectorAll('.broken-link').forEach(link => {
+  link.addEventListener('click', function(event) {
+    event.preventDefault(); // Prevents the link from navigating
+  });
+});
+```
+
+To make it work with transcludes, I also added this to strip text after the `#`:
+
+```js title="check-broken-links.js"
+$('a.internal:not(.tag-link)').each((_, element) => {
+	const href = $(element).attr('href')
+	if (!href || href.startsWith('#')) return
+
+	// Check if href contains a '#'
+	if (href.includes('#')) {
+		// Remove everything after the '#'
+		const cleanHref = href.split('#')[0];
+		
+		// Update href to the clean version
+		href = cleanHref;
+	}
+```
 
 ## Add favicons to certain external links
 
 This is the commit: [(feat) adding favicons on external links manual · fanteastick/quartz-test@8a55075](https://github.com/fanteastick/quartz-test/commit/8a550751240921707b8478b59df4e69020f658cf) 
 
-The code was mostly shamelessly copied and then slightly modified from aarnphm.xyz: [aarnphm.github.io/quartz/plugins/transformers/links.ts](https://github.com/aarnphm/aarnphm.github.io/blob/41a2f0d23e7d7432d24ecf603e2ffe5a1fccaa12/quartz/plugins/transformers/links.ts) 
+The code was mostly shamelessly copied and then slightly modified from [Aaron's notes](https://aarnphm.xyz/): [aarnphm.github.io/quartz/plugins/transformers/links.ts](https://github.com/aarnphm/aarnphm.github.io/blob/41a2f0d23e7d7432d24ecf603e2ffe5a1fccaa12/quartz/plugins/transformers/links.ts) 
 
 Basically it's just a big if/else, and you have to put in the img files into `/static/favicons`, or the svg path into `components/_svg.tsx`. 
 
 - [ ] future improvement: Try out the turntrout implementation instead:  [TurnTrout.com/quartz/plugins/transformers/linkfavicons.ts](https://github.com/alexander-turner/TurnTrout.com/blob/56b56698937765b35f7156535bf664b905bda526/quartz/plugins/transformers/linkfavicons.ts#L171)
+- [ ] Alternatively the [catcodeme version](https://github.com/CatCodeMe/catcodeme.github.io/blob/770f3f8d1f6849ef40bc06b4300a52b3aecfb551/quartz/styles/external-links.scss):
+
+> [!NOTE]- catcodeme scss
+> 
+> ```scss
+> :root{
+>   --external-link-icon-width: 16px;
+>   --external-link-icon-height: 16px;
+> }
+> 
+> // 定义图标的基础样式
+> %icon-base {
+>   content: '';
+>   width: var(--external-link-icon-width);
+>   height: var(--external-link-icon-width);
+>   display: inline-block;
+>   vertical-align: text-top;
+>   margin-left: 4px;
+>   background-size: contain;
+>   background-repeat: no-repeat;
+> }
+> 
+> a.external {
+>     // 默认所有外部链接显示箭头
+>     &::after {
+>       content: '↗';
+>       margin-left: 4px;
+>     }
+> 
+>     // 特定域名的链接使用自定义图标(会覆盖默认箭头)
+>     &[href*="github.com"]::after {
+>       @extend %icon-base;
+>       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'%3E%3Cpath fill='%23214257' d='M14 2A10 10 0 0 0 2 14c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 14A10 10 0 0 0 14 2'/%3E%3C/svg%3E");
+>     }
+> ```
+> 
+
+I'll try to write down [[Image sources and attributions]], which also has the workflow. 
 
 ## Add a folder emoji before subfolders in a folder listing
 
@@ -125,37 +391,8 @@ Also added the emoji in the preview tab titles:
                   title: `📂 ${folder.replace(/-/g, " ")}`,
                   tags: [],
                 },
-              }),
-            ];
-          }
-        }),
-      )            
-
 ```
 
-## Randomize page title
-
-- [ ] to do: make it change on pageload instead of every time it gets pushed. 
-
-```ts title="quartz.config.ts"
-const possiblePageTitles = [
-  "(｡•ㅅ•｡)~✧",
-  "૭( ᵕ•̀ᵕ•́૭)",
-  "(૭ •́ ᵕ•̀ )૭",
-  "(๑>؂·̀๑)",
-  "৻(•̀ᗜ•́৻)",
-  "٩(•̤̀ᵕ•̤́๑)",
-  "(｡•́︿•̀｡)",
-  "ᕙ( •̀ ᗜ •́ )ᕗ"
-];
-function getRandomPageTitle(): string {
-  return possiblePageTitles[Math.floor(Math.random() * possiblePageTitles.length)];
-}
-
-const config: QuartzConfig = {
-  configuration: {
-    pageTitle: getRandomPageTitle(),
-```
 ## Small padding in the layout
 
 Just to make it look a bit better.
@@ -181,6 +418,13 @@ Because it looks messy, idk.
 .page-listing .tag-link {
   display: none;
 }
+```
+
+Also, to remove the blank column in the list pages:
+
+```scss title="listPage.scss"
+// grid-template-columns: fit-content(8em) 3fr 1fr; original
+grid-template-columns: 8em 3fr;
 ```
 ## Merging in the 4.3.1 ➡ 4.4 layout upgrades etc
 
@@ -234,7 +478,7 @@ Daniel Hintz
  <iframe src="https://dhintz137.github.io/Embedding_Presentation/" width="100%" height="600px" style="border: none; display: block;" onload="iframeLoaded()"></iframe>
 ```
 
-### Skipping footnotes in a transclude except this isn't working yet
+## Skipping footnotes in a transclude except this isn't working yet
 
 I think this is unintended behavior. The transclude code in `renderPage` checks for the next heading of the same level or higher. But footnotes are in a `<section>` so it just added the footnote to the transclude if it was the last header. 
 
@@ -676,7 +920,7 @@ Also added a part where it avoids giving you the same page as the current.
 
 2024-07-21 update - ended up adding this to the footer component. 
 
-## ComponentGroup
+%% ## ComponentGroup
 
 Works great with simple components but does NOT work well with TOC, explorer...
 
@@ -707,11 +951,13 @@ export default ((components?: QuartzComponent[]) => {
 // Copied from https://github.com/Naraenda/quartz-ascone/commit/fc70036371523ddb78b6eee895e374ab73d28519#diff-03e64821c7ee39078af3ee5bdd6f2a0765a9bae0b96160e662f275ef7ac7d0cc
 ```
 
+ %%
+
 ## Giscus Comments
 
 Originally this was based on code from [morrowind-modding/morrowind-modding.github.io@1bad00e · GitHub](https://github.com/morrowind-modding/morrowind-modding.github.io/commit/1bad00e1e8b27ee2dc85ab08dd2da5b75642f5b3). Later it got added as part of the base quartz code so I had to slightly modify it, because I have it set up to only create one discussion for the whole quartz. This adds an extra property or two. 
 
-- [ ] Consider - put the ID or some sort of git secret stuff so other people copy-pasting code won't accidentally crosspost to my discussions. 
+- [x] Consider - put the ID or some sort of git secret stuff so other people copy-pasting code won't accidentally crosspost to my discussions. ⏩ I made it work with [[GitHub secrets#Secrets specifically for Quartz|GitHub secrets]]
 ### July 2024 update - modifying the built-in comments component
 
 My setup - only one discussion for the entire quartz. So I need the data-term attribute, and things got refactored a bit. 
@@ -724,6 +970,21 @@ In `comments.inline.ts`:
 
 - add `term: string` to the GiscusElement dataset, and 
 - `giscusScript.setAttribute("data-term", giscusContainer.dataset.term)`
+
+### Feb 2025 update: positive check frontmatter 
+
+Instead of default comments on, this defaults comments off unless frontmatter `comments: true`.
+
+```tsx title="Comments.tsx"
+export default ((opts: Options) => {
+  const Comments: QuartzComponent = ({ displayClass, fileData, cfg }: QuartzComponentProps) => {
+    // 2025-02-04: actually, I only want comments if I choose to enable them in frontmatter
+    const enableComment: boolean = 
+      fileData.frontmatter?.comments === "true"
+    if (!enableComment) {
+      return <></>
+    }
+```
 
 ## GetDate gives the modified date rather than created
 
@@ -752,7 +1013,7 @@ return (
 		<PageList {...listProps} />
 	  </div>
 	</div>
-+	<a href={baseDir}>{i18n(cfg.locale).pages.error.home}</a>
++	<a href={baseDir} class="internal">{i18n(cfg.locale).pages.error.home}</a>
 +	<hr />
   </div>
 ```
@@ -761,7 +1022,7 @@ And in `en-US.ts` I changed the `pages:error:home` to `home: "🏡 Return to Hom
 
 ## OnlyFor component and in layout
 
-Code copied from: [File not found · GitHub](https://github.com/t-schreibs/sound-accumulator/blob/main/quartz%2Fcomponents%2FOnlyFor.tsx) + changing it into a list version
+Code copied from: [t-schreibs · sound-accumulator · OnlyFor.tsx · GitHub](https://github.com/t-schreibs/sound-accumulator/blob/main/quartz%2Fcomponents%2FOnlyFor.tsx) + changing it into a list of titles instead of just one title
 
 ```tsx title="OnlyFor.tsx"
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
@@ -907,6 +1168,120 @@ Add this to the correct part of the component:
 
 Added an ASCII art snake with a text bubble. Annoying to do because the code in `404.tsx` is wrapped around `<article>` tags, which then makes whitespaces not really work. Did it by putting my code block into my index, looking at the generated html for the snake code block, and copying it into the `components/404.tsx` file. Then I used `<br>` and made everything one line to preserve the leading whitespaces.
 
+### 404 page layout hack
+
+Thank you Perplexity! Added on 2025-02-06
+
+With the introduction of the tablet layout and left sidebar being empty, I thought it looked bad so I wanted to skip the tablet layout only on the 404 page. 
+
+Change the ID on the 404 page `<body>` by replacing html after the `renderPage`: 
+
+```tsx title="404.tsx"
+  const prepageContent = renderPage(cfg, slug, componentData, opts, externalResources);
+  const pageContent = prepageContent.replace('<div id="quartz-body">', '<div id="quartz-404-body">');
+  return [
+	await write({
+	  ctx,
+	  content: pageContent,
+	  slug,
+	  ext: ".html",
+	}),
+```
+
+In the scss, make a new section for `.page#quartz-404-body` and remove all the mobile styling for somethings, set the sidebar height to 0, merge some stuff for `@media all and ($tablet), @media all and ($mobile)`:
+
+> [!TIP]- The scss
+> ```scss title="base.scss"
+> .page {
+>   // This will give special grid styling to the 404 page, which is just skipping the tablet layout
+>   // because it looked weird when there was nothing in the left sidebar
+>   & > #quartz-404-body {
+>     display: grid;
+>     grid-template-columns: #{map.get($desktopGrid, templateColumns)};
+>     grid-template-rows: #{map.get($desktopGrid, templateRows)};
+>     column-gap: #{map.get($desktopGrid, columnGap)};
+>     row-gap: #{map.get($desktopGrid, rowGap)};
+>     grid-template-areas: #{map.get($desktopGrid, templateAreas)};
+> 
+>     @media all and ($tablet), all and ($mobile) {
+>       grid-template-columns: #{map.get($mobileGrid, templateColumns)};
+>       grid-template-rows: #{map.get($mobileGrid, templateRows)};
+>       column-gap: #{map.get($mobileGrid, columnGap)};
+>       row-gap: #{map.get($mobileGrid, rowGap)};
+>       grid-template-areas: #{map.get($mobileGrid, templateAreas)};
+>     }
+> 
+>     // Remove or adjust other styles as needed
+>     padding: 0 1rem;
+>     margin-right: 10px;
+>   
+>     & .sidebar {
+>       gap: 2rem;
+>       top: 0;
+>       box-sizing: border-box;
+>       padding: $topSpacing 2rem 2rem 2rem;
+>       display: flex;
+>       height: 0vh;
+>       position: sticky;
+>     }
+>   
+>     & .sidebar.left {
+>       z-index: 1;
+>       grid-area: grid-sidebar-left;
+>       flex-direction: column;
+>       @media all and ($tablet), all and ($mobile) {
+>         gap: 0;
+>         align-items: center;
+>         position: initial;
+>         display: flex;
+>         // height: unset;
+>         flex-direction: row;
+>         padding: 0;
+>         padding-top: 2rem;
+>       }
+>     }
+>   
+>     & .sidebar.right {
+>       grid-area: grid-sidebar-right;
+>       margin-right: 0;
+>       flex-direction: column;
+>     }
+>   
+>     & .page-header,
+>     & .page-footer {
+>       margin-top: 1rem;
+>       @media all and ($tablet), all and ($mobile) {
+>         display: none;
+>       }
+>     }
+>   
+>     & .page-header {
+>       grid-area: grid-header;
+>       margin: $topSpacing 0 0 0;
+>     }
+>   
+>     & .center > article {
+>       grid-area: grid-center;
+>     }
+>   
+>     & footer {
+>       grid-area: grid-footer;
+>     }
+>   
+>     & .center,
+>     & footer {
+>       max-width: 100%;
+>       min-width: 100%;
+>       margin-left: auto;
+>       margin-right: auto;
+>     }
+>     & footer {
+>       margin-left: 0;
+>     }  
+>   }
+> }
+> ```
+
 ## Making a second table of contents component
 
 [hack: TableOfContents2 additions · fanteastick/quartz-test@7a482cf · GitHub](https://github.com/fanteastick/quartz-test/commit/7a482cfe7772142f6a6037d81e1ca44ef971a83b#diff-8a7a3a35709b33dd90a3a46deb08d6326bc17606dd172bfd8eaf82af52faa0f1) 
@@ -983,6 +1358,8 @@ document.addEventListener("nav", () => {
 })
 ```
 
+Also you need to add it to transformers list in `quartz.config.ts`
+
 ## Underline external links in page bodies, and lighter
 
 Added a class to the `a` section in `base.scss`
@@ -1006,42 +1383,44 @@ const classes = (node.properties.className ?? []) as string[]
 ```
 
 ## Change the colors of the interface
-```ts title="quartz.config.ts"
-colors: {
-        // lightMode: {
-        //   light: "#faf8f8",
-        //   lightgray: "#e5e5e5",
-        //   gray: "#b8b8b8",
-        //   darkgray: "#4e4e4e",
-        //   dark: "#2b2b2b",
-        //   secondary: "#284b63",
-        //   tertiary: "#84a59d",
-        //   highlight: "rgba(143, 159, 169, 0.15)",
-        // },
-      //   'desert-storm': {
-      //     '50': '#fafbf9',
-      //     '100': '#eff2ec',
-      //     '200': '#dde2d5',
-      //     '300': '#bfc9b0',
-      //     '400': '#9bab85',
-      //     '500': '#809166',
-      //     '600': '#677851',
-      //     '700': '#546242',
-      //     '800': '#475339',
-      //     '900': '#3e4733',
-      //     '950': '#292f22',
-      // },
-        lightMode: {
-          light: "#eff2ec",
-          lightgray: "#dde2d5",
-          gray: "#9bab85",
-          darkgray: "#475339",
-          dark: "#292f22",
-          secondary: "#3e4733",
-          tertiary: "#84a59d",
-          highlight: "rgba(191,201,176, 0.25)",
-        },
-```
+
+> [!TIP]- Color hexes in `quartz.config.ts`
+> ```ts title="quartz.config.ts"
+> colors: {
+> 	// lightMode: {
+> 	//   light: "#faf8f8",
+> 	//   lightgray: "#e5e5e5",
+> 	//   gray: "#b8b8b8",
+> 	//   darkgray: "#4e4e4e",
+> 	//   dark: "#2b2b2b",
+> 	//   secondary: "#284b63",
+> 	//   tertiary: "#84a59d",
+> 	//   highlight: "rgba(143, 159, 169, 0.15)",
+> 	// },
+>   //   'desert-storm': {
+>   //     '50': '#fafbf9',
+>   //     '100': '#eff2ec',
+>   //     '200': '#dde2d5',
+>   //     '300': '#bfc9b0',
+>   //     '400': '#9bab85',
+>   //     '500': '#809166',
+>   //     '600': '#677851',
+>   //     '700': '#546242',
+>   //     '800': '#475339',
+>   //     '900': '#3e4733',
+>   //     '950': '#292f22',
+>   // },
+> 	lightMode: {
+> 	  light: "#eff2ec",
+> 	  lightgray: "#dde2d5",
+> 	  gray: "#9bab85",
+> 	  darkgray: "#475339",
+> 	  dark: "#292f22",
+> 	  secondary: "#3e4733",
+> 	  tertiary: "#84a59d",
+> 	  highlight: "rgba(191,201,176, 0.25)",
+> 	},
+> ```
 
 Commented out `lightMode` is the original. Commented out `desert-storm` is the color scheme taken from [uicolors.app/create](https://uicolors.app/). In the actual thing, secondary should be darker than tertiary. 
 
@@ -1256,11 +1635,14 @@ if (fileData.dates && fileData.slug !== "index") {
 }
 ```
 
-## Increase width of the date column on list pages
+## List page column changes
+
+This removes the space that was held for the tags, and makes the space for the date wider so it doesn't hop to the next line. 
 
 ```scss title="listPage.scss"
-grid-template-columns: 8em 3fr 1fr;
-// original: 6em
+grid-template-columns: 8em 3fr;
+// original: 6em 3fr 1fr?
+// 
 ```
 
 ## Changed favicon by the image path, also the banner
@@ -1276,6 +1658,31 @@ const ogImagePath = `https://${cfg.baseUrl}/static/hello-there-banner.png`
 const config: QuartzConfig = {
   configuration: {
     pageTitle: "(°·._.·°)", // or whatever else you want
+```
+
+### Randomize page title
+
+- [ ] to do: make it change on pageload instead of every time it gets pushed. 
+
+```ts title="quartz.config.ts"
+const possiblePageTitles = [
+  "(｡•ㅅ•｡)~✧",
+  "૭( ᵕ•̀ᵕ•́૭)",
+  "(૭ •́ ᵕ•̀ )૭",
+  "(๑>؂·̀๑)",
+  "৻(•̀ᗜ•́৻)",
+  "٩(•̤̀ᵕ•̤́๑)",
+  "(｡•́︿•̀｡)",
+  "ᕙ( •̀ ᗜ •́ )ᕗ"
+  etc etc etc
+];
+function getRandomPageTitle(): string {
+  return possiblePageTitles[Math.floor(Math.random() * possiblePageTitles.length)];
+}
+
+const config: QuartzConfig = {
+  configuration: {
+    pageTitle: getRandomPageTitle(),
 ```
 
 ## Change baseUrl
