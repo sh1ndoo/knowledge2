@@ -45,7 +45,7 @@ export default ((userOpts?: Partial<Options>) => {
         <h3>{opts.title ?? i18n(cfg.locale).components.recentNotes.title} 
           <span class="see-more">
             <span class="see-more">  </span>
-            <a href="https://github.com/fanteastick/quartz-test/commits/v4/content?author=fanteastick" class="external">see history</a>
+            <a href="https://github.com/fanteastick/quartz-test/commits/v4/content?author=fanteastick" class="external see-more">see history</a>
             <svg 
               class="external-icon"
               viewBox= "0 0 512 512"

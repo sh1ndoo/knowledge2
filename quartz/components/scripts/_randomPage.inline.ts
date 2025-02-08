@@ -4,7 +4,7 @@ function getRandomInt(max: number) {
     return Math.floor(Math.random() * max);
   }
 
-async function navigateToRandomPage() {
+export async function navigateToRandomPage() {
     const fullSlug = getFullSlug(window)
     const data = await fetchData
     const allPosts = Object.keys(data).map((slug) => simplifySlug(slug as FullSlug))

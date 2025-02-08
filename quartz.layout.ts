@@ -125,17 +125,11 @@ export const defaultContentPageLayout: PageLayout = {
     ]),
     Component.DesktopOnly(Component.OnlyFor({titles: [homepageTitle]}, Component.Explorer(explorerConfig))),
     Component.DesktopOnly(Component.TableOfContents2()),
-    // Component.DesktopOnly(Component.NotFor({titles: [homepageTitle]}, Component.FloatingButtons({position: 'right'}))),
     Component.FloatingButtons({position: 'right'}),
   ],
   right: [
     Component.Graph(graphConfig),
     Component.Backlinks(backlinksConfig),
-    // Component.GithubSource(githubSourceConfig),
-    // Component.Column([
-    //     Component.Backlinks(backlinksConfig),
-    //     Component.GithubSource(githubSourceConfig),
-    //   ]),
   ],
 }
 // components for pages that display lists of pages  (e.g. tags or folders) 
@@ -149,6 +143,7 @@ export const defaultListPageLayout: PageLayout = {
       Component.Darkmode(),
       Component.Search(),
     ]),
+    Component.FloatingButtons({position: 'right'}),
   ],
   right: [],
 }

@@ -1,5 +1,6 @@
 // original source: 2/2/25
 // https://github.com/CatCodeMe/catcodeme.github.io/blob/770f3f8d1f6849ef40bc06b4300a52b3aecfb551/quartz/components/scripts/floatingButtons.inline.ts
+import { navigateToRandomPage } from "./_randomPage.inline";
 
 // 全局变量跟踪状态
 // let activeModal: HTMLElement | null = null
@@ -142,7 +143,9 @@ function setupFloatingButtons() {
 
 
   // 处理图谱显示
-    
+    // Turns out, this only works if you already have the graph on the page. So you can't use this as a full replacement for the graph component.
+    // potential workaround: create a hidden graph component that's hidden on everything?
+    // So you would want the little graph to be always hidden, but the large graph modal would need to be visible despite that, when called on. 
   function toggleGraph() {
     const graphComponent = document.querySelector('.graph') as HTMLElement
     if (!graphComponent) return
@@ -211,6 +214,9 @@ function setupFloatingButtons() {
     //   case 'shortcuts':
     //     showShortcutSheet()
     //     break
+      case 'randomPgFloating':
+        navigateToRandomPage()
+        break
     }
   }
 

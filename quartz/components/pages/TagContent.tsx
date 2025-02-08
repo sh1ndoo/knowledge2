@@ -119,7 +119,7 @@ export default ((opts?: Partial<TagContentOptions>) => {
           <article class="popover-hint">{content}</article>
           <div class="page-listing">
             <p>{i18n(cfg.locale).pages.tagContent.itemsUnderTag({ count: pages.length })}</p>
-            <p style={{ textAlign: 'center', opacity: 0.7 }}>───✱*.｡:｡✱*.:｡✧*.｡✰*.:｡✧*.｡:｡*.｡✱ ───</p>
+            <p class="page-sparkle-divider">───✱*.｡:｡✱*.:｡✧*.｡✰*.:｡✧*.｡:｡*.｡✱ ───</p>
             <div>
               <PageList {...listProps} sort={options?.sort} isTagPage={"true"} />
             </div>

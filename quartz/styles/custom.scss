@@ -5,6 +5,15 @@
 @use "./_arbChangeText.scss";
 // put your custom CSS here!
 
+// the cute page dividers
+.page-sparkle-divider {
+  text-align: center;
+  color: var(--gray)
+}
+
+a.see-more {
+  color: var(--gray)
+}
 // Slugs on PageLists
 .slug-pagelist {
   color: var(--gray);
