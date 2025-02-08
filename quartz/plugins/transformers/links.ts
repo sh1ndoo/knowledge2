@@ -236,7 +236,8 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options>> = (userOpts) 
                   ctx.node.children.push(
                     createIconElement("/static/favicons/wikipedia.avif", "Wikipedia"),
                   )
-                } else if (linkTypes.isApexDomain && file.data.slug! !== "index") {
+                // } else if (linkTypes.isApexDomain && file.data.slug! !== "index") {
+                } else if (linkTypes.isApexDomain) {
                   ctx.node.children.push(createIconElement("/static/profile_pic_2025.png", "apex"))
                 } else if (linkTypes.isArxiv) {
                   ctx.node.children.push(createIconElement("/static/favicons/arxiv.avif", "arXiv"))
