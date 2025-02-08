@@ -124,7 +124,7 @@ export default ((opts?: Partial<TagContentOptions>) => {
               <PageList {...listProps} sort={options?.sort} isTagPage={"true"} />
             </div>
           </div>
-          <a href={baseDir}>{i18n(cfg.locale).pages.error.home}</a>
+          <a href={baseDir} class="internal">{i18n(cfg.locale).pages.error.home}</a>
           <hr />
         </div>
       )

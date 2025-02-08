@@ -128,7 +128,7 @@ export default ((opts?: Partial<FolderContentOptions>) => {
             <PageList {...listProps} />
           </div>
         </div>
-        <a href={baseDir}>{i18n(cfg.locale).pages.error.home}</a>
+        <a href={baseDir} class="internal">{i18n(cfg.locale).pages.error.home}</a>
         <hr />
       </div>
     )
