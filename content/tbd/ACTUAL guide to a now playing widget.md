@@ -1,6 +1,6 @@
 ---
 date created: 2025-02-04T14:41
-date modified: 2025-02-07T01:20
+date modified: 2025-02-13T11:52
 tags:
   - guide
 permalink: perma/7447693
@@ -70,16 +70,13 @@ Copy down your refresh token somewhere safe.
 ## Step 2: Deploy widget
 
 1. Make an account with [Vercel](https://vercel.com/)
-2. Git clone this repo on your machine: [GitHub - novatorem/novatorem: Dynamic realtime profile ReadMe linked with spotify](https://github.com/novatorem/novatorem) 
-3. Create a new repo where you want your files to be, and copy down the link to clone it. 
-4. `git remote set-url origin <the clone link for your new repo>`
-5. Push the code to Github
-6. In Vercel: Add new -> Project -> Import Git Repository (the one you just made and pushed) -> Add environment variables
+2. Click "deploy" on this page: [GitHub - novatorem/novatorem: Dynamic realtime profile ReadMe linked with spotify](https://github.com/novatorem/novatorem) 
+3. Add environment variables
 	1. `{SPOTIFY_REFRESH_TOKEN}` (refresh token from the output of the `curl` command in Command Prompt)
 	2. `{SPOTIFY_CLIENT_ID}` (client ID from the dashboard)
 	3. `{SPOTIFY_SECRET_ID}` (client secret from the dashboard)
-7. Deploy
-	1. QOL change: after deploying, click add domain, which brings you to the domain dashboard. Select the default domain it gave -> edit -> redirect to -> `{the domain that was given to your project}/api/spotify` and press enter. So for example sgahahja.vercel.app/api/spotify
+4. Deploy
+	1. QOL change: after deploying, click add domain, which brings you to the domain dashboard. Select the default domain it gave -> edit -> redirect to -> `{the domain that was given to your project}/api/spotify` and press enter. So for example your-domain.vercel.app/api/spotify
 	2. Then you can select the status code, I like doing `308 Permanent Redirect`. 
 	3. After this you can add your own domains like normal.
 	4. Below is a file you can add to also redirect it.
@@ -88,12 +85,13 @@ Copy down your refresh token somewhere safe.
   "redirects": [
     {
       "source": "/",
-      "destination": "https://np.sandbox.eilleeenz.com/api/spotify"
+      "destination": "https://your-domain.com/api/spotify"
     }
   ]
 }
 ```
-1. Check out your svg at one of the domains, which should redirect to the `/api/spotify`! The base link will actually have no content...
+5. Check out your svg at one of the domains, which should redirect to the `/api/spotify`! The base link will actually have no content...
+6. Git clone the created repository from GitHub onto your local machine to start editing. 
 ## Step 3: Code changes
 
 I made a few changes to the code because there was some missing error handling that I noticed, like if there's no previous song, or if I'm listening to a podcast. In those cases, I made it show "Nothing currently playing" with my default image. 
@@ -148,7 +146,7 @@ if "items" in recentPlays and recentPlays["items"]:
 > # Spotify scopes:
 > #   user-read-currently-playing
 > #   user-read-recently-played
-> PLACEHOLDER_URL = "https://sandbox.eilleeenz.com"
+> PLACEHOLDER_URL = "https://your-domain.com"
 > SPOTIFY_CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID")
 > SPOTIFY_SECRET_ID = os.getenv("SPOTIFY_SECRET_ID")
 > SPOTIFY_REFRESH_TOKEN = os.getenv("SPOTIFY_REFRESH_TOKEN")
@@ -364,7 +362,8 @@ Unfortunately I have no idea how to preview before deploying, so I had to deploy
 
 After extensive fiddling, this was my code:
 
-<script src="https://gist.github.com/fanteastick/3fdce32a5816a78a3b0623d3dbffcf61.js"></script>
+> [!Warning]- Gist
+> <script src="https://gist.github.com/fanteastick/3fdce32a5816a78a3b0623d3dbffcf61.js"></script>
 
 %% [The spotify light theme for a now playing svg widget · GitHub](https://gist.github.com/fanteastick/3fdce32a5816a78a3b0623d3dbffcf61) %%
 
@@ -378,7 +377,9 @@ You can embed it into a markdown document (like Quartz, or a GitHub readme) or y
 <img src="https://your-domain.com/api/spotify" alt="SVG Image" style="height: 100px; object-fit: contain;">
 ```
 
-Sometimes with long song titles it's a bit strange. It's supposed to overflow with an ellipsis, but when I checked on my phone the ellipsis didn't work. If you want to change the size, you need to change two parts: 
+Sometimes with long song titles it's a bit strange. It's supposed to overflow with an ellipsis, but when I checked on my phone the ellipsis didn't work. 
+
+If you want to change the size, you need to change two parts: the `<svg>` and the `<foreignObject>`. 
 
 ```j2 title="spotify.html.j2"
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="100">

@@ -1,6 +1,6 @@
 ---
 date created: 2024-06-06T22:54
-date modified: 2025-02-07T11:41
+date modified: 2025-02-13T11:39
 tags:
   - recents-exclude
 ---
@@ -145,13 +145,13 @@ document.addEventListener("DOMContentLoaded", handleSpoilerClick)
 
 ## Consistent code size
 
-To stop the weird scrollbar on 1-line code that doesn't have a language defined. When there IS a language, it gets wrapped around a `<figure>` that has a line height of 1.6em. But it's not added to the basic `<code>` by default. 
+To stop the weird scrollbar on 1-line code that doesn't have a language defined. When there IS a language, it gets wrapped around a `<figure>` that has a line height of 1.6em, and the `<pre>` has a height of 1.3em. But it's not added to the basic `<pre>` by default. 
 
 ![[Quartz customization log_image_1.png|400]]
 
 ```scss title="base.scss"
 pre {
-  line-height: 1.6em;
+  line-height: 1.3em;
 ```
 
 After: 
@@ -1099,7 +1099,6 @@ Same code as above but reversing the checker.
     fill: var(--dark);
   }
 }
-
 ```
 -  at the top, add svg icon, add a "see more" link
 ```tsx title="RecentNotes.tsx"

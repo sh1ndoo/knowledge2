@@ -1,9 +1,10 @@
 ---
 date created: 2025-02-06T00:09
-date modified: 2025-02-06T11:05
+date modified: 2025-02-11T11:42
 tags:
   - gaming
 ---
+# The proposal 💍
 
 The general idea is that there's a lot going on in a single [[Civilization 6]] game. Lots to keep track of, which means it's easy to get distracted. So it'd be nice if you could have a notepad of recurring reminders every turn. 
 
@@ -47,3 +48,27 @@ Has a huge list:
 9. [How to Create a Leader](https://civilization.fandom.com/wiki/Modding_\(Civ6\)/How_to_Create_a_Leader "Modding (Civ6)/How to Create a Leader")
 10. [How to Create a Technology or Civic](https://civilization.fandom.com/wiki/Modding_\(Civ6\)/How_to_Create_a_Technology_or_Civic "Modding (Civ6)/How to Create a Technology or Civic")
 11. [How to Create a Great Person](https://civilization.fandom.com/wiki/Modding_\(Civ6\)/How_to_Create_a_Great_Person "Modding (Civ6)/How to Create a Great Person")
+
+# How to do it
+
+## Get modbuddy
+
+Steam -> library -> open the tools, and then search for civ 6. You need to download both the assets and the tools. 
+
+![[Civ notepad mod brainstorm_image_1.png|300]]
+
+Launch the tools and open ModBuddy. 
+
+![[Civ notepad mod brainstorm_image_2.png|300]]
+
+### Uninstall instructions for later
+
+In the Steam library, select uninstall. 
+
+Remove additional files that might be at these two paths:
+
+```
+C:\Program Files (x86)\Steam\steamapps\common\Sid Meier's Civilization VI SDK Assets
+
+C:\Users\YourUsername\AppData\Local\Firaxis Games
+```

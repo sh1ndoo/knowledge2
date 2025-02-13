@@ -15,7 +15,7 @@ title: Blog Ideas
 	- multivariable calculus and also series in regular calculus
 	- statistical distributions
 		- Consider: it's a little useless to post class notes online...
-- [[how I use gpt to help with programming]]
+- [[how I use GPTs]]
 	- programming vs coding vs promptin 💀
 	- basically paste in code --> "what does this do" --> "make it do this other thing" --> be happy
 - [[OSINT]]

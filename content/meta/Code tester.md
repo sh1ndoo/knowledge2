@@ -1,6 +1,6 @@
 ---
 date created: 2024-08-02T09:44
-date modified: 2025-02-06T20:02
+date modified: 2025-02-13T11:50
 tags:
   - explorer-exclude
   - graph-exclude
@@ -34,7 +34,11 @@ The shocking twist in the story is that 🤫🤫the main character is actually a
 
 🤫🤫Another twist🤫🤫 and spoiler
 
+A totally broken link [[like this]] or another thing where it's to a heading that does not exist [[Quartz customization log#bbbb]] or something that does work [[Quartz Snippets#Ways to browse plugins]]
+
 ## Spotify thing 
+
+Guide btw: [[ACTUAL guide to a now playing widget]]
 
 A regular markdown embed: 
 
@@ -55,8 +59,11 @@ Telescoping text example:
   * going to functions,
     * go on short runs,
     * building [[semiconductors and chips/]],
-    * thinking about the type of person I want to become. 
+    * thinking about the type of person I want to become,
+  * eating cheese.
 ```
+
+[transforming text playground](https://poems.verses.xyz/test) [🔭 Telescopic Text | telescopic-text](https://jackyzha0.github.io/telescopic-text/) 
 
 ## table-a contents
 

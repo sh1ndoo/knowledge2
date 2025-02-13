@@ -35,6 +35,6 @@ Check out [[How to work on each site]] for more details
 - [Obsidian](https://obsidian.md/) with [[Obsidian plugin list|these plugins]]  
 - [Visual Studio Code](https://code.visualstudio.com/)
 - AI tools: [ChatGPT](https://chatgpt.com/) and [Perplexity](https://www.perplexity.ai/) 
-	- [[how I use gpt to help with programming]]
+	- [[how I use GPTs]]
 	- Getting into [[Ollama|trying out]] [Ollama](https://ollama.com/) 
 - [OneCommander](https://www.onecommander.com/) to replace the file explorer in windows 11 (also [[Uninstalling OneDrive|OneDrive slander]])

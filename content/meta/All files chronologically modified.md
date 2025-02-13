@@ -6,7 +6,7 @@ tags:
   - recents-exclude
 title: All files chronologically modified
 date created: 2024-07-20T22:16
-date modified: 2025-02-07T18:03
+date modified: 2025-02-13T11:53
 ---
 
 Table below made with the help of [Dataview](https://blacksmithgu.github.io/obsidian-dataview/) and [Obsidian Dataview Serializer](https://github.com/dsebastien/obsidian-dataview-serializer). The query:
@@ -36,16 +36,17 @@ Some hidden tags: anything with "exclude" basically
 
 | File                                                                                                                                           | Folder                     | Modified     |
 | ---------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | ------------ |
+| [[tbd/ACTUAL guide to a now playing widget.md\|ACTUAL guide to a now playing widget]]                                                          | tbd                        | Feb 13, 2025 |
+| [[meta/Code tester.md\|Code tester]]                                                                                                           | meta                       | Feb 13, 2025 |
+| [[Quartz customization log.md\|Quartz customization log]]                                                                                      |                            | Feb 13, 2025 |
+| [[thoughts/how I use GPTs.md\|how I use GPTs]]                                                                                                 | thoughts                   | Feb 13, 2025 |
+| [[hobbies/Civ notepad mod brainstorm.md\|Civ notepad mod brainstorm]]                                                                          | hobbies                    | Feb 11, 2025 |
 | [[Uses.md\|Uses]]                                                                                                                              |                            | Feb 7, 2025  |
 | [[semiconductors and chips/Every type of flip flop.md\|Every type of flip flop]]                                                               | semiconductors and chips   | Feb 7, 2025  |
 | [[meta/Image sources and attributions.md\|Image sources and attributions]]                                                                     | meta                       | Feb 7, 2025  |
-| [[Quartz customization log.md\|Quartz customization log]]                                                                                      |                            | Feb 7, 2025  |
 | [[meta/How to work on each site.md\|How to work on each site]]                                                                                 | meta                       | Feb 7, 2025  |
-| [[tbd/ACTUAL guide to a now playing widget.md\|ACTUAL guide to a now playing widget]]                                                          | tbd                        | Feb 7, 2025  |
 | [[Quartz Cheatsheet.md\|Quartz Cheatsheet]]                                                                                                    |                            | Feb 6, 2025  |
-| [[meta/Code tester.md\|Code tester]]                                                                                                           | meta                       | Feb 6, 2025  |
 | [[Cool other websites.md\|Cool other websites]]                                                                                                |                            | Feb 6, 2025  |
-| [[hobbies/Civ notepad mod brainstorm.md\|Civ notepad mod brainstorm]]                                                                          | hobbies                    | Feb 6, 2025  |
 | [[rgb tech/Pile the journaling app.md\|Pile the journaling app]]                                                                               | rgb tech                   | Feb 6, 2025  |
 | [[meta/Obsidian plugin list.md\|Obsidian plugin list]]                                                                                         | meta                       | Feb 6, 2025  |
 | [[tbd/A bunch of kaomoji.md\|A bunch of kaomoji]]                                                                                              | tbd                        | Feb 6, 2025  |
@@ -78,8 +79,8 @@ Some hidden tags: anything with "exclude" basically
 | [[hobbies/Civilization 6.md\|Civilization 6]]                                                                                                  | hobbies                    | Jan 3, 2025  |
 | [[rgb tech/Custom domains.md\|Custom domains]]                                                                                                 | rgb tech                   | Jan 3, 2025  |
 | [[hobbies/Canon 5D mk iii.md\|Canon 5D mk iii]]                                                                                                | hobbies                    | Jan 2, 2025  |
-| [[mac tech/create cname for subdomain.md\|create cname for subdomain]]                                                                         | mac tech                   | Jan 2, 2025  |
 | [[mac tech/Mac setup notes.md\|Mac setup notes]]                                                                                               | mac tech                   | Jan 2, 2025  |
+| [[mac tech/create cname for subdomain.md\|create cname for subdomain]]                                                                         | mac tech                   | Jan 2, 2025  |
 | [[mac tech/colima.md\|colima]]                                                                                                                 | mac tech                   | Jan 2, 2025  |
 | [[thoughts/Reasons why I do not like OneNote (2020-2021).md\|Reasons why I do not like OneNote (2020-2021)]]                                   | thoughts                   | Dec 17, 2024 |
 | [[thoughts/Log - how 2024 went.md\|Log - how 2024 went]]                                                                                       | thoughts                   | Dec 17, 2024 |
@@ -92,7 +93,6 @@ Some hidden tags: anything with "exclude" basically
 | [[rgb tech/Command for the type of shell.md\|Command for the type of shell]]                                                                   | rgb tech                   | Sep 12, 2024 |
 | [[hobbies/To plan a fish tank.md\|To plan a fish tank]]                                                                                        | hobbies                    | Sep 4, 2024  |
 | [[meta/Permalinks tracker.md\|Permalinks tracker]]                                                                                             | meta                       | Aug 27, 2024 |
-| [[thoughts/how I use gpt to help with programming.md\|how I use gpt to help with programming]]                                                 | thoughts                   | Aug 21, 2024 |
 | [[rgb tech/Setting up a second computer to contribute to the quartz thing.md\|Setting up a second computer to contribute to the quartz thing]] | rgb tech                   | Aug 6, 2024  |
 | [[rgb tech/Kicad setup.md\|Kicad setup]]                                                                                                       | rgb tech                   | Aug 6, 2024  |
 | [[semiconductors and chips/SMBus, the Smart battery system, and more.md\|SMBus, the Smart battery system, and more]]                           | semiconductors and chips   | Aug 5, 2024  |
