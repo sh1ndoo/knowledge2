@@ -1,6 +1,4 @@
 import { QuartzTransformerPlugin } from "../types"
-// @ts-ignore
-// import script from "../../components/scripts/_arbChangeText.inline.ts";
 
 export const ezTextReplacer: QuartzTransformerPlugin = () => {
     let regex;
@@ -10,23 +8,18 @@ export const ezTextReplacer: QuartzTransformerPlugin = () => {
         src = String(src)
         
         // Add a class to unlinked mentions of Perplexity so we can add the image to it
+        const tempPlaceholder = 'EZTEXTREPLACERPPLX';
+        // Temporarily replace "Perplexity" within headings
+        const textWithTempPlaceholder = src.replace(/^(#+).*$/gm, (match) => {
+          return match.replace(/(perplexity|Perplexity)/gi, tempPlaceholder);
+        });
         regex = new RegExp('(?<!https?:\\/\\/[^\\s]*?)\\b(perplexity|Perplexity)\\b(?!\\][^(]*\\()', 'gi');
-        src = src.replace(regex, (value, ...[capture]) => {
-            return `<span class="arbc-perplexity">Perplexity</span>`
-        })
-        return src
+        const resultWithPlaceholder = textWithTempPlaceholder.replace(regex, (value, ...[capture]) => {
+          return `<span class="arbc-perplexity">Perplexity</span>`;
+        });
+        const finalResult = resultWithPlaceholder.replace(new RegExp(tempPlaceholder, 'gi'), 'Perplexity');
+
+        return finalResult
     },
-    //   externalResources() {
-    //     return {
-    //         js: [
-    //             {
-    //                 loadTime: "afterDOMReady",
-    //                 moduleType: "module",
-    //                 contentType: "inline",
-    //                 script: script,
-    //             },
-    //         ]
-    //     }
-    //   },
     }
   }
