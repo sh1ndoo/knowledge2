@@ -13,4 +13,4 @@ function handleSpoilerClick() {
     })
   }
   
-document.addEventListener("DOMContentLoaded", handleSpoilerClick)
+document.addEventListener("nav", handleSpoilerClick)

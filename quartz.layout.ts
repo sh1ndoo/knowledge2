@@ -113,7 +113,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ContentMeta(githubSourceConfig),
     Component.TagList(tagListConfig),
     Component.MobileOnly(Component.TableOfContents()),
-    Component.OnlyFor({titles: [mapTitle]}, Component.Explorer(explorerConfig))
+    Component.MobileOnly(Component.OnlyFor({titles: [mapTitle]}, Component.Explorer(explorerConfig)))
   ],
   left: [
     Component.PageTitle(),
@@ -123,7 +123,7 @@ export const defaultContentPageLayout: PageLayout = {
       Component.Darkmode(),
       Component.Search(),
     ]),
-    Component.DesktopOnly(Component.OnlyFor({titles: [homepageTitle]}, Component.Explorer(explorerConfig))),
+    Component.DesktopOnly(Component.OnlyFor({titles: [homepageTitle, mapTitle]}, Component.Explorer(explorerConfig))),
     Component.DesktopOnly(Component.TableOfContents2()),
     Component.FloatingButtons({position: 'right'}),
   ],
