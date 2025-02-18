@@ -134,6 +134,7 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
   const neighbourhood = new Set<SimpleSlug>()
   const wl: (SimpleSlug | "__SENTINEL")[] = [slug, "__SENTINEL"]
   if (depth >= 0) {
+    // Compute the neighbourhood as before
     while (depth >= 0 && wl.length > 0) {
       // compute neighbours
       const cur = wl.shift()!
@@ -148,9 +149,10 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
       }
     }
   } else {
+    // Fall back to the global graph (display all nodes)
     validLinks.forEach((id) => neighbourhood.add(id))
     if (showTags) tags.forEach((tag) => neighbourhood.add(tag))
-  }
+  }  
 
   const nodes = [...neighbourhood].map((url) => {
     // const text = url.startsWith("tags/") ? "#" + url.substring(5) : (data.get(url)?.title ?? url)
@@ -176,7 +178,7 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
 
   // we virtualize the simulation and use pixi to actually render it
   // Calculate the radius of the container circle
-  const radius = Math.min(width, height) / 2 - 40 // 40px padding
+  // const radius = Math.min(width, height) / 2 - 40 // 40px padding
   const simulation: Simulation<NodeData, LinkData> = forceSimulation<NodeData>(graphData.nodes)
     .force("charge", forceManyBody().strength(-100 * repelForce))
     .force("center", forceCenter().strength(centerForce))
@@ -184,7 +186,11 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
     .force("collide", forceCollide<NodeData>((n) => nodeRadius(n)).iterations(3))
 
   if (enableRadial)
-    simulation.force("radial", forceRadial(radius * 0.8, width / 2, height / 2).strength(0.3))
+    simulation.force("radial", forceRadial(0, 0, 0).strength(0.3))
+
+  // We want a fluid simulation so we keep the alpha target low at all times.
+  simulation.alphaTarget(0.4)
+
 
   // precompute style prop strings as pixi doesn't support css variables
   const cssVars = [
@@ -216,12 +222,16 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
       return computedStyleMap["--gray"]
     }
   }
-
+  
   function nodeRadius(d: NodeData) {
     const numLinks = graphData.links.filter(
       (l) => l.source.id === d.id || l.target.id === d.id,
     ).length
-    return 2 + Math.sqrt(numLinks)
+    if (/^\/$/.test(d.id)) { // this regex is making the index node bigger
+      return (1.5 + Math.sqrt(numLinks)) * 1.25
+    } else {
+      return 1.5 + Math.sqrt(numLinks * 0.75)
+    }
   }
 
   let hoveredNodeId: string | null = null
@@ -398,6 +408,7 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
         fontFamily: computedStyleMap["--bodyFont"],
       },
       resolution: window.devicePixelRatio * 4,
+      visible: false, // Initially hide all labels
     })
     label.scale.set(1 / scale)
 
@@ -465,7 +476,7 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
         .container(() => app.canvas)
         .subject(() => graphData.nodes.find((n) => n.id === hoveredNodeId))
         .on("start", function dragstarted(event) {
-          if (!event.active) simulation.alphaTarget(1).restart()
+          if (!event.active) simulation.alphaTarget(0.4).restart()
           event.subject.fx = event.subject.x
           event.subject.fy = event.subject.y
           event.subject.__initialDragPos = {
@@ -489,7 +500,7 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
           dragging = false
 
           // if the time between mousedown and mouseup is short, we consider it a click
-          if (Date.now() - dragStartTime < 500) {
+          if (Date.now() - dragStartTime < 300) {
             const node = graphData.nodes.find((n) => n.id === event.subject.id) as NodeData
             const targ = resolveRelative(fullSlug, node.id)
             window.spaNavigate(new URL(targ, window.location.toString()))
