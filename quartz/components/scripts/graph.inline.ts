@@ -189,7 +189,10 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
     simulation.force("radial", forceRadial(0, 0, 0).strength(0.3))
 
   // We want a fluid simulation so we keep the alpha target low at all times.
-  simulation.alphaTarget(0.4)
+  // simulation.alphaTarget(0.4)
+  setTimeout(() => {
+    simulation.alphaTarget(0.4);
+  }, 800);   
 
 
   // precompute style prop strings as pixi doesn't support css variables
@@ -409,11 +412,14 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
       },
       resolution: window.devicePixelRatio * 4,
       visible: false, // Initially hide all labels
-    })
-    label.scale.set(1 / scale)
-
+    });
+    label.scale.set(1 / scale);
+    (label as any).originalText = n.text;
+    (label as any).nodeId = n.id; //Store node id
+  
     let oldLabelOpacity = 0
     const isTagNode = nodeId.startsWith("tags/")
+    label.visible = (nodeId === slug || isTagNode);
     const gfx = new Graphics({
       interactive: true,
       label: nodeId,
@@ -425,17 +431,25 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
       .fill({ color: isTagNode ? computedStyleMap["--light"] : color(n) })
       .stroke({ width: isTagNode ? 2 : 0, color: color(n) })
       .on("pointerover", (e) => {
-        updateHoverInfo(e.target.label)
-        oldLabelOpacity = label.alpha
+        updateHoverInfo(e.target.label);
+        // Only show the label for the hovered node
+        nodeRenderData.forEach(rd => rd.label.visible = false); // Hide all labels first
+        const hoveredNode = nodeRenderData.find(rd => rd.simulationData.id === (gfx as any).label);
+        if(hoveredNode) {
+            hoveredNode.label.visible = true; // Show current label
+        }
         if (!dragging) {
-          renderPixiFromD3()
+          renderPixiFromD3();
         }
       })
       .on("pointerleave", () => {
-        updateHoverInfo(null)
-        label.alpha = oldLabelOpacity
+        updateHoverInfo(null);
+        // Hide non-current node label
+        nodeRenderData.forEach(rd => {
+          rd.label.visible = (rd.simulationData.id === slug || rd.simulationData.id.startsWith("tags/"));
+        });
         if (!dragging) {
-          renderPixiFromD3()
+          renderPixiFromD3();
         }
       })
 
@@ -517,31 +531,41 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
   }
 
   if (enableZoom) {
-    select<HTMLCanvasElement, NodeData>(app.canvas).call(
-      zoom<HTMLCanvasElement, NodeData>()
-        .extent([
-          [0, 0],
-          [width, height],
-        ])
-        .scaleExtent([0.25, 4])
-        .on("zoom", ({ transform }) => {
-          currentTransform = transform
-          stage.scale.set(transform.k, transform.k)
-          stage.position.set(transform.x, transform.y)
-
-          // zoom adjusts opacity of labels too
-          const scale = transform.k * opacityScale
-          let scaleOpacity = Math.max((scale - 1) / 3.75, 0)
-          const activeNodes = nodeRenderData.filter((n) => n.active).flatMap((n) => n.label)
-
-          for (const label of labelsContainer.children) {
-            if (!activeNodes.includes(label)) {
-              label.alpha = scaleOpacity
+    select<HTMLCanvasElement, NodeData>(app.canvas)
+      .call(
+        zoom<HTMLCanvasElement, NodeData>()
+          .extent([
+            [0, 0],
+            [width, height],
+          ])
+          .scaleExtent([0.25, 4])
+          .on("zoom", ({ transform }) => {
+            currentTransform = transform;
+            stage.scale.set(transform.k, transform.k);
+            stage.position.set(transform.x, transform.y);
+  
+            // Set default label visibility
+            nodeRenderData.forEach(rd => rd.label.visible = (rd.simulationData.id === slug || rd.simulationData.id.startsWith("tags/")));
+  
+            // Show the label for the current node
+            const current = nodeRenderData.find(rd => rd.simulationData.id === slug || rd.simulationData.id.startsWith("tags/"));
+            if(current) {
+              current.label.visible = true;
             }
-          }
-        }),
-    )
-  }
+  
+            // zoom adjusts opacity of labels too
+            const scale = transform.k * opacityScale;
+            let scaleOpacity = Math.max((scale - 1) / 3.75, 0);
+            const activeNodes = nodeRenderData.filter((n) => n.active).flatMap((n) => n.label);
+  
+            for (const label of labelsContainer.children) {
+              if (!activeNodes.includes(label)) {
+                label.alpha = scaleOpacity;
+              }
+            }
+          }),
+      )
+  }  
 
   function animate(time: number) {
     for (const n of nodeRenderData) {
