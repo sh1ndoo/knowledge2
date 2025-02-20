@@ -1,11 +1,11 @@
 ---
 date created: 2024-11-10T20:58
-date modified: 2025-01-03T01:35
+date modified: 2025-02-19T02:27
 tags:
   - gaming
 ---
 
-Thank you Sid Meier! Thank you POTATO MCWHISKEY! 🥔
+Thank you Sid Meier! Thank you POTATO MCWHISKEY! 🥔I think civ is a great game series that surprisingly has taught me a lot of random world history trivia.
 
 ## Amenities
 - Increase this in the early game by having more unique copies of luxuries worked
@@ -38,6 +38,12 @@ Thank you Sid Meier! Thank you POTATO MCWHISKEY! 🥔
 
 Go into the steam workshop and add some nice ones. For some of them, I'm amazed that they're not already in the game, but I guess that would have introduced a lot of visual clutter if you don't know what's going on. I did NOT understand how to fix housing or amenities until I got the mods though. 
 
+Types of mods commonly seen:
+
+- UI - just quality of life. e.g. a city-states screen that shows the quests without needing to hover.
+- Gameplay - something that changes basic mechanics. e.g. add a builder free to each new city
+- New civ or wonder or unit or etc. 
+
 ## City-States
 
 Pay attention to the Suzerain special bonus! Some of them are actually quite cool, like the Lahore with their special unit. Others are more useless, e.g. if you got the one that gives gold for international trade routes, but you're playing as Japan...
@@ -49,3 +55,8 @@ They have spotted you if you see a little red exclamation mark over the head, es
 ## Wonders
 
 Are a distraction!
+
+My favorites:
+
+- Petra
+- Mausoleum at Halicarnassus

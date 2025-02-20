@@ -1,6 +1,6 @@
 ---
 date created: 2024-08-02T09:44
-date modified: 2025-02-13T11:50
+date modified: 2025-02-20T13:52
 tags:
   - explorer-exclude
   - graph-exclude
@@ -24,15 +24,13 @@ Check out [[Permalinks tracker|all the permalinks]]
 
 [The Eilleen Post \| Eilleen's Blog](https://blog.eilleeenz.com/) 
 
-[Live peacefully - Eilleen](https://www.eilleeenz.com/) 
-
 [\[2002.00042\] Gravitational Lensing in Rotating and Twisting Universes](https://arxiv.org/abs/2002.00042)
 
-I am a big Perplexity user. perplexity, pplx, et cetera.
+I am a big Perplexity user. perplexity, pplx, et cetera. [[Password on Quartz via client encryption with Staticrypt]] 
 
-The shocking twist in the story is that 🤫🤫the main character is actually a robot.🤫🤫
+The shocking twist in the story is that 🤫🤫the `main character` is actually a robot.🤫🤫
 
-🤫🤫Another twist🤫🤫 and spoiler
+🤫🤫Another twist [[All files chronologically modified]] 🤫🤫 and spoiler
 
 A totally broken link [[like this]] or another thing where it's to a heading that does not exist [[Quartz customization log#bbbb]] or something that does work [[Quartz Snippets#Ways to browse plugins]]
 

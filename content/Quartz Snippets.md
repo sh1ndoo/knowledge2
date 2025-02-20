@@ -1,6 +1,6 @@
 ---
 date created: 2024-07-09T02:02
-date modified: 2025-02-02T22:54
+date modified: 2025-02-19T02:30
 ---
 
 Misc ideas, code, and plugins for quartz that I've collected across the web. %% [[Todo]] %%
@@ -324,7 +324,6 @@ Then in custom.css if this is an image:
     width: 70%;
     padding: 10px;
   }
-
   .welcome {
     display: flex;
     align-items: center;
@@ -334,50 +333,12 @@ Then in custom.css if this is an image:
 
 Thanks [notes/quartz/styles/custom.scss at 9cb77ded4cd304f0046014c393605d72cc87a40d · ellie/notes · GitHub](https://github.com/ellie/notes/blob/9cb77ded4cd304f0046014c393605d72cc87a40d/quartz/styles/custom.scss) 
 
-## Another way to change the search layout and spacing stuff, & changing the dividers
+## Changing the dividers
 
 [jackyzha0.github.io/quartz/styles/custom.scss at b2f8a6e12c38e9d0989591a0564e0d7a3a812c99 · jackyzha0/jackyzha0.github.io · GitHub](https://github.com/jackyzha0/jackyzha0.github.io/blob/b2f8a6e12c38e9d0989591a0564e0d7a3a812c99/quartz/styles/custom.scss)
 
 ```scss title="custom.scss"
-.left {
-  display: grid !important;
-  gap: 1.5rem !important;
-  grid-template-columns: 1fr;
-  grid-template-rows: min-content min-content min-content min-content;
-  align-items: center;
-
-  .page-title {
-    grid-area: 1 / 1 / 2 / 3;
-  }
-
-  .search {
-    grid-area: 2 / 1 / 3 / 2;
-  }
-
-  .darkmode {
-    grid-area: 2 / 2 / 3 / 3;
-  }
-
-  .toc {
-    grid-row: 3;
-    grid-column: 1 / 3;
-  }
-
-  .recent-notes:nth-last-child(2) {
-    grid-area: 3 / 1 / 3 / 3;
-  }
-
-  .recent-notes:nth-last-child(1) {
-    grid-area: 4 / 1 / 4 / 3;
-  }
-
-  @media all and (max-width: $fullPageWidth) {
-    display: flex !important;
-  }
-}
-
 //// dividers ////
-
 hr {
   overflow: visible;
   padding: 0;
@@ -436,35 +397,24 @@ sjgknight — 05/19/2024 5:31 PM
 
 > I've resolved this, in quartzlayout.ts add fields, e.g.
 
-```
+```ts title="quartz.layout.ts"
 footer: Component.Footer({
-
     links: {
-
       GitHub: "https://github.com/",
-
     },
-
     acknowledgement: "hello acknowledgement",
-
     funding: "hello funding"
-
   }),
-
 }
 ```
 
 > In Footer.tsx inside the `const Footer: QuartzComponent`... stuff add:
 
-```
+```tsx title="Footer.tsx"
 // To determine the appropriate footer component based on the slug
-
  slug = fileData.slug
-
 // Custom fields to retrieve and add on key slug page
-
 const acknowl = opts?.acknowledgement ?? []
-
 const fund = opts?.funding ?? []
 ```
 
@@ -474,7 +424,7 @@ const fund = opts?.funding ?? []
 > 
 > Then in the return you can add conditional elements
 
-```
+```tsx title-"Footer.tsx"
 <p>
   {slug.includes("yourproject") && (
   <>
@@ -566,3 +516,9 @@ Alternatively: [Lighter color for broken internal link · LesleyLai/digital-gard
 ## Show any frontmatter properties
 
 [GitHub - michelepapucci/quartz-visible-obsidian-property: A Quartz fork, with a new component to show any kind of Frontmatter Obsidian Property on the pages.](https://github.com/michelepapucci/quartz-visible-obsidian-property) 
+
+## Add a password with staticrypt
+
+[password-quartz.md · GitHub](https://gist.github.com/OrigamingWasTaken/d70f62c782bc99283eb7df1caa333c26)
+
+Although I think the SPA part isn't working. 
