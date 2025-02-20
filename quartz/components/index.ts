@@ -32,6 +32,7 @@ import Comments from "./Comments"
 import Map from "./_Map"
 import MiniButton from "./_MiniButton"
 import FloatingButtons from "./_FloatingButtons"
+import HiddenGlobalGraph from "./_hiddenGlobalGraph"
 
 export {
   ArticleTitle,
@@ -68,4 +69,5 @@ export {
   Map,
   MiniButton,
   FloatingButtons,
+  HiddenGlobalGraph,
 }
