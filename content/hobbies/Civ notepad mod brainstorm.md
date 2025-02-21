@@ -42,12 +42,6 @@ Has a huge list:
 3. [How to Alter Base Game Content](https://civilization.fandom.com/wiki/Modding_\(Civ6\)/How_to_Alter_Base_Game_Content "Modding (Civ6)/How to Alter Base Game Content")
 4. [How to Remove Base Game Content](https://civilization.fandom.com/wiki/Modding_\(Civ6\)/How_to_Remove_Base_Game_Content "Modding (Civ6)/How to Remove Base Game Content")
 5. [Basic Mod/DLC Compatibility](https://civilization.fandom.com/wiki/Modding_\(Civ6\)/Basic_Mod/DLC_Compatibility "Modding (Civ6)/Basic Mod/DLC Compatibility")
-6. [How to Create a Civilization](https://civilization.fandom.com/wiki/Modding_\(Civ6\)/How_to_Create_a_Civilization "Modding (Civ6)/How to Create a Civilization")
-7. [How to Create a Unit](https://civilization.fandom.com/wiki/Modding_\(Civ6\)/How_to_Create_a_Unit "Modding (Civ6)/How to Create a Unit")
-8. [How to Create a Building](https://civilization.fandom.com/wiki/Modding_\(Civ6\)/How_to_Create_a_Building "Modding (Civ6)/How to Create a Building")
-9. [How to Create a Leader](https://civilization.fandom.com/wiki/Modding_\(Civ6\)/How_to_Create_a_Leader "Modding (Civ6)/How to Create a Leader")
-10. [How to Create a Technology or Civic](https://civilization.fandom.com/wiki/Modding_\(Civ6\)/How_to_Create_a_Technology_or_Civic "Modding (Civ6)/How to Create a Technology or Civic")
-11. [How to Create a Great Person](https://civilization.fandom.com/wiki/Modding_\(Civ6\)/How_to_Create_a_Great_Person "Modding (Civ6)/How to Create a Great Person")
 
 # How to do it
 

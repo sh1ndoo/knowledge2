@@ -36,8 +36,12 @@ Some hidden tags: anything with "exclude" basically
 
 | File                                                                                                                                           | Folder                     | Modified     |
 | ---------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | ------------ |
+| [[meta/Password on Quartz via client encryption with Staticrypt.md\|Password on Quartz via client encryption with Staticrypt]]                 | meta                       | Feb 20, 2025 |
+| [[meta/Code tester.md\|Code tester]]                                                                                                           | meta                       | Feb 20, 2025 |
+| [[hobbies/Civilization 7.md\|Civilization 7]]                                                                                                  | hobbies                    | Feb 19, 2025 |
+| [[Quartz Snippets.md\|Quartz Snippets]]                                                                                                        |                            | Feb 19, 2025 |
+| [[hobbies/Civilization 6.md\|Civilization 6]]                                                                                                  | hobbies                    | Feb 19, 2025 |
 | [[tbd/ACTUAL guide to a now playing widget.md\|ACTUAL guide to a now playing widget]]                                                          | tbd                        | Feb 13, 2025 |
-| [[meta/Code tester.md\|Code tester]]                                                                                                           | meta                       | Feb 13, 2025 |
 | [[Quartz customization log.md\|Quartz customization log]]                                                                                      |                            | Feb 13, 2025 |
 | [[thoughts/how I use GPTs.md\|how I use GPTs]]                                                                                                 | thoughts                   | Feb 13, 2025 |
 | [[hobbies/Civ notepad mod brainstorm.md\|Civ notepad mod brainstorm]]                                                                          | hobbies                    | Feb 11, 2025 |
@@ -56,7 +60,6 @@ Some hidden tags: anything with "exclude" basically
 | [[meta/About robots.txt and crawlers.md\|About robots.txt and crawlers]]                                                                       | meta                       | Feb 4, 2025  |
 | [[meta/Map.md\|Map]]                                                                                                                           | meta                       | Feb 4, 2025  |
 | [[meta/Making a separate private quartz blog.md\|Making a separate private quartz blog]]                                                       | meta                       | Feb 2, 2025  |
-| [[Quartz Snippets.md\|Quartz Snippets]]                                                                                                        |                            | Feb 2, 2025  |
 | [[rgb tech/Setting up Github.md\|Setting up Github]]                                                                                           | rgb tech                   | Feb 2, 2025  |
 | [[mac tech/change origin of your git repo.md\|change origin of your git repo]]                                                                 | mac tech                   | Feb 2, 2025  |
 | [[tbd/Untrack something that used to be tracked in git.md\|Untrack something that used to be tracked in git]]                                  | tbd                        | Feb 2, 2025  |
@@ -76,7 +79,6 @@ Some hidden tags: anything with "exclude" basically
 | [[rgb tech/Installing yarn.md\|Installing yarn]]                                                                                               | rgb tech                   | Jan 5, 2025  |
 | [[linux tech/Ideas for what one can do with a home server.md\|Ideas for what one can do with a home server]]                                   | linux tech                 | Jan 5, 2025  |
 | [[thoughts/Avoiding getting doxxed.md\|Avoiding getting doxxed]]                                                                               | thoughts                   | Jan 3, 2025  |
-| [[hobbies/Civilization 6.md\|Civilization 6]]                                                                                                  | hobbies                    | Jan 3, 2025  |
 | [[rgb tech/Custom domains.md\|Custom domains]]                                                                                                 | rgb tech                   | Jan 3, 2025  |
 | [[hobbies/Canon 5D mk iii.md\|Canon 5D mk iii]]                                                                                                | hobbies                    | Jan 2, 2025  |
 | [[mac tech/Mac setup notes.md\|Mac setup notes]]                                                                                               | mac tech                   | Jan 2, 2025  |
