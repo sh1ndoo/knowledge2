@@ -146,6 +146,6 @@ export const defaultListPageLayout: PageLayout = {
     Component.FloatingButtons({position: 'right'}),
   ],
   right: [
-    Component.HiddenGlobalGraph(),
+    Component.HiddenGlobalGraph(graphConfig),
   ],
 }
