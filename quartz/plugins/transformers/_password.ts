@@ -34,7 +34,7 @@ export async function encryptPages() {
       "--remember", "false",
       "--config", "false",
       "--template-color-secondary", "#dde2d5",
-      "--template-instructions", "Enter password to show the content of this page. Refresh the page if it doesn't work.<br/><br/><a href='https://quartz.eilleeenz.com/' style='text-decoration:underline wavy;color:inherit'>🏡 Return</a>" ,
+      "--template-instructions", "First refresh, and then enter password to show the content of this page.<br/><br/><a href='https://quartz.eilleeenz.com/' style='text-decoration:underline wavy;color:inherit'>🏡 Return</a>" ,
       "--template-error", "That password was incorrect.",
       "--template-button", "Unlock 🔓",
       "--salt", "37fc04161cf85ad50c931b3214c6ad34"
