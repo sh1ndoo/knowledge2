@@ -1,7 +1,12 @@
 ---
 date created: 2024-07-23T01:53
-date modified: 2025-01-31T09:31
+date modified: 2025-02-21T11:33
+tags:
+  - guide
 ---
+
+This is a guide on how to hide certain tagged pages from the explorer, graph, backlinks, recent notes, and all list pages. The reason I created it is for my page with [[All files chronologically modified]], where it links to everything in my quartz. Not very useful in the backlinks or clogging up the graph! 
+
 ## Summary
 
 In the `quartz.layout.ts` I made some config `const`s that helped clean it up a lot.

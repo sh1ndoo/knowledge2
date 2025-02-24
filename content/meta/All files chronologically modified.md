@@ -36,13 +36,18 @@ Some hidden tags: anything with "exclude" basically
 
 | File                                                                                                                                           | Folder                     | Modified     |
 | ---------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | ------------ |
-| [[meta/Password on Quartz via client encryption with Staticrypt.md\|Password on Quartz via client encryption with Staticrypt]]                 | meta                       | Feb 20, 2025 |
-| [[meta/Code tester.md\|Code tester]]                                                                                                           | meta                       | Feb 20, 2025 |
+| [[Quartz customization log.md\|Quartz customization log]]                                                                                      |                            | Feb 23, 2025 |
+| [[meta/abc js plugin(ish).md\|abc js plugin(ish)]]                                                                                             | meta                       | Feb 23, 2025 |
+| [[linux tech/Setting up SSH the way I wanted.md\|Setting up SSH the way I wanted]]                                                             | linux tech                 | Feb 22, 2025 |
+| [[rgb tech/How to squash a bunch of commits in git.md\|How to squash a bunch of commits in git]]                                               | rgb tech                   | Feb 21, 2025 |
+| [[meta/Code tester.md\|Code tester]]                                                                                                           | meta                       | Feb 21, 2025 |
+| [[Quartz Snippets.md\|Quartz Snippets]]                                                                                                        |                            | Feb 21, 2025 |
+| [[tbd/password locked page.md\|password locked page]]                                                                                          | tbd                        | Feb 21, 2025 |
+| [[meta/Password on Quartz via client encryption with Staticrypt.md\|Password on Quartz via client encryption with Staticrypt]]                 | meta                       | Feb 21, 2025 |
+| [[meta/Hiding tags from various components.md\|Hiding tags from various components]]                                                           | meta                       | Feb 21, 2025 |
 | [[hobbies/Civilization 7.md\|Civilization 7]]                                                                                                  | hobbies                    | Feb 19, 2025 |
-| [[Quartz Snippets.md\|Quartz Snippets]]                                                                                                        |                            | Feb 19, 2025 |
 | [[hobbies/Civilization 6.md\|Civilization 6]]                                                                                                  | hobbies                    | Feb 19, 2025 |
 | [[tbd/ACTUAL guide to a now playing widget.md\|ACTUAL guide to a now playing widget]]                                                          | tbd                        | Feb 13, 2025 |
-| [[Quartz customization log.md\|Quartz customization log]]                                                                                      |                            | Feb 13, 2025 |
 | [[thoughts/how I use GPTs.md\|how I use GPTs]]                                                                                                 | thoughts                   | Feb 13, 2025 |
 | [[hobbies/Civ notepad mod brainstorm.md\|Civ notepad mod brainstorm]]                                                                          | hobbies                    | Feb 11, 2025 |
 | [[Uses.md\|Uses]]                                                                                                                              |                            | Feb 7, 2025  |
@@ -67,15 +72,13 @@ Some hidden tags: anything with "exclude" basically
 | [[tbd/Dataview reference.md\|Dataview reference]]                                                                                              | tbd                        | Jan 31, 2025 |
 | [[Goals and progress in 2025.md\|Goals and progress in 2025]]                                                                                  |                            | Jan 31, 2025 |
 | [[hobbies/cool things online/Other digital garden platforms.md\|Other digital garden platforms]]                                               | hobbies/cool things online | Jan 31, 2025 |
-| [[semiconductors and chips/My first ever raspberry pi!!!.md\|My first ever raspberry pi!!!]]                                                   | semiconductors and chips   | Jan 31, 2025 |
-| [[meta/Hiding tags from various components.md\|Hiding tags from various components]]                                                           | meta                       | Jan 31, 2025 |
+| [[linux tech/My first ever raspberry pi!!!.md\|My first ever raspberry pi!!!]]                                                                 | linux tech                 | Jan 31, 2025 |
 | [[thoughts/blog ideas.md\|blog ideas]]                                                                                                         | thoughts                   | Jan 29, 2025 |
 | [[semiconductors and chips/Various areas or fields or categories or.md\|Various areas or fields or categories or]]                             | semiconductors and chips   | Jan 18, 2025 |
 | [[tbd/Upgrading to quartz 4.4.md\|Upgrading to quartz 4.4]]                                                                                    | tbd                        | Jan 18, 2025 |
 | [[thoughts/How to get over a social media addiction.md\|How to get over a social media addiction]]                                             | thoughts                   | Jan 16, 2025 |
 | [[thoughts/How to cram for the GRE (2023).md\|How to cram for the GRE (2023)]]                                                                 | thoughts                   | Jan 16, 2025 |
 | [[thoughts/Misc trip planning tips.md\|Misc trip planning tips]]                                                                               | thoughts                   | Jan 9, 2025  |
-| [[linux tech/Setting up SSH the way I wanted.md\|Setting up SSH the way I wanted]]                                                             | linux tech                 | Jan 5, 2025  |
 | [[rgb tech/Installing yarn.md\|Installing yarn]]                                                                                               | rgb tech                   | Jan 5, 2025  |
 | [[linux tech/Ideas for what one can do with a home server.md\|Ideas for what one can do with a home server]]                                   | linux tech                 | Jan 5, 2025  |
 | [[thoughts/Avoiding getting doxxed.md\|Avoiding getting doxxed]]                                                                               | thoughts                   | Jan 3, 2025  |

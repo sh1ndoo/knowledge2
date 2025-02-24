@@ -1,6 +1,6 @@
 ---
 date created: 2024-06-06T22:54
-date modified: 2025-02-13T11:39
+date modified: 2025-02-23T21:00
 tags:
   - recents-exclude
 ---
@@ -18,7 +18,7 @@ Misc things to remember:
 > [!success] Some changes that took some effort, or I really like how it turned out ☺
 > Hiding things from various components
 > 
-> Forcing icons in a row
+> Forcing icons in a row and making a map
 > 
 > Tag and folder pages having consistent names 📂🔖
 > 
@@ -41,6 +41,92 @@ Misc things to remember:
 > - [Credits and Readmes](https://morrowind-modding.github.io/credits-and-readmes/#eilleens-online-everything-notebook) on the Morrowind Modding Wiki
 > - [Quartz Cheatsheet](https://abi-is-here.github.io/niwa/software/quartz/quartz-cheatsheet) by abi-is-here
 
+## Custom Callouts and admonition
+
+Just following the documentation for Quartz. Also Admonition has a built-in "convert to callout" button. 
+
+> [!tree]- hehehe
+> treehehe
+
+Original when I did "download callouts":
+
+`.callout[data-callout="tree"] { --callout-color: #7d7d7d; --callout-icon: "<svg aria-hidden=\"true\" focusable=\"false\" data-prefix=\"fas\" data-icon=\"tree\" class=\"svg-inline--fa fa-tree fa-w-12\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 384 512\"><path fill=\"currentColor\" d=\"M378.31 378.49L298.42 288h30.63c9.01 0 16.98-5 20.78-13.06 3.8-8.04 2.55-17.26-3.28-24.05L268.42 160h28.89c9.1 0 17.3-5.35 20.86-13.61 3.52-8.13 1.86-17.59-4.24-24.08L203.66 4.83c-6.03-6.45-17.28-6.45-23.32 0L70.06 122.31c-6.1 6.49-7.75 15.95-4.24 24.08C69.38 154.65 77.59 160 86.69 160h28.89l-78.14 90.91c-5.81 6.78-7.06 15.99-3.27 24.04C37.97 283 45.93 288 54.95 288h30.63L5.69 378.49c-6 6.79-7.36 16.09-3.56 24.26 3.75 8.05 12 13.25 21.01 13.25H160v24.45l-30.29 48.4c-5.32 10.64 2.42 23.16 14.31 23.16h95.96c11.89 0 19.63-12.52 14.31-23.16L224 440.45V416h136.86c9.01 0 17.26-5.2 21.01-13.25 3.8-8.17 2.44-17.47-3.56-24.26z\"></path></svg>"; } {:css}`
+
+Remove the `"\` and wrap it all in single quotes with `data:image/svg+xml; utf8, ` at the beginning. `--bg` is background color and `--color` is text color of the title.
+
+```css title="custom.scss"
+.callout {
+  &[data-callout="tree"] {
+    --bg: #7d7d7d;  
+    --callout-icon: url('data:image/svg+xml; utf8, <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="tree" class="svg-inline--fa fa-tree fa-w-12" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M378.31 378.49L298.42 288h30.63c9.01 0 16.98-5 20.78-13.06 3.8-8.04 2.55-17.26-3.28-24.05L268.42 160h28.89c9.1 0 17.3-5.35 20.86-13.61 3.52-8.13 1.86-17.59-4.24-24.08L203.66 4.83c-6.03-6.45-17.28-6.45-23.32 0L70.06 122.31c-6.1 6.49-7.75 15.95-4.24 24.08C69.38 154.65 77.59 160 86.69 160h28.89l-78.14 90.91c-5.81 6.78-7.06 15.99-3.27 24.04C37.97 283 45.93 288 54.95 288h30.63L5.69 378.49c-6 6.79-7.36 16.09-3.56 24.26 3.75 8.05 12 13.25 21.01 13.25H160v24.45l-30.29 48.4c-5.32 10.64 2.42 23.16 14.31 23.16h95.96c11.89 0 19.63-12.52 14.31-23.16L224 440.45V416h136.86c9.01 0 17.26-5.2 21.01-13.25 3.8-8.17 2.44-17.47-3.56-24.26z"></path></svg>');
+  }
+}
+```
+
+## ABC js plugin
+
+[[abc js plugin(ish)]] - I mostly did this because it was (supposed to be) easy and I wanted to better understand how to make transformers.
+
+```music-abc
+X:1
+T:The Legacy Jig
+M:6/8
+L:1/8
+R:jig
+K:G
+GFG BAB | gfg gab | GFG BAB | d2A AFD |
+GFG BAB | gfg gab | age edB |1 dBA AFD :|2 dBA ABd |:
+efe edB | dBA ABd | efe edB | gdB ABd |
+efe edB | d2d def | gfe edB |1 dBA ABd :|2 dBA AFD |]
+```
+
+## Text replacer simple transformer
+
+This needs to go before any of the markdown parsers, because regex markdown is easier than trying to regex html. 
+
+Perplexity 
+
+[quartz-test/quartz/plugins/transformers/\_myTextReplacer.ts](https://github.com/fanteastick/quartz-test/blob/139863e971ad17b4d59c3332851d4c1a5fba4410/quartz/plugins/transformers/_myTextReplacer.ts#L4) 
+
+## Checkbox height
+
+```scss title="base.scss"
+input[type="checkbox"] {
+  transform: translateY(2px);
+  transform: translateY(5px);
+```
+## Password-locked pages
+
+Full guide: [[Password on Quartz via client encryption with Staticrypt]] 
+
+Demo: [Protected Page](https://blog.eilleeenz.com/password-tester) with password "underwater"
+
+Alternatively [[password locked page]] with password "gg"
+
+![[Password on Quartz via client encryption with Staticrypt_image_1.png|360]]
+
+## Graph fixes on radial and list pages
+
+### Radial graph shifting and titles
+
+With radial mode on the global graph, there's this weird sliding effect that makes the nodes start to the right and drift to the center, and then when you grab a node, they all shift to the right again while the node you picked stays in the center. So weird.
+
+This is the commit I made: [graph fix: stop the sliding around on radia, thanks to lukas-rku · fanteastick/quartz-test@8cc7d7f · GitHub](https://github.com/fanteastick/quartz-test/commit/8cc7d7f9969261b9ed15f864adff79eb2650b6af) 
+
+Shoutout to lukas-rku on Github! (Ruku on discord) [Overview - tud](https://tud.pages.dev/) 
+
+Then I made a second edit, where I hated that the titles were all visible when you zoom in, which makes it basically illegible because the nodes are so close together. So I made it such that only the current page and the tag titles are visible. The commit: [graph edit: only show the labels for the current page and tags when zoom · fanteastick/quartz-test@92d86ae · GitHub](https://github.com/fanteastick/quartz-test/commit/92d86ae40c2f4f98a9cf56babb8d2d9074baac2e) 
+
+It's a little weird on dragging where it'll flicker between the dragged node and the tags/current, but I'll live. 
+
+### List pages and the floating buttons
+
+I added some floating buttons (see other section on "FloatingButtons by catcodeme"). One of the buttons pops up the global graph. The component does this by simulating clicking on the global graph button when you click the floating button. That means if the current page doesn't have the graph component, it doesn't have anything in the document to hook to. 
+
+To fix that, I made a hidden global graph that copied the `graph.tsx` and only has the button and the global graph div. For the button, I hide it by adding `display:none`. 
+
+[Add a hidden global graph+button to list pages for the graph floating button](https://github.com/fanteastick/quartz-test/commit/3f75a6e4aa0d6468e43e361bbab024891d8c0696) 
+
 ## Add slugs on tag pages
 
 Added an optional option 😂 on `PageList` called `isTagPage` and pass it on the calls to `PageList` in the `TagContent` page. 
@@ -48,6 +134,8 @@ Added an optional option 😂 on `PageList` called `isTagPage` and pass it on th
 The commit:
 
 Example: [[tags/]]
+
+![[Quartz customization log_image_1.png|400]]
 
 ```tsx title="TagContent.tsx"
 <PageList limit={options.numPages} {...listProps} sort={options?.sort} isTagPage={"true"} />
@@ -143,11 +231,18 @@ function handleSpoilerClick() {
 document.addEventListener("DOMContentLoaded", handleSpoilerClick)
 ```
 
+To make links inside unclickable when spoiler'd:
+
+```scss title="custom.scss"
+.spoiler-text:not(.revealed) > a {
+  pointer-events: none;
+}
+```
 ## Consistent code size
 
 To stop the weird scrollbar on 1-line code that doesn't have a language defined. When there IS a language, it gets wrapped around a `<figure>` that has a line height of 1.6em, and the `<pre>` has a height of 1.3em. But it's not added to the basic `<pre>` by default. 
 
-![[Quartz customization log_image_1.png|400]]
+![[Quartz customization log_image_2.png|400]]
 
 ```scss title="base.scss"
 pre {
@@ -156,7 +251,7 @@ pre {
 
 After: 
 
-![[Quartz customization log_image_2.png|400]]
+![[Quartz customization log_image_3.png|400]]
 
 ## Telescoping text
 
@@ -291,7 +386,7 @@ The code was mostly shamelessly copied and then slightly modified from [Aaron's 
 Basically it's just a big if/else, and you have to put in the img files into `/static/favicons`, or the svg path into `components/_svg.tsx`. 
 
 - [ ] future improvement: Try out the turntrout implementation instead:  [TurnTrout.com/quartz/plugins/transformers/linkfavicons.ts](https://github.com/alexander-turner/TurnTrout.com/blob/56b56698937765b35f7156535bf664b905bda526/quartz/plugins/transformers/linkfavicons.ts#L171)
-- [ ] Alternatively the [catcodeme version](https://github.com/CatCodeMe/catcodeme.github.io/blob/770f3f8d1f6849ef40bc06b4300a52b3aecfb551/quartz/styles/external-links.scss):
+- [x] Alternatively the [catcodeme version](https://github.com/CatCodeMe/catcodeme.github.io/blob/770f3f8d1f6849ef40bc06b4300a52b3aecfb551/quartz/styles/external-links.scss):
 
 > [!NOTE]- catcodeme scss
 > 

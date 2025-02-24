@@ -1,14 +1,14 @@
 ---
 date created: 2025-02-19T18:08
-date modified: 2025-02-20T19:45
+date modified: 2025-02-21T11:54
 tags:
   - guide
 permalink: perma/5910204
 ---
 
-An example password-locked page: [Protected Page](https://blog.eilleeenz.com/password-tester) 
+An example password-locked page: [Protected Page](https://blog.eilleeenz.com/password-tester) (underwater)
 
-![[Password on Quartz via client encryption with Staticrypt_image_1.png|400]]
+![[Password on Quartz via client encryption with Staticrypt_image_1.png|300]]
 
 ## Overview
 
@@ -24,13 +24,13 @@ Referring to the Staticrypt documentation ([GitHub - robinmoisson/staticrypt](ht
 ## Weird bugs and quirks
 
 - in localhost mode, it's either the async, or my internet connection - it doesn't work with generating social images because the fetching satori fonts times out or something.
-- the thing where you need to refresh first, even though I tried adding the `documentListener("nav")`
-- it works with GitHub pages, but in that case your repo is public anyway, so idk how much that'd matter...
+- the thing where you need to refresh first, even though I tried adding the `documentListener("nav")`, and a bunch of other tricks too. I think it's something with the SPA-ness of Quartz?
+- it works with GitHub pages, but in that case your repo is public anyway, so idk if password-protecting makes a big difference...
 - It also works with Vercel 👍
 
 ## How-to
 
-If you want to see the exact changes I made, check out these two commits, although I wouldn't copy them personally because I have my own link & background color specified here. 
+If you want to see the exact changes I made, check out these two commits, although I wouldn't copy them if I were you, because I have my own link & background color specified here. 
 
 [feat: password-locked pages part 1, copied from… · fanteastick/quartz-test@923252f · GitHub](https://github.com/fanteastick/quartz-test/commit/923252f0a4dd1149ca15ea5c13e04ec36eb778b2)
 
@@ -47,7 +47,7 @@ If you want to see the exact changes I made, check out these two commits, althou
 export { Staticrypt } from "./password"
 ```
 
-```ts title="quartz.config.ts" {3}
+```ts title="quartz.config.ts" {5}
 // import { Staticrypt } from "./quartz/password" 
 // ^^ this is in origaming's tutorial but is unnecessary after you add it to transformers/index.ts
   plugins: {
@@ -145,7 +145,7 @@ const customTemplatePath = path.resolve(`./quartz/static/password_page.html`)
   }
 ```
 
-To refresh if there's a route announcer:
+%% To refresh if there's a route announcer:
 
 ```html title="password_page.html"
 <script>
@@ -159,7 +159,9 @@ function checkAndRefresh() {
 }
 // Run the check when the page loads
 window.addEventListener('load', checkAndRefresh);
-```
+``` 
+
+%%
 
 ## Closing remarks
 

@@ -1,6 +1,6 @@
 ---
 date created: 2024-08-02T09:44
-date modified: 2025-02-20T13:52
+date modified: 2025-02-21T14:54
 tags:
   - explorer-exclude
   - graph-exclude
@@ -10,10 +10,30 @@ permalink: perma/code-tester
 subtitle: Trying out some markdown and code changes
 ---
 
-```/hello/ /pog/
+```/hello/ /pog/ {2}
 hello 
 pogwlkdd9
 Word highlighting in code
+```
+
+Admonition
+
+> [!tree] hehehe
+> treehehe
+
+Original: 
+
+`.callout[data-callout="tree"] { --callout-color: #7d7d7d; --callout-icon: "<svg aria-hidden=\"true\" focusable=\"false\" data-prefix=\"fas\" data-icon=\"tree\" class=\"svg-inline--fa fa-tree fa-w-12\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 384 512\"><path fill=\"currentColor\" d=\"M378.31 378.49L298.42 288h30.63c9.01 0 16.98-5 20.78-13.06 3.8-8.04 2.55-17.26-3.28-24.05L268.42 160h28.89c9.1 0 17.3-5.35 20.86-13.61 3.52-8.13 1.86-17.59-4.24-24.08L203.66 4.83c-6.03-6.45-17.28-6.45-23.32 0L70.06 122.31c-6.1 6.49-7.75 15.95-4.24 24.08C69.38 154.65 77.59 160 86.69 160h28.89l-78.14 90.91c-5.81 6.78-7.06 15.99-3.27 24.04C37.97 283 45.93 288 54.95 288h30.63L5.69 378.49c-6 6.79-7.36 16.09-3.56 24.26 3.75 8.05 12 13.25 21.01 13.25H160v24.45l-30.29 48.4c-5.32 10.64 2.42 23.16 14.31 23.16h95.96c11.89 0 19.63-12.52 14.31-23.16L224 440.45V416h136.86c9.01 0 17.26-5.2 21.01-13.25 3.8-8.17 2.44-17.47-3.56-24.26z\"></path></svg>"; } {:css}`
+
+Remove the `"\` and wrap it all in single quotes with `data:image/svg+xml; utf8, ` at the beginning. `--bg` is background color and `--color` is text color of the title. 
+
+```css title="custom.scss"
+.callout {
+  &[data-callout="tree"] { 
+    --bg: #7d7d7d;  
+    --callout-icon: url('data:image/svg+xml; utf8, <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="tree" class="svg-inline--fa fa-tree fa-w-12" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M378.31 378.49L298.42 288h30.63c9.01 0 16.98-5 20.78-13.06 3.8-8.04 2.55-17.26-3.28-24.05L268.42 160h28.89c9.1 0 17.3-5.35 20.86-13.61 3.52-8.13 1.86-17.59-4.24-24.08L203.66 4.83c-6.03-6.45-17.28-6.45-23.32 0L70.06 122.31c-6.1 6.49-7.75 15.95-4.24 24.08C69.38 154.65 77.59 160 86.69 160h28.89l-78.14 90.91c-5.81 6.78-7.06 15.99-3.27 24.04C37.97 283 45.93 288 54.95 288h30.63L5.69 378.49c-6 6.79-7.36 16.09-3.56 24.26 3.75 8.05 12 13.25 21.01 13.25H160v24.45l-30.29 48.4c-5.32 10.64 2.42 23.16 14.31 23.16h95.96c11.89 0 19.63-12.52 14.31-23.16L224 440.45V416h136.86c9.01 0 17.26-5.2 21.01-13.25 3.8-8.17 2.44-17.47-3.56-24.26z"></path></svg>'); 
+  }
+}
 ```
 
 🌈🌈ranbow🌈🌈
@@ -63,6 +83,8 @@ Telescoping text example:
 
 [transforming text playground](https://poems.verses.xyz/test) [🔭 Telescopic Text | telescopic-text](https://jackyzha0.github.io/telescopic-text/) 
 
+![camo.githubusercontent.com/2edf9a1ad45813c727a1dff99d927607aeb7c74cf84f611940fe7e1df958799d/68747470733a2f2f6c617374666d2d726563656e746c792d706c617965642e76657263656c2e6170702f6170693f757365723d77656173656c636f6f63696573|380](https://camo.githubusercontent.com/2edf9a1ad45813c727a1dff99d927607aeb7c74cf84f611940fe7e1df958799d/68747470733a2f2f6c617374666d2d726563656e746c792d706c617965642e76657263656c2e6170702f6170693f757365723d77656173656c636f6f63696573) 
+
 ## table-a contents
 
 > NOTE: This is a note too
@@ -89,7 +111,7 @@ Sometimes we have footnoes so this needs to be long enough
 
 [^ocean-footnote]: The world is big but simultaneously small. the ocean is unexplored for the most part. convinced there's some dinosaurs there. 
 
-![[Quartz Cheatsheet#Footnote syntax]]
+![[Quartz Cheatsheet#For copy-pasting]]
 
 ## lorem ipsummm
 
@@ -104,3 +126,7 @@ Beneath the ancient canopy, where the moon's silver light filters through the de
 In the quiet corridors of forgotten realms, where whispers are carried on the wind, knowledge of the arcane lingers. Each whisper and every flicker of light holds fragments of a long-lost language, inscribed in forgotten tomes. The air is thick with the weight of mysteries waiting to be unraveled, each step a journey deeper into the heart of the enigma.
 
 As the world fades into twilight, the boundary between reality and illusion blurs. The stars, cold and distant, shine with an enigmatic brilliance, casting eerie shadows that dance to a rhythm only the night knows. Within this shifting realm of dusk and dawn, the essence of the unknown lures the curious, beckoning them toward hidden truths and silent revelations.
+
+[^waterbottle]: wee woooooo
+[^1]: sksksksksks lol
+[^sjshsh]: text

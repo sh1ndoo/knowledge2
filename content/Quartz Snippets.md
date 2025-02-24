@@ -1,6 +1,6 @@
 ---
 date created: 2024-07-09T02:02
-date modified: 2025-02-19T02:30
+date modified: 2025-02-21T14:22
 ---
 
 Misc ideas, code, and plugins for quartz that I've collected across the web. %% [[Todo]] %%
@@ -19,11 +19,11 @@ Misc ideas, code, and plugins for quartz that I've collected across the web. %% 
 - [ ] Footnotes are still super jank
 	- if you have a footnote, and you transclude the last heading of a file, the transclude will include the footnotes. 
 	- If you have a transclude that has a footnote, like to another header or something, it only has the `#headername` so it'll just try to go to current page's `#headername` which is incorrect.
-- [ ] make the click to copy permalink thing stop being sticky
+- [-] make the click to copy permalink thing stop being sticky
 - [ ] make strikethrough's [-] look like how they're intended
-- [ ] copy/pull in the telescoping text just because it looks fun af
-- [ ] figure out how cssclasses work. like with RTL text? 
-- [ ] Add something on the left side of 
+- [x] copy/pull in the telescoping text just because it looks fun af
+- [x] figure out how cssclasses work. like with RTL text? 
+- [ ] Add something on the left side of list pages
 
 Also: [[Cool other websites]]
 
@@ -517,8 +517,26 @@ Alternatively: [Lighter color for broken internal link · LesleyLai/digital-gard
 
 [GitHub - michelepapucci/quartz-visible-obsidian-property: A Quartz fork, with a new component to show any kind of Frontmatter Obsidian Property on the pages.](https://github.com/michelepapucci/quartz-visible-obsidian-property) 
 
-## Add a password with staticrypt
+## ySomic - timelines and transcludes
 
-[password-quartz.md · GitHub](https://gist.github.com/OrigamingWasTaken/d70f62c782bc99283eb7df1caa333c26)
+ySomic — 2/17/2025 2:22 AM
 
-Although I think the SPA part isn't working. 
+If you want a type of timeline that looks like this
+
+Here are the plugins
+
+- [util](https://github.com/MathieuDR/obsidian-garden/blob/v4/quartz/util/timeline.ts)
+- [emitter](https://github.com/MathieuDR/obsidian-garden/blob/v4/quartz/plugins/emitters/timelinePages.ts) (recent & timeline page)
+- [component](https://github.com/MathieuDR/obsidian-garden/blob/v4/quartz/components/timeline.tsx)
+- [simple tag list](https://github.com/MathieuDR/obsidian-garden/blob/v4/quartz/components/simpleTagList.tsx) (extracted from [TagList](https://github.com/MathieuDR/obsidian-garden/blob/v4/quartz/components/TagList.tsx)
+- [logger util](https://github.com/MathieuDR/obsidian-garden/blob/v4/quartz/util/log.ts)
+- [Folder emitter](https://github.com/MathieuDR/obsidian-garden/blob/v4/quartz/plugins/emitters/folderPage.tsx) if you want to change it into this style
+- [Tag Emitter](https://github.com/MathieuDR/obsidian-garden/blob/v4/quartz/plugins/emitters/tagPage.tsx) if you want to change that
+
+Transcluding to unpublished notes:
+
+[obsidian-garden/quartz/plugins/transformers/transclude.ts](https://github.com/MathieuDR/obsidian-garden/blob/v4/quartz/plugins/transformers/transclude.ts) 
+
+and a logger
+
+[obsidian-garden/quartz/util/log.ts](https://github.com/MathieuDR/obsidian-garden/blob/v4/quartz/util/log.ts) 

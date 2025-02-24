@@ -22,6 +22,7 @@ SORT file.name ASC
 
 | File                                                                                                                           | Permalink         | Folder   |
 | ------------------------------------------------------------------------------------------------------------------------------ | ----------------- | -------- |
+| [[meta/abc js plugin(ish).md\|abc js plugin(ish)]]                                                                             | perma/4469213     | meta     |
 | [[tbd/ACTUAL guide to a now playing widget.md\|ACTUAL guide to a now playing widget]]                                          | perma/7447693     | tbd      |
 | [[thoughts/Avoiding getting doxxed.md\|Avoiding getting doxxed]]                                                               | perma/9266641     | thoughts |
 | [[meta/Code tester.md\|Code tester]]                                                                                           | perma/code-tester | meta     |
