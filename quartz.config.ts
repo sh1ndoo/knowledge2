@@ -136,6 +136,7 @@ const config: QuartzConfig = {
       Plugin.FancyText(),
       // Plugin.StickyNotes(),
       Plugin.TelescopicText(),
+      Plugin.MusicABCPlugin(),
       Plugin.ezTextReplacer(),
       Plugin.BlurText(), // this NEEDS to be in the later half, like right before syntax highlighting
       Plugin.SyntaxHighlighting({

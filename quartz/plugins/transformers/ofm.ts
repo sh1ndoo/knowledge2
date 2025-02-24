@@ -31,6 +31,7 @@ export interface Options {
   wikilinks: boolean
   callouts: boolean
   mermaid: boolean
+  abcjs: boolean
   parseTags: boolean
   parseArrows: boolean
   parseBlockReferences: boolean
@@ -46,6 +47,7 @@ const defaultOptions: Options = {
   wikilinks: true,
   callouts: true,
   mermaid: true,
+  abcjs: true,
   parseTags: true,
   parseArrows: true,
   parseBlockReferences: true,
@@ -533,6 +535,23 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
         })
       }
 
+      if (opts.abcjs) {
+        plugins.push(() => {
+          return (tree: Root, file) => {
+            visit(tree, "element", (node: Element) => {
+              if (
+                node.tagName === "div" &&
+                node.properties &&
+                Array.isArray(node.properties.className) &&
+                node.properties.className.includes("abc-rendered-content")
+              ) {
+                file.data.hasABCjs = true
+              }
+            })
+          }
+        })
+      }
+      
       return plugins
     },
     htmlPlugins() {

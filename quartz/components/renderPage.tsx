@@ -10,6 +10,8 @@ import { GlobalConfiguration } from "../cfg"
 import { i18n } from "../i18n"
 // @ts-ignore
 import mermaidScript from "./scripts/mermaid.inline"
+// @ts-ignore
+import abcjsScript from "./scripts/_abcjs.inline"
 import mermaidStyle from "./styles/mermaid.inline.scss"
 import { QuartzPluginData } from "../plugins/vfile"
 
@@ -64,6 +66,16 @@ export function pageResources(
       contentType: "inline",
     })
     resources.css.push({ content: mermaidStyle, inline: true })
+  }
+
+
+  if (fileData.hasABCjs) {
+    resources.js.push({
+      script: abcjsScript,
+      loadTime: "afterDOMReady",
+      moduleType: "module",
+      contentType: "inline",
+    })
   }
 
   // NOTE: we have to put this last to make sure spa.inline.ts is the last item.

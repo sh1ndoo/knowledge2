@@ -157,6 +157,36 @@ export default (() => {
     return (
       <head>
         <title>{title}</title>
+
+        <script src="https://cdn.jsdelivr.net/npm/abcjs@6.2.2/dist/abcjs-basic-min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/abcjs@6.2.2/dist/abcjs-plugin-min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+        window.ABCJS.plugin.render_before = true;
+        window.ABCJS.plugin.midi_options = &lbraceprogram: 41&rbrace;
+        //window.ABCJS.plugin.debug = true;
+        //responsiveness:
+        window.ABCJS.plugin.render_options = &lbrace
+          responsive: 'resize',
+          scale: 0.8,
+        &rbrace;
+        function handleResize() &lbrace
+          const abcElements = document.querySelectorAll('.abcjs-container');
+          abcElements.forEach(element =&gt; &lbrace
+            const abcNotation = element.getAttribute('data-abc');
+            if (abcNotation) &lbrace
+              ABCJS.renderAbc(element, abcNotation, window.ABCJS.plugin.render_options);
+            &rbrace
+          &rbrace);
+        &rbrace
+        window.addEventListener('resize', handleResize);
+        window.addEventListener('nav', function() &lbrace
+          handleResize();
+        &rbrace);
+        window.addCleanup(() =&gt; &lbrace
+          window.removeEventListener("resize", handleResize)
+        &rbrace)
+      </script>
+
         <meta charSet="utf-8" />
         {cfg.theme.cdnCaching && cfg.theme.fontOrigin === "googleFonts" && (
           <>
