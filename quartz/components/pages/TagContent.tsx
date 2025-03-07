@@ -47,6 +47,22 @@ export default ((opts?: Partial<TagContentOptions>) => {
       ].sort((a, b) => a.localeCompare(b))
       const _excludeStrings = ["exclude"]
       const tags = unfilteredtags.filter(tag => !_excludeStrings.some(excludeString => tag.includes(excludeString)));
+      const renderAllTagsList = (tags: string[], cfg: any) => {
+        return (
+          <div class="all-tags-list">
+            <p class="all-tags-list-p">
+              {tags.map((tag, index) => (
+                <>
+                  <a class="internal tag-link" href={`../tags/${tag}`}>
+                    {tag}
+                  </a>
+                  {index < tags.length - 1 && " "}
+                </>
+              ))}
+            </p>
+          </div>
+        )
+      }      
       const tagItemMap: Map<string, QuartzPluginData[]> = new Map()
       for (const tag of tags) {
         tagItemMap.set(tag, allPagesWithTag(tag))
@@ -57,6 +73,8 @@ export default ((opts?: Partial<TagContentOptions>) => {
             <p>{content}</p>
           </article>
           <p>{i18n(cfg.locale).pages.tagContent.totalTags({ count: tags.length })}</p>
+          {renderAllTagsList(tags, cfg)}
+          <p class="page-sparkle-divider">───✱*.｡:｡✱*.:｡✧*.｡✰*.:｡✧*.｡:｡*.｡✱ ───</p>
           <div>
             {tags.map((tag) => {
               const pages = tagItemMap.get(tag)!

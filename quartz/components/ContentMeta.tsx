@@ -89,7 +89,7 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
         )
       }
       return (
-        <div>
+        <div class="contentmeta-container">
           {fileData.slug !== "index" && 
           <p style={{ margin: '0', padding: '0'}} class="content-meta">
            <a class="light-a" href={`${options?.repoLink}/blob/${options?.branch}/${fileData.filePath!}`}>

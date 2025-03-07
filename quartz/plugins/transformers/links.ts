@@ -36,6 +36,7 @@ import {
   gwernSvg,
   defaultExternalSvg,
   fandomSvg,
+  redditSvg,
 } from "../../components/_svg"
 
 
@@ -189,6 +190,7 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options>> = (userOpts) 
                   isAnthropic: dest.includes("anthropic.com"),
                   isFandom: dest.includes("fandom.com"),
                   isSteam: dest.includes("steamcommunity.com") || dest.includes("steampowered.com"),
+                  isReddit: dest.includes("reddit.com"),
                 }
 
                 // Handle special link types
@@ -277,6 +279,8 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options>> = (userOpts) 
                   ctx.node.children.push(substackSvg)
                 // } else if (linkTypes.isTwitter) {
                 //   ctx.node.children.push(twitterSvg)
+                } else if (linkTypes.isReddit) {
+                  ctx.node.children.push(redditSvg)
                 } else if (linkTypes.isBsky) {
                   ctx.node.children.push(bskySvg)
                 } else if (

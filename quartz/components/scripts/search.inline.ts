@@ -477,7 +477,11 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
 async function fillDocument(data: { [key: FullSlug]: ContentDetails }) {
   let id = 0
   const promises: Array<Promise<unknown>> = []
+  // Skip files with the "search-exclude" tag
   for (const [slug, fileData] of Object.entries<ContentDetails>(data)) {
+    if (fileData.tags.includes("search-exclude")) {
+      continue
+    }
     promises.push(
       index.addAsync(id++, {
         id,

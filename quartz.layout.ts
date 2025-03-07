@@ -14,7 +14,7 @@ const myCategoryID = process.env.GISCUS_CATEGORY_ID;
 const homepageTitle = "Eilleen's (online!) Everything Notebook"
 const modifiedListTitle = "All-files-chronologically-modified"
 const mapTitle = "Map"
-const tagsToRemove = ["graph-exclude", "explorer-exclude", "backlinks-exclude", "recents-exclude"]
+const tagsToRemove = ["graph-exclude", "explorer-exclude", "backlinks-exclude", "recents-exclude", "search-exclude"]
 const graphConfig = {
   localGraph: {
     removeTags: tagsToRemove,

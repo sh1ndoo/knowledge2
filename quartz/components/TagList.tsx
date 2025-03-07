@@ -16,7 +16,12 @@ export default ((userOpts?: Partial<Options>) => {
     const _excludeTags = opts.excludeTags
     const tags = fileData.frontmatter?.tags
     const baseDir = pathToRoot(fileData.slug!)
-    if (tags && tags.length > 0) {
+    // don't return the tag list if there's no tags to show after filtering
+    const filteredTags = tags?.filter(tag => {
+      return !_excludeTags.some(excludeTag => tag.includes(excludeTag));
+    });
+    const nonExcludedTagCount = filteredTags?.length;
+    if (tags && nonExcludedTagCount !== undefined && nonExcludedTagCount > 0) {
       return (
         <ul class={classNames(displayClass, "tags")}>
           {tags.filter(tag => {
