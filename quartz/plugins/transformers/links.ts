@@ -173,7 +173,7 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options>> = (userOpts) 
                   isArxiv: dest.includes("arxiv.org"),
                   isWikipedia: dest.includes("wikipedia.org"),
                   isLessWrong: dest.includes("lesswrong.com"),
-                  isYoutube: dest.includes("youtube.com"),
+                  isYoutube: dest.includes("youtube.com") || dest.includes("youtu.be"),
                   isGwern: dest.includes("gwern.net"),
                   isNeovim: dest.includes("neovim.io"),
                   isQuartz: dest.includes("quartz.jzhao.xyz"),
@@ -383,50 +383,6 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options>> = (userOpts) 
             file.data.links = [...outgoing]
           }
         },
-        // () => {
-        //   const isFootnoteRef = ({ tagName, children }: Element) => {
-        //     return (
-        //       tagName === "sup" &&
-        //       children.length === 1 &&
-        //       (children[0] as Element).tagName === "a" &&
-        //       (children[0] as Element).properties.dataFootnoteRef === ""
-        //     )
-        //   }
-        //   return (tree, _file) => {
-        //     let ol: Map<string, Element[]> | undefined = undefined
-        //     visit(
-        //       tree,
-        //       (node) =>
-        //         (node as Element).tagName === "section" &&
-        //         (node as Element).properties?.dataFootnotes === "",
-        //       (node) => {
-        //         visit(node, { tagName: "ol" }, (n) => {
-        //           ol = new Map<string, Element[]>(
-        //             n.children
-        //               .filter((el: Element) => el.tagName === "li")
-        //               .map((el: Element) => [el.properties?.id as string, el.children]),
-        //           )
-        //           return SKIP
-        //         })
-        //       },
-        //     )
-        //     if (ol !== undefined) {
-        //       visit(
-        //         tree,
-        //         (node) => isFootnoteRef(node as Element),
-        //         (node) => {
-        //           const link = node.children[0] as Element
-        //           const key = (link.properties?.href as string).replace("#", "")
-        //           const sideContents = ol?.get(key)
-        //           node.children = [
-        //             ...node.children,
-        //             h("div.sidenotes", { id: key + "-sidenotes" }, sideContents),
-        //           ]
-        //         },
-        //       )
-        //     }
-        //   }
-        // },
       ]
     },
   }

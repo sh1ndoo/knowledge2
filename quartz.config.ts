@@ -36,7 +36,11 @@ const possiblePageTitles = [
   "˚ʚ♡ɞ˚",
   "𓂃 ࣪⋆💿˚ ༘",
   "⸜(｡˃ ᵕ ˂ )⸝♡",
-  "`⎚⩊⎚´ -✧"
+  "`⎚⩊⎚´ -✧",
+  "(˶˃ ᵕ ˂˶)~✧",
+  "(๑>⋆<๑)~✧",
+  "(˵•̀ ᴗ •́˵)~✧",
+  "(૮ ᵕ•̀ )૮~✧",
 ];
 function getRandomPageTitle(): string {
   return possiblePageTitles[Math.floor(Math.random() * possiblePageTitles.length)];

@@ -30,7 +30,18 @@ const tagListConfig = {
 }
 const explorerConfig = {
   filterFn: (node: FileNode) => node.name !== "tags" &&
-  !(node.file?.frontmatter?.tags?.includes("explorer-exclude") === true)
+  !(node.file?.frontmatter?.tags?.includes("explorer-exclude") === true),
+  mapFn: (node: FileNode) => {
+    // dont change name of root node
+    if (node.depth > 0) {
+      // set emoji for file/folder
+      if (node.file) {
+        node.displayName = "✾ " + node.displayName
+      } else {
+        // node.displayName = "📁 " + node.displayName
+      }
+    }
+  },
 }
 const recentNotesConfig = { 
   showTags: false, 

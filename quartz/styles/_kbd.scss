@@ -1,0 +1,64 @@
+/*---- kbd styling ----*/
+// copied from https://github.com/morrowind-modding/morrowind-modding.github.io/blob/3bfa2d43f5d1ef7c065a3a6f4ee884b264cc8c1f/quartz/styles/custom.scss#L66
+// on 2025-03-07
+// Attribution-ShareAlike 4.0 International
+
+
+kbd {
+    font-family: Consolas, "Lucida Console", monospace;
+    display: inline-block;
+    border-radius: 3px;
+    padding: 0px 4px;
+    box-shadow: 1px 1px 2px #777;
+    margin: 2px;
+    font-size: small;
+    vertical-align: text-bottom;
+    background: #eee;
+    font-weight: 500;
+    color: #555;
+    /*cursor: pointer;*/
+    font-variant: small-caps;
+    font-weight: 600;
+    line-height: 1.1rem;
+  
+    /* This two work */
+    /* letter-spacing: 0.5px; */
+    letter-spacing: 1px;
+  
+  
+    /* Prevent selection */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  kbd:hover, kbd:hover * {
+    color: black;
+    /* box-shadow: 1px 1px 1px #333; */
+  }
+  kbd:active, kbd:active * {
+    color: black;
+    box-shadow: 1px 1px 0px #ddd inset;
+  }
+  
+  kbd kbd {
+    padding: 0px;
+    margin: 0 1px;
+    box-shadow: 0px 0px 0px black;
+    vertical-align: baseline;
+    background: none;
+  }
+  
+  kbd kbd:hover {
+    box-shadow: 0px 0px 0px black;
+  }
+  
+  kbd:active kbd {
+    box-shadow: 0px 0px 0px black;
+    background: none;
+  }
+  
+  /* ===================== */

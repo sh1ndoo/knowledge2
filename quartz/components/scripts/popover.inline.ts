@@ -3,6 +3,11 @@ import { normalizeRelativeURLs } from "../../util/path"
 import { fetchCanonical } from "./util"
 
 const p = new DOMParser()
+
+function isFootnoteLink(link: HTMLAnchorElement): boolean {
+  return link.id.startsWith("user-content-fnref-");
+}
+
 async function mouseEnterHandler(
   this: HTMLAnchorElement,
   { clientX, clientY }: { clientX: number; clientY: number },
@@ -11,7 +16,6 @@ async function mouseEnterHandler(
   // console.log('Mouse entered link:', link)
   // console.log('Link id:', link.id)
   if (link.dataset.noPopover === "true" || 
-    link.id.includes("user-content-fnref-") ||
     link.id.includes("permalink") || 
     link.classList.contains('broken-link')
   ) {
@@ -74,25 +78,34 @@ async function mouseEnterHandler(
       popoverInner.appendChild(img)
       break
     case "application":
-      switch (typeInfo) {
-        case "pdf":
-          const pdf = document.createElement("iframe")
-          pdf.src = targetUrl.toString()
-          popoverInner.appendChild(pdf)
-          break
-        default:
-          break
+      if (typeInfo === "pdf") {
+        const pdf = document.createElement("iframe")
+        pdf.src = targetUrl.toString()
+        popoverInner.appendChild(pdf)
       }
       break
     default:
       const contents = await response.text()
       const html = p.parseFromString(contents, "text/html")
       normalizeRelativeURLs(html, targetUrl)
-      const elts = [...html.getElementsByClassName("popover-hint")]
-      if (elts.length === 0) return
 
-      elts.forEach((elt) => popoverInner.appendChild(elt))
+      if (isFootnoteLink(link)) {
+        const footnoteId = link.id.replace("user-content-fnref-", "user-content-fn-")
+        const footnoteElement = html.getElementById(footnoteId)
+        if (footnoteElement) {
+          const pElement = footnoteElement.querySelector('p')
+          if (pElement) {
+            popoverInner.appendChild(pElement.cloneNode(true))
+          }
+        }
+      } else {
+        const elts = [...html.getElementsByClassName("popover-hint")]
+        if (elts.length === 0) return
+        elts.forEach((elt) => popoverInner.appendChild(elt))
+      }
   }
+
+  if (popoverInner.children.length === 0) return
 
   setPosition(popoverElement)
   link.appendChild(popoverElement)

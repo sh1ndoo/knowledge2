@@ -49,7 +49,7 @@ const TableOfContents: QuartzComponent = ({
           {fileData.toc.map((tocEntry) => (
             <li key={tocEntry.slug} class={`depth-${tocEntry.depth}`}>
               <a href={`#${tocEntry.slug}`} data-for={tocEntry.slug}>
-                {tocEntry.text}
+              ᯽ {tocEntry.text}
               </a>
             </li>
           ))}
