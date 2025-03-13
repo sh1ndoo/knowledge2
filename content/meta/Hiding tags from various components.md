@@ -1,8 +1,9 @@
 ---
 date created: 2024-07-23T01:53
-date modified: 2025-02-21T11:33
+date modified: 2025-03-06T19:30
 tags:
   - guide
+permalink: perma/7794692
 ---
 
 This is a guide on how to hide certain tagged pages from the explorer, graph, backlinks, recent notes, and all list pages. The reason I created it is for my page with [[All files chronologically modified]], where it links to everything in my quartz. Not very useful in the backlinks or clogging up the graph! 
@@ -32,13 +33,15 @@ In the `quartz.layout.ts` I made some config `const`s that helped clean it up a 
 	- PageList: hardcoded a filter with `const _excludeStrings = ["exclude"]`
 	- TagContent: same edit as PageList, but so that it'd apply to the "all tags" page. 
 	- FolderContent: doesn't need a change but is affected by the above change - desired tags don't show up in the right side of the file listing because it calls the `PageList` component with all the files in the folder. 
+- Search
+	- Remove any files with the tag when they are queried for the search.
 
 ## Getting into the code
 
 ### Layout file changes
 
 ```ts title="quartz.layout.ts"
-const tagsToRemove = ["graph-exclude", "explorer-exclude", "backlinks-exclude", "recents-exclude"]
+const tagsToRemove = ["graph-exclude", "explorer-exclude", "backlinks-exclude", "recents-exclude", "search-exclude"]
 const graphConfig = {
   localGraph: {
     removeTags: tagsToRemove
@@ -176,7 +179,12 @@ export default ((userOpts?: Partial<Options>) => {
     const _excludeTags = opts.excludeTags
     const tags = fileData.frontmatter?.tags
     const baseDir = pathToRoot(fileData.slug!)
-    if (tags && tags.length > 0) {
+	// don't return the tag list if there's no tags to show after filtering
+    const filteredTags = tags?.filter(tag => {
+      return !_excludeTags.some(excludeTag => tag.includes(excludeTag));
+    });
+    const nonExcludedTagCount = filteredTags?.length;
+    if (tags && nonExcludedTagCount !== undefined && nonExcludedTagCount > 0) {
       return (
         <ul class={classNames(displayClass, "tags")}>
           {tags.filter(tag => {
@@ -213,3 +221,18 @@ if (tag === "/") {
 ```
 
 `FolderContent.tsx` doesn't need any code changes because the change is included in the `PageList.tsx` edits. 
+
+### Search
+
+```ts title="search.inline.ts" {4-8}
+async function fillDocument(data: { [key: Fu lSlug]: ContentDetails }) {
+  let id = 0
+  const promises: Array<Promise<unknown>> = []
+  // Skip files with the "search-exclude" tag
+  for (const [slug, fileData] of Object.entries<ContentDetails>(data)) {
+    if (fileData.tags.includes("search-exclude")) {
+      continue
+    }
+```
+
+Very easy :) The tag I'm using is `#search-exclude`

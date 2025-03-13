@@ -1,6 +1,6 @@
 ---
 date created: 2024-06-10T09:37
-date modified: 2025-01-31T11:44
+date modified: 2025-03-13T09:08
 tags:
   - obsidian
 ---
@@ -8,6 +8,8 @@ tags:
 Official documentation: [Dataview](https://blacksmithgu.github.io/obsidian-dataview/) by blacksmithgu
 
 ## My own notes
+
+Btw to open a "tester" vault go to Command Palette -> open sandbox vault. 
 
 ### Calling a custom frontmatter property: 
 

@@ -1,6 +1,6 @@
 ---
 date created: 2025-02-06T11:08
-date modified: 2025-02-07T14:07
+date modified: 2025-02-28T00:05
 aliases:
   - svg links
 tags:
@@ -16,10 +16,12 @@ Steam logo: https://commons.wikimedia.org/wiki/File:Steam_Logo.png Accessed 2025
 
 Random shuffle icon: [Sort Random Vector SVG Icon - SVG Repo](https://www.svgrepo.com/svg/458362/sort-random) Accessed 2025-02-07
 
+Reddit logo: [Reddit Vector SVG Icon - SVG Repo](https://www.svgrepo.com/svg/14413/reddit) Accessed 2025-02-28
+
 ## Flow for adding a new SVG
 
 1. Download svg file and copy the text in notepad
-2. Run `svg_to_jsx.py` with the svg file text pasted in 
+2. Run `svg_to_jsx_for_links.py` with the svg file text pasted in 
 3. Take the output, rename const and the id to something logical, put it in `_svg.tsx`
 4. Make changes to `links.tsx`:
 

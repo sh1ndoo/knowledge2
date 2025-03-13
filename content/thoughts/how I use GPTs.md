@@ -8,7 +8,7 @@ tags:
 
 I find that [Perplexity](https://www.perplexity.ai/) is really amazing for synthesizing information in hyper specific cases, especially when you've got a whole conversation thread going and keep adding to it. For example, something that I've asked recently is:
 
-1. I have [[Home network concepts learned through Pihole|Pi-hole]] running on my network. What capabilities will adding WireGuard do for me?
+1. I have [[Home networking concepts learned through Pi|Pi-hole]] running on my network. What capabilities will adding WireGuard do for me?
 2. If I set up WireGuard, do I need to also set up something on my devices?
 3. If I don't set up WireGuard on certain devices, will it still use Pi-hole as the DNS server if it's on my network?
 4. Given all this, do I need to set up Pi-hole as my DHCP network, or will it work without?

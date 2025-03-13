@@ -1,6 +1,6 @@
 ---
 date created: 2025-02-22T19:29
-date modified: 2025-02-23T20:56
+date modified: 2025-02-26T10:42
 permalink: perma/4469213
 ---
 
@@ -27,14 +27,18 @@ efe edB | d2d def | gfe edB |1 dBA ABd :|2 dBA AFD |]
 > [abcjs-basic-min.js](https://cdn.jsdelivr.net/npm/abcjs@6.2.2/dist/abcjs-basic-min.js) is the cdn
 > 
 > [Formatting: abcjs Configurator](https://configurator.abcjs.net/formatting/) 
+> 
+> [GitHub - abcjs-music/obsidian-plugin-abcjs: Plugin which renders music notations from code blocks](https://github.com/abcjs-music/obsidian-plugin-abcjs)
+> 
+> 
 
 ## What is it
 
-> This library makes it easy to incorporate **sheet music** into your **websites**. It is primarily aimed at **javascript developers**. The amount of javascript required for simple uses is very small, though, so one doesn't need to be an expert. 💬 [Purpose | abcjs](https://paulrosen.github.io/abcjs/overview/purpose.html#uses) 
+> This library makes it easy to incorporate **sheet music** into your **websites**. It is primarily aimed at **javascript developers**. The amount of javascript required for simple uses is very small, though, so one doesn't need to be an expert. 💬 [Purpose | abcjs](https://paulrosen.github.io/abcjs/overview/purpose.html#uses), accessed 2025-02-23
 
 ## How to do it
 
-This is the commit I made, but there's lots of extraneous stuff because I left in some things that I was experimenting with. 
+This is the commit I made, but there's lots of extraneous stuff because I left in some things that I was experimenting with. [feat: abcjs-plugin (simple ver) · fanteastick/quartz-test@30e63af](https://github.com/fanteastick/quartz-test/commit/30e63af29953782e3c844b058c5b9aac7ef19d98) 
 
 ### Install abcjs
 
@@ -46,7 +50,7 @@ npm install --save abcjs
 
 ### Add to the head
 
-```tsx
+```tsx title="Head.tsx"
 <script src="https://cdn.jsdelivr.net/npm/abcjs@6.2.2/dist/abcjs-basic-min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/abcjs@6.2.2/dist/abcjs-plugin-min.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -179,3 +183,7 @@ Right now it's using the `plugin`, which basically finds ANY blocks of abcjs and
 - Use the `ABCJS.render()` thing to make responsiveness work
 - Do on "nav" so I don't need to refresh the page after it renders
 - [ ] A few more but I'm forgetting
+
+[GitHub - remarkjs/remark: markdown processor powered by plugins part of the @unifiedjs collective](https://github.com/remarkjs/remark)
+[remark-music/index.js at master · Dabolus/remark-music · GitHub](https://github.com/Dabolus/remark-music/blob/master/index.js) 
+[remark-abcjs - breq.dev](https://breq.dev/projects/remark-abcjs) 

@@ -1,6 +1,6 @@
 ---
 date created: 2024-07-23T01:10
-date modified: 2025-02-06T14:30
+date modified: 2025-03-03T23:35
 tags:
   - external
 ---
@@ -47,6 +47,12 @@ Very impressive, guys!
 
 - especially some of the older versions! Caltech alum too
 
+[Webtrotion vs Notion Sites v2 • Nerdy Momo Cat](https://nerdymomocat.github.io/posts/webtrotion-vs-notion-sites-v2/) [Bluesky comments now work on Webtrotion • Nerdy Momo Cat](https://nerdymomocat.github.io/posts/bluesky-comments-now-work-on-webtrotion/) 
+
+- This is epic!
+
+[Staring into the abyss as a core life skill | benkuhn.net](https://www.benkuhn.net/abyss/#fn:1)
+
 ## Just cool sites
 
 [Globe.](https://globe.engineer/) I had a great time trying out the explorer! and fastask is quite handy.
@@ -70,3 +76,5 @@ Very impressive, guys!
 [U.S. Graphics Company - TX-02 Berkeley Mono™ Typeface](https://usgraphics.com/products/berkeley-mono) 
 
 [Lexend — Change the way the world reads.](https://www.lexend.com/) 
+
+[National Park Typeface](https://nationalparktypeface.com/) 

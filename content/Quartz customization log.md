@@ -1,6 +1,6 @@
 ---
 date created: 2024-06-06T22:54
-date modified: 2025-02-23T21:00
+date modified: 2025-03-07T15:01
 tags:
   - recents-exclude
 ---
@@ -41,6 +41,47 @@ Misc things to remember:
 > - [Credits and Readmes](https://morrowind-modding.github.io/credits-and-readmes/#eilleens-online-everything-notebook) on the Morrowind Modding Wiki
 > - [Quartz Cheatsheet](https://abi-is-here.github.io/niwa/software/quartz/quartz-cheatsheet) by abi-is-here
 
+## Many callouts borrowed from MMW
+
+[Custom Formatting Features](https://morrowind-modding.github.io/contributing/custom-formatting-features) from MassiveJuice's Morrowind Modding Wiki, accessed on 2025-03-07 with [Attribution-ShareAlike 4.0 International License](https://github.com/morrowind-modding/morrowind-modding.github.io/blob/main/LICENSE)
+
+- [callout-adjustments.scss](https://github.com/morrowind-modding/morrowind-modding.github.io/blob/main/quartz/styles/custom/callout-adjustments.scss) 
+- [caption-callout.scss](https://github.com/morrowind-modding/morrowind-modding.github.io/blob/main/quartz/styles/custom/caption-callout.scss) 
+- [column-callout.scss](https://github.com/morrowind-modding/morrowind-modding.github.io/blob/main/quartz/styles/custom/column-callout.scss) 
+- [infobox-callout.scss](https://github.com/morrowind-modding/morrowind-modding.github.io/blob/main/quartz/styles/custom/infobox-callout.scss) 
+- kbd from [custom.scss](https://github.com/morrowind-modding/morrowind-modding.github.io/blob/3bfa2d43f5d1ef7c065a3a6f4ee884b264cc8c1f/quartz/styles/custom.scss#L67)
+
+> [!caption|center] 
+> 
+>  ![[Ollama_image_1.png]]
+>   Image caption.
+
+Columns: 
+
+> [!column] ggg
+>
+> > [!note] title
+> >
+> > content
+>
+> > [!column] title
+> >
+> > content
+
+> [!infobox]
+> 
+> 
+> ## Article Title
+> 
+> ![[Every type of flip flop_image_5.png]]
+> 
+> ### Table Heading
+> 
+> | Type | Name |
+> | --- | --- |
+> | Row | Row |
+> | Row | Row |
+
 ## Custom Callouts and admonition
 
 Just following the documentation for Quartz. Also Admonition has a built-in "convert to callout" button. 
@@ -48,13 +89,19 @@ Just following the documentation for Quartz. Also Admonition has a built-in "con
 > [!tree]- hehehe
 > treehehe
 
+> [!tree]+ hehehe
+> treehehe
+>
+>  
+> `.callout[data-callout="tree"] { --callout-color: #7d7d7d; --callout-icon: "<svg aria-hidden=\"true\" focusable=\"false\" data-prefix=\"fas\" data-icon=\"tree\" class=\"svg-inline--fa fa-tree fa-w-12\" role=\"img\" x`
+
 Original when I did "download callouts":
 
 `.callout[data-callout="tree"] { --callout-color: #7d7d7d; --callout-icon: "<svg aria-hidden=\"true\" focusable=\"false\" data-prefix=\"fas\" data-icon=\"tree\" class=\"svg-inline--fa fa-tree fa-w-12\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 384 512\"><path fill=\"currentColor\" d=\"M378.31 378.49L298.42 288h30.63c9.01 0 16.98-5 20.78-13.06 3.8-8.04 2.55-17.26-3.28-24.05L268.42 160h28.89c9.1 0 17.3-5.35 20.86-13.61 3.52-8.13 1.86-17.59-4.24-24.08L203.66 4.83c-6.03-6.45-17.28-6.45-23.32 0L70.06 122.31c-6.1 6.49-7.75 15.95-4.24 24.08C69.38 154.65 77.59 160 86.69 160h28.89l-78.14 90.91c-5.81 6.78-7.06 15.99-3.27 24.04C37.97 283 45.93 288 54.95 288h30.63L5.69 378.49c-6 6.79-7.36 16.09-3.56 24.26 3.75 8.05 12 13.25 21.01 13.25H160v24.45l-30.29 48.4c-5.32 10.64 2.42 23.16 14.31 23.16h95.96c11.89 0 19.63-12.52 14.31-23.16L224 440.45V416h136.86c9.01 0 17.26-5.2 21.01-13.25 3.8-8.17 2.44-17.47-3.56-24.26z\"></path></svg>"; } {:css}`
 
 Remove the `"\` and wrap it all in single quotes with `data:image/svg+xml; utf8, ` at the beginning. `--bg` is background color and `--color` is text color of the title.
 
-```css title="custom.scss"
+```css title="callouts.scss"
 .callout {
   &[data-callout="tree"] {
     --bg: #7d7d7d;  
@@ -62,6 +109,67 @@ Remove the `"\` and wrap it all in single quotes with `data:image/svg+xml; utf8,
   }
 }
 ```
+
+### New callout styling
+
+Taking code from [Kepano's minimal theme](https://github.com/kepano/obsidian-minimal/blob/de81e71afb7a60ec5e82b6dd88a989f74785a28d/src/scss/content/callouts.scss#L3) to make callouts a bit cuter. This breaks the "closing" animation because the title becomes `overflow:visible`, and then the content is forced 0 when collapsed to make sure that doesn't overflow, which then doesn't play well with the transition from `max-height` to `max-height`. 
+
+> [!CODE]- callout.scss edits
+> ```scss title="callout.scss"
+> .callout {
+>   border: 4px double var(--border);
+>   background-color: var(--bg);
+>   border-radius: 5px;
+>   padding: 0 1rem;
+>   transition: max-height 0.3s ease, padding 0.3s ease;
+>   box-sizing: border-box;
+>   overflow: visible;
+>   background-color: transparent;
+>   margin-bottom: 1.5em;
+> 
+>   & > .callout-content {
+>       overflow: hidden;
+>       // transition: max-height 0.3s ease, padding 0.3s ease;
+>   }
+> 
+>   & > .callout-content > :first-child {
+>     margin-top: 0;
+>   }
+>   
+>   &.is-collapsed {
+>     min-height: 36px;
+>     max-height: 36px;
+>     transition: max-height 0.3s ease, padding 0.3s ease;
+>     padding: 0 1rem;
+> }
+> 
+>   &.is-collapsed > .callout-content {
+>     max-height: 0;
+>     padding: 0 1rem;
+>     overflow: hidden;
+>   }
+> 
+>   &.is-collapsed > .callout-title > .fold-callout-icon {
+>     transform: rotateZ(-90deg);
+>   }
+> 
+> ...
+> 
+> .callout-title {
+>   display: flex;
+>   align-items: flex-start;
+>   gap: 5px;
+>   color: var(--darkgray);
+>   // some custom changes to match kepano minimal outline, ez 03/06/2025
+>   padding: 0 0.5em;
+>   margin-top: -24px;
+>   width: fit-content;
+>   margin-left: -0.75em;
+>   background-color: var(--light);
+>   letter-spacing: 0.05em;
+>   font-variant-caps: all-small-caps;
+>   padding-top: 12px;
+> ```
 
 ## ABC js plugin
 
@@ -577,7 +685,6 @@ Daniel Hintz
 
 I think this is unintended behavior. The transclude code in `renderPage` checks for the next heading of the same level or higher. But footnotes are in a `<section>` so it just added the footnote to the transclude if it was the last header. 
 
-- [ ] todo
 ### Adding the full slug to a footnote link
 
 If it's a transclude, the footnote will just link to `#headingname` which is kind of annoying, since it doesn't exist on the current page. Need to add the slug to this. 
@@ -767,6 +874,42 @@ async function mouseEnterHandler(
     link.id.includes("permalink")
   ) {
     return
+  }
+```
+
+### Real solution
+
+I made a new solution for footnotes, inspired by aarnphm's site (e.g. [Attribution parameter decomposition](https://aarnphm.xyz/thoughts/Attribution-parameter-decomposition#user-content-fnref-alias)) The idea is to take just the content of the footnote, instead of showing the entire popover hint, so there's no duplicate `#user-content-fn` id on the page to jump to.
+
+**In `popovers.inline.ts`,** add this to the top:
+
+```ts
+function isFootnoteLink(link: HTMLAnchorElement): boolean {
+  return link.id.startsWith("user-content-fnref-");
+}
+```
+
+and then in the `switch (contentTypeCategory)` put this as the`default` case:
+
+```ts
+default:
+  const contents = await response.text()
+  const html = p.parseFromString(contents, "text/html")
+  normalizeRelativeURLs(html, targetUrl)
+
+  if (isFootnoteLink(link)) {
+	const footnoteId = link.id.replace("user-content-fnref-", "user-content-fn-")
+	const footnoteElement = html.getElementById(footnoteId)
+	if (footnoteElement) {
+	  const pElement = footnoteElement.querySelector('p')
+	  if (pElement) {
+		popoverInner.appendChild(pElement.cloneNode(true))
+	  }
+	}
+  } else {
+	const elts = [...html.getElementsByClassName("popover-hint")]
+	if (elts.length === 0) return
+	elts.forEach((elt) => popoverInner.appendChild(elt))
   }
 ```
 

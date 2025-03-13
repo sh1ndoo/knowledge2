@@ -3,9 +3,10 @@ link: https://spoo.me/docs/self-hosting
 slurped: 2025-02-04T21:00
 title: Self-Hosting spoo.me instructions
 date created: 2025-02-04T21:00
-date modified: 2025-02-05T00:05
+date modified: 2025-02-27T21:21
 tags:
   - external
+  - slurp
 ---
 
 > [!NOTE]

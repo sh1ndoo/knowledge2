@@ -1,6 +1,6 @@
 ---
 date created: 2025-02-04T14:41
-date modified: 2025-02-13T11:52
+date modified: 2025-03-13T09:05
 tags:
   - guide
 permalink: perma/7447693
@@ -9,11 +9,12 @@ subtitle: songs as a status message
 
 😱😱😱 why was it so difficult... I found the original design ugly and the instructions confusing. This is what I ended up with!
 
-![Spotify|300](https://np.sandbox.eilleeenz.com/api/spotify)
+![Spotify|300](https://np.sandbox.eilleeenz.com/)
 
-Proof of a million deployments: 
-
-![[ACTUAL guide to a now playing widget_image_1.png|500]]
+> [!bug]- Proof of a million deployments
+> 
+> ![[ACTUAL guide to a now playing widget_image_1.png|500]]
+> 
 
 It looks like this out of the box: 
 
@@ -21,7 +22,7 @@ It looks like this out of the box:
 
 ## Overview
 
-The idea is that you get a Spotify refresh token/endpoint type thing. Every time you refresh, it hits the API and gets the new information. The API access uses the currently playing song and a few previously playing songs. If you're currently playing, you can show a status saying "now listening to" and then the title and photo link to the song, and the artist links to the artist. The bars will move but it's just a bunch of `divs` (I removed them). Then, you can embed the svg with the link in markdown, demonstrated above, or you can embed it in HTML with an `img` tag. 
+The idea is that you get a Spotify refresh token/endpoint type thing. Every time you load the widget, it hits the API and gets the new information. The API access uses the currently playing song and a few previously playing songs. If you're currently playing, you can show a status saying "now listening to" and then the title and photo link to the song, and the artist links to the artist. The bars will move but it's just a bunch of `divs` (I removed them). Then, you can embed the svg with the link in markdown, demonstrated above, or you can embed it in HTML with an `img` tag. 
 
 This is the original guide that I followed and then modified: [novatorem/SetUp.md · GitHub](https://github.com/novatorem/novatorem/blob/main/SetUp.md) 
 
@@ -76,21 +77,26 @@ Copy down your refresh token somewhere safe.
 	2. `{SPOTIFY_CLIENT_ID}` (client ID from the dashboard)
 	3. `{SPOTIFY_SECRET_ID}` (client secret from the dashboard)
 4. Deploy
-	1. QOL change: after deploying, click add domain, which brings you to the domain dashboard. Select the default domain it gave -> edit -> redirect to -> `{the domain that was given to your project}/api/spotify` and press enter. So for example your-domain.vercel.app/api/spotify
-	2. Then you can select the status code, I like doing `308 Permanent Redirect`. 
-	3. After this you can add your own domains like normal.
-	4. Below is a file you can add to also redirect it.
+	1. Below is a file you can add to fix the redirects, so the output shows up under the base domain.
 ```json title="./vercel.json"
- {
-  "redirects": [
+{
+  "version": 2,
+  "builds": [
     {
-      "source": "/",
-      "destination": "https://your-domain.com/api/spotify"
+      "src": "api/spotify.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/api/spotify.py"
     }
   ]
 }
+
 ```
-5. Check out your svg at one of the domains, which should redirect to the `/api/spotify`! The base link will actually have no content...
+5. Check out your svg at one of the domains!
 6. Git clone the created repository from GitHub onto your local machine to start editing. 
 ## Step 3: Code changes
 
@@ -372,9 +378,9 @@ After extensive fiddling, this was my code:
 You can embed it into a markdown document (like Quartz, or a GitHub readme) or you can add it to an HTML page with an `<img>` tag and the link. 
 
 ```md title="yourFile.md"
-![Spotify|300](https://your-domain.com/api/spotify)
+![Spotify|300](https://your-domain.com/)
 
-<img src="https://your-domain.com/api/spotify" alt="SVG Image" style="height: 100px; object-fit: contain;">
+<img src="https://your-domain.com" alt="SVG Image" style="height: 100px; object-fit: contain;">
 ```
 
 Sometimes with long song titles it's a bit strange. It's supposed to overflow with an ellipsis, but when I checked on my phone the ellipsis didn't work. 
@@ -384,4 +390,15 @@ If you want to change the size, you need to change two parts: the `<svg>` and th
 ```j2 title="spotify.html.j2"
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="100">
     <foreignObject width="300" height="100">
+```
+
+## I figured out how to test locally
+
+It's a flask app 🤣
+
+```
+pip install -r requirements.txt
+python api/spotify.py
+
+// navigate to localhost:5000
 ```

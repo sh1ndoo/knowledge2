@@ -6,7 +6,7 @@ tags:
 permalink: perma/5910204
 ---
 
-An example password-locked page: [Protected Page](https://blog.eilleeenz.com/password-tester) (underwater)
+An example password-locked page: [Protected Page](https://blog.eilleeenz.com/password-tester) (underwater), or alternatively [[password locked page]] (gg)
 
 ![[Password on Quartz via client encryption with Staticrypt_image_1.png|300]]
 

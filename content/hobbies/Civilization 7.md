@@ -1,6 +1,6 @@
 ---
 date created: 2025-02-18T17:48
-date modified: 2025-02-19T13:27
+date modified: 2025-03-05T13:54
 tags:
   - gaming
 ---
@@ -8,6 +8,18 @@ tags:
 After playing so much [[Civilization 6]], I decided to get the next game! It is extremely confusing...
 
 > The past is more than what we leave behind. 💬 @civgame
+
+# Change over time
+
+Official page: [Game Update Notes | Civilization VII](https://civilization.2k.com/civ-vii/game-update-notes/) 
+
+## Update 1.1.0 and 1.0.1 patches
+
+Sukritact is an employee now! Good job sukritact! [Sukrit Tan: Home](https://www.sukrittan.com/) 
+
+# First impressions
+
+The mechanics with army commanders (bringing your whole army along, promotions) and city growth (click to grow, assign resources), are quite refreshing. it's nice to not need builders 🤣 I was very disoriented by the civ switching during every age. As usual, I haven't won a full game yet, but there are lots of complaints that sometimes the age progresses too fast before you can hit the victory conditions for something. 
 
 ## Key differences so far
 

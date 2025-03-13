@@ -4,8 +4,9 @@ slurped: 2024-09-12T18:30
 title: brat-ify your python plots | Nicole Kerrison
 tags:
   - external
+  - slurp
 date created: 2024-09-12T18:30
-date modified: 2024-09-15T10:09
+date modified: 2025-02-27T21:21
 ---
 
 [brat-ify your python plots | Nicole Kerrison](https://www.nicolekerrison.com/resources/bratify) 

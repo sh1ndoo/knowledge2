@@ -1,6 +1,8 @@
 ---
 date created: 2024-11-19T20:48
-date modified: 2025-01-31T11:18
+date modified: 2025-03-13T09:57
+tags:
+  - pi
 ---
 
 Amazing that it took me this long to get here... lol...
@@ -9,10 +11,11 @@ Supplies needed:
 
 - pi
 - hdmi cord <> microhdmi adapter
+	- Initially I wanted to only do setup headlessly (no screen) but something was wrong so I had to plug it in
 - ethernet
 - mouse and keyboard that connect over usb
 
-## Following da "getting started"
+## Following the "getting started"
 
 [Getting started - Raspberry Pi Documentation](https://www.raspberrypi.com/documentation/computers/getting-started.html)
 
@@ -20,17 +23,20 @@ Supplies needed:
 
 [Raspberry Pi OS – Raspberry Pi](https://www.raspberrypi.com/software/) downloaded the raspberry pi OS using raspberry pi imager for windows
 
-It's a raspberry pi 4 B. Scrounged up a usbc -> many other ports converter to download the image. lol. my usual login details and named it pi1. 
+It's a raspberry pi 4 B. You'll need some sort of converter to make the micro-SD plug into the laptop or PC you're using. You can put in Wi-Fi details at this stage. 
 
-Writing started at 9:15pm, it errored out a little bit??? something up with the converter, probably. 
-
-Forgot to do some ssh config so i'm going back to do that
+If it errors out, you can just keep trying again. Re-downloading the OS on the SD card is equivalent to resetting the Pi. 
 
 ## Goals
 
 - [x] SSH into it
 - [x] PiHole
+- [ ] public access across one of my own domains (perhaps Cloudflare?) [Setting up a Cloudflare Tunnel on the Raspberry Pi - Pi My Life Up](https://pimylifeup.com/raspberry-pi-cloudflare-tunnel/) 
 
 ## Related
 
-[[Home network concepts learned through Pihole]] 
+[[Home networking concepts learned through Pi]] 
+
+Commonly used resources: 
+
+- [Pi My Life Up - 800+ DIY Projects, Tutorials & Guides](https://pimylifeup.com/) 

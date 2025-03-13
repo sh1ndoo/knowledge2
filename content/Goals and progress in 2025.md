@@ -1,6 +1,6 @@
 ---
 date created: 2025-01-16T11:01
-date modified: 2025-01-31T11:39
+date modified: 2025-03-03T22:41
 ---
 ## Subset of the goals
 - Do a side hustle
@@ -21,3 +21,19 @@ What I'm using this year: [[Uses]]
 - Lunar new year! 🀄🏮🧦
 
 > "If you don't have time to exercise consistently, then there's something wrong with your priorities." 💬 Me
+
+## February
+
+- exercising the writing muscles 🧠
+- homelabbing: [[Setting up SSH the way I wanted]] and [[Home networking concepts learned through Pi]]
+- Hyperfixated on two quartz things: [[abc js plugin(ish)]] and [[Password on Quartz via client encryption with Staticrypt]] and I got them 80% working?
+- I VOLUNTEERED for a great science education organization! It was so joyful and I'd love to do it again
+- I tried out aggressively time tracking, as inspired by this video: [Life tracking setup for 2024 goals + habits - Jennifer | unhinged life tracking](https://youtu.be/4CUqKqNdLds?t=560&si=is0sINf9iZJLKPRD)
+	- The above link should bring you to the exact chapter/timestamp where she explains Toggl Track
+		- I'm A Little Bit convinced that it drains my battery... haha...
+	- Inspired by that, I realized I spent too little time exercising the actual muscles 💪 so I've been back to working out
+- I put up a blog post!
+
+## March
+
+- A big travel month for me. Picture time!

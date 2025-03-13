@@ -1,12 +1,30 @@
 ---
 date created: 2024-11-10T20:58
-date modified: 2025-02-19T02:27
+date modified: 2025-03-05T14:03
 tags:
   - gaming
 ---
 
 Thank you Sid Meier! Thank you POTATO MCWHISKEY! 🥔I think civ is a great game series that surprisingly has taught me a lot of random world history trivia.
 
+> From the first stirrings of life beneath water... 💬 Civilization 6, leader loading screen
+
+# How I describe it to someone who hasn't heard of it
+
+Civilization is like Catan but as a video game, so it's Catan on steroids because of all the fun things you can do with a game made digital. I've never played Catan so that could be wildly inaccurate, but Civ is a 4-eX strategy game, where the eX's stand for:
+
+- eXploration, 
+- eXpansion, 
+- eXploitation,
+- eXtermination
+
+## You should play too!
+
+The game goes on sale multiple times a year: [Price history by steamdb](https://steamdb.info/app/289070/) 
+
+(All currency values in USD here) You can get the base game for $3, and then all the expansions will be on sale for $5. So $8 for hundreds of hours of gameplay, maybe even thousands, is honestly a steal!
+
+# Gameplay tips
 ## Amenities
 - Increase this in the early game by having more unique copies of luxuries worked
 	- Sell extras to the AI

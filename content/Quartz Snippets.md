@@ -1,6 +1,6 @@
 ---
 date created: 2024-07-09T02:02
-date modified: 2025-02-21T14:22
+date modified: 2025-02-28T01:13
 ---
 
 Misc ideas, code, and plugins for quartz that I've collected across the web. %% [[Todo]] %%
@@ -505,6 +505,10 @@ Uses a github action js thing
 
 Alternatively: [Lighter color for broken internal link · LesleyLai/digital-garden@37e787f · GitHub](https://github.com/LesleyLai/digital-garden/commit/37e787f18f831667adc9058f5a058f1494677108) 
 
+## Visible properties
+
+[Visible properties · LesleyLai/digital-garden@fc2e513 · GitHub](https://github.com/LesleyLai/digital-garden/commit/fc2e513565c46b6b0d67a4eaa921a144c6a23f00)
+
 ## Copy raw markdown 
 
 [Quartz copy raw markdown component · GitHub](https://gist.github.com/MaxWolf-01/354de940ad7ed80a9f2fe9884f5c99bc) 
@@ -540,3 +544,93 @@ Transcluding to unpublished notes:
 and a logger
 
 [obsidian-garden/quartz/util/log.ts](https://github.com/MathieuDR/obsidian-garden/blob/v4/quartz/util/log.ts) 
+
+## Publishers
+
+[GitHub - konstfish/quartz-build-action: 💎 A simple GitHub Action for producing Quartz build artifacts](https://github.com/konstfish/quartz-build-action) 
+
+[GitHub - Enveloppe/obsidian-enveloppe: Enveloppe helps you to publish your notes on a GitHub repository from your Obsidian Vault, for free!](https://github.com/Enveloppe/obsidian-enveloppe) 
+
+[GitHub - CatCodeMe/ccm-publisher: a plugin for obsidian to publish your notes to github](https://github.com/CatCodeMe/ccm-publisher) 
+
+[GitHub - saberzero1/quartz-syncer: Manage your Quartz site content from inside Obsidian. Full support for Dataview and Excalidraw.](https://github.com/saberzero1/quartz-syncer) 
+
+[GitHub - saberzero1/quartz-themes: Obsidian 🤝 Quartz. Quartz compatible Obsidian Themes.](https://github.com/saberzero1/quartz-themes) 
+
+## Another mobile explorer
+
+SpikeSpiegel — 9/14/2024 2:26 PM
+
+> Hey y'all, I wrote a new layout component for a pop-out explorer menu - suitable for providing an explorer on smaller viewports!! Video shows it in action on my phone. You can look at the code at [https://github.com/MikeKneeB/quartz-site/tree/main/extra/components](https://github.com/MikeKneeB/quartz-site/tree/main/extra/components "https://github.com/MikeKneeB/quartz-site/tree/main/extra/components") (although it probably won't be a simple c&p drop in because of my docker/compose setup - but it shouldn't be too hard to modify it to fit in your projects as well if you want it). It's based extensively off the existing `Explorer` & `Search` components (and makes use of some of the existing `Explorer` code where possible). TS/JS isn't my most comfortable language, so possibly some mistakes in there - but it seems to all be working as expected!
+
+[https://gentlyrotting.online/](https://gentlyrotting.online/ "https://gentlyrotting.online/") !
+
+## Multi column callouts from just scss
+
+tiagoprudente — 2/25/2025 5:56 PM
+
+```scss
+@use "./base.scss";
+@use "./themes";
+
+/* === Multi Column Callout para Quartz === */
+
+/* Variáveis básicas */
+:root {
+  --callout-min-width: 200px;
+  --callout-gap: 1em;
+}
+
+/* Estilo para o callout multi-column */
+.callout[data-callout="multi-column"] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--callout-gap);
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* Remover título do callout principal */
+.callout[data-callout="multi-column"] > .callout-title {
+  display: none;
+}
+
+/* Fazer o conteúdo do callout principal ocupar todo o espaço */
+.callout[data-callout="multi-column"] > .callout-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--callout-gap);
+  width: 100%;
+}
+
+/* Estilo para os callouts internos */
+.callout[data-callout="multi-column"] > .callout-content > .callout {
+  flex: 1 1 var(--callout-min-width);
+  margin: 0;
+}
+
+/* Variação para 2 colunas fixas */
+.callout[data-callout="multi-column"][data-callout-metadata*="col2"] > .callout-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Variação para 3 colunas fixas */
+.callout[data-callout="multi-column"][data-callout-metadata*="col3"] > .callout-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* Opções de largura para sub-callouts */
+div[data-callout="multi-column"].callout > .callout-content > div[data-callout-metadata*="wide-2"] { 
+  flex-grow: 2; 
+}
+
+div[data-callout="multi-column"].callout > .callout-content > div[data-callout-metadata*="wide-3"] { 
+  flex-grow: 3; 
+}
+
+```
+
+

@@ -1,6 +1,6 @@
 ---
 date created: 2024-07-18T13:08
-date modified: 2025-02-07T11:02
+date modified: 2025-02-27T21:22
 ---
 ## Quartz
 
@@ -46,9 +46,9 @@ Go to google docs and edit the doc that it's on.
 
 Most of the derivatives of this are hosted on Vercel. Thanks!
 
-### Now playing (np)
+### Now playing (np) Flask app
 
-No idea how to preview before pushing... so many deployments... sorry...
+It's a flask app, so you have to start by doing `pip install -r requirements.txt` and then in the future you can run it by doing `python api/spotify.py`. Preview is in `localhost:5000`. 
 
 Spotify dashboard for managing the client ID and secret: [dashboard](https://developer.spotify.com/dashboard) 
 
@@ -88,4 +88,8 @@ python main.py
 
 Random note: I did NOT need to make two separate discord channels for the webhooks... lol...
 
-#
+## Bratify
+
+[[Setting up bratify aka Svelte apps]] 
+
+Bratgenerator is just an html site.

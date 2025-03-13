@@ -1,6 +1,6 @@
 ---
 date created: 2025-02-03T22:03
-date modified: 2025-02-07T17:29
+date modified: 2025-02-25T14:08
 tags:
   - recents-exclude
   - external
@@ -10,6 +10,12 @@ draft: "true"
 In reverse chronological order, so the most recent will be at the top. 
 
 ## 2025
+
+[Postcards connecting the world - Postcrossing](https://www.postcrossing.com/) 
+
+[Polyvia](https://dadaewqq.github.io/fun/21/) low poly pics generator
+
+[Download GitHub directory](https://download-directory.github.io/) Download any git repo subdirectory
 
 [Ben Eater](https://eater.net/) and people building CPUs from scratch with [r/beneater](https://www.reddit.com/r/beneater/) 
 
