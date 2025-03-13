@@ -124,19 +124,21 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ContentMeta(githubSourceConfig),
     Component.TagList(tagListConfig),
     Component.MobileOnly(Component.TableOfContents()),
-    Component.MobileOnly(Component.OnlyFor({titles: [mapTitle]}, Component.Explorer(explorerConfig)))
+    Component.MobileOnly(Component.OnlyFor({titles: [mapTitle]}, Component.Explorer()))
   ],
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
-    Component.Row([
-      Component.Map(),
-      Component.Darkmode(),
-      Component.Search(),
-    ]),
-    Component.DesktopOnly(Component.OnlyFor({titles: [homepageTitle, mapTitle]}, Component.Explorer(explorerConfig))),
-    Component.DesktopOnly(Component.TableOfContents2()),
-    Component.FloatingButtons({position: 'right'}),
+    Component.Flex({
+      components: [
+        {
+          Component: Component.Search(),
+          // grow: true,
+        },
+        { Component: Component.Darkmode() },
+      ],
+    }),
+    Component.Explorer(),
   ],
   right: [
     Component.Graph(graphConfig),
@@ -149,14 +151,17 @@ export const defaultListPageLayout: PageLayout = {
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
-    Component.Row([
-      Component.Map(),
-      Component.Darkmode(),
-      Component.Search(),
-    ]),
-    Component.FloatingButtons({position: 'right'}),
+    Component.Flex({
+      components: [
+        {
+          Component: Component.Search(),
+          // grow: true,
+        },
+        { Component: Component.Darkmode() },
+      ],
+    }),
+    Component.Explorer(),
   ],
-  right: [
-    Component.HiddenGlobalGraph(graphConfig),
-  ],
+  
+  right: [],
 }

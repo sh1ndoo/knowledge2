@@ -8,6 +8,8 @@ import { Root } from "hast"
 import { htmlToJsx } from "../../util/jsx"
 import { i18n } from "../../i18n"
 import { QuartzPluginData } from "../../plugins/vfile"
+import { ComponentChildren } from "preact"
+import { concatenateResources } from "../../util/resources"
 
 interface FolderContentOptions {
   /**
@@ -103,10 +105,11 @@ export default ((opts?: Partial<FolderContentOptions>) => {
       allFiles: allPagesInFolder,
     }
 
-    const content =
+    const content = (
       (tree as Root).children.length === 0
         ? fileData.description
         : htmlToJsx(fileData.filePath!, tree)
+    ) as ComponentChildren
 
     // If baseUrl contains a pathname after the domain, use this as the home link
     const url = new URL(`https://${cfg.baseUrl ?? "example.com"}`)
@@ -134,6 +137,6 @@ export default ((opts?: Partial<FolderContentOptions>) => {
     )
   }
 
-  FolderContent.css = style + PageList.css
+  FolderContent.css = concatenateResources(style, PageList.css)
   return FolderContent
 }) satisfies QuartzComponentConstructor

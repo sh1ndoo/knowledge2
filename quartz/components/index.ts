@@ -33,6 +33,7 @@ import Map from "./_Map"
 import MiniButton from "./_MiniButton"
 import FloatingButtons from "./_FloatingButtons"
 import HiddenGlobalGraph from "./_hiddenGlobalGraph"
+import Flex from "./Flex"
 
 export {
   ArticleTitle,
@@ -70,4 +71,5 @@ export {
   MiniButton,
   FloatingButtons,
   HiddenGlobalGraph,
+  Flex,
 }

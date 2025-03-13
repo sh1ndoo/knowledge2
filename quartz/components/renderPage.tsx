@@ -3,16 +3,12 @@ import { QuartzComponent, QuartzComponentProps } from "./types"
 import HeaderConstructor from "./Header"
 import BodyConstructor from "./Body"
 import { JSResourceToScriptElement, StaticResources } from "../util/resources"
-import { clone, FullSlug, RelativeURL, joinSegments, normalizeHastElement } from "../util/path"
+import { FullSlug, RelativeURL, joinSegments, normalizeHastElement } from "../util/path"
+import { clone } from "../util/clone"
 import { visit } from "unist-util-visit"
 import { Root, Element, ElementContent } from "hast"
 import { GlobalConfiguration } from "../cfg"
 import { i18n } from "../i18n"
-// @ts-ignore
-import mermaidScript from "./scripts/mermaid.inline"
-// @ts-ignore
-import abcjsScript from "./scripts/_abcjs.inline"
-import mermaidStyle from "./styles/mermaid.inline.scss"
 import { QuartzPluginData } from "../plugins/vfile"
 
 interface RenderComponents {
@@ -56,29 +52,9 @@ export function pageResources(
       },
       ...staticResources.js,
     ],
+    additionalHead: staticResources.additionalHead,
   }
 
-  if (fileData.hasMermaidDiagram) {
-    resources.js.push({
-      script: mermaidScript,
-      loadTime: "afterDOMReady",
-      moduleType: "module",
-      contentType: "inline",
-    })
-    resources.css.push({ content: mermaidStyle, inline: true })
-  }
-
-
-  if (fileData.hasABCjs) {
-    resources.js.push({
-      script: abcjsScript,
-      loadTime: "afterDOMReady",
-      moduleType: "module",
-      contentType: "inline",
-    })
-  }
-
-  // NOTE: we have to put this last to make sure spa.inline.ts is the last item.
   resources.js.push({
     src: joinSegments(baseDir, "postscript.js"),
     loadTime: "afterDOMReady",
@@ -270,7 +246,7 @@ export function renderPage(
                 </div>
               </div>
               <Content {...componentData} />
-              {/* <hr /> removed this on 7/10/24*/}
+              <hr />
               <div class="page-footer">
                 {afterBody.map((BodyComponent) => (
                   <BodyComponent {...componentData} />

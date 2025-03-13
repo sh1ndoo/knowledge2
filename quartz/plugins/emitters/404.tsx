@@ -31,7 +31,7 @@ export const NotFoundPage: QuartzEmitterPlugin = () => {
     async getDependencyGraph(_ctx, _content, _resources) {
       return new DepGraph<FilePath>()
     },
-    async emit(ctx, _content, resources): Promise<FilePath[]> {
+    async *emit(ctx, _content, resources) {
       const cfg = ctx.cfg.configuration
       const slug = "404" as FullSlug
 
@@ -55,17 +55,23 @@ export const NotFoundPage: QuartzEmitterPlugin = () => {
         allFiles: [],
       }
 
-      const prepageContent = renderPage(cfg, slug, componentData, opts, externalResources);
-      const pageContent = prepageContent.replace('<div id="quartz-body">', '<div id="quartz-404-body">');
-      // hacky - just add in the not-found-page class by doing a replacement
-      return [
-        await write({
-          ctx,
-          content: pageContent,
-          slug,
-          ext: ".html",
-        }),
-      ]
+      // const prepageContent = renderPage(cfg, slug, componentData, opts, externalResources);
+      // const pageContent = prepageContent.replace('<div id="quartz-body">', '<div id="quartz-404-body">');
+      // // hacky - just add in the not-found-page class by doing a replacement
+      // return [
+      //   await write({
+      //     ctx,
+      //     content: pageContent,
+      //     slug,
+      //     ext: ".html",
+      //   }),
+      // ]
+      yield write({
+        ctx,
+        content: renderPage(cfg, slug, componentData, opts, externalResources),
+        slug,
+        ext: ".html",
+      })
     },
   }
 }

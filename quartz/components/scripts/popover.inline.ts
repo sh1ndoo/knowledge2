@@ -3,22 +3,12 @@ import { normalizeRelativeURLs } from "../../util/path"
 import { fetchCanonical } from "./util"
 
 const p = new DOMParser()
-
-function isFootnoteLink(link: HTMLAnchorElement): boolean {
-  return link.id.startsWith("user-content-fnref-");
-}
-
 async function mouseEnterHandler(
   this: HTMLAnchorElement,
   { clientX, clientY }: { clientX: number; clientY: number },
 ) {
   const link = this
-  // console.log('Mouse entered link:', link)
-  // console.log('Link id:', link.id)
-  if (link.dataset.noPopover === "true" || 
-    link.id.includes("permalink") || 
-    link.classList.contains('broken-link')
-  ) {
+  if (link.dataset.noPopover === "true") {
     return
   }
 
@@ -78,34 +68,27 @@ async function mouseEnterHandler(
       popoverInner.appendChild(img)
       break
     case "application":
-      if (typeInfo === "pdf") {
-        const pdf = document.createElement("iframe")
-        pdf.src = targetUrl.toString()
-        popoverInner.appendChild(pdf)
+      switch (typeInfo) {
+        case "pdf":
+          const pdf = document.createElement("iframe")
+          pdf.src = targetUrl.toString()
+          popoverInner.appendChild(pdf)
+          break
+        default:
+          break
       }
       break
     default:
       const contents = await response.text()
       const html = p.parseFromString(contents, "text/html")
       normalizeRelativeURLs(html, targetUrl)
+      // strip all IDs from elements to prevent duplicates
+      html.querySelectorAll("[id]").forEach((el) => el.removeAttribute("id"))
+      const elts = [...html.getElementsByClassName("popover-hint")]
+      if (elts.length === 0) return
 
-      if (isFootnoteLink(link)) {
-        const footnoteId = link.id.replace("user-content-fnref-", "user-content-fn-")
-        const footnoteElement = html.getElementById(footnoteId)
-        if (footnoteElement) {
-          const pElement = footnoteElement.querySelector('p')
-          if (pElement) {
-            popoverInner.appendChild(pElement.cloneNode(true))
-          }
-        }
-      } else {
-        const elts = [...html.getElementsByClassName("popover-hint")]
-        if (elts.length === 0) return
-        elts.forEach((elt) => popoverInner.appendChild(elt))
-      }
+      elts.forEach((elt) => popoverInner.appendChild(elt))
   }
-
-  if (popoverInner.children.length === 0) return
 
   setPosition(popoverElement)
   link.appendChild(popoverElement)
@@ -120,10 +103,7 @@ async function mouseEnterHandler(
 }
 
 document.addEventListener("nav", () => {
-  // const links = [...document.getElementsByClassName("internal")] as HTMLAnchorElement[]
-  const links = [...document.getElementsByClassName("internal")].filter(
-    link => !link.classList.contains('broken-link')
-  ) as HTMLAnchorElement[]
+  const links = [...document.getElementsByClassName("internal")] as HTMLAnchorElement[]
   for (const link of links) {
     link.addEventListener("mouseenter", mouseEnterHandler)
     window.addCleanup(() => link.removeEventListener("mouseenter", mouseEnterHandler))
