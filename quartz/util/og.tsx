@@ -201,7 +201,8 @@ export const defaultImage: SocialImageOptions["imageStructure"] = (
   })
 
   // Get tags if available
-  const tags = fileData.frontmatter?.tags ?? []
+  // const tags = fileData.frontmatter?.tags ?? []
+  const tags = (fileData.frontmatter?.tags ?? []).filter(tag => !tag.includes("-exclude"));
   const bodyFont = getFontSpecificationName(cfg.theme.typography.body)
   const headerFont = getFontSpecificationName(cfg.theme.typography.header)
 
