@@ -11,6 +11,7 @@ import Spacer from "./Spacer"
 import TableOfContents from "./TableOfContents"
 import TableOfContents2 from "./_TableOfContents2"
 import Explorer from "./Explorer"
+import ExplorerOld from "./_ExplorerOld"
 import TagList from "./TagList"
 import Graph from "./Graph"
 import Backlinks from "./Backlinks"
@@ -72,4 +73,5 @@ export {
   FloatingButtons,
   HiddenGlobalGraph,
   Flex,
+  ExplorerOld
 }

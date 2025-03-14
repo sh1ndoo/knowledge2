@@ -50,7 +50,7 @@ const defaultOptions: GraphOptions = {
     depth: -1,
     scale: 0.9,
     repelForce: 0.5,
-    centerForce: 0.3,
+    centerForce: 0.2,
     linkDistance: 30,
     fontSize: 0.6,
     opacityScale: 1,
@@ -68,7 +68,7 @@ export default ((opts?: Partial<GraphOptions>) => {
     const globalGraph = { ...defaultOptions.globalGraph, ...opts?.globalGraph }
     return (
       <div class={classNames(displayClass, "graph")}>
-          <button id="global-graph-icon" aria-label="Global Graph" style="display:none">
+          <button class="global-graph-icon" aria-label="Global Graph" style="display:none">
             <svg
               version="1.1"
               xmlns="http://www.w3.org/2000/svg"
@@ -94,8 +94,8 @@ export default ((opts?: Partial<GraphOptions>) => {
               />
             </svg>
           </button>
-        <div id="global-graph-outer">
-          <div id="global-graph-container" data-cfg={JSON.stringify(globalGraph)}></div>
+        <div class="global-graph-outer">
+          <div class="global-graph-container" data-cfg={JSON.stringify(globalGraph)}></div>
         </div>
       </div>
     )

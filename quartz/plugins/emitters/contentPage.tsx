@@ -105,7 +105,7 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
           containsIndex = true
         }
 
-        if (file.data.slug?.endsWith("/index")) {
+        if (file.data.slug?.endsWith("/index") || file.data.slug?.includes("tags/")) {
           continue
         }
 

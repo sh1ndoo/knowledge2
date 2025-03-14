@@ -370,6 +370,8 @@ export const TelescopicText: QuartzTransformerPlugin<Partial<Config>> = (userOpt
                 h(
                   "div.telescopic-container",
                   { id: code.properties.id },
+                  
+                  contentToHast(content, opts),
                   h(
                     "span",
                     { class: "expand", type: "button" },
@@ -411,7 +413,6 @@ export const TelescopicText: QuartzTransformerPlugin<Partial<Config>> = (userOpt
                       ])
                     ),
                   ),
-                  contentToHast(content, opts),
                 ),
               )
             },

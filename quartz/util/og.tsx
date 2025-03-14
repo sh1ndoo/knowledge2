@@ -188,7 +188,7 @@ export const defaultImage: SocialImageOptions["imageStructure"] = (
 ) => {
   const fontBreakPoint = 32
   const useSmallerFont = title.length > fontBreakPoint
-  const iconPath = `https://${cfg.baseUrl}/static/icon.png`
+  const iconPath = `https://${cfg.baseUrl}/static/icon2.png`
 
   // Format date if available
   const rawDate = getDate(cfg, fileData)

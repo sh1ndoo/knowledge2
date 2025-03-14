@@ -155,15 +155,16 @@ function setupFloatingButtons() {
       // 显示图谱
       graphComponent.classList.add('active')
       // 触发图谱渲染
-      const globalGraphIcon = document.getElementById('global-graph-icon')
-      if (globalGraphIcon) {
+      const globalGraphIcons = document.getElementsByClassName('global-graph-icon');
+      if (globalGraphIcons.length > 0) {
         const clickEvent = new MouseEvent('click', {
           view: window,
           bubbles: true,
           cancelable: true
-        })
-        globalGraphIcon.dispatchEvent(clickEvent)
+        });
+        globalGraphIcons[0].dispatchEvent(clickEvent);
       }
+
 
       // 注册 ESC 关闭事件
       const handleEsc = (e: KeyboardEvent) => {

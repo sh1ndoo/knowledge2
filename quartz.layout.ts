@@ -2,9 +2,9 @@ import 'dotenv/config';
 
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
-import { FileNode } from "./quartz/components/ExplorerNode";
 import { SimpleSlug } from "./quartz/util/path";
 import { QuartzPluginData } from "./quartz/plugins/vfile"
+import { FileTrieNode } from './quartz/util/fileTrie';
 
 // Secrets
 const myRepoID = process.env.GISCUS_REPO_ID;
@@ -29,17 +29,12 @@ const tagListConfig = {
   excludeTags: tagsToRemove
 }
 const explorerConfig = {
-  filterFn: (node: FileNode) => node.name !== "tags" &&
-  !(node.file?.frontmatter?.tags?.includes("explorer-exclude") === true),
-  mapFn: (node: FileNode) => {
+  filterFn: (node: FileTrieNode) => !(node.data?.tags.includes("explorer-exclude") === true),
+  mapFn: (node: FileTrieNode) => {
     // dont change name of root node
-    if (node.depth > 0) {
-      // set emoji for file/folder
-      if (node.file) {
-        node.displayName = "✾ " + node.displayName
-      } else {
-        // node.displayName = "📁 " + node.displayName
-      }
+    if (!node.isFolder) {
+      // set emoji for file/folder      
+        node.displayName = "⊹ ࣪" + node.displayName
     }
   },
 }
@@ -124,21 +119,20 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ContentMeta(githubSourceConfig),
     Component.TagList(tagListConfig),
     Component.MobileOnly(Component.TableOfContents()),
-    Component.MobileOnly(Component.OnlyFor({titles: [mapTitle]}, Component.Explorer()))
+    // Component.MobileOnly(Component.OnlyFor({titles: [mapTitle]}, Component.ExplorerOld(explorerConfig)))
   ],
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
-    Component.Flex({
-      components: [
-        {
-          Component: Component.Search(),
-          // grow: true,
-        },
-        { Component: Component.Darkmode() },
-      ],
-    }),
-    Component.Explorer(),
+    Component.Row([
+      Component.Map(),
+      Component.Darkmode(),
+      Component.Search(),
+    ]),
+    // Component.DesktopOnly(Component.OnlyFor({titles: [homepageTitle, mapTitle]}, Component.ExplorerOld(explorerConfig))),
+    Component.DesktopOnly(Component.TableOfContents()),
+    Component.OnlyFor({titles: [homepageTitle, mapTitle]}, Component.Explorer(explorerConfig)),
+    Component.FloatingButtons({position: 'right'}),
   ],
   right: [
     Component.Graph(graphConfig),
@@ -151,17 +145,14 @@ export const defaultListPageLayout: PageLayout = {
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
-    Component.Flex({
-      components: [
-        {
-          Component: Component.Search(),
-          // grow: true,
-        },
-        { Component: Component.Darkmode() },
-      ],
-    }),
-    Component.Explorer(),
+    Component.Row([
+      Component.Map(),
+      Component.Darkmode(),
+      Component.Search(),
+    ]),
+    Component.FloatingButtons({position: 'right'}),
   ],
-  
-  right: [],
+  right: [
+    Component.HiddenGlobalGraph(graphConfig),
+  ],
 }

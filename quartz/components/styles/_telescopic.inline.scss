@@ -18,8 +18,8 @@
   align-items: baseline;
   position: relative;
   margin: 1rem 0;
-  left: calc(-2 * (var(--refresh-width) + var(--gap-width)));
-  width: calc(100% + 2 * (var(--refresh-width) + var(--gap-width)));
+  // left: calc(-2 * (var(--refresh-width) + var(--gap-width)));
+  // width: calc(100% + 2 * (var(--refresh-width) + var(--gap-width)));
   gap: var(--gap-width);
 
   .expand,

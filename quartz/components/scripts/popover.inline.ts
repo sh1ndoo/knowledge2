@@ -3,13 +3,20 @@ import { normalizeRelativeURLs } from "../../util/path"
 import { fetchCanonical } from "./util"
 
 const p = new DOMParser()
+
+function isFootnoteLink(link: HTMLAnchorElement): boolean {
+  return link.id.startsWith("user-content-fnref-");
+}
+
 async function mouseEnterHandler(
   this: HTMLAnchorElement,
   { clientX, clientY }: { clientX: number; clientY: number },
 ) {
   const link = this
-  if (link.dataset.noPopover === "true") {
-    return
+  if ((link.dataset.noPopover === "true") || 
+    link.id.includes("permalink") || 
+    link.classList.contains('broken-link')) {
+      return
   }
 
   async function setPosition(popoverElement: HTMLElement) {
@@ -82,12 +89,24 @@ async function mouseEnterHandler(
       const contents = await response.text()
       const html = p.parseFromString(contents, "text/html")
       normalizeRelativeURLs(html, targetUrl)
-      // strip all IDs from elements to prevent duplicates
-      html.querySelectorAll("[id]").forEach((el) => el.removeAttribute("id"))
-      const elts = [...html.getElementsByClassName("popover-hint")]
-      if (elts.length === 0) return
-
-      elts.forEach((elt) => popoverInner.appendChild(elt))
+      if (isFootnoteLink(link)) {
+        const footnoteId = link.id.replace("user-content-fnref-", "user-content-fn-")
+        const footnoteElement = html.getElementById(footnoteId)
+        if (footnoteElement) {
+          const pElement = footnoteElement.querySelector('p')
+          if (pElement) {
+            popoverInner.appendChild(pElement.cloneNode(true))
+          }
+        }
+      } else {
+        // Check if the link is on the same page
+        if (thisUrl.origin === targetUrl.origin && thisUrl.pathname === targetUrl.pathname) {
+          return
+        }
+        const elts = [...html.getElementsByClassName("popover-hint")]
+        if (elts.length === 0) return
+        elts.forEach((elt) => popoverInner.appendChild(elt))
+      }
   }
 
   setPosition(popoverElement)
@@ -102,10 +121,36 @@ async function mouseEnterHandler(
   }
 }
 
+function handleSamePageClick(evt: MouseEvent) {
+  const link = evt.currentTarget as HTMLAnchorElement
+  const thisUrl = new URL(document.location.href)
+  thisUrl.hash = ""
+  thisUrl.search = ""
+  const targetUrl = new URL(link.href)
+  const hash = decodeURIComponent(targetUrl.hash)
+  targetUrl.hash = ""
+  targetUrl.search = ""
+
+  if (thisUrl.toString() === targetUrl.toString() && hash !== "") {
+    evt.preventDefault()
+    const mainContent = document.querySelector("article")
+    const heading = mainContent?.querySelector(hash) as HTMLElement | null
+    if (heading) {
+      heading.scrollIntoView({ behavior: "smooth" })
+      // Optionally update the URL without a page reload
+      history.pushState(null, "", hash)
+    }
+  }
+}
+
 document.addEventListener("nav", () => {
   const links = [...document.getElementsByClassName("internal")] as HTMLAnchorElement[]
   for (const link of links) {
     link.addEventListener("mouseenter", mouseEnterHandler)
-    window.addCleanup(() => link.removeEventListener("mouseenter", mouseEnterHandler))
+    link.addEventListener("click", handleSamePageClick)
+    window.addCleanup(() => {
+      link.removeEventListener("mouseenter", mouseEnterHandler)
+      link.removeEventListener("click", handleSamePageClick)
+    })
   }
 })
