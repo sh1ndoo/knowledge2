@@ -86,9 +86,13 @@ export const FrontMatter: QuartzTransformerPlugin<Partial<Options>> = (userOpts)
             if (tags) data.tags = [...new Set(tags.map((tag: string) => slugTag(tag)))]
 
             const aliases = coerceToArray(coalesceAliases(data, ["aliases", "alias"]))
-            if (aliases) {
-              data.aliases = aliases // frontmatter
-              const slugs = (file.data.aliases = getAliasSlugs(aliases, argv, file))
+            const permalink = data.permalink
+
+            if (aliases || permalink) {
+              if (aliases) {
+                data.aliases = aliases // frontmatter
+              }
+              const slugs = (file.data.aliases = getAliasSlugs(aliases ?? [], argv, file))
               allSlugs.push(...slugs)
             }
             const cssclasses = coerceToArray(coalesceAliases(data, ["cssclasses", "cssclass"]))
