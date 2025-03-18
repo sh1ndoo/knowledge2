@@ -16,6 +16,12 @@
 //   padding-top: 10px;
 // }
 
+//superscripts aka footnotes being small and middled
+sup {
+  font-size: 0.65em;
+  vertical-align: top;
+}
+
 blockquote.transclude {
   border-left: double;
 }

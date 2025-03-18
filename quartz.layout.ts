@@ -82,26 +82,30 @@ export const sharedPageComponents: SharedLayout = {
   header: [],
   afterBody: [
   Component.OnlyFor(
-    { titles: [homepageTitle, mapTitle] },
+    { titles: [homepageTitle] },
     Component.RecentNotes(recentNotesConfig)
   ), 
-    Component.Comments({
-      provider: 'giscus',
-      options: {
-        // from data-repo
-        repo: 'fanteastick/quartz-test',
-        // from data-repo-id
-        repoId: 'R_kgDOMVIwGw',
-        // from data-category
-        category: 'Announcements',
-        // from data-category-id
-        categoryId: 'DIC_kwDOMVIwG84Cguqi',
-        mapping: "specific",
-        strict: false,
-        reactionsEnabled: false,
-        inputPosition: "top",
-        term: "Guestbook"
-    }})
+  Component.OnlyFor(
+    { titles: [mapTitle]},
+    Component.RecentNotes({...recentNotesConfig, limit: 8})
+  ),
+  Component.Comments({
+    provider: 'giscus',
+    options: {
+      // from data-repo
+      repo: 'fanteastick/quartz-test',
+      // from data-repo-id
+      repoId: 'R_kgDOMVIwGw',
+      // from data-category
+      category: 'Announcements',
+      // from data-category-id
+      categoryId: 'DIC_kwDOMVIwG84Cguqi',
+      mapping: "specific",
+      strict: false,
+      reactionsEnabled: false,
+      inputPosition: "top",
+      term: "Guestbook"
+  }})
 ],
   footer: Component.Footer({
     links: {
