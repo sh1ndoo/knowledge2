@@ -2,7 +2,9 @@ import { render } from "preact-render-to-string"
 import { QuartzComponent, QuartzComponentProps } from "./types"
 import HeaderConstructor from "./Header"
 import BodyConstructor from "./Body"
+import EncryptedContent from "./pages/_EncryptedContent"
 import { JSResourceToScriptElement, StaticResources } from "../util/resources"
+import { getEncryptedPayload } from "../util/_encrypt"
 import { FullSlug, RelativeURL, joinSegments, normalizeHastElement } from "../util/path"
 import { clone } from "../util/clone"
 import { visit } from "unist-util-visit"
@@ -65,13 +67,13 @@ export function pageResources(
   return resources
 }
 
-export function renderPage(
+export async function renderPage(
   cfg: GlobalConfiguration,
   slug: FullSlug,
   componentData: QuartzComponentProps,
   components: RenderComponents,
   pageResources: StaticResources,
-): string {
+): Promise<string> {
   // make a deep copy of the tree so we don't remove the transclusion references
   // for the file cached in contentMap in build.ts
   const root = clone(componentData.tree) as Root
@@ -207,6 +209,7 @@ export function renderPage(
   } = components
   const Header = HeaderConstructor()
   const Body = BodyConstructor()
+  const Encrypted = EncryptedContent()
 
   const LeftComponent = (
     <div class="left sidebar">
@@ -223,6 +226,16 @@ export function renderPage(
       ))}
     </div>
   )
+
+  let content = <Content {...componentData} />
+  if (cfg.passProtected?.enabled && componentData.fileData.frontmatter?.passphrase) {
+    componentData.encryptedContent = await getEncryptedPayload(
+      render(content),
+      componentData.fileData.frontmatter.passphrase.toString(),
+      cfg.passProtected?.iteration,
+    )
+    content = <Encrypted {...componentData} />
+  }
 
   const lang = componentData.fileData.frontmatter?.lang ?? cfg.locale?.split("-")[0] ?? "en"
   const doc = (
@@ -245,7 +258,8 @@ export function renderPage(
                   ))}
                 </div>
               </div>
-              <Content {...componentData} />
+              {/* <Content {...componentData} /> got replaced bc of the encrypted stuff */}
+              {content}
               {/* <hr /> */}
               <div class="page-footer">
                 {afterBody.map((BodyComponent) => (

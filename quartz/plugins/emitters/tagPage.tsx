@@ -129,7 +129,7 @@ export const TagPage: QuartzEmitterPlugin<Partial<TagPageOptions>> = (userOpts) 
           allFiles,
         }
 
-        const content = renderPage(cfg, slug, componentData, opts, externalResources)
+        const content = await renderPage(cfg, slug, componentData, opts, externalResources)
         yield write({
           ctx,
           content,

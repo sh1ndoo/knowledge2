@@ -60,6 +60,10 @@ const config: QuartzConfig = {
     baseUrl: "quartz.eilleeenz.com",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "modified",
+    passProtected: {
+      enabled: true,
+      iteration: 2e6,
+    },
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
