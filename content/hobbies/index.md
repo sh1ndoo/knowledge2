@@ -1,9 +1,9 @@
 ---
 date created: 2025-01-05T18:04
-date modified: 2025-02-07T17:31
+date modified: 2025-03-18T11:20
 ---
 
-The backlog of potential hobbies:
+There's a big backlog of potential hobbies. If only I had infinite time... unfortunately, I need to prioritize!
 
 - [ ] raspberry pi
 - [ ] pickleball
@@ -19,4 +19,3 @@ The backlog of potential hobbies:
 - [ ] Cheese and wine
 - [ ] Calisthenics
 
-If only I had infinite time... unfortunately, I need to prioritize!

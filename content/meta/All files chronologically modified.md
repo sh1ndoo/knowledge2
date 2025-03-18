@@ -36,12 +36,12 @@ Some hidden tags: anything with "exclude" basically
 
 | File                                                                                                                                           | Folder                     | Modified     |
 | ---------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | ------------ |
-| [[linux tech/My first ever raspberry pi!!!.md\|My first ever raspberry pi!!!]]                                                                 | linux tech                 | Mar 13, 2025 |
+| [[meta/Code tester.md\|Code tester]]                                                                                                           | meta                       | Mar 18, 2025 |
+| [[tbd/ACTUAL guide to a now playing widget.md\|ACTUAL guide to a now playing widget]]                                                          | tbd                        | Mar 18, 2025 |
+| [[Quartz customization log.md\|Quartz customization log]]                                                                                      |                            | Mar 18, 2025 |
+| [[meta/Hiding tags from various components.md\|Hiding tags from various components]]                                                           | meta                       | Mar 18, 2025 |
+| [[linux tech/My first ever raspberry pi!!!.md\|My first ever raspberry pi!!!]]                                                                 | linux tech                 | Mar 18, 2025 |
 | [[tbd/Dataview reference.md\|Dataview reference]]                                                                                              | tbd                        | Mar 13, 2025 |
-| [[tbd/ACTUAL guide to a now playing widget.md\|ACTUAL guide to a now playing widget]]                                                          | tbd                        | Mar 13, 2025 |
-| [[meta/Code tester.md\|Code tester]]                                                                                                           | meta                       | Mar 13, 2025 |
-| [[Quartz customization log.md\|Quartz customization log]]                                                                                      |                            | Mar 7, 2025  |
-| [[meta/Hiding tags from various components.md\|Hiding tags from various components]]                                                           | meta                       | Mar 6, 2025  |
 | [[tbd/password locked page.md\|password locked page]]                                                                                          | tbd                        | Mar 6, 2025  |
 | [[tbd/Self-hosting on a Pi.md\|Self-hosting on a Pi]]                                                                                          | tbd                        | Mar 6, 2025  |
 | [[hobbies/cool things online/Other digital garden platforms.md\|Other digital garden platforms]]                                               | hobbies/cool things online | Mar 6, 2025  |
@@ -83,7 +83,6 @@ Some hidden tags: anything with "exclude" basically
 | [[tbd/Untrack something that used to be tracked in git.md\|Untrack something that used to be tracked in git]]                                  | tbd                        | Feb 2, 2025  |
 | [[hobbies/Squad Busters by Supercell.md\|Squad Busters by Supercell]]                                                                          | hobbies                    | Feb 1, 2025  |
 | [[semiconductors and chips/Various areas or fields or categories or.md\|Various areas or fields or categories or]]                             | semiconductors and chips   | Jan 18, 2025 |
-| [[tbd/Upgrading to quartz 4.4.md\|Upgrading to quartz 4.4]]                                                                                    | tbd                        | Jan 18, 2025 |
 | [[thoughts/How to cram for the GRE (2023).md\|How to cram for the GRE (2023)]]                                                                 | thoughts                   | Jan 16, 2025 |
 | [[rgb tech/Installing yarn.md\|Installing yarn]]                                                                                               | rgb tech                   | Jan 5, 2025  |
 | [[linux tech/Ideas for what one can do with a home server.md\|Ideas for what one can do with a home server]]                                   | linux tech                 | Jan 5, 2025  |

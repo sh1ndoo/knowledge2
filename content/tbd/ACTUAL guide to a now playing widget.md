@@ -1,6 +1,6 @@
 ---
 date created: 2025-02-04T14:41
-date modified: 2025-03-13T09:05
+date modified: 2025-03-18T13:49
 tags:
   - guide
 permalink: perma/7447693
@@ -369,9 +369,7 @@ Unfortunately I have no idea how to preview before deploying, so I had to deploy
 After extensive fiddling, this was my code:
 
 > [!Warning]- Gist
-> <script src="https://gist.github.com/fanteastick/3fdce32a5816a78a3b0623d3dbffcf61.js"></script>
-
-%% [The spotify light theme for a now playing svg widget · GitHub](https://gist.github.com/fanteastick/3fdce32a5816a78a3b0623d3dbffcf61) %%
+>  [The spotify light theme for a now playing svg widget · GitHub](https://gist.github.com/fanteastick/3fdce32a5816a78a3b0623d3dbffcf61)
 
 ## How to use and closing remarks
 

@@ -1,6 +1,6 @@
 ---
 date created: 2025-03-13T16:56
-date modified: 2025-03-14T00:02
+date modified: 2025-03-18T16:30
 draft: "true"
 ---
 
@@ -17,6 +17,7 @@ Can't say it was a pleasant experience... merge conflicts are not my passion...
 - add ᯽ to toc
 - properly skip contentpage emitting of tag pages and folder pages `if (file.data.slug?.endsWith("/index") || file.data.slug?.includes("tags/")) {`
 - reduce `$topSpacing: 4rem;`
+- og needs to ignore -exclude in the tags
 
 ## Surrendered and started using the built-in explorer
 
@@ -59,4 +60,4 @@ i dunno...
 now that there's the feature for the loading scripts thing
 
 - fixing the music thing abcjs
-- fixing the password thing staticrypt
+- fancytext loader

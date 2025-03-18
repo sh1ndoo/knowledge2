@@ -1,6 +1,6 @@
 ---
 date created: 2024-06-06T22:54
-date modified: 2025-03-07T15:01
+date modified: 2025-03-18T16:24
 tags:
   - recents-exclude
 ---
@@ -20,7 +20,7 @@ Misc things to remember:
 > 
 > Forcing icons in a row and making a map
 > 
-> Tag and folder pages having consistent names 📂🔖
+> Tag and folder pages having an emoji 📂🔖
 > 
 > Random page link (logic not mine originally, it's from t-schreibs)
 > 
@@ -41,6 +41,17 @@ Misc things to remember:
 > - [Credits and Readmes](https://morrowind-modding.github.io/credits-and-readmes/#eilleens-online-everything-notebook) on the Morrowind Modding Wiki
 > - [Quartz Cheatsheet](https://abi-is-here.github.io/niwa/software/quartz/quartz-cheatsheet) by abi-is-here
 
+## Superscript styling
+
+Sometimes a footnote will make the line spacing weird. [^1]
+
+```scss title="custom.scss"
+//superscripts aka footnotes being small and middled
+sup {
+  font-size: 0.65em;
+  vertical-align: top;
+}
+```
 ## Many callouts borrowed from MMW
 
 [Custom Formatting Features](https://morrowind-modding.github.io/contributing/custom-formatting-features) from MassiveJuice's Morrowind Modding Wiki, accessed on 2025-03-07 with [Attribution-ShareAlike 4.0 International License](https://github.com/morrowind-modding/morrowind-modding.github.io/blob/main/LICENSE)
@@ -212,6 +223,8 @@ Demo: [Protected Page](https://blog.eilleeenz.com/password-tester) with password
 Alternatively [[password locked page]] with password "gg"
 
 ![[Password on Quartz via client encryption with Staticrypt_image_1.png|360]]
+
+Another method: [[passphrase encrypted page]] with [Pull Request #1481 · feat: allow to set password-protected notes by dynamotn](https://github.com/jackyzha0/quartz/pull/1481) 
 
 ## Graph fixes on radial and list pages
 
@@ -853,7 +866,7 @@ It's weird being perceived... A little comment so I can find out who's snooping 
 <meta name="custom-comment-fanteastick-ez" content="My 'i was here' moment! check out eilleeenz.com" />
 ```
 
-## Disabling popover on footnotes and subtitles
+## Fixing popover on footnotes and subtitles
 
 Problem statement: 
 
@@ -1413,7 +1426,7 @@ With the introduction of the tablet layout and left sidebar being empty, I thoug
 
 Change the ID on the 404 page `<body>` by replacing html after the `renderPage`: 
 
-```tsx title="404.tsx"
+```tsx title="plugins/emitters/404.tsx"
   const prepageContent = renderPage(cfg, slug, componentData, opts, externalResources);
   const pageContent = prepageContent.replace('<div id="quartz-body">', '<div id="quartz-404-body">');
   return [
@@ -1926,3 +1939,5 @@ const config: QuartzConfig = {
 ```ts title="quartz.config.ts"
     baseUrl: "quartz.eilleeenz.com",
 ```
+
+[^1]: footnote example.

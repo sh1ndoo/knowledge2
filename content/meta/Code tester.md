@@ -1,6 +1,6 @@
 ---
 date created: 2024-08-02T09:44
-date modified: 2025-03-13T09:03
+date modified: 2025-03-18T14:30
 tags:
   - explorer-exclude
   - graph-exclude
@@ -15,6 +15,9 @@ hello
 pogwlkdd9
 Word highlighting in code
 ```
+
+> [!web] From the web
+> lorem ibsumb
 
 Admonition
 

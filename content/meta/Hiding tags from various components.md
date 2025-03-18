@@ -1,6 +1,6 @@
 ---
 date created: 2024-07-23T01:53
-date modified: 2025-03-06T19:30
+date modified: 2025-03-18T16:25
 tags:
   - guide
 permalink: perma/7794692
@@ -224,15 +224,25 @@ if (tag === "/") {
 
 ### Search
 
-```ts title="search.inline.ts" {4-8}
-async function fillDocument(data: { [key: Fu lSlug]: ContentDetails }) {
-  let id = 0
-  const promises: Array<Promise<unknown>> = []
-  // Skip files with the "search-exclude" tag
-  for (const [slug, fileData] of Object.entries<ContentDetails>(data)) {
-    if (fileData.tags.includes("search-exclude")) {
-      continue
-    }
+Credits to Felix Nie on discord:
+
+```tsx title="contentIndex.tsx" {4-8}
+    async emit(ctx, content, _resources) {
+      const cfg = ctx.cfg.configuration
+      const emitted: FilePath[] = []
+      const linkIndex: ContentIndex = new Map()
+      for (const [tree, file] of content) {
+        
+        // mod: skip files with specific tag while building the search index
+        if (file.data.frontmatter?.tags?.includes("search-exclude")) {
+          continue
+        }
 ```
 
-Very easy :) The tag I'm using is `#search-exclude`
+### Opengraph image previews
+
+```tsx title="og.tsx"
+  // Get tags if available
+  // const tags = fileData.frontmatter?.tags ?? [] <<original
+  const tags = (fileData.frontmatter?.tags ?? []).filter(tag => !tag.includes("-exclude"));
+```
