@@ -1,6 +1,6 @@
 ---
 date created: 2024-06-06T22:54
-date modified: 2025-03-18T16:24
+date modified: 2025-03-18T22:25
 tags:
   - recents-exclude
 ---
@@ -40,6 +40,124 @@ Misc things to remember:
 > - [👋 Welcome \| sidbin](https://sidb.in/)
 > - [Credits and Readmes](https://morrowind-modding.github.io/credits-and-readmes/#eilleens-online-everything-notebook) on the Morrowind Modding Wiki
 > - [Quartz Cheatsheet](https://abi-is-here.github.io/niwa/software/quartz/quartz-cheatsheet) by abi-is-here
+
+## Emitting a second RSS feed
+
+The normal one uses the default date type which for me is the modified date, which doesn't work well for me because I modify things all the time. So I'm emitting another one that sorts based on date created.
+
+> [!code]- contentIndex
+> ```tsx title="contentIndex.tsx"
+> function generateCreatedRSSFeed(cfg: GlobalConfiguration, idx: ContentIndexMap, limit?: number): string {
+>   const base = cfg.baseUrl ?? ""
+> 
+>   const createURLEntry = (slug: SimpleSlug, content: ContentDetails): string => `<item>
+>     <title>${escapeHTML(content.title)}</title>
+>     <link>https://${joinSegments(base, encodeURI(slug))}</link>
+>     <guid>https://${joinSegments(base, encodeURI(slug))}</guid>
+>     <description>${content.richContent ?? content.description}</description>
+>     <pubDate>${content.date?.toUTCString()}</pubDate>
+>   </item>`
+> 
+>   const items = Array.from(idx)
+>     .sort(([_, f1], [__, f2]) => {
+>       const date1 = _getDateCustom(cfg, f1, 'created')
+>       const date2 = _getDateCustom(cfg, f2, 'created')
+>       if (date1 && date2) {
+>         return date2.getTime() - date1.getTime()
+>       } else if (date1 && !date2) {
+>         return -1
+>       } else if (!date1 && date2) {
+>         return 1
+>       }
+> 
+>       return f1.title.localeCompare(f2.title)
+>     })
+>     .map(([slug, content]) => createURLEntry(simplifySlug(slug), content))
+>     .slice(0, limit ?? idx.size)
+>     .join("")
+> 
+>   return `<?xml version="1.0" encoding="UTF-8" ?>
+> <rss version="2.0">
+>     <channel>
+>       <title>${escapeHTML(cfg.pageTitle)}</title>
+>       <link>https://${base}</link>
+>       <description>${!!limit ? i18n(cfg.locale).pages.rss.lastFewNotes({ count: limit }) : i18n(cfg.locale).pages.rss.recentNotes} on ${escapeHTML(
+>         cfg.pageTitle,
+>       )}</description>
+>       <generator>Quartz -- quartz.jzhao.xyz</generator>
+>       ${items}
+>     </channel>
+>   </rss>`
+> }
+> 
+> export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
+>   opts = { ...defaultOptions, ...opts }
+>   return {
+>     name: "ContentIndex",
+>     async getDependencyGraph(ctx, content, _resources) {
+>       const graph = new DepGraph<FilePath>()
+> 
+>       for (const [_tree, file] of content) {
+>         const sourcePath = file.data.filePath!
+> 
+>         graph.addEdge(
+>           sourcePath,
+>           joinSegments(ctx.argv.output, "static/contentIndex.json") as FilePath,
+>         )
+>         if (opts?.enableSiteMap) {
+>           graph.addEdge(sourcePath, joinSegments(ctx.argv.output, "sitemap.xml") as FilePath)
+>         }
+>         if (opts?.enableRSS) {
+>           graph.addEdge(sourcePath, joinSegments(ctx.argv.output, "index.xml") as FilePath)
+>           graph.addEdge(sourcePath, joinSegments(ctx.argv.output, "index-created.xml") as FilePath)
+>         }
+>       }
+> 
+>       return graph
+>     },
+> ...
+>       if (opts?.enableRSS) {
+>         yield write({
+>           ctx,
+>           content: generateRSSFeed(cfg, linkIndex, opts.rssLimit),
+>           slug: (opts?.rssSlug ?? "index") as FullSlug,
+>           ext: ".xml",
+>         })
+>         yield write({
+>           ctx,
+>           content: generateCreatedRSSFeed(cfg, linkIndex, opts.rssLimit),
+>           slug: "index-created" as FullSlug,
+>           ext: ".xml",
+>         })
+>       }
+> ...
+>     externalResources: (ctx) => {
+>       if (opts?.enableRSS) {
+>         return {
+>           additionalHead: [
+>             <link
+>               rel="alternate"
+>               type="application/rss+xml"
+>               title="RSS Feed"
+>               href={`https://${ctx.cfg.configuration.baseUrl}/index.xml`}
+>             />,
+>             <link
+>               rel="alternate"
+>               type="application/rss+xml"
+>               title="RSS Feed by Creation Time"
+>               href={`https://${ctx.cfg.configuration.baseUrl}/index-created.xml`}
+>             />,
+>           ],
+>         }
+>       }
+>     },
+>   }
+> }
+> ```
+
+## Upgrading to quartz 4.5
+
+[[Upgrading to quartz 4.5]]
 
 ## Superscript styling
 
@@ -894,7 +1012,7 @@ async function mouseEnterHandler(
 
 I made a new solution for footnotes, inspired by aarnphm's site (e.g. [Attribution parameter decomposition](https://aarnphm.xyz/thoughts/Attribution-parameter-decomposition#user-content-fnref-alias)) The idea is to take just the content of the footnote, instead of showing the entire popover hint, so there's no duplicate `#user-content-fn` id on the page to jump to.
 
-**In `popovers.inline.ts`,** add this to the top:
+In `popovers.inline.ts`, add this to the top:
 
 ```ts
 function isFootnoteLink(link: HTMLAnchorElement): boolean {

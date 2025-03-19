@@ -6,7 +6,7 @@ tags:
   - recents-exclude
 title: All files chronologically modified
 date created: 2024-07-20T22:16
-date modified: 2025-02-13T11:53
+date modified: 2025-03-18T22:33
 ---
 
 Table below made with the help of [Dataview](https://blacksmithgu.github.io/obsidian-dataview/) and [Obsidian Dataview Serializer](https://github.com/dsebastien/obsidian-dataview-serializer). The query:
@@ -36,10 +36,12 @@ Some hidden tags: anything with "exclude" basically
 
 | File                                                                                                                                           | Folder                     | Modified     |
 | ---------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | ------------ |
+| [[Quartz customization log.md\|Quartz customization log]]                                                                                      |                            | Mar 18, 2025 |
+| [[meta/Upgrading to quartz 4.5.md\|Upgrading to quartz 4.5]]                                                                                   | meta                       | Mar 18, 2025 |
+| [[meta/Hiding tags from various components.md\|Hiding tags from various components]]                                                           | meta                       | Mar 18, 2025 |
+| [[tbd/passphrase encrypted page.md\|passphrase encrypted page]]                                                                                | tbd                        | Mar 18, 2025 |
 | [[meta/Code tester.md\|Code tester]]                                                                                                           | meta                       | Mar 18, 2025 |
 | [[tbd/ACTUAL guide to a now playing widget.md\|ACTUAL guide to a now playing widget]]                                                          | tbd                        | Mar 18, 2025 |
-| [[Quartz customization log.md\|Quartz customization log]]                                                                                      |                            | Mar 18, 2025 |
-| [[meta/Hiding tags from various components.md\|Hiding tags from various components]]                                                           | meta                       | Mar 18, 2025 |
 | [[linux tech/My first ever raspberry pi!!!.md\|My first ever raspberry pi!!!]]                                                                 | linux tech                 | Mar 18, 2025 |
 | [[tbd/Dataview reference.md\|Dataview reference]]                                                                                              | tbd                        | Mar 13, 2025 |
 | [[tbd/password locked page.md\|password locked page]]                                                                                          | tbd                        | Mar 6, 2025  |
@@ -83,6 +85,7 @@ Some hidden tags: anything with "exclude" basically
 | [[tbd/Untrack something that used to be tracked in git.md\|Untrack something that used to be tracked in git]]                                  | tbd                        | Feb 2, 2025  |
 | [[hobbies/Squad Busters by Supercell.md\|Squad Busters by Supercell]]                                                                          | hobbies                    | Feb 1, 2025  |
 | [[semiconductors and chips/Various areas or fields or categories or.md\|Various areas or fields or categories or]]                             | semiconductors and chips   | Jan 18, 2025 |
+| [[meta/Upgrading to quartz 4.4.md\|Upgrading to quartz 4.4]]                                                                                   | meta                       | Jan 18, 2025 |
 | [[thoughts/How to cram for the GRE (2023).md\|How to cram for the GRE (2023)]]                                                                 | thoughts                   | Jan 16, 2025 |
 | [[rgb tech/Installing yarn.md\|Installing yarn]]                                                                                               | rgb tech                   | Jan 5, 2025  |
 | [[linux tech/Ideas for what one can do with a home server.md\|Ideas for what one can do with a home server]]                                   | linux tech                 | Jan 5, 2025  |
@@ -117,3 +120,4 @@ Some hidden tags: anything with "exclude" basically
 | [[semiconductors and chips/BIST - built-in self test.md\|BIST - built-in self test]]                                                           | semiconductors and chips   | Jun 8, 2024  |
 | [[mac tech/adguard home.md\|adguard home]]                                                                                                     | mac tech                   | Jun 8, 2024  |
 <!-- SerializedQuery END -->
+
