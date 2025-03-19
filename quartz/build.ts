@@ -86,7 +86,7 @@ async function buildQuartz(argv: Argv, mut: Mutex, clientRefresh: () => void) {
   const filteredContent = filterContent(ctx, parsedFiles)
 
   await emitContent(ctx, filteredContent)
-  // await encryptPages()
+  await encryptPages()
   console.log(chalk.green(`Done processing ${markdownPaths.length} files in ${perf.timeSince()}`))
   release()
 
