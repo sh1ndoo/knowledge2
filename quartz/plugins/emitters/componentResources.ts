@@ -139,28 +139,17 @@ function addGlobalPageResources(ctx: BuildCtx, componentResources: ComponentReso
       })
     `)
   } else if (cfg.analytics?.provider === "goatcounter") {
-    componentResources.afterDOMLoaded.push(`
-      window.goatcounter = {
-        no_onload: true,
-        path: location.pathname
-      };
-
-      const goatcounterScript = document.createElement("script");
-      goatcounterScript.src = "${cfg.analytics.scriptSrc ?? "https://gc.zgo.at/count.js"}";
-      goatcounterScript.defer = true;
-      goatcounterScript.setAttribute("data-goatcounter",
-          "https://${cfg.analytics.websiteId}.${cfg.analytics.host ?? "goatcounter.com"}/count");
-
-      if (!document.querySelector('script[src*="count.js"]')) {
-          document.head.appendChild(goatcounterScript);
-      }
-
-      goatcounterScript.onload = function() {
-          document.addEventListener("nav", () => {
-              goatcounter.count({ path: location.pathname });
-          });
-      };
-    `)
+      // goatcounter spa fix ported from https://github.com/necauqua/beta-quartz/commit/cdc5728c5216b8ab1ecd3e7116ae6be05ecc0162 
+      componentResources.afterDOMLoaded.push(`
+        document.addEventListener("nav", () => {
+          const goatcounterScript = document.createElement("script")
+          goatcounterScript.src = "${cfg.analytics.scriptSrc ?? "https://gc.zgo.at/count.js"}"
+          goatcounterScript.async = true
+          goatcounterScript.setAttribute("data-goatcounter",
+            "https://${cfg.analytics.websiteId}.${cfg.analytics.host ?? "goatcounter.com"}/count")
+          document.head.appendChild(goatcounterScript)
+        })
+      `)
   } else if (cfg.analytics?.provider === "posthog") {
     componentResources.afterDOMLoaded.push(`
       const posthogScript = document.createElement("script")

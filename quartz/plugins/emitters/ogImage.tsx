@@ -25,9 +25,9 @@ async function generateSocialImage(
   { cfg, description, fonts, title, fileData }: ImageOptions,
   userOpts: SocialImageOptions,
 ): Promise<Readable> {
-  console.log("Generating social image with the following details:");
-  console.log("Title:", title);
-  console.log("Description:", description);
+  // console.log("Generating social image with the following details:");
+  // console.log("Title:", title);
+  // console.log("Description:", description);
   // console.log("File data:", fileData);
 
   const { width, height } = userOpts
@@ -117,10 +117,14 @@ export const CustomOgImages: QuartzEmitterPlugin<Partial<SocialImageOptions>> = 
         additionalHead: [
           (pageData) => {
             const isRealFile = pageData.filePath !== undefined
+            
             const userDefinedOgImagePath = pageData.frontmatter?.socialImage
-            const generatedOgImagePath = isRealFile
-              ? `https://${baseUrl}/${pageData.slug!}-og-image.webp`
-              : undefined
+            // const generatedOgImagePath = isRealFile
+            //   ? `https://${baseUrl}/${pageData.slug!}-og-image.webp`
+            //   : undefined
+            const generatedOgImagePath = `https://${baseUrl}/${pageData.slug!}-og-image.webp`
+            console.log("generatedOgImagePath:", generatedOgImagePath)
+            
             const defaultOgImagePath = `https://${baseUrl}/static/hello-there-banner.png`
             const ogImagePath = userDefinedOgImagePath ?? generatedOgImagePath ?? defaultOgImagePath
 
