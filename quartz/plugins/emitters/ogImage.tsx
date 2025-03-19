@@ -25,6 +25,11 @@ async function generateSocialImage(
   { cfg, description, fonts, title, fileData }: ImageOptions,
   userOpts: SocialImageOptions,
 ): Promise<Readable> {
+  console.log("Generating social image with the following details:");
+  console.log("Title:", title);
+  console.log("Description:", description);
+  // console.log("File data:", fileData);
+
   const { width, height } = userOpts
   const imageComponent = userOpts.imageStructure(cfg, userOpts, title, description, fonts, fileData)
   const svg = await satori(imageComponent, {
@@ -67,12 +72,21 @@ export const CustomOgImages: QuartzEmitterPlugin<Partial<SocialImageOptions>> = 
         const titleSuffix = cfg.pageTitleSuffix ?? ""
         const title =
           (vfile.data.frontmatter?.title ?? i18n(cfg.locale).propertyDefaults.title) + titleSuffix
-        const description =
+        let description =
           vfile.data.frontmatter?.socialDescription ??
           vfile.data.frontmatter?.description ??
           unescapeHTML(
             vfile.data.description?.trim() ?? i18n(cfg.locale).propertyDefaults.description,
           )
+
+        // Set default description for folder and tag pages if none is provided
+        if (!description) {
+          if (vfile.stem?.startsWith("tags/")) {
+            description = "This is a list of all the pages with this tag.";
+          } else if (vfile.stem === "index") {
+            description = "This is a list of all the pages in this folder.";
+          }
+        }
 
         const stream = await generateSocialImage(
           {

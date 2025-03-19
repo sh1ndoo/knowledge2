@@ -1,6 +1,6 @@
 import { Root } from "hast"
 import { GlobalConfiguration } from "../../cfg"
-import { getDate } from "../../components/Date"
+import { getDate, _getDateCustom } from "../../components/Date"
 import { escapeHTML } from "../../util/escape"
 import { FilePath, FullSlug, SimpleSlug, joinSegments, simplifySlug } from "../../util/path"
 import { QuartzEmitterPlugin } from "../types"
@@ -93,6 +93,49 @@ function generateRSSFeed(cfg: GlobalConfiguration, idx: ContentIndexMap, limit?:
   </rss>`
 }
 
+function generateCreatedRSSFeed(cfg: GlobalConfiguration, idx: ContentIndexMap, limit?: number): string {
+  const base = cfg.baseUrl ?? ""
+
+  const createURLEntry = (slug: SimpleSlug, content: ContentDetails): string => `<item>
+    <title>${escapeHTML(content.title)}</title>
+    <link>https://${joinSegments(base, encodeURI(slug))}</link>
+    <guid>https://${joinSegments(base, encodeURI(slug))}</guid>
+    <description>${content.richContent ?? content.description}</description>
+    <pubDate>${content.date?.toUTCString()}</pubDate>
+  </item>`
+
+  const items = Array.from(idx)
+    .sort(([_, f1], [__, f2]) => {
+      const date1 = _getDateCustom(cfg, f1, 'created')
+      const date2 = _getDateCustom(cfg, f2, 'created')
+      if (date1 && date2) {
+        return date2.getTime() - date1.getTime()
+      } else if (date1 && !date2) {
+        return -1
+      } else if (!date1 && date2) {
+        return 1
+      }
+
+      return f1.title.localeCompare(f2.title)
+    })
+    .map(([slug, content]) => createURLEntry(simplifySlug(slug), content))
+    .slice(0, limit ?? idx.size)
+    .join("")
+
+  return `<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+      <title>${escapeHTML(cfg.pageTitle)}</title>
+      <link>https://${base}</link>
+      <description>${!!limit ? i18n(cfg.locale).pages.rss.lastFewNotes({ count: limit }) : i18n(cfg.locale).pages.rss.recentNotes} on ${escapeHTML(
+        cfg.pageTitle,
+      )}</description>
+      <generator>Quartz -- quartz.jzhao.xyz</generator>
+      ${items}
+    </channel>
+  </rss>`
+}
+
 export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
   opts = { ...defaultOptions, ...opts }
   return {
@@ -112,6 +155,7 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
         }
         if (opts?.enableRSS) {
           graph.addEdge(sourcePath, joinSegments(ctx.argv.output, "index.xml") as FilePath)
+          graph.addEdge(sourcePath, joinSegments(ctx.argv.output, "index-created.xml") as FilePath)
         }
       }
 
@@ -163,6 +207,12 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
           slug: (opts?.rssSlug ?? "index") as FullSlug,
           ext: ".xml",
         })
+        yield write({
+          ctx,
+          content: generateCreatedRSSFeed(cfg, linkIndex, opts.rssLimit),
+          slug: "index-created" as FullSlug,
+          ext: ".xml",
+        })
       }
 
       const fp = joinSegments("static", "contentIndex") as FullSlug
@@ -193,6 +243,12 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
               type="application/rss+xml"
               title="RSS Feed"
               href={`https://${ctx.cfg.configuration.baseUrl}/index.xml`}
+            />,
+            <link
+              rel="alternate"
+              type="application/rss+xml"
+              title="RSS Feed by Creation Time"
+              href={`https://${ctx.cfg.configuration.baseUrl}/index-created.xml`}
             />,
           ],
         }

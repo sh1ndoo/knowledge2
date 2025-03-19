@@ -115,11 +115,6 @@ export const FrontMatter: QuartzTransformerPlugin<Partial<Options>> = (userOpts)
 
             if (socialImage) data.socialImage = socialImage
 
-            // Set default description for folder and tag pages if none is provided
-            if (!data.description && (file.stem === "index" || file.stem?.startsWith("tags/"))) {
-              data.description = "This page lists a bunch more pages."
-            }
-
             // fill in frontmatter
             file.data.frontmatter = data as QuartzPluginData["frontmatter"]
           }

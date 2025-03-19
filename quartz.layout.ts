@@ -137,6 +137,34 @@ export const defaultContentPageLayout: PageLayout = {
     Component.DesktopOnly(Component.TableOfContents()),
     Component.OnlyFor({titles: [homepageTitle, mapTitle]}, Component.Explorer(explorerConfig)),
     Component.FloatingButtons({position: 'right'}),
+    // Component.DesktopOnly(Component.PageTitle()),
+    // Component.DesktopOnly(
+    //   Component.Row([
+    //     Component.Map(),
+    //     Component.Darkmode(),
+    //     Component.Search(),
+    //   ])),
+    // Component.DesktopOnly(Component.TableOfContents()),
+    // Component.OnlyFor({titles: [homepageTitle, mapTitle]}, Component.Explorer(explorerConfig)),
+    // Component.FloatingButtons({position: 'right'}),
+    
+    // Component.MobileOnly(
+    //   Component.Flex({
+    //     components: [
+    //       {Component: Component.PageTitle(),
+    //         justify: "around",
+    //       },
+    //       // {Component: Component.Spacer()},
+    //       {Component: Component.Row([
+    //         Component.Map(),
+    //         Component.Darkmode(),
+    //         Component.Search(),
+    //         ]),
+    //         justify: "around",
+    //       },
+    //     ]}
+    //   )
+    // ),
   ],
   right: [
     Component.Graph(graphConfig),
