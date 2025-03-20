@@ -45,6 +45,9 @@ export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit, sort
     list = list.slice(0, limit)
   }
 
+  // Filter out pages with the tag "listing-exclude"
+  list = list.filter(page => !page.frontmatter?.tags?.includes("listing-exclude"))
+
   return (
     <ul class="section-ul">
       {list.map((page) => {
