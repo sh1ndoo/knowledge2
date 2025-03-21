@@ -63,17 +63,17 @@ export const CreatedModifiedDate: QuartzTransformerPlugin<Partial<Options>> = (u
                 created ||= file.data.frontmatter.created as MaybeDate
                 modified ||= file.data.frontmatter.modified as MaybeDate
                 published ||= file.data.frontmatter.published as MaybeDate
-              } else if (source === "git" && repo) {
-                try {
-                  const relativePath = path.relative(repositoryWorkdir, fullFp)
-                  modified ||= await repo.getFileLatestModifiedDateAsync(relativePath)
-                } catch {
-                  console.log(
-                    chalk.yellow(
-                      `\nWarning: ${file.data.filePath!} isn't yet tracked by git, dates will be inaccurate`,
-                    ),
-                  )
-                }
+              // } else if (source === "git" && repo) {
+              //   try {
+              //     const relativePath = path.relative(repositoryWorkdir, fullFp)
+              //     modified ||= await repo.getFileLatestModifiedDateAsync(relativePath)
+              //   } catch {
+              //     console.log(
+              //       chalk.yellow(
+              //         `\nWarning: ${file.data.filePath!} isn't yet tracked by git, dates will be inaccurate`,
+              //       ),
+              //     )
+              //   }
               }
             }
 
