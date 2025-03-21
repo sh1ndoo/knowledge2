@@ -124,68 +124,6 @@ export const TagPage: QuartzEmitterPlugin<Partial<TagPageOptions>> = (userOpts) 
     async *emit(ctx, content, resources) {
       const allFiles = content.map((c) => c[1].data)
       const cfg = ctx.cfg.configuration
-
-      // const tags: Set<string> = new Set(
-      //   allFiles.flatMap((data) => data.frontmatter?.tags ?? []).flatMap(getAllSegmentPrefixes),
-      // )
-
-      // // add base tag
-      // tags.add("index")
-
-      // const tagDescriptions: Record<string, ProcessedContent> = Object.fromEntries(
-      //   [...tags].map((tag) => {
-      //     const title =
-      //       tag === "index"
-      //         ? `🔖 ${i18n(cfg.locale).pages.tagContent.tagIndex}`
-      //         : `🔖 ${tag}`
-      //         // : `${i18n(cfg.locale).pages.tagContent.tag}: ${tag}` original commented out 8/5/24
-      //     return [
-      //       tag,
-      //       defaultProcessedContent({
-      //         slug: joinSegments("tags", tag) as FullSlug,
-      //         frontmatter: { title, tags: [] },
-      //       }),
-      //     ]
-      //   }),
-      // )
-
-      // for (const [tree, file] of content) {
-      //   const slug = file.data.slug!
-      //   if (slug.startsWith("tags/")) {
-      //     const tag = slug.slice("tags/".length)
-      //     if (tags.has(tag)) {
-      //       tagDescriptions[tag] = [tree, file]
-      //       // this adds the little emoji to tag pages that have index pages
-      //       if (file.data.frontmatter?.title === tag) {
-      //         // file.data.frontmatter.title = `${i18n(cfg.locale).pages.tagContent.tag}: ${tag}`
-      //         file.data.frontmatter.title = `🔖 ${tag}`
-      //       }
-      //     }
-      //   }
-      // }
-
-      // for (const tag of tags) {
-      //   const slug = joinSegments("tags", tag) as FullSlug
-      //   const [tree, file] = tagDescriptions[tag]
-      //   const externalResources = pageResources(pathToRoot(slug), file.data, resources)
-      //   // const externalResources = pageResources(pathToRoot(slug), resources)
-      //   const componentData: QuartzComponentProps = {
-      //     ctx,
-      //     fileData: file.data,
-      //     externalResources,
-      //     cfg,
-      //     children: [],
-      //     tree,
-      //     allFiles,
-      //   }
-
-      //   const content = await renderPage(cfg, slug, componentData, opts, externalResources)
-      //   yield write({
-      //     ctx,
-      //     content,
-      //     slug: file.data.slug!,
-      //     ext: ".html",
-      //   })
       const [tags, tagDescriptions] = computeTagInfo(allFiles, content, cfg.locale)
 
       for (const tag of tags) {

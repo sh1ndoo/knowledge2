@@ -75,7 +75,7 @@ export default ((opts?: Partial<TagContentOptions>) => {
           <article class={classes}>
             <p>{content}</p>
           </article>
-          <p>{i18n(cfg.locale).pages.tagContent.totalTags({ count: tags.length })}</p>
+          <p class="page-listing-count">{i18n(cfg.locale).pages.tagContent.totalTags({ count: tags.length })}</p>
           {renderAllTagsList(tags, cfg)}
           <p class="page-sparkle-divider">───✱*.｡:｡✱*.:｡✧*.｡✰*.:｡✧*.｡:｡*.｡✱ ───</p>
           <div>

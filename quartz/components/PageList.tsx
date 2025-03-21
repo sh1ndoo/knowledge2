@@ -51,12 +51,20 @@ export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit, sort
   return (
     <ul class="section-ul">
       {list.map((page) => {
-        const title = page.frontmatter?.title
+        let title = page.frontmatter?.title
         const unfilteredTags = page.frontmatter?.tags ?? []
         const _excludeStrings = ["exclude"]
         const tags = unfilteredTags.filter(tag => !_excludeStrings.some(excludeString => tag.includes(excludeString)));
         const slugParts = page.slug?.split("/");
-        const trimmedSlug = slugParts?.slice(0, -1).join("/");  
+        const trimmedSlug = slugParts?.slice(0, -1).join("/");
+
+        // Add 📂 emoji in front of folder names and use the second-to-last segment as the title if the current segment is "index"
+        if (isFolderPath(page.slug ?? "")) {
+          const segments = page.slug?.split("/") ?? []
+          let segmentHint = segments.length > 1 ? segments[segments.length - 2] : segments[0]
+          segmentHint = segmentHint.replace(/-/g, ' ')
+          title = page.frontmatter?.title && page.frontmatter.title !== "index" ? `📂 ${page.frontmatter.title}` : `📂 ${segmentHint}`
+        }
 
         return (
           <li class="section-li">
@@ -77,9 +85,9 @@ export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit, sort
                   )}
                 </h3>
               </div>
-              <ul class="tags">
+              {/* <ul class="tags">
                 {tags.map((tag) => (
-                  <li>
+                  <li key={tag}>
                     <a
                       class="internal tag-link"
                       href={resolveRelative(fileData.slug!, `tags/${tag}` as FullSlug)}
@@ -88,7 +96,7 @@ export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit, sort
                     </a>
                   </li>
                 ))}
-              </ul>
+              </ul> */}
             </div>
           </li>
         )

@@ -10,7 +10,10 @@
 @use "./_callout-adjustments.scss";
 
 // put your custom CSS here!
-
+.page-listing-count {
+  color: var(--gray);
+  font-style: italic;
+}
 // padding above contentmeta
 // .contentmeta-container {
 //   padding-top: 10px;
@@ -117,9 +120,9 @@ img.inline-icons {
 }
 
  // remove other tags on the tag listing
-.page-listing .tag-link {
-  display: none;
-}
+// .page-listing .tag-link {
+//   display: none;
+// }
 
 a.light-a {
   color: var(--gray)
