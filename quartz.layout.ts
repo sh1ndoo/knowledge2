@@ -135,7 +135,8 @@ export const defaultContentPageLayout: PageLayout = {
     ]),
     // Component.DesktopOnly(Component.OnlyFor({titles: [homepageTitle, mapTitle]}, Component.ExplorerOld(explorerConfig))),
     Component.DesktopOnly(Component.TableOfContents()),
-    Component.OnlyFor({titles: [homepageTitle, mapTitle]}, Component.Explorer(explorerConfig)),
+    Component.DesktopOnly(Component.OnlyFor({titles: [homepageTitle, mapTitle]}, Component.Explorer(explorerConfig))),
+    Component.MobileOnly(Component.Explorer(explorerConfig)),
     Component.FloatingButtons({position: 'right'}),
     // Component.DesktopOnly(Component.PageTitle()),
     // Component.DesktopOnly(

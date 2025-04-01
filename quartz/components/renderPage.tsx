@@ -188,13 +188,13 @@ function renderTranscludes(
   })
 }
 
-export function renderPage(
+export async function renderPage(
   cfg: GlobalConfiguration,
   slug: FullSlug,
   componentData: QuartzComponentProps,
   components: RenderComponents,
   pageResources: StaticResources,
-): string {
+): Promise<string> {
   // make a deep copy of the tree so we don't remove the transclusion references
   // for the file cached in contentMap in build.ts
   const root = clone(componentData.tree) as Root
@@ -234,14 +234,14 @@ export function renderPage(
   )
 
   let content = <Content {...componentData} />
-  // if (cfg.passProtected?.enabled && componentData.fileData.frontmatter?.passphrase) {
-  //   componentData.encryptedContent = await getEncryptedPayload(
-  //     render(content),
-  //     componentData.fileData.frontmatter.passphrase.toString(),
-  //     cfg.passProtected?.iteration,
-  //   )
-  //   content = <Encrypted {...componentData} />
-  // }
+  if (cfg.passProtected?.enabled && componentData.fileData.frontmatter?.passphrase) {
+    componentData.encryptedContent = await getEncryptedPayload(
+      render(content),
+      componentData.fileData.frontmatter.passphrase.toString(),
+      cfg.passProtected?.iteration,
+    )
+    content = <Encrypted {...componentData} />
+  }
 
   const lang = componentData.fileData.frontmatter?.lang ?? cfg.locale?.split("-")[0] ?? "en"
   const doc = (

@@ -1,0 +1,28 @@
+// this is for making dataview SERIALIZER results (aka, an HTML table) look like cards
+
+article.cards tr {
+    background-color: var(--lightgray);
+    border: 1px solid var(--gray);
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0 0 .4em;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: box-shadow .15s linear;
+    max-width: 1fr;
+    height: auto;
+}
+
+article.cards tbody, article.cards div.table-container {
+    clear: both;
+    padding: 0.5rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-column-gap: 0.75rem;
+    grid-row-gap: 0.75rem;
+}
+
+article.cards thead {
+    display:none;
+}
