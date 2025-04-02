@@ -5,6 +5,7 @@ import * as Component from "./quartz/components"
 import { SimpleSlug } from "./quartz/util/path";
 import { QuartzPluginData } from "./quartz/plugins/vfile"
 import { FileTrieNode } from './quartz/util/fileTrie';
+import { FileNode } from "./quartz/components/_ExplorerNodeOld";
 
 // Secrets
 const myRepoID = process.env.GISCUS_REPO_ID;
@@ -55,6 +56,20 @@ const breadcrumbsConfig = {
   rootName: "🏡"
 }
 
+const oldexplorerConfig = {
+  filterFn: (node: FileNode) => node.name !== "tags" &&
+  !(node.file?.frontmatter?.tags?.includes("explorer-exclude") === true),
+  mapFn: (node: FileNode) => {
+    // dont change name of root node
+    if (node.depth > 0) {
+      // set emoji for file/folder
+      if (node.file) {
+        node.displayName = "✾ " + node.displayName
+      } else {
+        // node.displayName = "📁 " + node.displayName
+      }
+  }
+}}
 const giscusConfig = {
   provider: 'giscus',
   options: {
@@ -128,6 +143,7 @@ export const defaultContentPageLayout: PageLayout = {
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
+    Component.MobileOnly(Component.OverlayExplorer(oldexplorerConfig)),
     Component.Row([
       Component.Map(),
       Component.Darkmode(),
@@ -136,7 +152,6 @@ export const defaultContentPageLayout: PageLayout = {
     // Component.DesktopOnly(Component.OnlyFor({titles: [homepageTitle, mapTitle]}, Component.ExplorerOld(explorerConfig))),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.DesktopOnly(Component.OnlyFor({titles: [homepageTitle, mapTitle]}, Component.Explorer(explorerConfig))),
-    Component.MobileOnly(Component.Explorer(explorerConfig)),
     Component.FloatingButtons({position: 'right'}),
     // Component.DesktopOnly(Component.PageTitle()),
     // Component.DesktopOnly(
@@ -178,6 +193,7 @@ export const defaultListPageLayout: PageLayout = {
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
+    Component.MobileOnly(Component.OverlayExplorer()),
     Component.Row([
       Component.Map(),
       Component.Darkmode(),

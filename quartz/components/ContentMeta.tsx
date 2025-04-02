@@ -33,8 +33,12 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
 
   function ContentMetadata({ cfg, fileData, displayClass }: QuartzComponentProps) {
     const text = fileData.text
-    
-    if (text) {
+
+    // Check if "password" or "passphrase" is NOT in frontmatter
+    const hasNoPasswordOrPassphrase =
+    !fileData.frontmatter?.password && !fileData.frontmatter?.passphrase
+
+    if (text && hasNoPasswordOrPassphrase) {
       const segments: (string | JSX.Element)[] = []
       const permalinks: (string | JSX.Element)[] = []
       const subtitles: (string | JSX.Element)[] = []

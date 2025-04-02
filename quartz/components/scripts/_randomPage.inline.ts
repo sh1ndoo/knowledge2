@@ -8,7 +8,15 @@ export async function navigateToRandomPage() {
     const fullSlug = getFullSlug(window)
     const currentSlug = simplifySlug(getFullSlug(window))
     const data = await fetchData
-    const allPosts = Object.keys(data).map((slug) => simplifySlug(slug as FullSlug))
+    // get all the slugs except anything that has an #*-exclude or password/passphrase
+    const allPosts = Object.keys(data)
+      .filter((slug) => {
+        const fileData = data[slug]
+        const hasExcludeTag = fileData.tags?.some((tag: string) => tag.endsWith("exclude"))
+        const hasPasswordOrPassphrase = fileData.frontmatter?.password || fileData.frontmatter?.passphrase
+        return !hasExcludeTag && !hasPasswordOrPassphrase
+      })
+      .map((slug) => simplifySlug(slug as FullSlug))
 
     let newSlug = allPosts[getRandomInt(allPosts.length)];
 

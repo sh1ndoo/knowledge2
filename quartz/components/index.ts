@@ -35,6 +35,7 @@ import MiniButton from "./_MiniButton"
 import FloatingButtons from "./_FloatingButtons"
 import HiddenGlobalGraph from "./_hiddenGlobalGraph"
 import Flex from "./Flex"
+import OverlayExplorer from "./_OverlayExplorer"
 
 export {
   ArticleTitle,
@@ -73,5 +74,6 @@ export {
   FloatingButtons,
   HiddenGlobalGraph,
   Flex,
-  ExplorerOld
+  ExplorerOld,
+  OverlayExplorer
 }
