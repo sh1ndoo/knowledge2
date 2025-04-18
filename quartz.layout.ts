@@ -136,6 +136,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.Breadcrumbs(breadcrumbsConfig),
     Component.ArticleTitle(),
     Component.ContentMeta(githubSourceConfig),
+    // Component.Properties(),
     Component.TagList(tagListConfig),
     Component.MobileOnly(Component.TableOfContents()),
     // Component.MobileOnly(Component.OnlyFor({titles: [mapTitle]}, Component.ExplorerOld(explorerConfig)))

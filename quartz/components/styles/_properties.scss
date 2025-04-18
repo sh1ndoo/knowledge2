@@ -1,0 +1,30 @@
+// copied from https://github.com/michelepapucci/quartz-visible-obsidian-property/commit/6cb81ae53d13e50e4971ec98679abffe73b9a581#diff-394ee96200e94219ed8403fcb915d6d731625b78d4744e7e2bc8366458d15410
+
+div.properties {
+    border: 1px solid var(--border);
+    background-color: var(--bg);
+    border-radius: 5px;
+    padding: 0 1rem;
+    overflow-y: hidden;
+    transition: max-height 0.3s ease;
+    box-sizing: border-box;
+    margin-top: 1em;
+  
+    &>*:nth-child(2) {
+      margin-top: 0;
+    }
+  
+    --color: #00b0ff;
+    --border: #00b0ff44;
+    --bg: #00b0ff10;
+    --callout-icon: var(--callout-icon-abstract);
+  }
+
+div.properties span.contentmeta-property {
+font-weight: bold;
+font-style: italic;
+}
+
+div.properties ul {
+list-style-type: circle;
+}

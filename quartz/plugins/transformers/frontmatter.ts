@@ -154,6 +154,7 @@ declare module "vfile" {
         subtitle: string
         socialImage: string
         comments: boolean | string
+        slurped: string
       }>
   }
 }

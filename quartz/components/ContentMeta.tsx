@@ -35,10 +35,12 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
     const text = fileData.text
 
     // Check if "password" or "passphrase" is NOT in frontmatter
-    const hasNoPasswordOrPassphrase =
-    !fileData.frontmatter?.password && !fileData.frontmatter?.passphrase
+    // const hasNoPasswordOrPassphrase =
+    // !fileData.frontmatter?.password && !fileData.frontmatter?.passphrase
 
-    if (text && hasNoPasswordOrPassphrase) {
+    
+
+    // if (text && hasNoPasswordOrPassphrase) {
       const segments: (string | JSX.Element)[] = []
       const permalinks: (string | JSX.Element)[] = []
       const subtitles: (string | JSX.Element)[] = []
@@ -123,9 +125,9 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
         )}
         </div>
       )
-    } else {
-      return null
-    }
+    // } else {
+    //   return null
+    // }
 
   }
 
