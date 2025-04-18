@@ -51,9 +51,12 @@ export default (() => {
                 if (typeof value === "string" && key.includes("date")) {
                     var newvalue = value.split("T")[0]; // Split by "T" and take the first part
                     linkedElements.push(newvalue); // Add the processed value to linkedElements
-                }
-                else if (typeof value === "string" && value.includes("[[")) {
+                } else if (typeof value === "string" && value.includes("[[")) {
                     linkedElements.push(createLinkedElement(fileData, opts, value))
+                } else if (typeof value === "string" && key === "link") {
+                    linkedElements.push(
+                        <a href={value} className="external">{value}</a>
+                    )
                 } else if (Array.isArray(value)) {
                     value.forEach((arrayItem, index) => {
                         if (typeof arrayItem === "string" && arrayItem.includes("[[")) {

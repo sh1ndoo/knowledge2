@@ -134,9 +134,16 @@ export const sharedPageComponents: SharedLayout = {
 export const defaultContentPageLayout: PageLayout = {
   beforeBody: [
     Component.Breadcrumbs(breadcrumbsConfig),
+    // Component.ConditionalRender({
+    //   component: Component.Breadcrumbs(),
+    //   condition: (page) => page.fileData.slug !== "index",
+    // }),
     Component.ArticleTitle(),
     Component.ContentMeta(githubSourceConfig),
-    // Component.Properties(),
+    Component.ConditionalRender({
+      component: Component.Properties(),
+      condition: (page) => page.fileData.frontmatter?.slurped !== undefined,
+    }),
     Component.TagList(tagListConfig),
     Component.MobileOnly(Component.TableOfContents()),
     // Component.MobileOnly(Component.OnlyFor({titles: [mapTitle]}, Component.ExplorerOld(explorerConfig)))

@@ -13,43 +13,56 @@ async function mouseEnterHandler(
   { clientX, clientY }: { clientX: number; clientY: number },
 ) {
   const link = this
-  if ((link.dataset.noPopover === "true") || 
-    link.id.includes("permalink") || 
-    link.classList.contains('broken-link')) {
-      return
+  if (link.dataset.noPopover === "true" || 
+      link.id.includes("permalink") || 
+      link.classList.contains('broken-link')) {
+    return
   }
 
   async function setPosition(popoverElement: HTMLElement) {
     const { x, y } = await computePosition(link, popoverElement, {
+      strategy: "fixed",
       middleware: [inline({ x: clientX, y: clientY }), shift(), flip()],
     })
     Object.assign(popoverElement.style, {
-      left: `${x}px`,
-      top: `${y}px`,
+      transform: `translate(${x.toFixed()}px, ${y.toFixed()}px)`,
     })
   }
 
-  const hasAlreadyBeenFetched = () =>
-    [...link.children].some((child) => child.classList.contains("popover"))
+  function showPopover(popoverElement: HTMLElement) {
+    clearActivePopover()
+    popoverElement.classList.add("active-popover")
+    setPosition(popoverElement)
 
-  // dont refetch if there's already a popover
-  if (hasAlreadyBeenFetched()) {
-    return setPosition(link.lastChild as HTMLElement)
+    if (hash !== "") {
+      const targetAnchor = `#popover-internal-${hash.slice(1)}`
+      const heading = popoverInner.querySelector(targetAnchor) as HTMLElement | null
+      if (heading) {
+        // leave ~12px of buffer when scrolling to a heading
+        popoverInner.scroll({ top: heading.offsetTop - 12, behavior: "instant" })
+      }
+    }
   }
 
-  const thisUrl = new URL(document.location.href)
-  thisUrl.hash = ""
-  thisUrl.search = ""
   const targetUrl = new URL(link.href)
   const hash = decodeURIComponent(targetUrl.hash)
   targetUrl.hash = ""
   targetUrl.search = ""
+  const popoverId = `popover-${link.pathname}`
+  const prevPopoverElement = document.getElementById(popoverId)
+  const hasAlreadyBeenFetched = () => !!document.getElementById(popoverId)
+
+  // Don't refetch if there's already a popover
+  if (hasAlreadyBeenFetched()) {
+    showPopover(prevPopoverElement as HTMLElement)
+    return
+  }
 
   const response = await fetchCanonical(targetUrl).catch((err) => {
     console.error(err)
   })
 
-  // bailout if another popover exists
+  // Bailout if another popover exists
   if (hasAlreadyBeenFetched()) {
     return
   }
@@ -59,12 +72,12 @@ async function mouseEnterHandler(
   const [contentTypeCategory, typeInfo] = contentType.split("/")
 
   const popoverElement = document.createElement("div")
+  popoverElement.id = popoverId
   popoverElement.classList.add("popover")
   const popoverInner = document.createElement("div")
   popoverInner.classList.add("popover-inner")
-  popoverElement.appendChild(popoverInner)
-
   popoverInner.dataset.contentType = contentType ?? undefined
+  popoverElement.appendChild(popoverInner)
 
   switch (contentTypeCategory) {
     case "image":
@@ -100,6 +113,7 @@ async function mouseEnterHandler(
         }
       } else {
         // Check if the link is on the same page
+        const thisUrl = new URL(document.location.href)
         if (thisUrl.origin === targetUrl.origin && thisUrl.pathname === targetUrl.pathname) {
           return
         }
@@ -107,50 +121,30 @@ async function mouseEnterHandler(
         if (elts.length === 0) return
         elts.forEach((elt) => popoverInner.appendChild(elt))
       }
+      // Prepend all IDs inside popovers to prevent duplicates
+      html.querySelectorAll("[id]").forEach((el) => {
+        const targetID = `popover-internal-${el.id}`
+        el.id = targetID
+      })
   }
 
-  setPosition(popoverElement)
-  link.appendChild(popoverElement)
-
-  if (hash !== "") {
-    const heading = popoverInner.querySelector(hash) as HTMLElement | null
-    if (heading) {
-      // leave ~12px of buffer when scrolling to a heading
-      popoverInner.scroll({ top: heading.offsetTop - 12, behavior: "instant" })
-    }
-  }
+  document.body.appendChild(popoverElement)
+  showPopover(popoverElement)
 }
 
-function handleSamePageClick(evt: MouseEvent) {
-  const link = evt.currentTarget as HTMLAnchorElement
-  const thisUrl = new URL(document.location.href)
-  thisUrl.hash = ""
-  thisUrl.search = ""
-  const targetUrl = new URL(link.href)
-  const hash = decodeURIComponent(targetUrl.hash)
-  targetUrl.hash = ""
-  targetUrl.search = ""
-
-  if (thisUrl.toString() === targetUrl.toString() && hash !== "") {
-    evt.preventDefault()
-    const mainContent = document.querySelector("article")
-    const heading = mainContent?.querySelector(hash) as HTMLElement | null
-    if (heading) {
-      heading.scrollIntoView({ behavior: "smooth" })
-      // Optionally update the URL without a page reload
-      history.pushState(null, "", hash)
-    }
-  }
+function clearActivePopover() {
+  const allPopoverElements = document.querySelectorAll(".popover")
+  allPopoverElements.forEach((popoverElement) => popoverElement.classList.remove("active-popover"))
 }
 
 document.addEventListener("nav", () => {
-  const links = [...document.getElementsByClassName("internal")] as HTMLAnchorElement[]
+  const links = [...document.querySelectorAll("a.internal")] as HTMLAnchorElement[]
   for (const link of links) {
     link.addEventListener("mouseenter", mouseEnterHandler)
-    link.addEventListener("click", handleSamePageClick)
+    link.addEventListener("mouseleave", clearActivePopover)
     window.addCleanup(() => {
       link.removeEventListener("mouseenter", mouseEnterHandler)
-      link.removeEventListener("click", handleSamePageClick)
+      link.removeEventListener("mouseleave", clearActivePopover)
     })
   }
 })
