@@ -1,6 +1,6 @@
 ---
 date created: 2024-09-17T23:11
-date modified: 2024-09-17T23:20
+date modified: 2025-03-19T14:27
 tags:
   - gaming
 ---
@@ -23,7 +23,7 @@ It's hard to get a character to level 80! I like the changes they've made betwee
 - Random interactive map: [Genshin Impact Interactive World Map](https://genshin-impact-map.appsample.com/) 
 - Official interactive map: [Genshin Impact Map](https://act.hoyolab.com/ys/app/interactive-map/index.html?lang=en-us#/map/)
 
-## "Dailies"
+## Dailies
 
 - Fragile resin
 - Material collection routes

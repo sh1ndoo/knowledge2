@@ -1,6 +1,6 @@
 ---
 date created: 2024-06-06T22:54
-date modified: 2025-02-06T21:55
+date modified: 2025-04-01T16:30
 ---
 ## For copy-pasting
 ```
@@ -114,17 +114,37 @@ And I recently realized that it's not working on my system at all! The working t
 
 ## CSSClasses
 
-In Obsidian, go to the CSS classes settings and symlink the folder (`content\.obsidian\snippets`) to the quartz/static/styles (should have the `custom.scss` in this folder). And make sure `custom.scss` is `@use yourstylesheet.scss`. 
+In Obsidian, go to the CSS classes settings and symlink the folder (`content\.obsidian\snippets`) to the `quartz/static/styles` (should have the `custom.scss` in this folder). And make sure `custom.scss` is `@use yourstylesheet.scss`. 
 
-Then you write classes in the stylesheet. In obsidian, add cssclasses kind of like tags, except you add properties to those like 
+Then you write classes in the stylesheet. In **obsidian**, add cssclasses kind of like tags, except you add properties to those like 
 
-```
+```css title="Obsidian CSS snippet"
 .red-text {
 	color:red;
 }
 ```
 
 In that case your `cssclasses` is "red-text". 
+
+### In Quartz
+
+Basically what `cssclasses` frontmatter property does (in obsidian and quartz) is add those as a class to the entire page. So in your css file, you need to target the class (`.class`) in every selector. And for **quartz**, make sure to pull it in with the `custom.scss`, but this time, it's applied to the article. 
+
+```scss title="Example scss that I imported into custom.scss"
+// This is for making bullet lists look like cards
+
+article.list-cards ul {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    padding: 0;
+    line-height: 1.3;
+    list-style-type: '\200B';
+    margin-block-start: .5em;
+    margin-block-end: .5em;
+    padding-inline-start: 0;
+}
+```
 
 ## The reason why 2x components w a script doesn't work
 

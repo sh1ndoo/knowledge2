@@ -1,14 +1,25 @@
 ---
 date created: 2025-01-02T12:23
-date modified: 2025-01-18T18:53
+date modified: 2025-04-12T21:59
 draft: "true"
 subtitle: i wanna be famous 🧚‍♀️
+tags:
+  - idea
 ---
 
 Photography - [[Canon 5D mk iii]] 
 
-Make a design and sell stickers on Redbubble
+Selling designs passive income: 
 
-Make a design and sell CAD files
+- Redbubble stickers
+- CAD files for 3d print
+- PDF planner
+- PDF calendar
+- Procreate brushes
 
-Learn to sew
+Learn to sew --> thrift flipping
+
+AI Voiceover content creation: 
+
+- minecraft gameplay over reddit stories
+- running app that takes into account speed and location

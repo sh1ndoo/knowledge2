@@ -1,40 +1,24 @@
 ---
 date created: 2024-11-16T13:36
-date modified: 2025-02-27T21:47
+date modified: 2025-04-02T12:39
 tags:
   - photography
+  - archive
 ---
 
 Trusty dusty camera! 
 
-Buy some new lenses: [[Canon camera lens classifications]] 
+## Lenses
+
+Buy some new lenses: [[Canon camera lens classifications]]. 
+
+I own:
+
+- [EF 50mm f/1.8 STM](https://www.usa.canon.com/shop/p/ef-50mm-f-1-8-stm?type=New&srsltid=AfmBOorKkgTBCDuMqe_5MxQdOmpRbqORz1dUKnf0i0SWVOsrlYoH9LmW) SKU: 0570C002
+- [EF 75-300mm f/4-5.6 III](https://www.usa.canon.com/shop/p/ef-75-300mm-f-4-5-6-iii?color=Black&type=New) SKU: 6473A003
+
+I have tried out:
+
+- [EF 24-70mm f/2.8L II USM](https://www.usa.canon.com/shop/p/ef-24-70mm-f-2-8l-ii-usm) SKU: 5175B002
 
 In the year 2024 and onward I would honestly recommend that people get a mirrorless camera... dlsr is toooo heavy... too bulky... mirrorless is the way for sure...
-
-Reach goals to do photography at:
-
-Nature
-
-- [ ] aurora/northern lights
-- [ ] volcano
-
-Events
-
-- [ ] hackathon (or similar) awards ceremony or judging
-- [ ] wedding
-- [ ] concert
-- [ ] local sports games
-
-Other
-
-- [ ] dancers! like [eva nys](https://www.evanysphotography.com/) 
-- [ ] modeling studio
-- [ ] art or product photos for small business
-## Photo editing stack and options
-
-If you get an Adobe 365 for free: Adobe Lightroom
-
-Free and open source alternatives:
-
-- [darktable](https://www.darktable.org/)
-- [RawTherapee](https://www.rawtherapee.com/) 

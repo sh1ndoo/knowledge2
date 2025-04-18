@@ -1,6 +1,6 @@
 ---
 date created: 2024-08-26T00:45
-date modified: 2024-08-27T01:19
+date modified: 2025-04-01T16:34
 tags:
   - backlinks-exclude
   - recents-exclude
@@ -13,12 +13,15 @@ The query
 
 ```
 TABLE permalink as "Permalink", file.folder as "Folder"
-WHERE typeof(permalink) = "string" AND draft != "true"
+WHERE typeof(permalink) = "string" 
+AND draft != "true"
+AND !contains(file.frontmatter, "passphrase") 
+AND !contains(file.frontmatter, "password")
 SORT file.name ASC
 ```
 
-<!-- QueryToSerialize: TABLE permalink as "Permalink", file.folder as "Folder" WHERE typeof(permalink) = "string" AND draft != "true" SORT file.name ASC -->
-<!-- SerializedQuery: TABLE permalink as "Permalink", file.folder as "Folder" WHERE typeof(permalink) = "string" AND draft != "true" SORT file.name ASC -->
+<!-- QueryToSerialize: TABLE permalink as "Permalink", file.folder as "Folder" WHERE typeof(permalink) = "string"  AND draft != "true" AND !contains(file.frontmatter, "passphrase")  AND !contains(file.frontmatter, "password") SORT file.name ASC -->
+<!-- SerializedQuery: TABLE permalink as "Permalink", file.folder as "Folder" WHERE typeof(permalink) = "string"  AND draft != "true" AND !contains(file.frontmatter, "passphrase")  AND !contains(file.frontmatter, "password") SORT file.name ASC -->
 
 | File                                                                                                                           | Permalink         | Folder   |
 | ------------------------------------------------------------------------------------------------------------------------------ | ----------------- | -------- |

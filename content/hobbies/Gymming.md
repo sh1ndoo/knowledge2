@@ -1,9 +1,11 @@
 ---
 date created: 2025-02-03T20:49
-date modified: 2025-02-03T20:55
+date modified: 2025-04-08T16:10
 draft: "true"
 ---
 > Health is wealth. 💬 Ancient proverb (?)
+
+I'm a big fan of [Hevy](https://www.hevyapp.com/), which is like strava but for weightlifting. It has a bunch of exercises, video diagrams, and a log and workout tracker.
 
 ## Rotations, or things to target
 

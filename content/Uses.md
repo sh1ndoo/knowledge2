@@ -1,6 +1,6 @@
 ---
 date created: 2025-01-31T11:28
-date modified: 2025-03-04T23:04
+date modified: 2025-03-21T14:27
 tags:
 ---
 
@@ -25,6 +25,8 @@ Check out [[How to work on each site]] for more details
 	- with WSL, and I think the tablet feature is not worth. I lost the stylus at some point :(
 - Macbook Pro 13", 2015: [[mac tech/]]
 - Main desktop: Intel i9-7900X, NVIDIA GeForce GTX 1060 6GB [[rgb tech/]]
+
+Comparison: [Apple M3 Max 14 vs Intel i9-7900X vs i7-7700K](https://www.cpubenchmark.net/compare/5757vs3035vs2874/Apple-M3-Max-14-Core-vs-Intel-i9-7900X-vs-Intel-i7-7700K) 
 
 ## Cameras
 

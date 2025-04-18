@@ -1,6 +1,6 @@
 ---
 date created: 2025-01-05T17:58
-date modified: 2025-02-22T19:18
+date modified: 2025-03-23T11:28
 ---
 ## On the same network
 
@@ -16,13 +16,15 @@ sudo apt purge openssh-server
 sudo apt install openssh-server
 ```
 
-Make sure to go into router settings and fix the ip. 
+Make sure to go into router settings and fix the IP address of the device. 
 
 ## Enable WOL on ASUS motherboard
 
 [How to set and enable WOL(Wake On Lan) function in BIOS | Official Support | ASUS Global](https://www.asus.com/support/faq/1045950/)   
 
 This actually completely messed up my wifi... argh...
+
+- In hindsight, that makes sense because you need to be on LAN to do wake on LAN, so having wifi is counterintuitive here. 
 
 ## Tips that have been copied from a Perplexity response
 

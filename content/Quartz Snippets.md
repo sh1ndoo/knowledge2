@@ -1,6 +1,6 @@
 ---
 date created: 2024-07-09T02:02
-date modified: 2025-02-28T01:13
+date modified: 2025-03-25T22:39
 ---
 
 Misc ideas, code, and plugins for quartz that I've collected across the web. %% [[Todo]] %%
@@ -23,7 +23,6 @@ Misc ideas, code, and plugins for quartz that I've collected across the web. %% 
 - [ ] make strikethrough's [-] look like how they're intended
 - [x] copy/pull in the telescoping text just because it looks fun af
 - [x] figure out how cssclasses work. like with RTL text? 
-- [ ] Add something on the left side of list pages
 
 Also: [[Cool other websites]]
 
@@ -632,5 +631,4 @@ div[data-callout="multi-column"].callout > .callout-content > div[data-callout-m
 }
 
 ```
-
 

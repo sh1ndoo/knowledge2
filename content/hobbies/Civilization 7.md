@@ -1,8 +1,9 @@
 ---
 date created: 2025-02-18T17:48
-date modified: 2025-03-05T13:54
+date modified: 2025-03-20T20:36
 tags:
   - gaming
+  - civ
 ---
 
 After playing so much [[Civilization 6]], I decided to get the next game! It is extremely confusing...

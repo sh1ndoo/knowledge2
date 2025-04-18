@@ -1,14 +1,25 @@
 ---
 date created: 2024-08-02T09:44
-date modified: 2025-03-18T14:30
+date modified: 2025-03-26T00:17
 tags:
   - explorer-exclude
   - graph-exclude
   - recents-exclude
   - backlinks-exclude
+  - listing-exclude
 permalink: perma/code-tester
 subtitle: Trying out some markdown and code changes
 ---
+
+%% [Cover-img:: ![[Cloudflare tunnels_image_3.png]]] %%
+
+```dataview
+TABLE 
+file.folder as "Folder", dateformat(date-modified,"MMM d, yyyy") as "Modified" 
+FROM "meta"
+SORT date-modified DESC 
+WHERE file.name != this.file.name AND file.name != "index" AND draft != "true"
+```
 
 ```/hello/ /pog/ {2}
 hello 
@@ -18,6 +29,8 @@ Word highlighting in code
 
 > [!web] From the web
 > lorem ibsumb
+
+admononono
 
 Admonition
 

@@ -6,6 +6,7 @@ date created: 2025-02-04T21:00
 date modified: 2025-02-27T21:21
 tags:
   - slurp
+  - external
 ---
 
 > [!NOTE]

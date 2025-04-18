@@ -1,8 +1,9 @@
 ---
 date created: 2024-11-10T20:58
-date modified: 2025-03-05T14:03
+date modified: 2025-04-09T21:28
 tags:
   - gaming
+  - civ
 ---
 
 Thank you Sid Meier! Thank you POTATO MCWHISKEY! 🥔I think civ is a great game series that surprisingly has taught me a lot of random world history trivia.
@@ -78,3 +79,11 @@ My favorites:
 
 - Petra
 - Mausoleum at Halicarnassus
+
+# Specific Civs
+
+## Mongolia - Kublai Khan
+
+[Kublai Khan (Civ6) | Civilization Wiki | Fandom](https://civilization.fandom.com/wiki/Kublai_Khan_(Civ6)) 
+
+Maximize getting trade routes with other civs to get trading posts. Strong strong economy. The special unit travels super far... 

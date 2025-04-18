@@ -1,6 +1,6 @@
 ---
 date created: 2024-07-23T01:53
-date modified: 2025-03-18T16:25
+date modified: 2025-03-20T10:08
 tags:
   - guide
 permalink: perma/7794692
@@ -195,6 +195,10 @@ export default ((userOpts?: Partial<Options>) => {
 
 ### ⚠ PageList, TagContent, FolderContent
 
+There's two parts to this: removing the TAGS from these listings, and having a tag that removes PAGES from this listing.
+
+#### Removing tags
+
 Basically some manual edits, because there isn't really a way to pass options to these. 
 
 Filter out tags from the column that lists the tags:
@@ -221,6 +225,20 @@ if (tag === "/") {
 ```
 
 `FolderContent.tsx` doesn't need any code changes because the change is included in the `PageList.tsx` edits. 
+
+#### Removing pages
+
+```tsx title="PageList.tsx"
+export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit, sort, isTagPage }: Props) => {
+  const sorter = sort ?? byDateAndAlphabetical(cfg)
+  let list = allFiles.sort(sorter)
+  if (limit) {
+    list = list.slice(0, limit)
+  }
+
+  // Filter out pages with the tag "listing-exclude"
+  list = list.filter(page => !page.frontmatter?.tags?.includes("listing-exclude"))
+```
 
 ### Search
 

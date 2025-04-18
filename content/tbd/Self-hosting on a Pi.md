@@ -1,6 +1,6 @@
 ---
 date created: 2025-02-27T23:59
-date modified: 2025-03-06T14:39
+date modified: 2025-04-16T23:06
 tags:
   - pi
 ---
@@ -13,7 +13,7 @@ There ARE a lot of tutorials - the problem is a lot of them are bad, or wrong, o
 
 ## A bunch of tools
 
-> [!summary]- The Perplexity explanation
+> [!web]- The Perplexity explanation
 > AdGuard Home: Network-wide ad blocker and DNS server for enhanced privacy and security[^1].
 > 
 > DuckDNS: Free dynamic DNS service that allows you to access your home network remotely using a custom subdomain[^2][^6].

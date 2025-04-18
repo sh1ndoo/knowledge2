@@ -1,6 +1,6 @@
 ---
 date created: 2024-08-26T23:23
-date modified: 2024-11-29T00:51
+date modified: 2025-04-01T16:36
 tags:
   - graph-exclude
   - recents-exclude
@@ -12,14 +12,16 @@ The query
 
 ```
 TABLE subtitle as "Subtitle", file.folder as "Folder"
-WHERE subtitle != null AND draft != "true"
+WHERE subtitle != null AND draft != "true" 
+AND !contains(file.frontmatter, "passphrase") 
+AND !contains(file.frontmatter, "password")
 SORT file.name ASC
 ```
 
 Also, make sure the subtitle property type is a string, not a list. 
 
-<!-- QueryToSerialize: TABLE subtitle as "Subtitle", file.folder as "Folder" WHERE subtitle != null AND draft != "true" SORT file.name ASC -->
-<!-- SerializedQuery: TABLE subtitle as "Subtitle", file.folder as "Folder" WHERE subtitle != null AND draft != "true" SORT file.name ASC -->
+<!-- QueryToSerialize: TABLE subtitle as "Subtitle", file.folder as "Folder" WHERE subtitle != null AND draft != "true" AND !contains(file.frontmatter, "passphrase") AND !contains(file.frontmatter, "password") SORT file.name ASC -->
+<!-- SerializedQuery: TABLE subtitle as "Subtitle", file.folder as "Folder" WHERE subtitle != null AND draft != "true" AND !contains(file.frontmatter, "passphrase") AND !contains(file.frontmatter, "password") SORT file.name ASC -->
 
 | File                                                                                                               | Subtitle                                          | Folder                   |
 | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------- | ------------------------ |
@@ -31,8 +33,9 @@ Also, make sure the subtitle property type is a string, not a list.
 | [[thoughts/How to cram for the GRE (2023).md\|How to cram for the GRE (2023)]]                                     | the pros n cons of standardized testing           | thoughts                 |
 | [[linux tech/Ideas for what one can do with a home server.md\|Ideas for what one can do with a home server]]       | and now, they can collect dust in my home instead | linux tech               |
 | [[index.md\|index]]                                                                                                | info dump website                                 |                          |
+| [[tbd/New server! Wahoo!.md\|New server! Wahoo!]]                                                                  | the server room is very warm and loud             | tbd                      |
 | [[hobbies/OSINT.md\|OSINT]]                                                                                        | stayin' anonymous online                          | hobbies                  |
+| [[hobbies/Rawtherapee.md\|Rawtherapee]]                                                                            | hehe 💦                                           | hobbies                  |
 | [[hobbies/To plan a fish tank.md\|To plan a fish tank]]                                                            | Fish for beginners!                               | hobbies                  |
 | [[semiconductors and chips/Various areas or fields or categories or.md\|Various areas or fields or categories or]] | a whole new world                                 | semiconductors and chips |
 <!-- SerializedQuery END -->
-

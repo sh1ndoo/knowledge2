@@ -1,6 +1,6 @@
 ---
 date created: 2024-11-10T17:42
-date modified: 2024-12-17T01:10
+date modified: 2025-04-11T17:57
 ---
 
 I learned how to crochet! Thank you to my friend whose name starts with a J. Me and my friend whose name starts with a K learned at the same time, although I borrowed J-friend's yarn and hook. The thing I'm best at making right now is a headphone sprout, although I also learned from youtube videos to make a granny square and a simple flower. I got some brown yarn for myself too. Thank you Joann's the fabric store!
@@ -76,3 +76,10 @@ Down the middle of leaf 1
 - tie it off at the end
 
 Done!
+
+## Video patterns
+
+### Best i-cord tutorial ever
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CSDtR_Kv_oA?si=YCB_bu02brrCYBGu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
+
