@@ -44,7 +44,7 @@ const recentNotesConfig = {
   title: "Recently edited notes:", 
   showDate: true,
   linkToMore: "meta/" + modifiedListTitle as SimpleSlug,
-  excludeTags: ["recents-exclude"],
+  excludeTags: ["recents-exclude", "slurp", "external"],
   filter: (f: QuartzPluginData) => !f.slug!.startsWith("tags/") && !f.slug!.endsWith("/index")
 }
 const backlinksConfig = {
@@ -149,9 +149,9 @@ export const defaultContentPageLayout: PageLayout = {
     // Component.MobileOnly(Component.OnlyFor({titles: [mapTitle]}, Component.ExplorerOld(explorerConfig)))
   ],
   left: [
+    Component.MobileOnly(Component.OverlayExplorer(oldexplorerConfig)),
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
-    Component.MobileOnly(Component.OverlayExplorer(oldexplorerConfig)),
     Component.Row([
       Component.Map(),
       Component.Darkmode(),

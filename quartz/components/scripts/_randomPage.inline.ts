@@ -12,7 +12,7 @@ export async function navigateToRandomPage() {
     const allPosts = Object.keys(data)
       .filter((slug) => {
         const fileData = data[slug]
-        const hasExcludeTag = fileData.tags?.some((tag: string) => tag.endsWith("exclude"))
+        const hasExcludeTag = fileData.tags?.some((tag: string) => tag.endsWith("exclude") || tag === "slurp")
         const hasPasswordOrPassphrase = fileData.frontmatter?.password || fileData.frontmatter?.passphrase
         return !hasExcludeTag && !hasPasswordOrPassphrase
       })
