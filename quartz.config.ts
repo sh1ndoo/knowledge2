@@ -153,6 +153,7 @@ const config: QuartzConfig = {
         },
         keepBackground: false,
       }),
+      Plugin.Citations({ bibliographyFile: "./content/bibliography.bib", linkCitations: true }),
       Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: false }),
       Plugin.GitHubFlavoredMarkdown(),
       Plugin.TableOfContents(),
@@ -176,7 +177,7 @@ const config: QuartzConfig = {
       Plugin.Static(),
       Plugin.NotFoundPage(),
       // Comment out CustomOgImages to speed up build time
-      Plugin.CustomOgImages(),
+      // Plugin.CustomOgImages(),
     ],
   },
 }

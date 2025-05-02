@@ -36,17 +36,38 @@ export const Citations: QuartzTransformerPlugin<Partial<Options>> = (userOpts) =
         },
       ])
 
-      // Transform the HTML of the citattions; add data-no-popover property to the citation links
-      // using https://github.com/syntax-tree/unist-util-visit as they're just anochor links
+      // Transform the HTML of the citations; add data-no-popover property to the citation links
+      // using https://github.com/syntax-tree/unist-util-visit as they're just anchor links
       plugins.push(() => {
         return (tree, _file) => {
-          visit(tree, "element", (node, _index, _parent) => {
-            if (node.tagName === "a" && node.properties?.href?.startsWith("#bib")) {
-              node.properties["data-no-popover"] = true
+          let headingAdded = false;
+
+          visit(tree, "element", (node) => {
+            // Check if the node is the bibliography container
+            if (!headingAdded && node.tagName === "div" && node.properties?.id === "refs" && node.properties?.className?.includes("references")) {
+              headingAdded = true;
+
+              // Create the "Works Cited:" heading
+              const headingNode = {
+                type: "element",
+                tagName: "h3",
+                properties: {
+                  style: "text-align: center;"
+                },
+                children: [{ type: "text", value: "Works Cited" }],
+              };
+
+              // Prepend the heading to the bibliography container
+              node.children.unshift(headingNode);
             }
-          })
-        }
-      })
+
+            // Add data-no-popover property to citation links
+            if (node.tagName === "a" && node.properties?.href?.startsWith("#bib")) {
+              node.properties["data-no-popover"] = true;
+            }
+          });
+        };
+      });
 
       return plugins
     },
