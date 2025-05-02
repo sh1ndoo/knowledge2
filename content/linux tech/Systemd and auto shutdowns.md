@@ -1,16 +1,18 @@
 ---
 date created: 2025-03-23T00:50
-date modified: 2025-04-08T12:07
+date modified: 2025-05-01T21:42
 draft: "true"
 ---
+
+Thanks perplexity
 
 The message "sleep-monitor-systemd system is about to suspend" indicates that the system is preparing to enter a low-power state, likely triggered by systemd's power management settings. Here’s how you can investigate and resolve this issue:
 
 ---
 
-## **Steps to Prevent System from Suspending**
+## Steps to Prevent System from Suspending
 
-### 1. **Disable Suspend and Hibernation Targets**
+### 1. Disable Suspend and Hibernation Targets
 
 You can prevent the system from suspending by masking the relevant systemd targets:
 
@@ -38,7 +40,7 @@ sudo systemctl unmask sleep.target suspend.target hibernate.target hybrid-sleep.
 
 ---
 
-### 2. **Modify `logind.conf`**
+### 2. Modify `logind.conf`
 
 Edit the `logind.conf` file to disable automatic suspend actions:
 
@@ -72,7 +74,7 @@ sudo systemctl restart systemd-logind
 
 ---
 
-### 3. **Check for Sleep Hooks**
+### 3. Check for Sleep Hooks
 
 Custom scripts or hooks in `/usr/lib/systemd/system-sleep/` may be triggering the suspend action. List the contents of this directory:
 
@@ -86,13 +88,13 @@ If you find any scripts, review their contents and remove or rename them if they
 
 ---
 
-### 4. **Investigate Power Management Settings**
+### 4. Investigate Power Management Settings
 
 Some desktop environments or tools (e.g., GNOME, KDE) may have their own power management settings that enforce suspend behavior. Check these settings within your desktop environment and disable any automatic sleep or suspend options.
 
 ---
 
-### 5. **Verify ACPI Events**
+### 5. Verify ACPI Events
 
 ACPI events (like closing a laptop lid) may trigger suspension. To debug ACPI events:
 
@@ -106,7 +108,7 @@ You can also disable specific ACPI actions by editing `/etc/systemd/logind.conf`
 
 ---
 
-### 6. **Review System Logs**
+### 6. Review System Logs
 
 Continue reviewing logs to identify what triggered the suspend action:
 

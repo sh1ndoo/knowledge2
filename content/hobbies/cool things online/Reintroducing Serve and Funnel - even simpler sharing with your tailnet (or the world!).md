@@ -4,9 +4,10 @@ byline: Sam Linville, Parker Higgins
 site: "@tailscale"
 date created: 2023-10-30T12:45
 slurped: 2025-04-17T22:46
-title: "Reintroducing Serve and Funnel: even simpler sharing with your tailnet
-  (or the world!)"
+title: "Reintroducing Serve and Funnel: even simpler sharing with your tailnet (or the world!)"
 date modified: 2025-04-17T22:46
+tags:
+  - slurp
 ---
 
 Tailscale Serve and Funnel aren’t new features, but today, we’re enhancing their user experience based on insights from how users actually interact with them. Not to get too philosophical, but the most useful features are the features you actually use, and we hope that today’s relaunch of Serve and Funnel moves them closer to the top of our users’ toolkits.

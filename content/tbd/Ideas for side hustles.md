@@ -1,6 +1,6 @@
 ---
 date created: 2025-01-02T12:23
-date modified: 2025-04-12T21:59
+date modified: 2025-04-30T12:11
 draft: "true"
 subtitle: i wanna be famous 🧚‍♀️
 tags:
@@ -23,3 +23,4 @@ AI Voiceover content creation:
 
 - minecraft gameplay over reddit stories
 - running app that takes into account speed and location
+	- Nike Run Club, Runna

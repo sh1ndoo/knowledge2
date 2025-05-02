@@ -1,6 +1,6 @@
 ---
 date created: 2024-07-23T01:10
-date modified: 2025-03-03T23:35
+date modified: 2025-04-29T21:15
 tags:
   - external
 ---
@@ -57,6 +57,8 @@ Very impressive, guys!
 
 [Globe.](https://globe.engineer/) I had a great time trying out the explorer! and fastask is quite handy.
 
+[Linux Server Security](https://ivansalloum.com/collections/linux-server-security/) very clear and well-written linux server guides
+
 ### Programming Languages
 
 [Uiua](https://www.uiua.org/) - Uiua (wee-wuh 🔉) is a general purpose, stack-based, array-oriented programming language with a focus on simplicity, beauty, and tacit code.
@@ -78,3 +80,7 @@ Very impressive, guys!
 [Lexend — Change the way the world reads.](https://www.lexend.com/) 
 
 [National Park Typeface](https://nationalparktypeface.com/) 
+
+Three pixely-looking fonts: [Twenty-Seven Font | dafont.com](https://www.dafont.com/twenty-seven.font)  [GitHub - nubDotDev/Transit105: A font based on the 105-segment displays found on NJ Transit trains](https://github.com/nubDotDev/Transit105)   [Segmented type appreciation corner](https://aresluna.org/segmented-type/)  ![[Cool other websites_image_1.png]]
+
+[GitHub - dakotafelder/open-gorton: Open source font for the keycap designer community](https://github.com/dakotafelder/open-gorton)

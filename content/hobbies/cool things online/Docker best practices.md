@@ -3,6 +3,8 @@ link: https://docs.docker.com/build/building/best-practices/
 site: Docker Documentation
 date created: 2025-04-09T09:01
 slurped: 2025-04-14T10:27
+tags:
+  - slurp
 ---
 
 Multi-stage builds let you reduce the size of your final image, by creating a cleaner separation between the building of your image and the final output. Split your Dockerfile instructions into distinct stages to make sure that the resulting output only contains the files that are needed to run the application.

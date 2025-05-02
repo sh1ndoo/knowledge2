@@ -1,6 +1,6 @@
 ---
 date created: 2024-06-06T22:54
-date modified: 2025-04-16T23:09
+date modified: 2025-05-01T21:38
 tags:
   - recents-exclude
 ---
@@ -435,35 +435,6 @@ I took out the keyboard shortcuts and translated some stuff to English. I also w
 
 [catcodeme.github.io/quartz/components/styles/floatingButtons.scss](https://github.com/CatCodeMe/catcodeme.github.io/blob/770f3f8d1f6849ef40bc06b4300a52b3aecfb551/quartz/components/styles/floatingButtons.scss), and also the `.tsx` and the `.inline.ts` file.
 
-## Goatcounter and the SPA fix by necauqua
-
-Credits: [fix(goatcounter): properly count SPA page hits · necauqua/beta-quartz@cdc5728 · GitHub](https://github.com/necauqua/beta-quartz/commit/cdc5728c5216b8ab1ecd3e7116ae6be05ecc0162) 
-
-Specify it in the config:
-
-```ts title="quartz.config.ts"
-analytics: {
-  provider: "goatcounter",
-  websiteId: '<your id>'
-},
-```
-
-On the goatcounter website, go into the settings and type in the domains that you actually want goatcounter to track. Theoretically this should fix it if someone else forks your page but doesn't change the analytics config. 
-
-```ts title="componentResources.ts"
-else if (cfg.analytics?.provider === "goatcounter") {
-      // goatcounter spa fix ported from https://github.com/necauqua/beta-quartz/commit/cdc5728c5216b8ab1ecd3e7116ae6be05ecc0162 
-    componentResources.afterDOMLoaded.push(`
-        document.addEventListener("nav", () => {
-        const goatcounterScript = document.createElement("script")
-        goatcounterScript.src = "${cfg.analytics.scriptSrc ?? "https://gc.zgo.at/count.js"}"
-        goatcounterScript.async = true
-        goatcounterScript.setAttribute("data-goatcounter",
-          "https://${cfg.analytics.websiteId}.${cfg.analytics.host ?? "goatcounter.com"}/count")
-        document.head.appendChild(goatcounterScript)
-      })
-    `)
-```
 
 ## Differentiate broken internal links
 
@@ -947,52 +918,6 @@ Also the two transformers import a script which then is added to every page sadl
 
 2024-08-24 - actually I disabled sticky notes because it was causing weird effects on the search in desktop mode. 
 
-## Forcing icons into a row in the top corner
-
-"In this essay, we will..." lol [fanteastick/quartz-test@a24b5b5 · GitHub](https://github.com/fanteastick/quartz-test/commit/a24b5b57a24b2ce78dcf53867e597a9c14fff8bd) this commit has all the info, minus removing the word "search". 
-
-```ts title="quartz.layout.ts" 
-Component.Row([
-  Component.Search(),
-  Component.Map(),
-  Component.Darkmode(),
-]),
-```
-
-Removing the word "Search" in the search component and also the spacing div: 
-
-```tsx title="Search.tsx"
-<div class={classNames(displayClass, "search")}>
-<div id="search-icon">
-  {/* <p>{i18n(cfg.locale).components.search.title}</p> */}
-  {/* <div></div> */}
-  {/* <div></div> */}
-```
-
-Forced row css:
-
-```css title="custom.scss"
-.forced-row {
-    flex: 1;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    // gap: 2rem;
-    top: 0;
-    // width: initial;
-    // margin-top: 2rem;
-    box-sizing: border-box;
-    padding: 0;
-    position: initial;
-    & .map, .darkmode, .minibutton {
-        margin: 0.4rem;
-    }
-    @media all and (max-width: $fullPageWidth) {
-        justify-content: flex-end;
-    }
-}
-```
-
 ## Changing tag pages and folder pages
 
 The problem - the default title for a tag page is `Tag: name`, and breadcrumb is just tags. But when you make a tag page in the tags folder, it names the page the same as the tag name. So instead of "Tag: git" it becomes "git". 
@@ -1062,29 +987,7 @@ const ArticleTitle: QuartzComponent = ({ fileData, displayClass }: QuartzCompone
   : fileData.frontmatter?.title;
   // const title = fileData.frontmatter?.title original text lol 8-5-24 ez
 ```
-## Add page title suffix config option
 
-Thanks to this pull request, discovered from discord
-
-[Add a page title suffix config option · ripdrive/ripdrive.github.io@db514fd · GitHub](https://github.com/ripdrive/ripdrive.github.io/commit/db514fd4ae441f203069ae9e8e9b2ee5591d63c5) 
-
-```ts title="quartz.config.ts"
-const config: QuartzConfig = {
-  configuration: {
-    pageTitle: "The Rip Drive Project",
-+    titleSuffix: " | The Rip Drive Project",
-```
-
-```ts title="quartz/cfg.ts"
-export interface GlobalConfiguration {
-+  titleSuffix: string
-```
-
-```tsx title="Head.tsx"
-export default (() => {
-  const Head: QuartzComponent = ({ cfg, fileData, externalResources }: QuartzComponentProps) => {
-+   const title = (fileData.frontmatter?.title ?? i18n(cfg.locale).propertyDefaults.title) + cfg.titleSuffix
-```
 ## Removed mermaid graphs
 
 Commented out something in the config. 
@@ -1282,61 +1185,6 @@ return (
 
 And in `en-US.ts` I changed the `pages:error:home` to `home: "🏡 Return to Homepage",`
 
-## OnlyFor component and in layout
-
-Code copied from: [t-schreibs · sound-accumulator · OnlyFor.tsx · GitHub](https://github.com/t-schreibs/sound-accumulator/blob/main/quartz%2Fcomponents%2FOnlyFor.tsx) + changing it into a list of titles instead of just one title
-
-```tsx title="OnlyFor.tsx"
-import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
-
-interface OnlyForOptions {
-  /**
-   * The titles to look for
-   */
-  titles: string[];
-}
-
-export default ((opts?: Partial<OnlyForOptions>, component?: QuartzComponent) => {
-  if (component) {
-    const Component = component
-    function OnlyFor(props: QuartzComponentProps) {
-      return opts?.titles?.some(title => props.fileData.frontmatter?.title === title) ? 
-        <Component {...props} /> :
-        <></>;
-    }
-
-    OnlyFor.displayName = component.displayName
-    OnlyFor.afterDOMLoaded = component.afterDOMLoaded
-    OnlyFor.beforeDOMLoaded = component.beforeDOMLoaded
-    OnlyFor.css = component.css
-    return OnlyFor
-  } else {
-    return () => <></>
-  }
-}) satisfies QuartzComponentConstructor
-```
-
-And then in the layout file the syntax is: 
-
-```ts title="quartz.layout.ts"
-afterBody: [
-  Component.OnlyFor(
-    { titles: ["Eilleen's (online!) Everything Notebook"] },
-    Component.RecentNotes({ showTags: false, title: "Recently edited notes:", showDate: true })
-  ), 
-  // Component.OnlyFor(
-  //   {titles: ["Eilleen's (online!) Everything Notebook"] }, 
-  //   Component.MobileOnly(Component.Backlinks())
-  // ) this part is to show example of a second component working w backlinks too
-],
-```
-
-Remember to add it to `components/index.ts`!!
-
-### Very similar - `NotFor` component
-
-Same code as above but reversing the checker.
-
 ## Changing `RecentNotes` - OnlyFor, rounded border, conditional date
 
 - used `OnlyFor` to only put it on `afterBody` on the index homepage (see above)
@@ -1414,16 +1262,6 @@ Same code as above but reversing the checker.
 </ul>
 )}
 ```
-
-## Putting a conditional hr based on slug
-
-Add this to the correct part of the component:
-
-```tsx
-{fileData.slug === "index" && <hr />}
-```
-
-2024-07-10 update: I think I just removed it entirely lol.
 
 ## Customizing the 404 page
 
@@ -1543,84 +1381,6 @@ In the scss, make a new section for `.page#quartz-404-body` and remove all the m
 > }
 > ```
 
-## Making a second table of contents component
-
-[hack: TableOfContents2 additions · fanteastick/quartz-test@7a482cf · GitHub](https://github.com/fanteastick/quartz-test/commit/7a482cfe7772142f6a6037d81e1ca44ef971a83b#diff-8a7a3a35709b33dd90a3a46deb08d6326bc17606dd172bfd8eaf82af52faa0f1) 
-
-Probably bad code practice ([Don't repeat yourself - Wikipedia](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)) but I wanted to fix the issue where table of contents wouldn't fold down in mobileonly mode.
-
-Create a new transformer `quartz/plugins/transformers/toc2.ts` which is just the same as the other one but make it `export const TableOfContents2`. 
-
-Add to transformers: 
-
-```ts title="plugins/transformers/index.ts"
- export { TableOfContents } from "./toc" // original
-+export { TableOfContents2 } from "./toc2" // new
-```
-
-Add to components:
-
-```ts title="components/index.ts"
- import TableOfContents from "./TableOfContents"
-+import TableOfContents2 from "./TableOfContents2"
-
- export {
-...
-   TableOfContents,
-+  TableOfContents2,
-```
-
-Add to layout: 
-
-```ts title="quartz.layout.ts"
-left: [
-...
--    Component.DesktopOnly(Component.TableOfContents()),
-+    Component.DesktopOnly(Component.TableOfContents2()),
-```
-
-Create the new component file, and rename the button class to toc2:
-
-```tsx title="TableOfContents2.tsx"
-  return (
-    <div class={classNames(displayClass, "toc")}>
-      <button type="button" id="toc2" class={fileData.collapseToc ? "collapsed" : ""}>
-```
-
-In the stylesheet, add toc2 to the toc styling:
-
-```scss title="toc.scss"
-button#toc, button#toc2 {
-```
-
-In the inline script, add a toc2 section: which is just the toc script copy pasted
-
-```ts title="scripts/toc.inline.ts"
-function setupToc2() {
-  const toc = document.getElementById("toc2")
-  if (toc) {
-    const collapsed = toc.classList.contains("collapsed")
-    const content = toc.nextElementSibling as HTMLElement | undefined
-    if (!content) return
-    content.style.maxHeight = collapsed ? "0px" : content.scrollHeight + "px"
-    toc.addEventListener("click", toggleToc)
-    window.addCleanup(() => toc.removeEventListener("click", toggleToc))
-  }
-}
-
-window.addEventListener("resize", setupToc2)
-document.addEventListener("nav", () => {
-  setupToc2()
-
-  // update toc entry highlighting
-  observer.disconnect()
-  const headers = document.querySelectorAll("h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]")
-  headers.forEach((header) => observer.observe(header))
-})
-```
-
-Also you need to add it to transformers list in `quartz.config.ts`
-
 ## Underline external links in page bodies, and lighter
 
 Added a class to the `a` section in `base.scss`
@@ -1725,7 +1485,7 @@ const Content: QuartzComponent = ({ fileData, tree }: QuartzComponentProps) => {
 }
 ```
 
-Can find some cute dividers here: [Sparkle Emoji for Bio](https://www.aestheticbio.net/p/sparkle.html) 
+Can find some cute dividers here: [Sparkle Emoji for Bio](https://www.aestheticbio.net/p/sparkle.html) [[A bunch of kaomoji]]
 
 ## Update the footer links
 ```ts title="quartz.layout.ts"

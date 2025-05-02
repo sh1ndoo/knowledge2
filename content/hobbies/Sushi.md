@@ -5,6 +5,8 @@ draft: "true"
 subtitle: me 🤝 raw fish
 cssclasses:
   - list-cards
+tags:
+  - food
 ---
 > That's like seeing a fish in the water and saying, "look, there's some sushi swimming around!" 💬 me
 

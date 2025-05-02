@@ -11,6 +11,8 @@ I saw a twitter thread where people datamined out some dude (JiaT75 of the [XZ U
 
 Related: [[OSINT]] and personal opsec
 
+Useful: [Hitchhiker’s Guide](https://anonymousplanet.org/) [Practical Privacy: Find privacy tools and options, make a plan, contain yourself.](https://disint.org/main.html) [Surveillance Self-Defense](https://ssd.eff.org/) 
+
 ## Avoid giving these things when browsing online
 
 Think about if the website actually really needs the information... usually they don't! For example, if you're downloading the free trial of a software and they have a form for you to fill out before you get your download. I will gladly give them completely false information. Another example: logging into a public Wi-Fi and you need to give them your email to get online. 

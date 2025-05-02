@@ -1,6 +1,6 @@
 ---
 date created: 2025-03-20T23:35
-date modified: 2025-03-20T23:37
+date modified: 2025-04-25T22:48
 tags:
   - external
 draft: "true"
@@ -12,17 +12,11 @@ Here's how to host your own Ollama LLM API endpoint using Docker and Cloudflare:
 ## Step 1: Deploy Ollama in Docker
 
 ```bash
-
 # Pull latest Ollama image
-
 docker pull ollama/ollama
 
-  
-
 # Create persistent volume and run container
-
 docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
-
 ```
 
 This creates a Docker container with persistent model storage[^2]. To use GPU acceleration, add `--gpus=all` flag[^2].
@@ -38,8 +32,6 @@ This creates a Docker container with persistent model storage[^2]. To use GPU ac
 2. **Deploy cloudflared tunnel** via Docker Compose:
 
 ```yaml
-
-version: '3.8'
 services:
   ollama:
     image: ollama/ollama
@@ -81,38 +73,15 @@ This configuration[^7] creates a private network between Ollama and Cloudflare T
 ```python
 
 from langchain_community.llms import Ollama
-
-  
-
 llm = Ollama(
-
     base_url="https://your-domain.com/api",  # Your Cloudflare domain
-
     model="llama2"
-
 )
-
-  
-
 response = llm.invoke("Explain quantum computing in simple terms")
-
 print(response)
-
 ```
 
 This uses LangChain to access your private API endpoint through Cloudflare's secure tunnel[^1][^7].
-
-## Key Benefits
-
-- **Security**: No open ports, encrypted traffic via Cloudflare[^3][^7]
-
-- **Persistence**: Docker volume preserves models between restarts[^2]
-
-- **Scalability**: Easily add GPU support or scale with Docker Swarm/Kubernetes[^2][^8]
-
-**Pro Tip:** Use Cloudflare Access policies to restrict API access to specific email domains or IP ranges[^5][^7].
-
-<div style="text-align: center">⁂</div>
 
 [^1]: https://www.youtube.com/watch?v=dcHSxUqZ7No
 

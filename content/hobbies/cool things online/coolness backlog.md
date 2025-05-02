@@ -1,6 +1,6 @@
 ---
 date created: 2025-02-03T22:03
-date modified: 2025-04-16T23:00
+date modified: 2025-05-01T22:46
 tags:
   - recents-exclude
   - external
@@ -10,6 +10,46 @@ draft: "true"
 In reverse chronological order, so the most recent will be at the top. 
 
 ## 2025
+
+[Explaining → FAIR Questions](https://twisty-secure-740.notion.site/Explaining-FAIR-Questions-1e5f40cd122b8060b064ec413eb91b69) 
+
+[Next.js · Cloudflare Workers docs](https://developers.cloudflare.com/workers/frameworks/framework-guides/nextjs/) [Should I use Cloudflare in front of Vercel?](https://vercel.com/guides/cloudflare-with-vercel) 
+
+[Resources for ML | Ludwig](https://ludwigabap.bearblog.dev/resources-for-ml/) 
+
+[Fantasia (1940 film) - Wikipedia](https://en.wikipedia.org/wiki/Fantasia_(1940_film)) 
+
+[Mechanical Computing](https://tennysontbardwell.com/blog/2025/04/30/mechanical-computing/index.html)
+
+[Simple animation graph - Blender Add-on](https://dedouze.gumroad.com/l/fsbdw) 
+
+[GitHub - daya0576/beaverhabits: A self-hosted habit tracking app without "Goals"](https://github.com/daya0576/beaverhabits) 
+
+[GitHub - harung1993/dollardollar at selfh.st](https://github.com/harung1993/dollardollar)
+
+[GitHub - xdadda/mini-photo-editor: Online webgl photo editor with effects, filters and cropping](https://github.com/xdadda/mini-photo-editor) 
+
+[Open-source collaborative wiki and documentation software | Docmost](https://docmost.com/) 
+
+[Knowledge-based society, my ass](https://mihaiolteanu.me/knowledge-based-society-my-ass)
+
+[PyXL - GPIO Benchmark](https://www.runpyxl.com/gpio) 
+
+[ARTIQ | M-Labs](https://m-labs.hk/experiment-control/artiq/) 
+
+[Simon Oz - YouTube](https://www.youtube.com/@szymonozog7862/videos) GPU programming resources
+
+[NaN boxing or how to make the world dynamic - Blog by Piotr Duperas](https://piotrduperas.com/posts/nan-boxing)
+
+[| OpenSecurityTraining2](https://p.ost2.fyi/)
+
+[Cats - house rules](https://nonstopsystems.com/cats/cats-rules.htm#top-of-page)
+
+[World Emulation via Neural Network](https://madebyoll.in/posts/world_emulation_via_dnn/)
+
+A bunch of scrolly websites: [Website loading strategies](https://scroll-animation-streaming.vercel.app/) [AI 2027](https://ai-2027.com/) [GitHub - trimstray/the-book-of-secret-knowledge: A collection of inspiring lists, manuals, cheatsheets, blogs, hacks, one-liners, cli/web tools and more.](https://github.com/trimstray/the-book-of-secret-knowledge) [Explorable Explanations](https://explorabl.es/)  [omi TODO / bounties · GitHub](https://github.com/orgs/BasedHardware/projects/1/views/7) 
+
+[GitHub - gitroomhq/postiz-app: 📨 The ultimate social media scheduling tool, with a bunch of AI 🤖](https://github.com/gitroomhq/postiz-app) 
 
 [Assets · Kenney](https://kenney.nl/assets) best guy ever - free video game assets
 

@@ -1,6 +1,6 @@
 ---
 date created: 2025-01-21T22:09
-date modified: 2025-03-07T14:38
+date modified: 2025-05-01T10:40
 draft: "true"
 tags:
   - pi
@@ -54,3 +54,11 @@ E.g. looking for a txt record associated, or something
 [DNS Checker - DNS Check Propagation Tool](https://dnschecker.org/)
 
 [Port Checker - Check Open Ports Online](https://portchecker.co/)
+
+## SOCKS5
+
+[SOCKS5 Proxies: Residential, Dedicated, and More – Free Trial](https://decodo.com/proxies/socks5) 
+
+## DNS over HTTPS
+
+[DNS over TLS vs. DNS over HTTPS | Secure DNS | Cloudflare](https://www.cloudflare.com/en-ca/learning/dns/dns-over-tls/) 

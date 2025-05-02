@@ -1,14 +1,12 @@
 ---
 date created: 2025-03-05T17:20
-date modified: 2025-04-04T22:40
-tags:
-  - external
+date modified: 2025-04-30T13:33
 ---
 
 FAQ, Frequently Asked (by me) Questions
 
 - [ ] mounts and where your files are stored (kind of addressed by )
-- [ ] docker file vs docker compose
+- [ ] docker file vs docker compose, like how the  build process works and how it gets uploaded to docker hub vs accessed locally
 
 ## Misc links
 
@@ -63,8 +61,59 @@ Alternatively in an alpine-based container: `apk add nano`
 
 Perplexity says: If you want nano available every time you start the container, add these commands to your Dockerfile: `RUN apt-get update && apt-get install nano -y`
 
-## Named volumes
-
 ## Seeing the logs
 
 [How to View Docker Container Logs - A Step-by-Step Guide | SigNoz](https://signoz.io/guides/docker-view-logs/)
+
+## Docker pruning
+
+[Prune unused Docker objects | Docker Docs](https://docs.docker.com/engine/manage-resources/pruning/)
+
+## Remove old stacks that are no longer needed
+
+```
+docker compose -p mc-vanilla down --remove-orphans --volumes
+```
+
+## Linking paths and bind mounts and named volumes
+
+Thanks Perplexity
+
+To link a specific file from your host filesystem (e.g., /home/user/whitelist.yml) to a specific location inside a Docker container (e.g., data/whitelist.yml), you should use a bind mount in your docker-compose.yml file. Here’s how to do it:
+
+Example docker-compose.yml:
+
+```
+services:
+  your_service:
+    image: your_image
+    volumes:
+      - /home/user/whitelist.yml:/data/whitelist.yml
+```
+
+To use a different source directory on your host (e.g., /home/user/mc-data-2) instead of a relative path like ./mc-data, simply specify the absolute path in your docker-compose.yml under the volumes section for your service.
+
+Example:
+
+```
+services:
+  your_service:
+    image: your_image
+    volumes:
+      - /home/user/mc-data-2:/data
+```
+
+## Start a specific compose file
+
+```
+docker compose -f /path/to/fred.yml up -d
+```
+
+[Educational resources | Docker Docs](https://docs.docker.com/get-started/resources/)
+
+## See all the containers and ports
+
+```
+docker ps
+docker container ls --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}" -a
+```

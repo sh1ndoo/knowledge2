@@ -6,7 +6,6 @@ date created: 2024-10-24T08:30
 slurped: 2025-04-08T21:20
 title: A closer look at Intel and AMD's different approaches to gluing together CPUs
 tags:
-  - external
   - slurp
 ---
 

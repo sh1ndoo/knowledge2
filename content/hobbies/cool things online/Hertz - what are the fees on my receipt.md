@@ -2,6 +2,8 @@
 date created: 2025-04-08T21:56
 date modified: 2025-04-09T16:48
 link: https://www.hertz.com/supporthub/article/What-are-the-fees-on-my-receipt
+tags:
+  - slurp
 ---
 > [!web] From the web
 > [What are the fees on my receipt | Hertz](https://www.hertz.com/supporthub/article/What-are-the-fees-on-my-receipt)

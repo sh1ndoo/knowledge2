@@ -2,6 +2,8 @@
 draft: "true"
 date created: 2025-04-08T17:17
 date modified: 2025-04-08T17:27
+tags:
+  - food
 ---
 ## Evaluation parameters
 

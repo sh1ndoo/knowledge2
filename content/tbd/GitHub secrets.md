@@ -76,6 +76,12 @@ provider: 'giscus',
     categoryId: myCategoryID,
 ```
 
+## Even more restricting giscus embeds
+
+Make this file: [giscus/giscus.json at main · giscus/giscus · GitHub](https://github.com/giscus/giscus/blob/main/giscus.json) 
+
+As described here: [giscus/ADVANCED-USAGE.md at main · giscus/giscus · GitHub](https://github.com/giscus/giscus/blob/main/ADVANCED-USAGE.md#origins) 
+
 ## Links I was reading
 
 [Using secrets in GitHub Actions - GitHub Docs](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions)

@@ -1,6 +1,6 @@
 ---
 date created: 2024-09-17T09:08
-date modified: 2025-01-19T00:43
+date modified: 2025-04-25T22:49
 draft: "true"
 ---
 ## The documentation
@@ -58,3 +58,13 @@ sudo systemctl stop ollama
 ## Embedding models
 
 [Embedding models · Ollama Blog](https://ollama.com/blog/embedding-models) 
+
+## Openwebui
+
+[How to Enable Web Search in Open WebUI - YouTube](https://www.youtube.com/watch?v=fwscnJu_Md0)
+
+[⏱️ Quick Start | Open WebUI](https://docs.openwebui.com/getting-started/quick-start/)
+
+Docker desktop reported usage spikes when I ask a query - 7b model might be a little too big. 
+
+![[Ollama_image_2.png|400]]

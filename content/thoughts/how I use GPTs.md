@@ -1,6 +1,6 @@
 ---
 date created: 2024-08-06T01:41
-date modified: 2025-02-13T11:36
+date modified: 2025-04-23T00:00
 tags:
   - guide
 ---
@@ -14,7 +14,9 @@ I find that [Perplexity](https://www.perplexity.ai/) is really amazing for synth
 4. Given all this, do I need to set up Pi-hole as my DHCP network, or will it work without?
 5. Are there any good Docker containers that I can run with Pi-hole and WireGuard simultaneously? 
 
-I loooove Perplexity 🖤 🤫🤫should I become a perplexity ambassador?🤫🤫
+I loooove Perplexity 🖤 🤫🤫should I become a perplexity ambassador?🤫🤫 Sometimes if you keep asking too many questions, the thread starts lagging, or it starts forgetting what we're talking about. 
+
+I've been using Perplexity a LOT when it comes to tackling all my [[Ideas for what one can do with a home server]]. In general, across the internet, there's plenty of guides for everything (and even documentation!), but Perplexity is the safest way to share detailed information about my whole setup and get instructions that take everything into account. 
 
 ## ChatGPT
 

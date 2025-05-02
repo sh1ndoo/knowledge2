@@ -1,6 +1,6 @@
 ---
 date created: 2025-01-16T11:01
-date modified: 2025-04-10T00:21
+date modified: 2025-04-28T10:10
 ---
 ## Subset of the goals
 - Do a side hustle
@@ -36,7 +36,7 @@ What I'm using this year: [[Uses]]
 
 ## March
 
-- A big travel month for me. Picture time! Kicking rocks!
+- A big travel month for me. Picture time! Kicking rocks! I saw many different biomes. 
 - Homelab is going great! I finally got a grip on [[Cloudflare tunnels with Docker]]
 - got sick again 💀 in the middle-ish
 - waiting...
@@ -44,5 +44,12 @@ What I'm using this year: [[Uses]]
 ## April
 
 - bashing my head in on Docker, Traefik, Caddy, Portainer, nginx proxy manager, port forwarding, CGNATs (for my [[tags/pi]] and also [[New server! Wahoo!]])
+	- Finally caved and spent some money on a VPS. it's pretty nice but I'm starting to juggle a lot of machines...
+	- Minecraft server is setup! wow!
 - I'm going back to school maybe! And I'm getting VERY SERIOUS about my fitness goals 💪
 - Volunteered again! so fun :)
+- World news: [The Promise of American Higher Education - Harvard University President](https://www.harvard.edu/president/news/2025/the-promise-of-american-higher-education/) 
+	- Tariffs
+	- Market manipulation 😡😡😡 my 401(k)!?!?!?!
+- World news: the pope passed away
+- World news: there was a random power outage in Portugal/Spain [Spain, Portugal hit with massive power outage, causing cities to standstill](https://nypost.com/2025/04/28/world-news/spain-portugal-hit-with-massive-power-outage-causing-cities-to-standstill/) 

@@ -1,6 +1,6 @@
 ---
 date created: 2024-11-10T20:58
-date modified: 2025-04-09T21:28
+date modified: 2025-04-21T23:37
 tags:
   - gaming
   - civ
@@ -23,7 +23,7 @@ Civilization is like Catan but as a video game, so it's Catan on steroids becaus
 
 The game goes on sale multiple times a year: [Price history by steamdb](https://steamdb.info/app/289070/) 
 
-(All currency values in USD here) You can get the base game for $3, and then all the expansions will be on sale for $5. So $8 for hundreds of hours of gameplay, maybe even thousands, is honestly a steal!
+(All currency values in USD here) You can get the base game for \$3, and then all the expansions will be on sale for \$5. So \$8 for hundreds of hours of gameplay, maybe even thousands, is honestly a steal!
 
 # Gameplay tips
 ## Amenities

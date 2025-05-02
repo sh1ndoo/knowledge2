@@ -6,6 +6,8 @@ slurped: 2025-04-10T22:36
 title: Microsoft PowerToys
 date created: 2025-04-10T22:36
 date modified: 2025-04-11T16:32
+tags:
+  - slurp
 ---
 
 Microsoft PowerToys is a set of utilities for power users to tune and streamline their Windows experience for greater productivity.
