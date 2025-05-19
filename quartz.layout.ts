@@ -82,7 +82,7 @@ const giscusConfig = {
     // from data-category-id
     categoryId: 'DIC_kwDOOsw9Lc4CqWRN',
     mapping: "specific",
-    strict: true,
+    strict: false,
     reactionsEnabled: false,
     inputPosition: "top",
     term: "Guestbook"
