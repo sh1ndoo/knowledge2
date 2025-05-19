@@ -37,9 +37,9 @@ export default ((opts: Options) => {
     // 2025-02-04: actually, I only want comments if I choose to enable them in frontmatter
     const enableComment: boolean = 
       fileData.frontmatter?.comments === "true"
-    if (!enableComment) {
-      return <></>
-    }
+    // if (!enableComment) {
+    //   return <></>
+    // }
 
     return (
       <div>
