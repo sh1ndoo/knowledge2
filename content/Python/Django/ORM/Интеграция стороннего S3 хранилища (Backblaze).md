@@ -9,7 +9,7 @@
 pip install b2sdk
 ```
 
-**2. Настройка в Django (`settings.py`):** ([[Настройки проекта (settings.py)]])
+**2. Настройка в Django (`settings.py`):** ([[Настройки проекта (settings.py)|Настройки проекта (settings.py)]])
 
 Крайне **не рекомендуется** хранить ключи API прямо в `settings.py`. Используйте переменные окружения или другие методы управления секретами (например, `python-dotenv`, HashiCorp Vault).
 
