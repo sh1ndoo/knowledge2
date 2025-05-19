@@ -96,19 +96,19 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
       }
       return (
         <div class="contentmeta-container">
-          {fileData.slug !== "index" && 
-          <p style={{ margin: '0', padding: '0'}} class="content-meta">
-           <a class="light-a" href={`${options?.repoLink}/blob/${options?.branch}/${fileData.filePath!}`}>
-           ᨒ Source ᨒ 
-             </a>  
-           <a class="light-a" href={`${options?.repoLink}/blame/${options?.branch}/${fileData.filePath!}`}>
-           ↟ Blame ᨒ 
-           </a>
-           <a class="light-a" href={`${options?.repoLink.replace('github.com', 'github.githistory.xyz')}/commits/${options?.branch}/${fileData.filePath!}`}>
-           ↟ GitHistory ↟
-           </a>
-         </p>
-         }
+         {/* {fileData.slug !== "index" && */}
+         {/* <p style={{ margin: '0', padding: '0'}} class="content-meta">*/}
+         {/*  <a class="light-a" href={`${options?.repoLink}/blob/${options?.branch}/${fileData.filePath!}`}>*/}
+         {/*  ᨒ Source ᨒ */}
+         {/*    </a>  */}
+         {/*  <a class="light-a" href={`${options?.repoLink}/blame/${options?.branch}/${fileData.filePath!}`}>*/}
+         {/*  ↟ Blame ᨒ */}
+         {/*  </a>*/}
+         {/*  <a class="light-a" href={`${options?.repoLink.replace('github.com', 'github.githistory.xyz')}/commits/${options?.branch}/${fileData.filePath!}`}>*/}
+         {/*  ↟ GitHistory ↟*/}
+         {/*  </a>*/}
+         {/*</p>*/}
+         {/*}*/}
           
         <p show-comma={options.showComma} style={{ margin: '0', padding: '0'}} class={classNames(displayClass, "content-meta")}>
           {segments}

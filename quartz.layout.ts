@@ -12,7 +12,7 @@ const myRepoID = process.env.GISCUS_REPO_ID;
 const myCategoryID = process.env.GISCUS_CATEGORY_ID;
 
 // Constants for config that are reused a lot
-const homepageTitle = "Eilleen's (online!) Everything Notebook"
+const homepageTitle = "XDD"
 const modifiedListTitle = "All-files-chronologically-modified"
 const mapTitle = "Map"
 const tagsToRemove = ["graph-exclude", "explorer-exclude", "backlinks-exclude", "recents-exclude", "search-exclude", "listing-exclude"]
@@ -26,7 +26,7 @@ const graphConfig = {
     excludeTags: ["graph-exclude"]
   }
 };
-const tagListConfig = { 
+const tagListConfig = {
   excludeTags: tagsToRemove
 }
 const explorerConfig = {
@@ -34,14 +34,14 @@ const explorerConfig = {
   mapFn: (node: FileTrieNode) => {
     // dont change name of root node
     if (!node.isFolder) {
-      // set emoji for file/folder      
-        node.displayName = "⊹ " + node.displayName
+      // set emoji for file/folder
+        node.displayName = "⌗ " + node.displayName
     }
   },
 }
-const recentNotesConfig = { 
-  showTags: false, 
-  title: "Recently edited notes:", 
+const recentNotesConfig = {
+  showTags: false,
+  title: "Recently edited notes:",
   showDate: true,
   linkToMore: "meta/" + modifiedListTitle as SimpleSlug,
   excludeTags: ["recents-exclude", "slurp", "external"],
@@ -53,7 +53,7 @@ const backlinksConfig = {
 }
 
 const breadcrumbsConfig = {
-  rootName: "🏡"
+  rootName: "🏠"
 }
 
 const oldexplorerConfig = {
@@ -64,7 +64,7 @@ const oldexplorerConfig = {
     if (node.depth > 0) {
       // set emoji for file/folder
       if (node.file) {
-        node.displayName = "✾ " + node.displayName
+        node.displayName = "✦ " + node.displayName
       } else {
         // node.displayName = "📁 " + node.displayName
       }
@@ -87,11 +87,11 @@ const giscusConfig = {
     inputPosition: "top",
     term: "Guestbook"
 }}
-const githubSourceConfig = { 
+const githubSourceConfig = {
   repoLink: "https://github.com/fanteastick/quartz-test"
 }
 ///////////////////////////////////////////////////
-// components shared across all pages  
+// components shared across all pages
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
@@ -99,7 +99,7 @@ export const sharedPageComponents: SharedLayout = {
   Component.OnlyFor(
     { titles: [homepageTitle] },
     Component.RecentNotes(recentNotesConfig)
-  ), 
+  ),
   Component.OnlyFor(
     { titles: [mapTitle]},
     Component.RecentNotes({...recentNotesConfig, limit: 8})
@@ -108,7 +108,7 @@ export const sharedPageComponents: SharedLayout = {
     provider: 'giscus',
     options: {
       // from data-repo
-      repo: 'fanteastick/quartz-test',
+      repo: 'sh1ndoo/knowledge2',
       // from data-repo-id
       repoId: 'R_kgDOMVIwGw',
       // from data-category
@@ -124,13 +124,13 @@ export const sharedPageComponents: SharedLayout = {
 ],
   footer: Component.Footer({
     links: {
-      Main: "https://www.eilleeenz.com/",
-      GitHub: "https://github.com/fanteastick/quartz-test",
+      Telegram: "https://t.me/ifknow_me",
+      GitHub: "https://github.com/sh1ndoo",
     },
   }),
 }
 
-// components for pages that display a single page (e.g. a single note) 
+// components for pages that display a single page (e.g. a single note)
 export const defaultContentPageLayout: PageLayout = {
   beforeBody: [
     Component.Breadcrumbs(breadcrumbsConfig),
@@ -153,13 +153,12 @@ export const defaultContentPageLayout: PageLayout = {
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
     Component.Row([
-      Component.Map(),
+      // Component.Map(),
       Component.Darkmode(),
       Component.Search(),
     ]),
+    Component.Explorer(explorerConfig),
     // Component.DesktopOnly(Component.OnlyFor({titles: [homepageTitle, mapTitle]}, Component.ExplorerOld(explorerConfig))),
-    Component.DesktopOnly(Component.TableOfContents()),
-    Component.DesktopOnly(Component.OnlyFor({titles: [homepageTitle, mapTitle]}, Component.Explorer(explorerConfig))),
     Component.FloatingButtons({position: 'right'}),
     // Component.DesktopOnly(Component.PageTitle()),
     // Component.DesktopOnly(
@@ -171,7 +170,7 @@ export const defaultContentPageLayout: PageLayout = {
     // Component.DesktopOnly(Component.TableOfContents()),
     // Component.OnlyFor({titles: [homepageTitle, mapTitle]}, Component.Explorer(explorerConfig)),
     // Component.FloatingButtons({position: 'right'}),
-    
+
     // Component.MobileOnly(
     //   Component.Flex({
     //     components: [
@@ -193,9 +192,10 @@ export const defaultContentPageLayout: PageLayout = {
   right: [
     Component.Graph(graphConfig),
     Component.Backlinks(backlinksConfig),
+    Component.DesktopOnly(Component.TableOfContents()),
   ],
 }
-// components for pages that display lists of pages  (e.g. tags or folders) 
+// components for pages that display lists of pages  (e.g. tags or folders)
 export const defaultListPageLayout: PageLayout = {
   beforeBody: [Component.Breadcrumbs(breadcrumbsConfig), Component.ArticleTitle()],
   left: [
@@ -203,11 +203,12 @@ export const defaultListPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.MobileOnly(Component.OverlayExplorer()),
     Component.Row([
-      Component.Map(),
+      // Component.Map(),
       Component.Darkmode(),
       Component.Search(),
     ]),
     Component.FloatingButtons({position: 'right'}),
+    Component.Explorer(explorerConfig),
   ],
   right: [
     Component.HiddenGlobalGraph(graphConfig),

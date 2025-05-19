@@ -77,7 +77,7 @@ export default ((opts?: Partial<TagContentOptions>) => {
           </article>
           <p>{i18n(cfg.locale).pages.tagContent.totalTags({ count: tags.length })}</p>
           {renderAllTagsList(tags, cfg)}
-          <p class="page-sparkle-divider">───✱*.｡:｡✱*.:｡✧*.｡✰*.:｡✧*.｡:｡*.｡✱ ───</p>
+          <p class="page-sparkle-divider">〰〰〰〰 𓆝 𓆟 𓆞 𓆝 𓆟 𓆝 𓆟 𓆞 𓆝 𓆟 〰〰〰〰</p>
           <div>
             {tags.map((tag) => {
               const pages = tagItemMap.get(tag)!
@@ -143,7 +143,7 @@ export default ((opts?: Partial<TagContentOptions>) => {
           <article class={classes}>{content}</article>
           <div class="page-listing">
             <p>{i18n(cfg.locale).pages.tagContent.itemsUnderTag({ count: pages.length })}</p>
-            <p class="page-sparkle-divider">───✱*.｡:｡✱*.:｡✧*.｡✰*.:｡✧*.｡:｡*.｡✱ ───</p>
+            <p class="page-sparkle-divider">〰〰〰〰 𓆝 𓆟 𓆞 𓆝 𓆟 𓆝 𓆟 𓆞 𓆝 𓆟 〰〰〰〰</p>
             <div>
               <PageList {...listProps} sort={options?.sort} isTagPage={"true"} />
             </div>

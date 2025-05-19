@@ -12,35 +12,18 @@ import * as Plugin from "./quartz/plugins"
  */
 
 const possiblePageTitles = [
-  "(｡•ㅅ•｡)~✧",
-  "૭( ᵕ•̀ᵕ•́૭)",
-  "(૭ •́ ᵕ•̀ )૭",
-  "(๑>؂·̀๑)",
-  "৻(•̀ᗜ•́৻)",
-  "٩(•̤̀ᵕ•̤́๑)",
-  "(｡•́︿•̀｡)",
-  "ᕙ( •̀ ᗜ •́ )ᕗ",
-  "(๑•́ ₃ •̀๑)",
-  "(づ ̄ ³ ̄)づ",
-  "( ˵ •̀ ᴗ •́˵)",
-  "(๑•́o•̀๑)",
-  "٩(๑❛ᴗ❛๑)6",
-  "(╥﹏╥)",
-  "( ˘ ³˘(◡‿◡˶)",
-  "٩(๑˘•ω•˘๑)٩",
-  "૮ ˶ᵔ ᵕ ᵔ˶ ა",
-  "(˶˃ ᵕ ˂˶).ᐟ",
-  "ദ്ദി •⩊• )",
-  "꒰ᐢ. .ᐢ꒱₊˚⊹",
-  "Ꮺ ָ࣪ ۰ ͙⊹",
-  "˚ʚ♡ɞ˚",
-  "𓂃 ࣪⋆💿˚ ༘",
-  "⸜(｡˃ ᵕ ˂ )⸝♡",
-  "`⎚⩊⎚´ -✧",
-  "(˶˃ ᵕ ˂˶)~✧",
-  "(๑>⋆<๑)~✧",
-  "(˵•̀ ᴗ •́˵)~✧",
-  "(૮ ᵕ•̀ )૮~✧",
+  "₍^. .^₎⟆",
+  "≽^•⩊•^≼",
+  "(•˕ •マ.ᐟ",
+  "₍^. .^₎Ⳋ",
+  "≽(•⩊ •マ≼",
+  "/ᐠ - ˕ -マ",
+  "ᓚ₍ ^. .^₎",
+  "/ᐠ - ˕ -マ ᶻ 𝗓 𐰁",
+  "𝑴𝒆𝒐𝒘. ฅ(•- •マ",
+  "ᨐᵉᵒʷ",
+  "ฅ≽(•⩊ •マ≼",
+  "ദ്ദി（• ˕ •マ.ᐟ",
 ];
 function getRandomPageTitle(): string {
   return possiblePageTitles[Math.floor(Math.random() * possiblePageTitles.length)];
@@ -49,7 +32,7 @@ function getRandomPageTitle(): string {
 const config: QuartzConfig = {
   configuration: {
     pageTitle: getRandomPageTitle(),
-    pageTitleSuffix: " | Eilleen's e-Notebook",
+    pageTitleSuffix: " | XDD",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
@@ -57,7 +40,7 @@ const config: QuartzConfig = {
       websiteId: "GOATCOUNTER_CODE_PLACEHOLDER",
     },
     locale: "en-US",
-    baseUrl: "quartz.eilleeenz.com",
+    baseUrl: "ifknow.ru",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "modified",
     passProtected: {
@@ -98,14 +81,14 @@ const config: QuartzConfig = {
       //     '950': '#292f22',
       // },
         lightMode: {
-          light: "#eff2ec",
-          lightgray: "#dde2d5",
-          gray: "#9bab85",
-          darkgray: "#475339",
-          dark: "#292f22",
-          secondary: "#3e4733",
-          tertiary: "#84a59d",
-          highlight: "rgba(191,201,176, 0.25)",
+          light: "#efecf2",
+          lightgray: "#dcd5e2",
+          gray: "#9d85ab",
+          darkgray: "#493953",
+          dark: "#29222f",
+          secondary: "#3d3347",
+          tertiary: "#9584a5",
+          highlight: "rgba(183,176,201,0.25)",
           textHighlight: "#fff23688",
         },
         // darkMode: {
@@ -125,9 +108,9 @@ const config: QuartzConfig = {
           gray: "#646464",
           darkgray: "#d4d4d4",
           dark: "#ebebec",
-          secondary: "#9bab85",
-          tertiary: "#84a59d",
-          highlight: "rgba(143, 159, 169, 0.15)",
+          secondary: "#9f6ebd",
+          tertiary: "#9884a5",
+          highlight: "rgba(159,143,169,0.15)",
           textHighlight: "#b3aa0288",
         },
       },
@@ -182,7 +165,7 @@ const config: QuartzConfig = {
   },
 }
 
-// Wishful thinking/TODO: make it so that it refreshes on each DOMContentLoaded
+
 // document.addEventListener('DOMContentLoaded', () => {
 //   const title = getRandomPageTitle();
 //   // document.title = title + config.configuration.pageTitleSuffix;
