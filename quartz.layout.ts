@@ -12,7 +12,7 @@ const myRepoID = process.env.GISCUS_REPO_ID;
 const myCategoryID = process.env.GISCUS_CATEGORY_ID;
 
 // Constants for config that are reused a lot
-const homepageTitle = "XDD"
+const homepageTitle = "Мои конспекты"
 const modifiedListTitle = "All-files-chronologically-modified"
 const mapTitle = "Map"
 const tagsToRemove = ["graph-exclude", "explorer-exclude", "backlinks-exclude", "recents-exclude", "search-exclude", "listing-exclude"]
