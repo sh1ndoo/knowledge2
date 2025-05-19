@@ -39,7 +39,7 @@ const config: QuartzConfig = {
       provider: "goatcounter",
       websiteId: "GOATCOUNTER_CODE_PLACEHOLDER",
     },
-    locale: "en-US",
+    locale: "ru-RU",
     baseUrl: "ifknow.ru",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "modified",
