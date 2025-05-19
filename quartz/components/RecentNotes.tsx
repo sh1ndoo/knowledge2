@@ -45,7 +45,7 @@ export default ((userOpts?: Partial<Options>) => {
         <h3>{opts.title ?? i18n(cfg.locale).components.recentNotes.title} 
           <span class="see-more">
             <span class="see-more">  </span>
-            <a href="https://github.com/fanteastick/quartz-test/commits/v4/content?author=fanteastick" class="external see-more">see history</a>
+            <a href="https://github.com/sh1ndoo/knowledge2/commits/v4/?author=sh1ndoo" class="external see-more">see history</a>
             <svg 
               class="external-icon"
               viewBox= "0 0 512 512"
@@ -77,12 +77,12 @@ export default ((userOpts?: Partial<Options>) => {
                   <div class="desc">
                     {/* Changed heading size of each link 3->4 on 7/10/24 */}
                     <h4>
-                      ✿ <a href={resolveRelative(fileData.slug!, page.slug!)} class="internal">
+                      ✦ <a href={resolveRelative(fileData.slug!, page.slug!)} class="internal">
                         {title}
                       </a>
                       {/* Changed showdate to optional + same row + faded a bit 7/10/24 */}
                       {opts.showDate && page.dates && (
-                        <span class="see-more"> ₊⊹⊹₊ <Date date={getDate(cfg, page)!} locale={cfg.locale} /></span>
+                        <span class="see-more"> 〰〰 <Date date={getDate(cfg, page)!} locale={cfg.locale} /></span>
                         // <span style="opacity: 0.4">{" ₊⊹⊹₊ " + formatDate(page.dates.modified)}</span>
                       )}
                     </h4>
