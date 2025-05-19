@@ -104,7 +104,23 @@ export const sharedPageComponents: SharedLayout = {
     { titles: [mapTitle]},
     Component.RecentNotes({...recentNotesConfig, limit: 8})
   ),
-  Component.Comments(giscusConfig)
+  Component.Comments({
+  provider: 'giscus',
+  options: {
+    // from data-repo
+    repo: 'sh1ndoo/knowledge2',
+    // from data-repo-id
+    repoId: 'R_kgDOOsw9LQ',
+    // from data-category
+    category: 'Announcements',
+    // from data-category-id
+    categoryId: 'DIC_kwDOOsw9Lc4CqWRN',
+    mapping: "specific",
+    strict: true,
+    reactionsEnabled: false,
+    inputPosition: "top",
+    term: "Guestbook"
+}})
 ],
   footer: Component.Footer({
     links: {
