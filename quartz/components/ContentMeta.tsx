@@ -53,7 +53,7 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
 
       if (fileData.dates && fileData.slug !== "index") {
         segments.push(<>
-           Created: <Date date={_getDateCustom(cfg, fileData, 'created')!} locale={cfg.locale} />
+           Создано: <Date date={_getDateCustom(cfg, fileData, 'created')!} locale={cfg.locale} />
         </>)
 
         // Only show the modified date if it's NOT equal to the created date
@@ -64,7 +64,7 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
         const areDatesNotEqual = datecreatedValue?.getTime() !== datemodifiedValue?.getTime();
         if (areDatesNotEqual) {
           segments.push(<>
-            Modified: <Date date={_getDateCustom(cfg, fileData,'modified')!} locale={cfg.locale} />
+            Обновлено: <Date date={_getDateCustom(cfg, fileData,'modified')!} locale={cfg.locale} />
             </>
             )
         }
@@ -115,7 +115,7 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
         </p>
         {subtitles.length > 0 && (
           <p style={{ margin: '0', padding: '0' }}  class={classNames(displayClass, "content-meta")}>
-            Alternatively: <span style={{fontStyle: 'italic'}}>{subtitles}</span>
+            Альтернативное: <span style={{fontStyle: 'italic'}}>{subtitles}</span>
           </p>
         )}
         {permalinks.length > 0 && (
