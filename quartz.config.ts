@@ -136,7 +136,7 @@ const config: QuartzConfig = {
         },
         keepBackground: false,
       }),
-      Plugin.Citations({ bibliographyFile: "./content/bibliography.bib", linkCitations: true }),
+      // Plugin.Citations({ bibliographyFile: "./content/bibliography.bib", linkCitations: true }),
       Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: false }),
       Plugin.GitHubFlavoredMarkdown(),
       Plugin.TableOfContents(),
