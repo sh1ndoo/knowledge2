@@ -1,6 +1,6 @@
 {
     "origins": [
-      "https://quartz.eilleeenz.com"
+      "https://ifknow.ru"
     ],
     "originsRegex": [
       "https://giscus-git-([A-z0-9]|-)*giscus\\.vercel\\.app",
