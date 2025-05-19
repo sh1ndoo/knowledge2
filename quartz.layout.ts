@@ -81,10 +81,10 @@ const giscusConfig = {
     category: 'Announcements',
     // from data-category-id
     categoryId: 'DIC_kwDOOsw9Lc4CqWRN',
-    mapping: "pathname",
-    strict: false,
-    reactionsEnabled: true,
-    inputPosition: "bottom",
+    mapping: "specific",
+    strict: true,
+    reactionsEnabled: false,
+    inputPosition: "top",
     term: "Guestbook"
 }}
 const githubSourceConfig = {
@@ -104,23 +104,7 @@ export const sharedPageComponents: SharedLayout = {
     { titles: [mapTitle]},
     Component.RecentNotes({...recentNotesConfig, limit: 8})
   ),
-  Component.Comments({
-    provider: 'giscus',
-    options: {
-      // from data-repo
-      repo: 'sh1ndoo/knowledge2',
-      // from data-repo-id
-      repoId: 'R_kgDOOsw9LQ',
-      // from data-category
-      category: 'Announcements',
-      // from data-category-id
-      categoryId: 'DIC_kwDOOsw9Lc4CqWRN',
-      mapping: "pathname",
-      strict: false,
-      reactionsEnabled: true,
-      inputPosition: "bottom",
-      term: "Guestbook"
-  }})
+  Component.Comments(giscusConfig)
 ],
   footer: Component.Footer({
     links: {
