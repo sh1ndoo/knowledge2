@@ -74,21 +74,21 @@ const giscusConfig = {
   provider: 'giscus',
   options: {
     // from data-repo
-    repo: 'fanteastick/quartz-test',
+    repo: 'sh1ndoo/knowledge2',
     // from data-repo-id
-    repoId: myRepoID,
+    repoId: 'R_kgDOOsw9LQ',
     // from data-category
     category: 'Announcements',
     // from data-category-id
-    categoryId: myCategoryID,
-    mapping: "specific",
+    categoryId: 'DIC_kwDOOsw9Lc4CqWRN',
+    mapping: "pathname",
     strict: false,
-    reactionsEnabled: false,
-    inputPosition: "top",
+    reactionsEnabled: true,
+    inputPosition: "bottom",
     term: "Guestbook"
 }}
 const githubSourceConfig = {
-  repoLink: "https://github.com/fanteastick/quartz-test"
+  repoLink: "https://github.com/sh1ndoo/knowledge2"
 }
 ///////////////////////////////////////////////////
 // components shared across all pages
@@ -110,15 +110,15 @@ export const sharedPageComponents: SharedLayout = {
       // from data-repo
       repo: 'sh1ndoo/knowledge2',
       // from data-repo-id
-      repoId: 'R_kgDOMVIwGw',
+      repoId: 'R_kgDOOsw9LQ',
       // from data-category
       category: 'Announcements',
       // from data-category-id
-      categoryId: 'DIC_kwDOMVIwG84Cguqi',
-      mapping: "specific",
+      categoryId: 'DIC_kwDOOsw9Lc4CqWRN',
+      mapping: "pathname",
       strict: false,
-      reactionsEnabled: false,
-      inputPosition: "top",
+      reactionsEnabled: true,
+      inputPosition: "bottom",
       term: "Guestbook"
   }})
 ],
