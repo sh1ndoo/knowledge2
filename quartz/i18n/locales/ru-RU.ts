@@ -67,7 +67,7 @@ export default {
     error: {
       title: "Страница не найдена",
       notFound: "Эта страница приватная или не существует",
-      home: "Вернуться на главную страницу",
+      home: " 🏡 Вернуться на главную страницу",
     },
     folderContent: {
       folder: "Папка",
@@ -75,15 +75,30 @@ export default {
         `в этой папке ${count} элемент${getForm(count, "", "а", "ов")}`,
     },
     tagContent: {
-      tag: "Тег",
-      tagIndex: "Индекс тегов",
+      tag: "🔖",
+      tagIndex: "🔖 Все теги",
       itemsUnderTag: ({ count }) => `с этим тегом ${count} элемент${getForm(count, "", "а", "ов")}`,
       showingFirst: ({ count }) =>
         `Показыва${getForm(count, "ется", "ются", "ются")} ${count} тег${getForm(count, "", "а", "ов")}`,
       totalTags: ({ count }) => `Всего ${count} тег${getForm(count, "", "а", "ов")}`,
     },
+    encryptedContent: {
+      loading: "Загрузка 🔃",
+      password: "Пароль",
+      submit: "Подтвердить",
+      enterPassword: "Эта страница заблокирована, введите пароль:",
+      modernBrowser: "Please use a more modern browser to enable unlocking this page.",
+      wrongPassword: "Неверный пароль, введите пароль ещё раз:",
+      noPayload: "No encrypted payload.",
+      decrypting: "Decrypting...",
+      defaultDescription: "This page is encrypted.",
+    },
   },
 } as const satisfies Translation
+
+
+
+
 
 function getForm(number: number, form1: string, form2: string, form5: string): string {
   const remainder100 = number % 100
