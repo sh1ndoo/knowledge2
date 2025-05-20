@@ -157,7 +157,7 @@ export const defaultContentPageLayout: PageLayout = {
       Component.Darkmode(),
       Component.Search(),
     ]),
-    Component.DesktopOnly(Explorer(explorerConfig)),
+    Component.Explorer(explorerConfig),
     // Component.DesktopOnly(Component.OnlyFor({titles: [homepageTitle, mapTitle]}, Component.ExplorerOld(explorerConfig))),
     Component.FloatingButtons({position: 'right'}),
     // Component.DesktopOnly(Component.PageTitle()),
@@ -208,7 +208,7 @@ export const defaultListPageLayout: PageLayout = {
       Component.Search(),
     ]),
     Component.FloatingButtons({position: 'right'}),
-    Component.DesktopOnly(Explorer(explorerConfig)),
+    Component.Explorer(explorerConfig),
   ],
   right: [
     Component.HiddenGlobalGraph(graphConfig),
