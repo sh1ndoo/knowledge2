@@ -1,3 +1,9 @@
+---
+subtitle: 
+tags: []
+date created: 2025-04-19T03:27
+date modified: 2025-05-21T00:20
+---
 *   **Модель MTV (Model-Template-View):**
     *   **M (Model):** Модели данных (`models.py`). Представление структуры базы данных.
     *   **T (Template):** Шаблоны (`templates/`). Отвечают за отображение данных (HTML).
