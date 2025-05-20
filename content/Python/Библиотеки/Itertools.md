@@ -1,5 +1,9 @@
 ---
+subtitle: 
+tags: []
 Описание: Функции для создания итераторов для эффективной работы с циклами.
+date created: 2025-04-19T04:03
+date modified: 2025-05-21T00:20
 ---
 
 *   Бесконечные итераторы: `count(start=0, step=1)`, `cycle(iterable)`, `repeat(object[, times])`.

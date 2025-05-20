@@ -1,6 +1,9 @@
 ---
+subtitle: 
 Описание: Математические функции.
 tags: []
+date created: 2025-04-19T04:02
+date modified: 2025-05-21T00:20
 ---
 *   Константы: `math.pi`, `math.e`.
 *   Округление: `math.ceil(x)`, `math.floor(x)`, `math.trunc(x)`.
