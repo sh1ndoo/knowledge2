@@ -1,3 +1,9 @@
+---
+subtitle: 
+tags: []
+date created: 2025-04-21T13:20
+date modified: 2025-05-21T00:20
+---
 
 ### Класс Form и процесс добавления
 
