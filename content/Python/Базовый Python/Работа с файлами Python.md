@@ -1,3 +1,9 @@
+---
+subtitle: 
+tags: []
+date created: 2025-04-19T17:22
+date modified: 2025-05-21T00:20
+---
 *   **Функция `open()`:**
     *   `open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)`
     *   Возвращает файловый объект (поток).
