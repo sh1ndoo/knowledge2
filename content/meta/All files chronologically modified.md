@@ -1,11 +1,13 @@
 ---
 subtitle: 
-tags: 
+tags:
+  - graph-exclude
 date created: 2025-05-21T00:14
-date modified: 2025-05-21T00:24
+date modified: 2025-05-21T00:27
 ---
 | File                                                                                                                                                                                               | Folder                                            | Modified     |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ------------ |
+| [[Obsidian/Поиск.md\|Поиск]]                                                                                                                                                                       | Obsidian                                          | мая 21, 2025 |
 | [[SQL/Функции.md\|Функции]]                                                                                                                                                                        | SQL                                               | мая 21, 2025 |
 | [[SQL/Типы данных.md\|Типы данных]]                                                                                                                                                                | SQL                                               | мая 21, 2025 |
 | [[SQL/Команды.md\|Команды]]                                                                                                                                                                        | SQL                                               | мая 21, 2025 |
@@ -71,7 +73,6 @@ date modified: 2025-05-21T00:24
 | [[Python/Django/Admin панель/Администратор модели. Атрибуты.md\|Администратор модели. Атрибуты]]                                                                                                   | Python/Django/Admin панель                        | мая 21, 2025 |
 | [[Python/Django/Admin панель/Admin панель.md\|Admin панель]]                                                                                                                                       | Python/Django/Admin панель                        | мая 21, 2025 |
 | [[Obsidian/Callouts.md\|Callouts]]                                                                                                                                                                 | Obsidian                                          | мая 21, 2025 |
-| [[Obsidian/Поиск.md\|Поиск]]                                                                                                                                                                       | Obsidian                                          | мая 21, 2025 |
 | [[HTML_CSS/HTML/Атрибуты HTML.md\|Атрибуты HTML]]                                                                                                                                                  | HTML_CSS/HTML                                     | мая 21, 2025 |
 | [[HTML_CSS/HTML/Формы HTML.md\|Формы HTML]]                                                                                                                                                        | HTML_CSS/HTML                                     | мая 21, 2025 |
 | [[HTML_CSS/HTML/Теги HTML.md\|Теги HTML]]                                                                                                                                                          | HTML_CSS/HTML                                     | мая 21, 2025 |
