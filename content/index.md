@@ -1,6 +1,7 @@
 ---
 subtitle: Ну или записки, называйте как хотите
-tags: []
+tags:
+  - recents-exclude
 title: Мои конспекты
 comments: "true"
 date created: 2025-05-21T00:28
