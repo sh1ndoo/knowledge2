@@ -117,7 +117,7 @@ export default ((opts?: Partial<FolderContentOptions>) => {
               })}
             </p>
           )}
-          <p class="page-sparkle-divider">〰〰〰〰 𓆝 𓆟 𓆞 𓆝 𓆟 𓆝 𓆟 𓆞 𓆝 𓆟 〰〰〰〰</p>
+          <p class="page-sparkle-divider">〰〰〰 𓆝 𓆟 𓆞 𓆝 𓆟 𓆝 𓆟 𓆞 〰〰〰</p>
           <div>
             <PageList {...listProps} />
           </div>
