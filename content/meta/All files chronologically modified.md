@@ -1,7 +1,6 @@
 ---
 subtitle: 
 tags:
-  - explorer-exclude
   - graph-exclude
   - backlinks-exclude
   - recents-exclude
