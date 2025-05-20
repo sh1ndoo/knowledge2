@@ -1,3 +1,9 @@
+---
+subtitle: 
+tags: []
+date created: 2025-04-19T03:41
+date modified: 2025-05-21T00:20
+---
 
 
 Основа для создания динамических HTML-страниц. Сочетают статический HTML с переменными и управляющей логикой Django Template Language (DTL).
