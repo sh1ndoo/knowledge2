@@ -43,7 +43,7 @@ export default ((opts: Options) => {
 
     return (
       <div>
-        <h2>📗 Guestbook</h2>
+        <h2>📗 Гостевая</h2>
       <div
         class={classNames(displayClass, "giscus")}
         data-repo={opts.options.repo}
