@@ -149,15 +149,15 @@ export const defaultContentPageLayout: PageLayout = {
     // Component.MobileOnly(Component.OnlyFor({titles: [mapTitle]}, Component.ExplorerOld(explorerConfig)))
   ],
   left: [
-    Component.MobileOnly(Component.OverlayExplorer(oldexplorerConfig)),
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
+    Component.MobileOnly(Component.OverlayExplorer(oldexplorerConfig)),
     Component.Row([
       // Component.Map(),
       Component.Darkmode(),
       Component.Search(),
     ]),
-    Component.Explorer(explorerConfig),
+    Component.DesktopOnly(Explorer(explorerConfig)),
     // Component.DesktopOnly(Component.OnlyFor({titles: [homepageTitle, mapTitle]}, Component.ExplorerOld(explorerConfig))),
     Component.FloatingButtons({position: 'right'}),
     // Component.DesktopOnly(Component.PageTitle()),
@@ -208,7 +208,7 @@ export const defaultListPageLayout: PageLayout = {
       Component.Search(),
     ]),
     Component.FloatingButtons({position: 'right'}),
-    Component.Explorer(explorerConfig),
+    Component.DesktopOnly(Explorer(explorerConfig)),
   ],
   right: [
     Component.HiddenGlobalGraph(graphConfig),
