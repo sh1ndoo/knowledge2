@@ -48,24 +48,18 @@ async function mouseEnterHandler(
   const hash = decodeURIComponent(targetUrl.hash)
   targetUrl.hash = ""
   targetUrl.search = ""
-  const popoverId = `popover-${link.pathname}`
-  const prevPopoverElement = document.getElementById(popoverId)
-  const hasAlreadyBeenFetched = () => !!document.getElementById(popoverId)
+  const popoverId = `popover-${link.pathname}` // Формируем ID для всплывающей подсказки на основе пути ссылки
+  const prevPopoverElement = document.getElementById(popoverId) // Ищем элемент по этому ID в DOM
 
-  // Don't refetch if there's already a popover
-  if (hasAlreadyBeenFetched()) {
-    showPopover(prevPopoverElement as HTMLElement)
-    return
+  if (!!document.getElementById(popoverId)) { // Если элемент с таким ID уже существует...
+    showPopover(prevPopoverElement as HTMLElement) // ...то просто показываем его (он уже содержит загруженный контент)
+    return // ...и выходим из функции, не выполняя запрос fetch
   }
 
   const response = await fetchCanonical(targetUrl).catch((err) => {
     console.error(err)
   })
 
-  // Bailout if another popover exists
-  if (hasAlreadyBeenFetched()) {
-    return
-  }
 
   if (!response) return
   const [contentType] = response.headers.get("Content-Type")!.split(";")
