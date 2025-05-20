@@ -1,11 +1,10 @@
 ---
 subtitle: Ну или записки, называйте как хотите
-tags:
-  - graph-exclude
+tags: []
 title: Мои конспекты
 comments: "true"
 date created: 2025-05-21T00:28
-date modified: 2025-05-21T00:30
+date modified: 2025-05-21T00:34
 ---
 
 Здесь будут все мои конспекты и возможно в будущем ещё какие то записи.
