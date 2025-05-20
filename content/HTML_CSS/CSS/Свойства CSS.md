@@ -1,3 +1,9 @@
+---
+subtitle: 
+tags: []
+date created: 2025-04-19T03:03
+date modified: 2025-05-21T00:20
+---
 *   **Некоторые CSS Свойства:**
     *   `color`: Цвет текста (принимает имя цвета, hex-код `#RRGGBB`, `rgb()`, `rgba()`).
     *   `background-color`: Цвет фона элемента.
