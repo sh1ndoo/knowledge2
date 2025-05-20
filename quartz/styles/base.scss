@@ -662,6 +662,7 @@ video {
 }
 
 div:has(> .overflow) {
+  min-height: 4rem
   max-height: 100%;
   overflow-y: hidden;
 }
