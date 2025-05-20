@@ -8,7 +8,7 @@ const Content: QuartzComponent = ({ fileData, tree }: QuartzComponentProps) => {
   const classString = ["popover-hint", ...classes].join(" ")
   return <article class={classString}>
     {content}
-    <p class="page-sparkle-divider">〰〰〰〰 𓆝 𓆟 𓆞 𓆝 𓆟 𓆝 𓆟 𓆞 𓆝 𓆟 〰〰〰〰</p>
+    <p class="page-sparkle-divider">〰〰〰 𓆝 𓆟 𓆞 𓆝 𓆟 𓆝 𓆟 𓆞 〰〰〰</p>
     </article>
 }
 
