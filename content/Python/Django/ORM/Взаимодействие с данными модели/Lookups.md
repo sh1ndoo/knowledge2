@@ -1,3 +1,9 @@
+---
+subtitle: 
+tags: []
+date created: 2025-04-19T14:39
+date modified: 2025-05-21T00:20
+---
 **Поисковые выражения (Lookups):** Используются в `filter()`, `exclude()`, `get()`. Синтаксис: `field__lookup=value`.
 
 - `exact`: Точное соответствие (чувствительно к регистру).
