@@ -153,13 +153,4 @@ def upload_profile_picture_django_storages(request):
     <img src="path/to/default/image.jpg" alt="Default Picture">  
 {% endif %}  
 ```  
-`django-storages` автоматически сгенерирует правильный (возможно, подписанный, если `AWS_QUERYSTRING_AUTH = True`) URL для доступа к файлу в B2.  
-  
-**Плюсы:**  
-*   Гораздо меньше кода для написания.  
-*   Используются стандартные механизмы Django (`FileField`, `ImageField`, `ModelForm`).  
-*   Легче переключиться на другое хранилище в будущем (просто изменив настройки).  
-  
-**Минусы:**  
-*   Меньше прямого контроля над специфичными функциями B2 API (если они вам нужны).  
-*   Зависимость от сторонней библиотеки `django-storages`.  
+`django-storages` автоматически сгенерирует правильный (возможно, подписанный, если `AWS_QUERYSTRING_AUTH = True`) URL для доступа к файлу в B2.
