@@ -37,6 +37,9 @@ import {
   defaultExternalSvg,
   fandomSvg,
   redditSvg,
+    telegramSvg,
+    VKSvg,
+    stepikSvg
 } from "../../components/_svg"
 
 
@@ -191,6 +194,9 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options>> = (userOpts) 
                   isFandom: dest.includes("fandom.com"),
                   isSteam: dest.includes("steamcommunity.com") || dest.includes("steampowered.com"),
                   isReddit: dest.includes("reddit.com"),
+                    isTelegram: dest.includes("t.me") || dest.includes("telegram.org"),
+                    isStepik:  dest.includes("stepik.org"),
+                    isVK: dest.includes('vk.com') || dest.includes('vkontakte.ru'),
                 }
 
                 // Handle special link types
@@ -265,6 +271,12 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options>> = (userOpts) 
                   ctx.node.children.push(doiSvg)
                 } else if (linkTypes.isHf) {
                   ctx.node.children.push(hfSvg)
+                } else if (linkTypes.isTelegram) {
+                  ctx.node.children.push(telegramSvg)
+                } else if (linkTypes.isStepik) {
+                  ctx.node.children.push(stepikSvg)
+                } else if (linkTypes.isVK) {
+                  ctx.node.children.push(VKSvg)
                 } else if (linkTypes.isAnthropic) {
                   ctx.node.children.push(anthropicSvg)
                 } else if (linkTypes.isOpenai) {
