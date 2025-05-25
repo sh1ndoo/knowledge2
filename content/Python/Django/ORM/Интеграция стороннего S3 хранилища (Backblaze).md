@@ -68,10 +68,10 @@ STORAGES = {
 > [!tip]- Работа с кешем для приватных бакетов  
 >  Если вы используете подписанные url (а иные и невозможны если у вас только карты МИР), то кеширование работать не будет, для этого нужно переопределить метод url в классе бекенда, я сделал так:  
 >  ```python  
-import hashlib    
-from django.conf import settings    
-from django.core.cache import cache    
-from storages.backends.s3 import S3Storage    
+> import hashlib    
+> from django.conf import settings    
+> from django.core.cache import cache    
+> from storages.backends.s3 import S3Storage    
 >  
 > class CachedS3Storage(S3Storage):    
 >     """ adds caching for temporary urls """    
