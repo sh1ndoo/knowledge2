@@ -149,9 +149,9 @@ export const defaultContentPageLayout: PageLayout = {
     // Component.MobileOnly(Component.OnlyFor({titles: [mapTitle]}, Component.ExplorerOld(explorerConfig)))
   ],
   left: [
+    Component.MobileOnly(Component.OverlayExplorer(oldexplorerConfig)),
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
-    Component.MobileOnly(Component.OverlayExplorer(oldexplorerConfig)),
     Component.Row([
       // Component.Map(),
       Component.Darkmode(),
@@ -199,16 +199,16 @@ export const defaultContentPageLayout: PageLayout = {
 export const defaultListPageLayout: PageLayout = {
   beforeBody: [Component.Breadcrumbs(breadcrumbsConfig), Component.ArticleTitle()],
   left: [
+    Component.MobileOnly(Component.OverlayExplorer()),
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
-    Component.MobileOnly(Component.OverlayExplorer()),
     Component.Row([
       // Component.Map(),
       Component.Darkmode(),
       Component.Search(),
     ]),
     Component.FloatingButtons({position: 'right'}),
-    Component.Explorer(explorerConfig),
+    Component.DesktopOnly(Component.Explorer(explorerConfig)),
   ],
   right: [
     Component.HiddenGlobalGraph(graphConfig),
