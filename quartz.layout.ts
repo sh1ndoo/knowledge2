@@ -157,8 +157,8 @@ export const defaultContentPageLayout: PageLayout = {
       Component.Darkmode(),
       Component.Search(),
     ]),
-    Component.Explorer(explorerConfig),
-    // Component.DesktopOnly(Component.OnlyFor({titles: [homepageTitle, mapTitle]}, Component.ExplorerOld(explorerConfig))),
+    // Component.Explorer(explorerConfig),
+    Component.DesktopOnly(Component.Explorer(explorerConfig)),
     Component.FloatingButtons({position: 'right'}),
     // Component.DesktopOnly(Component.PageTitle()),
     // Component.DesktopOnly(
