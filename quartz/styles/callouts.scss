@@ -149,17 +149,10 @@
 
   // Custom callouts
 
-  &[data-callout="tree"] { 
-    --color: #73a776;
-    --bg: #73a776; 
-    --border: #73a776; 
-    --callout-icon: url('data:image/svg+xml; utf8, <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="tree" class="svg-inline--fa fa-tree fa-w-12" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M378.31 378.49L298.42 288h30.63c9.01 0 16.98-5 20.78-13.06 3.8-8.04 2.55-17.26-3.28-24.05L268.42 160h28.89c9.1 0 17.3-5.35 20.86-13.61 3.52-8.13 1.86-17.59-4.24-24.08L203.66 4.83c-6.03-6.45-17.28-6.45-23.32 0L70.06 122.31c-6.1 6.49-7.75 15.95-4.24 24.08C69.38 154.65 77.59 160 86.69 160h28.89l-78.14 90.91c-5.81 6.78-7.06 15.99-3.27 24.04C37.97 283 45.93 288 54.95 288h30.63L5.69 378.49c-6 6.79-7.36 16.09-3.56 24.26 3.75 8.05 12 13.25 21.01 13.25H160v24.45l-30.29 48.4c-5.32 10.64 2.42 23.16 14.31 23.16h95.96c11.89 0 19.63-12.52 14.31-23.16L224 440.45V416h136.86c9.01 0 17.26-5.2 21.01-13.25 3.8-8.17 2.44-17.47-3.56-24.26z"></path></svg>'); 
-  }
-
   &[data-callout="music"] { 
     --color: #af6e6e; 
-    --bg: #769c76;
-    --border: #769c76;
+    --bg: #af6e6e;
+    --border: #af6e6e;
     --callout-icon: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-headphones"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></svg>'); 
   }
 
@@ -169,7 +162,20 @@
     --border: rgb(126, 142, 221); 
     --callout-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>'); 
   }
-  
+
+  &[data-callout="meme"] {
+    --color: rgb(80, 80, 80);
+    --bg: rgb(80, 80, 80);
+    --border: rgb(80, 80, 80);
+    --callout-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe"><path class="a" d="M12.07,42.5s-1-2.39-.85-3.15A9.86,9.86,0,0,0,10.71,36c-.17-.38-1-3.91-1.09-4.42s-.34-5.09,0-5.51a5.86,5.86,0,0,0,1.07-2,5.25,5.25,0,0,1,.4-2.65c.46-.67,6-6.85,6.86-7.19s1.93-.5,2.23-.71A24.63,24.63,0,0,1,26,12.27c1.72,0,6.52,2.1,7.7,6.35S37.12,24,37.5,24.76s.51,7.49.51,9.38.71,2.86.5,3.53-1.62,4.83-1.62,4.83"/><path class="a" d="M22.36,34.77a3.74,3.74,0,0,0,4.25,2.61c2.48-.47,2.73-1.73,2.65-3.07a16.31,16.31,0,0,0-.17-1.81"/><path class="a" d="M27.53,18.05a3.29,3.29,0,0,1,3.33.93c1.13,1.26,3.74,4.45,2.69,6s-4.25,2.48-5.72,1.51S24,23.59,24.34,22.33,26.78,18.33,27.53,18.05Z"/><path class="a" d="M18.54,21.86c1.21.7,3.11,1.6,2.6,3s-2.39,4.2-3.53,4.58-3.28.38-4-.76-.88-4.37-.37-5S16.49,20.67,18.54,21.86Z"/><path class="a" d="M13.57,23.41c.68.16,1.71.52,1.61,1.77-.07.88-1.83,1.37-2.17,1.33"/><path class="a" d="M30.86,19a1.49,1.49,0,0,0-1.76,1.78,1.73,1.73,0,0,0,2,.8A1.47,1.47,0,0,0,32,20.32"/><path class="a" d="M40.5,42.5H7.5a2,2,0,0,1-2-2V7.5a2,2,0,0,1,2-2h33a2,2,0,0,1,2,2v33A2,2,0,0,1,40.5,42.5Z"/></svg> ')
+  }
+
+  &[data-callout="links"] {
+    --color: rgb(126, 142, 221);
+    --bg: rgb(126, 142, 221);
+    --border: rgb(126, 142, 221);
+    --callout-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe"><path d="M10.0002 13C10.4297 13.5741 10.9776 14.0491 11.6067 14.3929C12.2359 14.7367 12.9317 14.9411 13.6468 14.9923C14.362 15.0435 15.0798 14.9403 15.7515 14.6897C16.4233 14.4392 17.0333 14.047 17.5402 13.54L20.5402 10.54C21.451 9.59695 21.955 8.33394 21.9436 7.02296C21.9322 5.71198 21.4063 4.45791 20.4793 3.53087C19.5523 2.60383 18.2982 2.07799 16.9872 2.0666C15.6762 2.0552 14.4132 2.55918 13.4702 3.46997L11.7502 5.17997M14.0002 11C13.5707 10.4258 13.0228 9.95078 12.3936 9.60703C11.7645 9.26327 11.0687 9.05885 10.3535 9.00763C9.63841 8.95641 8.92061 9.0596 8.24885 9.31018C7.5771 9.56077 6.96709 9.9529 6.4602 10.46L3.4602 13.46C2.54941 14.403 2.04544 15.666 2.05683 16.977C2.06822 18.288 2.59407 19.542 3.52111 20.4691C4.44815 21.3961 5.70221 21.9219 7.01319 21.9333C8.32418 21.9447 9.58719 21.4408 10.5302 20.53L12.2402 18.82"/></svg>')
+  }
 
   // End custom callouts
 }
