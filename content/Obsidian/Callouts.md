@@ -211,9 +211,6 @@ date modified: 2025-05-21T00:20
   
 Использование Callouts помогает визуально организовать информацию и быстро находить нужные блоки в ваших заметках.  
   
-> [!tree]  
-> treheheheh  
-  
 > [!music]  
 > sdsdds  
   
@@ -222,9 +219,6 @@ date modified: 2025-05-21T00:20
   
 > [!links]  
 > ffdfdf  
-  
-> [!abstract]  
-> dfdfdf  
   
 > [!meme]  
 > wewewe  
